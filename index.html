@@ -1,0 +1,3951 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>ReadSkills BRU — English Reading Strategies</title>
+  <link
+    href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700;900&family=DM+Sans:wght@300;400;500;600&family=DM+Mono:wght@400;500&display=swap"
+    rel="stylesheet">
+  <style>
+    :root {
+      --bg: #0d0f14;
+      --surface: #161a24;
+      --surface2: #1e2433;
+      --surface3: #232b3e;
+      --border: #2a3045;
+      --border2: #344060;
+      --gold: #e8c97a;
+      --gold2: #f5dfa0;
+      --teal: #4ecdc4;
+      --teal2: #38b2aa;
+      --red: #e05c5c;
+      --green: #5cc994;
+      --text: #e8eaf2;
+      --muted: #7a849a;
+      --radius: 14px;
+    }
+
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    body {
+      font-family: 'DM Sans', sans-serif;
+      background: var(--bg);
+      color: var(--text);
+      min-height: 100vh;
+      overflow-x: hidden;
+    }
+
+    /* ── SCREENS ── */
+    .screen {
+      display: none;
+      min-height: 100vh;
+    }
+
+    .screen.active {
+      display: flex;
+      flex-direction: column;
+      animation: fadeIn .4s ease;
+    }
+
+    @keyframes fadeIn {
+      from {
+        opacity: 0;
+        transform: translateY(12px)
+      }
+
+      to {
+        opacity: 1;
+        transform: translateY(0)
+      }
+    }
+
+    /* ── LOADING ── */
+    #loading-overlay {
+      position: fixed;
+      inset: 0;
+      background: var(--bg);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      z-index: 999;
+      transition: opacity .4s;
+    }
+
+    #loading-overlay.hide {
+      opacity: 0;
+      pointer-events: none;
+    }
+
+    .loading-dot {
+      width: 10px;
+      height: 10px;
+      border-radius: 50%;
+      background: var(--gold);
+      margin: 0 4px;
+      animation: bounce .8s ease-in-out infinite;
+    }
+
+    .loading-dot:nth-child(2) {
+      animation-delay: .15s;
+    }
+
+    .loading-dot:nth-child(3) {
+      animation-delay: .3s;
+    }
+
+    @keyframes bounce {
+
+      0%,
+      80%,
+      100% {
+        transform: scale(0)
+      }
+
+      40% {
+        transform: scale(1)
+      }
+    }
+
+    /* ══════════════════════════════════
+   SIGN-IN SCREEN
+══════════════════════════════════ */
+    #screen-signin {
+      background:
+        radial-gradient(ellipse 100% 70% at 50% -10%, #1a2f5a 0%, transparent 65%),
+        radial-gradient(ellipse 60% 40% at 80% 90%, #0e2040 0%, transparent 60%),
+        var(--bg);
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+      padding: 40px 24px;
+      position: relative;
+      overflow: hidden;
+    }
+
+    #screen-signin::before {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background-image: radial-gradient(1px 1px at 15% 25%, rgba(255, 255, 255, .18) 0%, transparent 100%), radial-gradient(1px 1px at 72% 18%, rgba(255, 255, 255, .12) 0%, transparent 100%), radial-gradient(1px 1px at 40% 70%, rgba(255, 255, 255, .10) 0%, transparent 100%), radial-gradient(1px 1px at 88% 60%, rgba(255, 255, 255, .15) 0%, transparent 100%);
+      pointer-events: none;
+    }
+
+    .hero-wrap {
+      position: relative;
+      z-index: 1;
+      max-width: 520px;
+      width: 100%;
+    }
+
+    .badge {
+      display: inline-block;
+      border: 1px solid rgba(232, 201, 122, .5);
+      color: var(--gold);
+      font-size: 10.5px;
+      letter-spacing: 3.5px;
+      text-transform: uppercase;
+      padding: 6px 20px;
+      border-radius: 40px;
+      margin-bottom: 28px;
+      font-family: 'DM Mono', monospace;
+      backdrop-filter: blur(4px);
+      background: rgba(232, 201, 122, .05);
+    }
+
+    .hero-wrap h1 {
+      font-family: 'Playfair Display', serif;
+      font-size: clamp(2.4rem, 7vw, 4rem);
+      font-weight: 900;
+      line-height: 1.08;
+      margin-bottom: 20px;
+      letter-spacing: -.5px;
+    }
+
+    .hero-wrap h1 .gold {
+      color: var(--gold);
+    }
+
+    .hero-sub {
+      color: var(--muted);
+      font-size: 1rem;
+      max-width: 420px;
+      margin: 0 auto 36px;
+      line-height: 1.75;
+      font-weight: 300;
+    }
+
+    /* Sign-in card */
+    .signin-card {
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: 20px;
+      padding: 32px 28px;
+      max-width: 400px;
+      margin: 0 auto;
+      text-align: center;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .signin-card::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      height: 2px;
+      background: linear-gradient(90deg, var(--gold), var(--teal), var(--gold));
+    }
+
+    .signin-step {
+      display: none;
+    }
+
+    .signin-step.active {
+      display: block;
+      animation: stepIn .3s ease;
+    }
+
+    @keyframes stepIn {
+      from {
+        opacity: 0;
+        transform: translateX(18px)
+      }
+
+      to {
+        opacity: 1;
+        transform: translateX(0)
+      }
+    }
+
+    .bru-logo-area {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      margin-bottom: 20px;
+    }
+
+    .bru-logo-circle {
+      width: 52px;
+      height: 52px;
+      border-radius: 50%;
+      background: linear-gradient(135deg, #1a3a6e, #2d5bb5);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 1.4rem;
+      margin-bottom: 10px;
+      box-shadow: 0 4px 16px rgba(45, 91, 181, .3);
+    }
+
+    .bru-logo-area h3 {
+      font-family: 'Playfair Display', serif;
+      font-size: 1.2rem;
+      font-weight: 700;
+      margin-bottom: 4px;
+    }
+
+    .bru-logo-area p {
+      font-size: .8rem;
+      color: var(--muted);
+    }
+
+    .user-chip {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      background: var(--surface2);
+      border: 1px solid var(--border);
+      border-radius: 24px;
+      padding: 6px 14px 6px 8px;
+      margin-bottom: 22px;
+      cursor: pointer;
+      transition: border-color .2s;
+    }
+
+    .user-chip:hover {
+      border-color: var(--gold);
+    }
+
+    .user-chip-avatar {
+      width: 26px;
+      height: 26px;
+      border-radius: 50%;
+      background: #4285F4;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: .75rem;
+      font-weight: 700;
+      color: #fff;
+      flex-shrink: 0;
+    }
+
+    .user-chip span {
+      font-size: .82rem;
+      color: var(--text);
+    }
+
+    .chip-arrow {
+      font-size: .7rem;
+      color: var(--muted);
+      margin-left: 2px;
+    }
+
+    .input-group {
+      position: relative;
+      margin-bottom: 8px;
+      text-align: left;
+    }
+
+    .input-group label {
+      position: absolute;
+      left: 14px;
+      top: 50%;
+      transform: translateY(-50%);
+      font-size: .9rem;
+      color: var(--muted);
+      pointer-events: none;
+      transition: all .2s;
+      background: transparent;
+    }
+
+    .input-group.focused label,
+    .input-group.has-value label {
+      top: 8px;
+      font-size: .68rem;
+      color: var(--teal);
+      transform: none;
+    }
+
+    .signin-input {
+      width: 100%;
+      background: var(--surface2);
+      border: 1.5px solid var(--border);
+      border-radius: 10px;
+      padding: 22px 44px 8px 14px;
+      color: var(--text);
+      font-family: 'DM Sans', sans-serif;
+      font-size: .95rem;
+      transition: border-color .2s;
+      outline: none;
+    }
+
+    .signin-input:focus {
+      border-color: var(--teal);
+    }
+
+    .signin-input.error-field {
+      border-color: var(--red) !important;
+    }
+
+    .eye-toggle {
+      position: absolute;
+      right: 14px;
+      top: 50%;
+      transform: translateY(-50%);
+      background: none;
+      border: none;
+      color: var(--muted);
+      cursor: pointer;
+      font-size: 1rem;
+      padding: 4px;
+      transition: color .2s;
+    }
+
+    .eye-toggle:hover {
+      color: var(--text);
+    }
+
+    .input-helper {
+      font-size: .75rem;
+      color: var(--muted);
+      margin-bottom: 20px;
+      text-align: left;
+      padding-left: 2px;
+      line-height: 1.5;
+    }
+
+    .signin-actions {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      margin-top: 8px;
+    }
+
+    .signin-link-btn {
+      background: none;
+      border: none;
+      color: var(--teal);
+      font-family: 'DM Sans', sans-serif;
+      font-size: .88rem;
+      font-weight: 600;
+      cursor: pointer;
+      padding: 0;
+      transition: color .2s;
+    }
+
+    .signin-link-btn:hover {
+      color: var(--gold);
+    }
+
+    .signin-next-btn {
+      background: linear-gradient(135deg, #4285F4, #2d6fd4);
+      color: #fff;
+      border: none;
+      padding: 12px 28px;
+      border-radius: 50px;
+      font-family: 'DM Sans', sans-serif;
+      font-size: .92rem;
+      font-weight: 700;
+      cursor: pointer;
+      transition: transform .2s, box-shadow .2s;
+      box-shadow: 0 4px 16px rgba(66, 133, 244, .3);
+      min-width: 90px;
+    }
+
+    .signin-next-btn:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 6px 24px rgba(66, 133, 244, .4);
+    }
+
+    .btn-spinner {
+      width: 16px;
+      height: 16px;
+      border: 2px solid rgba(255, 255, 255, .3);
+      border-top-color: #fff;
+      border-radius: 50%;
+      animation: spin .7s linear infinite;
+      display: none;
+      margin: 0 auto;
+    }
+
+    .btn-spinner.show {
+      display: block;
+    }
+
+    @keyframes spin {
+      to {
+        transform: rotate(360deg)
+      }
+    }
+
+    .forgot-note {
+      font-size: .82rem;
+      color: var(--muted);
+      line-height: 1.7;
+      margin: 10px 0 20px;
+      text-align: left;
+    }
+
+    .success-wrap {
+      text-align: center;
+      padding: 10px 0 20px;
+    }
+
+    .success-circle {
+      width: 60px;
+      height: 60px;
+      border-radius: 50%;
+      background: rgba(92, 201, 148, .15);
+      border: 2px solid var(--green);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 1.6rem;
+      margin: 0 auto 14px;
+      animation: popIn .4s cubic-bezier(.4, 0, .2, 1);
+    }
+
+    @keyframes popIn {
+      from {
+        transform: scale(0);
+        opacity: 0
+      }
+
+      to {
+        transform: scale(1);
+        opacity: 1
+      }
+    }
+
+    .success-wrap h4 {
+      font-size: 1rem;
+      font-weight: 600;
+      margin-bottom: 6px;
+      color: var(--green);
+    }
+
+    .success-wrap p {
+      font-size: .82rem;
+      color: var(--muted);
+    }
+
+    .signin-error {
+      background: rgba(224, 92, 92, .1);
+      border: 1px solid rgba(224, 92, 92, .3);
+      color: var(--red);
+      border-radius: 10px;
+      padding: 12px 16px;
+      font-size: .84rem;
+      margin-top: 16px;
+      display: none;
+      text-align: left;
+      line-height: 1.5;
+    }
+
+    .signin-error.show {
+      display: block;
+    }
+
+    /* ══════════════════════════════════
+   PROFILE MODAL
+══════════════════════════════════ */
+    .modal-overlay {
+      position: fixed;
+      inset: 0;
+      background: rgba(0, 0, 0, .65);
+      backdrop-filter: blur(6px);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      z-index: 500;
+      padding: 24px;
+      opacity: 0;
+      pointer-events: none;
+      transition: opacity .35s;
+    }
+
+    .modal-overlay.show {
+      opacity: 1;
+      pointer-events: all;
+    }
+
+    .profile-modal {
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: 20px;
+      width: 100%;
+      max-width: 440px;
+      overflow: hidden;
+      transform: scale(.92) translateY(20px);
+      transition: transform .35s cubic-bezier(.4, 0, .2, 1);
+    }
+
+    .modal-overlay.show .profile-modal {
+      transform: scale(1) translateY(0);
+    }
+
+    .profile-modal-top {
+      background: linear-gradient(135deg, #1a3a6e 0%, #2d5bb5 60%, #1e3d7e 100%);
+      padding: 28px 28px 24px;
+      text-align: center;
+      position: relative;
+    }
+
+    .profile-modal-top::after {
+      content: '';
+      position: absolute;
+      bottom: -1px;
+      left: 0;
+      right: 0;
+      height: 2px;
+      background: linear-gradient(90deg, var(--gold), var(--teal), var(--gold));
+    }
+
+    .profile-avatar-ring {
+      width: 68px;
+      height: 68px;
+      border-radius: 50%;
+      border: 3px solid rgba(232, 201, 122, .6);
+      background: rgba(255, 255, 255, .1);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 2rem;
+      margin: 0 auto 14px;
+    }
+
+    .profile-modal-top h3 {
+      font-family: 'Playfair Display', serif;
+      font-size: 1.2rem;
+      font-weight: 700;
+      color: #fff;
+      margin-bottom: 4px;
+    }
+
+    .profile-modal-top p {
+      font-size: .8rem;
+      color: rgba(255, 255, 255, .6);
+    }
+
+    .pm-email {
+      font-family: 'DM Mono', monospace;
+      font-size: .75rem;
+      color: rgba(255, 255, 255, .5);
+      margin-top: 6px;
+      display: block;
+    }
+
+    .profile-modal-body {
+      padding: 24px 28px 28px;
+    }
+
+    .pm-step-label {
+      font-family: 'DM Mono', monospace;
+      font-size: .68rem;
+      letter-spacing: 2px;
+      color: var(--muted);
+      text-transform: uppercase;
+      margin-bottom: 18px;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+
+    .pm-step-label::after {
+      content: '';
+      flex: 1;
+      height: 1px;
+      background: var(--border);
+    }
+
+    .pm-field {
+      margin-bottom: 16px;
+    }
+
+    .pm-field label {
+      display: block;
+      font-size: .78rem;
+      font-weight: 600;
+      color: var(--muted);
+      margin-bottom: 6px;
+    }
+
+    .pm-field label span {
+      color: var(--red);
+      margin-left: 2px;
+    }
+
+    .pm-input {
+      width: 100%;
+      background: var(--surface2);
+      border: 1.5px solid var(--border);
+      border-radius: 10px;
+      padding: 12px 14px;
+      color: var(--text);
+      font-family: 'DM Sans', sans-serif;
+      font-size: .95rem;
+      transition: border-color .2s;
+      outline: none;
+    }
+
+    .pm-input:focus {
+      border-color: var(--teal);
+    }
+
+    .pm-input.error {
+      border-color: var(--red);
+    }
+
+    .pm-input::placeholder {
+      color: var(--muted);
+      font-size: .88rem;
+    }
+
+    .pm-select {
+      width: 100%;
+      background: var(--surface2);
+      border: 1.5px solid var(--border);
+      border-radius: 10px;
+      padding: 12px 14px;
+      color: var(--text);
+      font-family: 'DM Sans', sans-serif;
+      font-size: .95rem;
+      transition: border-color .2s;
+      outline: none;
+      appearance: none;
+      cursor: pointer;
+      background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='8' viewBox='0 0 12 8'%3E%3Cpath d='M1 1l5 5 5-5' stroke='%237a849a' stroke-width='1.5' fill='none' stroke-linecap='round'/%3E%3C/svg%3E");
+      background-repeat: no-repeat;
+      background-position: right 14px center;
+      padding-right: 36px;
+    }
+
+    .pm-select:focus {
+      border-color: var(--teal);
+    }
+
+    .pm-row {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 12px;
+    }
+
+    .pm-error-hint {
+      font-size: .74rem;
+      color: var(--red);
+      margin-top: 5px;
+      display: none;
+    }
+
+    .pm-error-hint.show {
+      display: block;
+    }
+
+    .pm-submit-btn {
+      width: 100%;
+      background: linear-gradient(135deg, var(--gold), #c9a84c);
+      color: #0d0f14;
+      border: none;
+      padding: 15px;
+      border-radius: 12px;
+      font-family: 'DM Sans', sans-serif;
+      font-size: 1rem;
+      font-weight: 700;
+      cursor: pointer;
+      margin-top: 8px;
+      transition: transform .2s, box-shadow .2s;
+      box-shadow: 0 4px 18px rgba(232, 201, 122, .25);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 8px;
+    }
+
+    .pm-submit-btn:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 8px 28px rgba(232, 201, 122, .35);
+    }
+
+    .pm-submit-btn:disabled {
+      opacity: .5;
+      cursor: default;
+      transform: none;
+    }
+
+    /* ══════════════════════════════════
+   TOP BAR (after login)
+══════════════════════════════════ */
+    .top-bar {
+      position: fixed;
+      top: 0;
+      left: 0;
+      right: 0;
+      height: 58px;
+      background: var(--surface);
+      border-bottom: 1px solid var(--border);
+      display: none;
+      align-items: center;
+      justify-content: space-between;
+      padding: 0 18px;
+      z-index: 200;
+    }
+
+    .top-bar.show {
+      display: flex;
+    }
+
+    .tb-left {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+
+    .tb-avatar {
+      width: 32px;
+      height: 32px;
+      border-radius: 50%;
+      background: var(--gold);
+      color: #0d0f14;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: .82rem;
+      font-weight: 700;
+      border: 1.5px solid var(--gold2);
+      flex-shrink: 0;
+      overflow: hidden;
+    }
+
+    .tb-info .tb-name {
+      font-size: .8rem;
+      font-weight: 600;
+      color: var(--text);
+      display: flex;
+      align-items: center;
+      gap: 5px;
+    }
+
+    .tb-info .tb-meta {
+      font-family: 'DM Mono', monospace;
+      font-size: .6rem;
+      color: var(--muted);
+    }
+
+    .tb-edit-btn {
+      background: none;
+      border: none;
+      cursor: pointer;
+      padding: 2px 4px;
+      border-radius: 6px;
+      color: var(--muted);
+      line-height: 1;
+      transition: color .2s;
+    }
+
+    .tb-edit-btn:hover {
+      color: var(--gold);
+    }
+
+    .tb-logo {
+      font-family: 'Playfair Display', serif;
+      font-size: .95rem;
+      font-weight: 700;
+      color: var(--gold);
+    }
+
+    .tb-signout {
+      background: none;
+      border: 1px solid var(--border);
+      color: var(--muted);
+      padding: 5px 12px;
+      border-radius: 20px;
+      font-family: 'DM Sans', sans-serif;
+      font-size: .73rem;
+      cursor: pointer;
+      transition: all .2s;
+    }
+
+    .tb-signout:hover {
+      border-color: var(--red);
+      color: var(--red);
+    }
+
+    body.logged-in .app-screen {
+      padding-top: 58px;
+    }
+
+    /* ══════════════════════════════════
+   LOGIN FLASH TRANSITION
+══════════════════════════════════ */
+    #login-flash {
+      position: fixed;
+      inset: 0;
+      z-index: 9999;
+      background: #0d0f14;
+      opacity: 0;
+      pointer-events: none;
+      transition: opacity 0.35s ease;
+    }
+    #login-flash.flash-in  { opacity: 1; pointer-events: all; }
+    #login-flash.flash-out { opacity: 0; pointer-events: none; }
+
+    /* ══════════════════════════════════
+   HOME / DASHBOARD
+══════════════════════════════════ */
+    #screen-home {
+      padding-bottom: 72px;
+    }
+
+    .home-wrap {
+      padding: 14px 24px 0;
+      max-width: 720px;
+      margin: 0 auto;
+      width: 100%;
+    }
+
+    /* ── Responsive: Mobile ── */
+    @media (max-width: 480px) {
+      .home-wrap {
+        padding: 10px 14px 0;
+        max-width: 100%;
+      }
+      .home-greeting h2 { font-size: 1.2rem; }
+      .home-greeting p  { font-size: .72rem; }
+      .continue-strip   { padding: 10px 12px; gap: 8px; margin-bottom: 12px; }
+      .cs-icon          { width: 28px; height: 28px; font-size: .78rem; }
+      .cs-title         { font-size: .8rem; }
+      .menu-section-label { margin-bottom: 8px; }
+      .msl-text         { font-size: .9rem; }
+      .menu-cards       { gap: 7px; }
+      .mc-inner         { padding: 10px 12px; gap: 10px; }
+      .mc-icon-wrap     { width: 34px; height: 34px; font-size: 1rem; }
+      .mc-title         { font-size: .85rem; }
+      .mc-desc          { font-size: .68rem; }
+    }
+
+    /* ── Responsive: Tablet ── */
+    @media (min-width: 481px) and (max-width: 768px) {
+      .home-wrap {
+        padding: 12px 20px 0;
+        max-width: 100%;
+      }
+      .home-greeting h2 { font-size: 1.35rem; }
+    }
+
+    .home-greeting {
+      margin-bottom: 16px;
+    }
+
+    .hg-eye {
+      font-family: 'DM Mono', monospace;
+      font-size: .62rem;
+      letter-spacing: 2.5px;
+      color: var(--teal);
+      text-transform: uppercase;
+      margin-bottom: 10px;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+
+    .hg-eye::after {
+      content: '';
+      flex: 1;
+      height: 1px;
+      background: linear-gradient(90deg, rgba(78, 205, 196, .3), transparent);
+    }
+
+    .home-greeting h2 {
+      font-family: 'Playfair Display', serif;
+      font-size: 1.45rem;
+      font-weight: 700;
+      line-height: 1.2;
+      margin-bottom: 4px;
+    }
+
+    .home-greeting h2 em {
+      color: var(--gold);
+      font-style: italic;
+    }
+
+    .home-greeting p {
+      font-size: .75rem;
+      color: var(--muted);
+    }
+
+    /* Profile card in home */
+    .profile-info-card {
+      background: linear-gradient(135deg, #1a2640, #1e2d50);
+      border: 1px solid rgba(232, 201, 122, .2);
+      border-radius: var(--radius);
+      padding: 14px 18px;
+      display: none;
+      align-items: center;
+      gap: 12px;
+      margin-bottom: 20px;
+    }
+
+    .profile-info-card.show {
+      display: flex;
+    }
+
+    .pic-av {
+      width: 42px;
+      height: 42px;
+      border-radius: 50%;
+      background: var(--gold);
+      color: #0d0f14;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 1.1rem;
+      font-weight: 700;
+      border: 2px solid var(--gold2);
+      flex-shrink: 0;
+    }
+
+    .pic-info {
+      flex: 1;
+    }
+
+    .pic-name {
+      font-size: .95rem;
+      font-weight: 700;
+    }
+
+    .pic-meta {
+      font-family: 'DM Mono', monospace;
+      font-size: .7rem;
+      color: var(--muted);
+      margin-top: 3px;
+      display: flex;
+      gap: 8px;
+      flex-wrap: wrap;
+    }
+
+    .pic-tag {
+      background: var(--surface2);
+      border: 1px solid var(--border);
+      padding: 2px 8px;
+      border-radius: 8px;
+    }
+
+    /* Continue strip */
+    .continue-strip {
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-left: 3px solid var(--gold);
+      border-radius: var(--radius);
+      padding: 11px 14px;
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      margin-bottom: 16px;
+      cursor: pointer;
+      transition: all .2s;
+      box-shadow: 0 2px 12px rgba(0, 0, 0, .2);
+    }
+
+    .continue-strip:hover {
+      border-color: var(--gold);
+      box-shadow: 0 4px 20px rgba(232, 201, 122, .1);
+    }
+
+    .cs-icon {
+      width: 32px;
+      height: 32px;
+      border-radius: 8px;
+      background: rgba(232, 201, 122, .1);
+      border: 1px solid rgba(232, 201, 122, .2);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: .85rem;
+      flex-shrink: 0;
+    }
+
+    .cs-info {
+      flex: 1;
+    }
+
+    .cs-tag {
+      font-family: 'DM Mono', monospace;
+      font-size: .58rem;
+      letter-spacing: 1.5px;
+      color: var(--gold);
+      text-transform: uppercase;
+      margin-bottom: 4px;
+    }
+
+    .cs-title {
+      font-size: .86rem;
+      font-weight: 600;
+      color: var(--text);
+      margin-bottom: 6px;
+    }
+
+    .cs-bar-row {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+
+    .cs-bar {
+      flex: 1;
+      height: 3px;
+      background: var(--surface3);
+      border-radius: 4px;
+      overflow: hidden;
+    }
+
+    .cs-bar-fill {
+      height: 100%;
+      background: linear-gradient(90deg, var(--gold), var(--gold2));
+      border-radius: 4px;
+    }
+
+    .cs-pct {
+      font-family: 'DM Mono', monospace;
+      font-size: .62rem;
+      color: var(--gold);
+    }
+
+    .cs-arrow {
+      color: var(--muted);
+      font-size: 1.1rem;
+    }
+
+    /* Menu label */
+    .menu-section-label {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      margin-bottom: 10px;
+    }
+
+    .msl-text {
+      font-family: 'Playfair Display', serif;
+      font-size: 1.05rem;
+      font-weight: 700;
+      color: var(--text);
+      white-space: nowrap;
+    }
+
+    .msl-line {
+      flex: 1;
+      height: 1px;
+      background: linear-gradient(90deg, var(--border), transparent);
+    }
+
+    /* Menu cards */
+    .menu-cards {
+      display: flex;
+      flex-direction: column;
+      gap: 8px;
+    }
+
+    .menu-card {
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+      padding: 0;
+      overflow: hidden;
+      cursor: pointer;
+      transition: all .22s;
+      display: flex;
+    }
+
+    .menu-card:hover {
+      border-color: var(--border2);
+      transform: translateX(3px);
+      box-shadow: 0 4px 20px rgba(0, 0, 0, .25);
+    }
+
+    .menu-card:hover .mc-arrow {
+      color: var(--gold);
+    }
+
+    .mc-accent {
+      width: 3px;
+      flex-shrink: 0;
+    }
+
+    .mc-inner {
+      flex: 1;
+      padding: 12px 14px;
+      display: flex;
+      align-items: center;
+      gap: 12px;
+    }
+
+    .mc-icon-wrap {
+      width: 38px;
+      height: 38px;
+      border-radius: 10px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 1.1rem;
+      flex-shrink: 0;
+    }
+
+    .mc-body {
+      flex: 1;
+    }
+
+    .mc-title {
+      font-family: 'Playfair Display', serif;
+      font-size: .92rem;
+      font-weight: 700;
+      color: var(--text);
+      margin-bottom: 3px;
+      display: flex;
+      align-items: center;
+      gap: 6px;
+      flex-wrap: wrap;
+    }
+
+    .mc-desc {
+      font-size: .72rem;
+      color: var(--muted);
+      line-height: 1.4;
+    }
+
+    .mc-arrow {
+      color: var(--border2);
+      font-size: 1.1rem;
+      flex-shrink: 0;
+      transition: color .2s;
+    }
+
+    .mc-badge {
+      font-family: 'DM Mono', monospace;
+      font-size: .58rem;
+      padding: 2px 8px;
+      border-radius: 10px;
+    }
+
+    .badge-cur {
+      background: rgba(232, 201, 122, .12);
+      color: var(--gold);
+      border: 1px solid rgba(232, 201, 122, .25);
+    }
+
+    .badge-done {
+      background: rgba(92, 201, 148, .1);
+      color: var(--green);
+      border: 1px solid rgba(92, 201, 148, .2);
+    }
+
+    .card-blue .mc-accent {
+      background: #5b8dee;
+    }
+
+    .card-blue .mc-icon-wrap {
+      background: rgba(91, 141, 238, .1);
+      border: 1px solid rgba(91, 141, 238, .2);
+    }
+
+    .card-blue:hover {
+      border-color: rgba(91, 141, 238, .4);
+    }
+
+    .card-purple .mc-accent {
+      background: #9b72e8;
+    }
+
+    .card-purple .mc-icon-wrap {
+      background: rgba(155, 114, 232, .1);
+      border: 1px solid rgba(155, 114, 232, .2);
+    }
+
+    .card-purple:hover {
+      border-color: rgba(155, 114, 232, .4);
+    }
+
+    .card-gold .mc-accent {
+      background: var(--gold);
+    }
+
+    .card-gold .mc-icon-wrap {
+      background: rgba(232, 201, 122, .1);
+      border: 1px solid rgba(232, 201, 122, .2);
+    }
+
+    .card-gold:hover {
+      border-color: rgba(232, 201, 122, .4);
+    }
+
+    .card-teal .mc-accent {
+      background: var(--teal);
+    }
+
+    .card-teal .mc-icon-wrap {
+      background: rgba(78, 205, 196, .1);
+      border: 1px solid rgba(78, 205, 196, .2);
+    }
+
+    .card-teal:hover {
+      border-color: rgba(78, 205, 196, .4);
+    }
+
+    /* ══════════════════════════════════
+   INNER PAGES
+══════════════════════════════════ */
+    .inner-wrap {
+      padding: 22px 20px 90px;
+      max-width: 700px;
+      margin: 0 auto;
+    }
+
+    .inner-top {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      margin-bottom: 24px;
+    }
+
+    .back-btn {
+      width: 36px;
+      height: 36px;
+      border-radius: 50%;
+      background: var(--surface);
+      border: 1px solid var(--border);
+      color: var(--muted);
+      cursor: pointer;
+      font-size: 1rem;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      transition: all .2s;
+      flex-shrink: 0;
+    }
+
+    .back-btn:hover {
+      border-color: var(--gold);
+      color: var(--gold);
+    }
+
+    .inner-eye {
+      font-family: 'DM Mono', monospace;
+      font-size: .6rem;
+      letter-spacing: 2px;
+      color: var(--teal);
+      text-transform: uppercase;
+      margin-bottom: 4px;
+    }
+
+    .inner-h {
+      font-family: 'Playfair Display', serif;
+      font-size: 1.5rem;
+      font-weight: 700;
+    }
+
+    /* Timeline (B) */
+    .timeline {
+      position: relative;
+      margin-bottom: 32px;
+    }
+
+    .timeline::before {
+      content: '';
+      position: absolute;
+      left: 20px;
+      top: 0;
+      bottom: 0;
+      width: 1px;
+      background: var(--border);
+    }
+
+    .tl-item {
+      display: flex;
+      gap: 16px;
+      margin-bottom: 14px;
+      position: relative;
+    }
+
+    .tl-dot {
+      width: 40px;
+      height: 40px;
+      border-radius: 50%;
+      border: 2px solid var(--border);
+      background: var(--surface);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-family: 'DM Mono', monospace;
+      font-size: .75rem;
+      flex-shrink: 0;
+      position: relative;
+      z-index: 1;
+    }
+
+    .tl-dot.done {
+      border-color: var(--green);
+      background: rgba(92, 201, 148, .1);
+      color: var(--green);
+    }
+
+    .tl-dot.cur {
+      border-color: var(--gold);
+      background: rgba(232, 201, 122, .1);
+      color: var(--gold);
+    }
+
+    .tl-dot.lock {
+      color: var(--muted);
+    }
+
+    .tl-card {
+      flex: 1;
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: 12px;
+      padding: 14px 16px;
+      cursor: pointer;
+      transition: all .2s;
+    }
+
+    .tl-card:hover {
+      border-color: var(--border2);
+    }
+
+    .tl-card.cur {
+      border-color: rgba(232, 201, 122, .35);
+      background: var(--surface2);
+    }
+
+    .tl-card.lock {
+      opacity: .5;
+      cursor: default;
+    }
+
+    .tl-unit-label {
+      font-family: 'DM Mono', monospace;
+      font-size: .6rem;
+      letter-spacing: 1.5px;
+      color: var(--muted);
+      text-transform: uppercase;
+      margin-bottom: 4px;
+    }
+
+    .tl-unit-label.c {
+      color: var(--gold);
+    }
+
+    .tl-unit-label.d {
+      color: var(--green);
+    }
+
+    .tl-card h4 {
+      font-size: .9rem;
+      font-weight: 600;
+      margin-bottom: 6px;
+    }
+
+    .tl-tags {
+      display: flex;
+      gap: 6px;
+      flex-wrap: wrap;
+      margin-bottom: 8px;
+    }
+
+    .tl-tag {
+      font-size: .62rem;
+      background: var(--surface2);
+      color: var(--muted);
+      border: 1px solid var(--border);
+      padding: 2px 7px;
+      border-radius: 8px;
+    }
+
+    .tl-bar-row {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+
+    .tl-mini-bar {
+      flex: 1;
+      height: 3px;
+      background: var(--surface3);
+      border-radius: 4px;
+      overflow: hidden;
+    }
+
+    .tl-mini-fill {
+      height: 100%;
+      border-radius: 4px;
+    }
+
+    .tl-mini-fill.done {
+      background: var(--green);
+    }
+
+    .tl-mini-fill.cur {
+      background: linear-gradient(90deg, var(--gold), var(--gold2));
+    }
+
+    .tl-pct {
+      font-family: 'DM Mono', monospace;
+      font-size: .65rem;
+      color: var(--muted);
+    }
+
+    /* Strategy (C) */
+    .strat-list {
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+      margin-bottom: 32px;
+    }
+
+    .strat-row {
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: 12px;
+      padding: 16px 18px;
+      display: flex;
+      align-items: center;
+      gap: 14px;
+      cursor: pointer;
+      transition: all .2s;
+    }
+
+    .strat-row:hover {
+      border-color: var(--border2);
+      background: var(--surface2);
+    }
+
+    .strat-icon-box {
+      width: 40px;
+      height: 40px;
+      border-radius: 10px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 1.2rem;
+      flex-shrink: 0;
+    }
+
+    .strat-info {
+      flex: 1;
+    }
+
+    .strat-label {
+      font-family: 'DM Mono', monospace;
+      font-size: .58rem;
+      letter-spacing: 1.5px;
+      text-transform: uppercase;
+      margin-bottom: 3px;
+    }
+
+    .strat-title {
+      font-family: 'Playfair Display', serif;
+      font-size: .95rem;
+      font-weight: 700;
+      margin-bottom: 3px;
+    }
+
+    .strat-desc {
+      font-size: .75rem;
+      color: var(--muted);
+      line-height: 1.45;
+    }
+
+    .strat-dot {
+      width: 8px;
+      height: 8px;
+      border-radius: 50%;
+      flex-shrink: 0;
+    }
+
+    /* Quiz bank (D) */
+    .feedback-badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 4px;
+      background: var(--surface2);
+      border: 1px solid var(--border);
+      border-radius: 20px;
+      padding: 4px 10px;
+      font-size: .65rem;
+      color: var(--muted);
+      margin-bottom: 12px;
+    }
+
+    .feedback-badge span {
+      color: var(--green);
+    }
+
+    .quiz-list {
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+    }
+
+    .qb-card {
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: 12px;
+      padding: 16px 18px;
+      cursor: pointer;
+      transition: all .2s;
+      position: relative;
+      overflow: hidden;
+      display: flex;
+      align-items: center;
+      gap: 14px;
+    }
+
+    .qb-card::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      height: 3px;
+    }
+
+    .qb-card.b1::before {
+      background: linear-gradient(90deg, #5b8dee, #93b4f5);
+    }
+
+    .qb-card.b2::before {
+      background: linear-gradient(90deg, #9b72e8, #c4a8f5);
+    }
+
+    .qb-card.b3::before {
+      background: linear-gradient(90deg, var(--gold), var(--gold2));
+    }
+
+    .qb-card.b4::before {
+      background: linear-gradient(90deg, var(--teal), var(--teal2));
+    }
+
+    .qb-card.b5::before {
+      background: linear-gradient(90deg, var(--green), #7ee8b0);
+    }
+
+    .qb-card.b6::before {
+      background: linear-gradient(90deg, var(--red), #f08080);
+    }
+
+    .qb-card:hover {
+      border-color: var(--border2);
+      background: var(--surface2);
+      transform: translateY(-1px);
+    }
+
+    .qb-icon {
+      width: 44px;
+      height: 44px;
+      border-radius: 11px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 1.2rem;
+      flex-shrink: 0;
+      border: 1px solid var(--border);
+    }
+
+    .qb-body {
+      flex: 1;
+    }
+
+    .qb-section {
+      font-family: 'DM Mono', monospace;
+      font-size: .6rem;
+      letter-spacing: 1.5px;
+      color: var(--muted);
+      text-transform: uppercase;
+      margin-bottom: 6px;
+    }
+
+    .qb-title {
+      font-family: 'Playfair Display', serif;
+      font-size: .9rem;
+      font-weight: 700;
+      margin-bottom: 4px;
+    }
+
+    .qb-desc {
+      font-size: .74rem;
+      color: var(--muted);
+      line-height: 1.5;
+      margin-bottom: 8px;
+    }
+
+    .qb-meta {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+
+    .qb-items {
+      font-family: 'DM Mono', monospace;
+      font-size: .65rem;
+      color: var(--muted);
+    }
+
+    .qb-start {
+      font-size: .72rem;
+      font-weight: 600;
+      color: var(--teal);
+    }
+
+    /* Progress (E) */
+    .stats-row {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 8px;
+      margin-bottom: 16px;
+    }
+
+    .stat-box {
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: 12px;
+      padding: 16px;
+    }
+
+    .sv {
+      font-family: 'Playfair Display', serif;
+      font-size: 2rem;
+      font-weight: 700;
+      line-height: 1;
+    }
+
+    .sl {
+      font-size: .72rem;
+      color: var(--muted);
+      margin-top: 4px;
+    }
+
+    .sv.gold {
+      color: var(--gold);
+    }
+
+    .sv.green {
+      color: var(--green);
+    }
+
+    .sv.teal {
+      color: var(--teal);
+    }
+
+    .sv.red {
+      color: var(--red);
+    }
+
+    .es-title {
+      font-family: 'DM Mono', monospace;
+      font-size: .6rem;
+      letter-spacing: 2.5px;
+      color: var(--muted);
+      text-transform: uppercase;
+      margin: 16px 0 12px;
+      padding-bottom: 8px;
+      border-bottom: 1px solid var(--border);
+    }
+
+    .eng-item {
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: 12px;
+      padding: 14px 16px;
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      margin-bottom: 8px;
+    }
+
+    .eng-num-box {
+      width: 46px;
+      height: 46px;
+      border-radius: 10px;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      flex-shrink: 0;
+      border: 1px solid var(--border);
+    }
+
+    .env {
+      font-family: 'DM Mono', monospace;
+      font-size: 1rem;
+      font-weight: 500;
+      line-height: 1;
+    }
+
+    .enu {
+      font-size: .52rem;
+      color: var(--muted);
+      margin-top: 2px;
+    }
+
+    .eng-text {
+      flex: 1;
+    }
+
+    .et {
+      font-size: .88rem;
+      font-weight: 600;
+      margin-bottom: 2px;
+    }
+
+    .es {
+      font-size: .72rem;
+      color: var(--muted);
+      line-height: 1.5;
+    }
+
+    .eng-icon2 {
+      font-size: 1.1rem;
+      opacity: .35;
+    }
+
+    .quiz-hist {
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: 12px;
+      overflow: hidden;
+    }
+
+    .qh-header {
+      padding: 12px 16px;
+      background: var(--surface2);
+      border-bottom: 1px solid var(--border);
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+
+    .qh-header h4 {
+      font-family: 'Playfair Display', serif;
+      font-size: 1rem;
+      font-weight: 700;
+    }
+
+    .qh-header span {
+      font-family: 'DM Mono', monospace;
+      font-size: .62rem;
+      color: var(--muted);
+    }
+
+    .qh-row {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      padding: 12px 16px;
+      border-bottom: 1px solid var(--border);
+    }
+
+    .qh-row:last-child {
+      border-bottom: none;
+    }
+
+    .qh-icon {
+      width: 32px;
+      height: 32px;
+      border-radius: 8px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: .85rem;
+      flex-shrink: 0;
+    }
+
+    .qh-info {
+      flex: 1;
+    }
+
+    .qi-t {
+      font-size: .84rem;
+      font-weight: 500;
+    }
+
+    .qi-d {
+      font-size: .68rem;
+      color: var(--muted);
+      margin-top: 2px;
+    }
+
+    .qh-score {
+      font-family: 'DM Mono', monospace;
+      font-size: .85rem;
+      font-weight: 500;
+    }
+
+    .q-pass {
+      color: var(--green);
+    }
+
+    .q-mid {
+      color: var(--gold);
+    }
+
+    .q-fail {
+      color: var(--red);
+    }
+
+    /* ── BOTTOM NAV ── */
+    .bnav {
+      position: fixed;
+      bottom: 0;
+      left: 0;
+      right: 0;
+      background: var(--surface);
+      border-top: 1px solid var(--border);
+      display: none;
+      z-index: 100;
+    }
+
+    .bnav.show {
+      display: flex;
+    }
+
+    .bnav-btn {
+      flex: 1;
+      background: none;
+      border: none;
+      color: var(--muted);
+      padding: 12px 8px 10px;
+      cursor: pointer;
+      font-family: 'DM Sans', sans-serif;
+      font-size: .62rem;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 3px;
+      transition: color .2s;
+    }
+
+    .bnav-btn svg {
+      width: 20px;
+      height: 20px;
+    }
+
+    .bnav-btn.active {
+      color: var(--gold);
+    }
+
+    .bnav-btn:hover {
+      color: var(--text);
+    }
+
+    /* ── TOAST ── */
+    .toast {
+      position: fixed;
+      bottom: 90px;
+      left: 50%;
+      transform: translateX(-50%) translateY(20px);
+      background: var(--surface2);
+      border: 1px solid var(--border);
+      color: var(--text);
+      padding: 11px 22px;
+      border-radius: 50px;
+      font-size: .86rem;
+      font-weight: 500;
+      opacity: 0;
+      transition: all .3s;
+      z-index: 300;
+      white-space: nowrap;
+    }
+
+    .toast.show {
+      opacity: 1;
+      transform: translateX(-50%) translateY(0);
+    }
+
+    /* ══════════════════════════════════
+   LESSON & CONTENT DETAIL SCREENS
+══════════════════════════════════ */
+    .lesson-header-banner {
+      background: linear-gradient(135deg, #132247, #1b3060);
+      border: 1px solid rgba(232, 201, 122, .25);
+      border-radius: var(--radius);
+      padding: 20px;
+      margin-bottom: 20px;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .lesson-header-banner::after {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      height: 3px;
+      background: linear-gradient(90deg, var(--gold), var(--teal));
+    }
+
+    .lh-badge {
+      display: inline-block;
+      font-family: 'DM Mono', monospace;
+      font-size: .65rem;
+      letter-spacing: 2px;
+      text-transform: uppercase;
+      color: var(--gold);
+      background: rgba(232, 201, 122, .1);
+      border: 1px solid rgba(232, 201, 122, .3);
+      padding: 4px 10px;
+      border-radius: 20px;
+      margin-bottom: 10px;
+    }
+
+    .lh-title {
+      font-family: 'Playfair Display', serif;
+      font-size: 1.45rem;
+      font-weight: 700;
+      line-height: 1.25;
+      margin-bottom: 8px;
+    }
+
+    .lh-meta {
+      font-size: .78rem;
+      color: var(--muted);
+      display: flex;
+      gap: 12px;
+      flex-wrap: wrap;
+    }
+
+    .lh-meta span {
+      background: var(--surface2);
+      border: 1px solid var(--border);
+      padding: 3px 10px;
+      border-radius: 8px;
+    }
+
+    .stage-nav {
+      display: flex;
+      background: var(--surface2);
+      border: 1px solid var(--border);
+      border-radius: 12px;
+      padding: 4px;
+      gap: 4px;
+      margin-bottom: 20px;
+    }
+
+    .stage-tab {
+      flex: 1;
+      background: none;
+      border: none;
+      color: var(--muted);
+      padding: 10px 6px;
+      border-radius: 8px;
+      font-family: 'DM Sans', sans-serif;
+      font-size: .82rem;
+      font-weight: 600;
+      cursor: pointer;
+      transition: all .2s;
+      text-align: center;
+    }
+
+    .stage-tab.active {
+      background: var(--surface);
+      color: var(--gold);
+      box-shadow: 0 2px 8px rgba(0, 0, 0, .25);
+      border: 1px solid rgba(232, 201, 122, .3);
+    }
+
+    .stage-content {
+      display: none;
+    }
+
+    .stage-content.active {
+      display: block;
+      animation: fadeIn .3s ease;
+    }
+
+    .content-block {
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+      padding: 20px;
+      margin-bottom: 16px;
+    }
+
+    .content-block h3 {
+      font-family: 'Playfair Display', serif;
+      font-size: 1.15rem;
+      font-weight: 700;
+      margin-bottom: 12px;
+      color: var(--text);
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+
+    .content-block p {
+      font-size: .88rem;
+      color: var(--muted);
+      line-height: 1.7;
+      margin-bottom: 12px;
+    }
+
+    /* Vocab Preview Grid */
+    .vocab-grid {
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: 10px;
+    }
+
+    @media(min-width:540px) {
+      .vocab-grid {
+        grid-template-columns: 1fr 1fr;
+      }
+    }
+
+    .vocab-card {
+      background: var(--surface2);
+      border: 1px solid var(--border);
+      border-radius: 10px;
+      padding: 14px 16px;
+      transition: all .2s;
+    }
+
+    .vocab-card:hover {
+      border-color: var(--teal);
+      transform: translateY(-2px);
+    }
+
+    .vc-word {
+      font-size: 1.05rem;
+      font-weight: 700;
+      color: var(--gold);
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+
+    .vc-pos {
+      font-family: 'DM Mono', monospace;
+      font-size: .65rem;
+      color: var(--teal);
+      background: rgba(78, 205, 196, .1);
+      padding: 2px 6px;
+      border-radius: 4px;
+    }
+
+    .vc-meaning {
+      font-size: .82rem;
+      color: var(--text);
+      margin: 6px 0 4px;
+      font-weight: 500;
+    }
+
+    .vc-ex {
+      font-size: .74rem;
+      color: var(--muted);
+      font-style: italic;
+      line-height: 1.45;
+      border-left: 2px solid var(--border2);
+      padding-left: 8px;
+    }
+
+    /* Passage Reader & Highlighting */
+    .passage-controls {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+      background: var(--surface2);
+      padding: 10px 14px;
+      border-radius: 10px;
+      border: 1px solid var(--border);
+      margin-bottom: 14px;
+      align-items: center;
+    }
+
+    .hl-btn {
+      background: var(--surface);
+      border: 1px solid var(--border);
+      color: var(--text);
+      font-size: .75rem;
+      padding: 6px 12px;
+      border-radius: 20px;
+      cursor: pointer;
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      transition: all .2s;
+    }
+
+    .hl-btn.active {
+      border-color: var(--gold);
+      background: rgba(232, 201, 122, .15);
+      color: var(--gold);
+    }
+
+    .hl-btn:hover {
+      border-color: var(--border2);
+    }
+
+    .passage-img-wrap {
+      position: relative;
+      margin-bottom: 12px;
+      border-radius: 12px;
+      overflow: hidden;
+      border: 1px solid var(--border);
+      box-shadow: 0 4px 16px rgba(0, 0, 0, .3);
+    }
+
+    .passage-img {
+      width: 100%;
+      max-height: 240px;
+      object-fit: cover;
+      display: block;
+      transition: transform .3s ease;
+    }
+
+    .passage-img:hover {
+      transform: scale(1.02);
+    }
+
+    .passage-img-caption {
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      right: 0;
+      background: linear-gradient(to top, rgba(13, 15, 20, .95), rgba(13, 15, 20, 0));
+      padding: 16px 14px 8px;
+      font-size: .72rem;
+      color: var(--gold2);
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+
+    .passage-text-box {
+      background: var(--surface2);
+      border: 1px solid var(--border);
+      border-radius: 12px;
+      padding: 22px;
+      line-height: 2.0;
+      font-size: .96rem;
+      color: #d8deea;
+      font-family: 'Georgia', serif;
+    }
+
+    .passage-sentence {
+      cursor: pointer;
+      padding: 2px 4px;
+      border-radius: 4px;
+      transition: background .2s;
+    }
+
+    .passage-sentence:hover {
+      background: rgba(255, 255, 255, .08);
+    }
+
+    .passage-sentence.hl-topic {
+      background: rgba(232, 201, 122, .35);
+      color: #fff;
+      border-bottom: 2px solid var(--gold);
+    }
+
+    .passage-sentence.hl-detail {
+      background: rgba(78, 205, 196, .3);
+      color: #fff;
+      border-bottom: 2px solid var(--teal);
+    }
+
+    /* Interactive Quiz Screen */
+    .quiz-q-box {
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+      padding: 20px;
+      margin-bottom: 18px;
+    }
+
+    .quiz-q-num {
+      font-family: 'DM Mono', monospace;
+      font-size: .68rem;
+      letter-spacing: 1.5px;
+      color: var(--teal);
+      text-transform: uppercase;
+      margin-bottom: 8px;
+    }
+
+    .quiz-q-text {
+      font-size: 1.02rem;
+      font-weight: 600;
+      margin-bottom: 16px;
+      line-height: 1.55;
+    }
+
+    .quiz-options {
+      display: flex;
+      flex-direction: column;
+      gap: 8px;
+    }
+
+    .quiz-opt {
+      background: var(--surface2);
+      border: 1.5px solid var(--border);
+      border-radius: 10px;
+      padding: 12px 16px;
+      color: var(--text);
+      font-size: .88rem;
+      cursor: pointer;
+      transition: all .2s;
+      text-align: left;
+      display: flex;
+      align-items: center;
+      gap: 12px;
+    }
+
+    .quiz-opt:hover:not(.locked) {
+      border-color: var(--gold);
+      background: rgba(232, 201, 122, .05);
+    }
+
+    .quiz-opt.selected {
+      border-color: var(--gold);
+      background: rgba(232, 201, 122, .12);
+      color: var(--gold);
+    }
+
+    .quiz-opt.correct {
+      border-color: var(--green) !important;
+      background: rgba(92, 201, 148, .18) !important;
+      color: #fff !important;
+    }
+
+    .quiz-opt.wrong {
+      border-color: var(--red) !important;
+      background: rgba(224, 92, 92, .18) !important;
+      color: #fff !important;
+    }
+
+    .quiz-feedback {
+      margin-top: 14px;
+      padding: 12px 16px;
+      border-radius: 8px;
+      font-size: .82rem;
+      line-height: 1.6;
+      display: none;
+    }
+
+    .quiz-feedback.correct {
+      display: block;
+      background: rgba(92, 201, 148, .12);
+      border: 1px solid rgba(92, 201, 148, .3);
+      color: var(--green);
+    }
+
+    .quiz-feedback.wrong {
+      display: block;
+      background: rgba(224, 92, 92, .12);
+      border: 1px solid rgba(224, 92, 92, .3);
+      color: var(--red);
+    }
+
+    .quiz-action-bar {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-top: 20px;
+    }
+
+    .action-primary-btn {
+      background: linear-gradient(135deg, var(--gold), #c9a84c);
+      color: #0d0f14;
+      border: none;
+      padding: 12px 24px;
+      border-radius: 24px;
+      font-weight: 700;
+      font-size: .9rem;
+      cursor: pointer;
+      transition: all .2s;
+    }
+
+    .action-primary-btn:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 6px 20px rgba(232, 201, 122, .3);
+    }
+  </style>
+</head>
+
+<body>
+
+  <!-- Loading -->
+  <div id="loading-overlay">
+    <div style="display:flex">
+      <div class="loading-dot"></div>
+      <div class="loading-dot"></div>
+      <div class="loading-dot"></div>
+    </div>
+  </div>
+
+  <!-- Profile Modal -->
+  <div class="modal-overlay" id="profile-modal-overlay">
+    <div class="profile-modal">
+      <div class="profile-modal-top">
+        <div style="position:relative;display:inline-block;margin-bottom:14px">
+          <div class="profile-avatar-ring" id="pm-avatar-preview">🎓</div>
+          <label for="pm-photo-input"
+            style="position:absolute;bottom:0;right:0;width:24px;height:24px;border-radius:50%;background:var(--gold);color:#0d0f14;display:flex;align-items:center;justify-content:center;cursor:pointer;font-size:.75rem;border:2px solid var(--surface);box-shadow:0 2px 6px rgba(0,0,0,.3);">✏</label>
+          <input type="file" id="pm-photo-input" accept="image/*" style="display:none"
+            onchange="handlePhotoUpload(event)">
+        </div>
+        <h3>Complete Your Profile</h3>
+        <p>Fill in your student information</p>
+        <span class="pm-email" id="pm-email-display">—</span>
+      </div>
+      <div class="profile-modal-body">
+        <div class="pm-step-label">Student Information</div>
+        <div class="pm-field">
+          <label for="pm-fullname">Full Name (Thai / English) <span>*</span></label>
+          <input type="text" id="pm-fullname" class="pm-input" placeholder="e.g. สมชาย ใจดี / Somchai Jaidee"
+            oninput="clearPmError('pm-fullname')">
+          <div class="pm-error-hint" id="err-fullname">กรุณากรอกชื่อ-นามสกุล</div>
+        </div>
+        <div class="pm-row">
+          <div class="pm-field">
+            <label for="pm-studentid">Student ID <span>*</span></label>
+            <input type="text" id="pm-studentid" class="pm-input" placeholder="e.g. 6711234567" maxlength="12"
+              inputmode="numeric" oninput="this.value=this.value.replace(/\D/g,'');clearPmError('pm-studentid')">
+            <div class="pm-error-hint" id="err-studentid">กรุณากรอกรหัสนักศึกษา</div>
+          </div>
+          <div class="pm-field">
+            <label for="pm-section">Section <span>*</span></label>
+            <select id="pm-section" class="pm-select" onchange="clearPmError('pm-section')">
+              <option value="">-- Select --</option>
+              <option value="1">Section 1</option>
+              <option value="2">Section 2</option>
+              <option value="3">Section 3</option>
+              <option value="4">Section 4</option>
+              <option value="5">Section 5</option>
+              <option value="6">Section 6</option>
+            </select>
+            <div class="pm-error-hint" id="err-section">กรุณาเลือก Section</div>
+          </div>
+        </div>
+        <div class="pm-row">
+          <div class="pm-field">
+            <label for="pm-faculty">Faculty</label>
+            <input type="text" id="pm-faculty" class="pm-input" placeholder="e.g. ครุศาสตร์">
+          </div>
+          <div class="pm-field">
+            <label for="pm-year">Year</label>
+            <select id="pm-year" class="pm-select">
+              <option value="">-- Year --</option>
+              <option value="1">Year 1</option>
+              <option value="2">Year 2</option>
+              <option value="3">Year 3</option>
+              <option value="4">Year 4</option>
+              <option value="5">Year 5</option>
+            </select>
+          </div>
+        </div>
+        <button class="pm-submit-btn" id="pm-submit-btn" onclick="submitProfile()">
+          <span id="pm-submit-txt">💾 Save Profile</span>
+          <div class="btn-spinner" id="pm-spinner"></div>
+        </button>
+      </div>
+    </div>
+  </div>
+
+  <!-- Top Bar -->
+  <div class="top-bar" id="top-bar">
+    <div class="tb-left">
+      <div class="tb-avatar" id="tb-avatar">?</div>
+      <div class="tb-info">
+        <div class="tb-name">
+          <span id="tb-name">—</span>
+          <button class="tb-edit-btn" onclick="openProfileModal(true)" title="Edit profile">
+            <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"
+              stroke-linecap="round" stroke-linejoin="round">
+              <path d="M11 4H4a2 2 0 00-2 2v14a2 2 0 002 2h14a2 2 0 002-2v-7" />
+              <path d="M18.5 2.5a2.121 2.121 0 013 3L12 15l-4 1 1-4 9.5-9.5z" />
+            </svg>
+          </button>
+        </div>
+        <div class="tb-meta" id="tb-meta">—</div>
+      </div>
+    </div>
+    <span class="tb-logo">ReadSkills</span>
+    <button class="tb-signout" onclick="signOut()">Sign out</button>
+  </div>
+
+  <!-- ════════ SIGN-IN ════════ -->
+  <div id="screen-signin" class="screen active">
+    <div class="hero-wrap">
+      <div class="badge">ReadSkills BRU · EFL Program</div>
+      <h1>English Reading<br><span class="gold">Strategies</span></h1>
+      <p class="hero-sub">Improve your academic reading skills with adaptive passages, strategy modules, and instant
+        feedback.</p>
+
+      <div class="signin-card">
+        <!-- Step 1: Email -->
+        <div class="signin-step active" id="step-email">
+          <div class="bru-logo-area">
+            <div class="bru-logo-circle">🎓</div>
+            <h3>Sign in</h3>
+            <p>Buriram Rajabhat University</p>
+          </div>
+          <div class="input-group" id="grp-email">
+            <label for="input-email">Email address</label>
+            <input type="email" id="input-email" class="signin-input" autocomplete="email" inputmode="email"
+              oninput="onEmailInput()" onkeydown="if(event.key==='Enter')nextToPassword()">
+          </div>
+          <p class="input-helper">Enter your email to continue</p>
+          <div class="signin-error" id="signin-error-email"></div>
+          <div class="signin-actions">
+            <button class="signin-link-btn" onclick="showForgot()">Forgot email?</button>
+            <button class="signin-next-btn" onclick="nextToPassword()">
+              <span id="btn-next-email-txt">Next</span>
+              <div class="btn-spinner" id="spin-email"></div>
+            </button>
+          </div>
+          <!-- Demo bypass -->
+          <div style="margin-top:14px;text-align:center;">
+            <button onclick="demoLogin()" style="width:100%;padding:10px 0;border-radius:10px;border:1.5px dashed var(--gold);background:rgba(232,201,122,.08);color:var(--gold);font-size:.82rem;font-weight:600;cursor:pointer;letter-spacing:.5px;transition:background .2s;" onmouseover="this.style.background='rgba(232,201,122,.18)'" onmouseout="this.style.background='rgba(232,201,122,.08)'">
+              ⚡ ทดลองใช้ Demo &nbsp;·&nbsp; ไม่ต้องกรอก Email
+            </button>
+          </div>
+        </div>
+
+        <!-- Step 2: Password -->
+        <div class="signin-step" id="step-password">
+          <div class="bru-logo-area">
+            <div class="bru-logo-circle">🎓</div>
+            <h3>Welcome</h3>
+            <p>Buriram Rajabhat University</p>
+          </div>
+          <div class="user-chip" onclick="backToEmail()">
+            <div class="user-chip-avatar" id="chip-avatar">?</div>
+            <span id="chip-email-text">—</span>
+            <span class="chip-arrow">▾</span>
+          </div>
+          <div class="input-group" id="grp-password">
+            <label for="input-password">Password</label>
+            <input type="password" id="input-password" class="signin-input" autocomplete="current-password"
+              oninput="onPasswordInput()" onkeydown="if(event.key==='Enter')submitSignIn()">
+            <button class="eye-toggle" type="button" onclick="togglePwd()" id="eye-btn">👁</button>
+          </div>
+          <p class="input-helper" style="margin-bottom:4px">Enter your password to continue</p>
+          <div class="signin-error" id="signin-error-pwd"></div>
+          <div class="signin-actions" style="margin-top:16px">
+            <button class="signin-link-btn" onclick="showForgot()">Forgot password?</button>
+            <button class="signin-next-btn" onclick="submitSignIn()">
+              <span id="btn-signin-txt">Sign in</span>
+              <div class="btn-spinner" id="spin-pwd"></div>
+            </button>
+          </div>
+        </div>
+
+        <!-- Step 3: Forgot -->
+        <div class="signin-step" id="step-forgot">
+          <div class="bru-logo-area">
+            <div class="bru-logo-circle">🔑</div>
+            <h3>Account recovery</h3>
+            <p>Buriram Rajabhat University</p>
+          </div>
+          <p class="forgot-note">ติดต่อฝ่ายเทคโนโลยีสารสนเทศ
+            มหาวิทยาลัยราชภัฏบุรีรัมย์<br>เพื่อรีเซ็ตรหัสผ่านหรือกู้คืนบัญชี<br><br>📞
+            <strong>044-611-221</strong><br>📧 <strong>itcenter@bru.ac.th</strong></p>
+          <div class="signin-actions" style="justify-content:flex-end">
+            <button class="signin-next-btn" onclick="backToEmail()"
+              style="background:var(--surface2);color:var(--text);box-shadow:none;border:1px solid var(--border)">←
+              Back</button>
+          </div>
+        </div>
+
+        <!-- Step 4: Success -->
+        <div class="signin-step" id="step-success">
+          <div class="success-wrap">
+            <div class="success-circle">✓</div>
+            <h4>Signed in successfully</h4>
+            <p id="success-name-msg">Welcome!</p>
+          </div>
+        </div>
+      </div><!-- /#signin-card -->
+    </div><!-- /#hero-wrap -->
+  </div><!-- /#screen-signin -->
+
+  <!-- ════════ HOME / DASHBOARD ════════ -->
+  <div id="screen-home" class="screen app-screen">
+    <div class="home-wrap">
+
+      <!-- Greeting -->
+      <div class="home-greeting">
+        <div class="hg-eye">ReadSkills BRU · EFL Program</div>
+        <h2>Hello, <em id="greeting-name">there</em> 👋</h2>
+        <p>Continue where you left off or explore a section below.</p>
+      </div>
+
+      <!-- Continue strip -->
+      <div class="continue-strip" onclick="openLessonDetail(1)">
+        <div class="cs-icon">▶</div>
+        <div class="cs-info">
+          <div class="cs-tag">Current Active Unit · Lesson Plan 1</div>
+          <div class="cs-title">Unit 1 — Previewing &amp; Predicting and Identifying Main Ideas</div>
+          <div class="cs-bar-row">
+            <div class="cs-bar">
+              <div class="cs-bar-fill" style="width:100%"></div>
+            </div>
+            <span class="cs-pct" style="color:var(--green);">Ready</span>
+          </div>
+        </div>
+        <div class="cs-arrow">›</div>
+      </div>
+
+      <!-- Menu -->
+      <div class="menu-section-label">
+        <span class="msl-text">Learning Sections</span>
+        <span class="msl-line"></span>
+      </div>
+      <div class="menu-cards">
+        <div class="menu-card card-blue" onclick="nav('screen-b')">
+          <div class="mc-accent"></div>
+          <div class="mc-inner">
+            <div class="mc-icon-wrap">📖</div>
+            <div class="mc-body">
+              <div class="mc-title">Reading Lessons <span class="mc-badge badge-cur">Unit 1 Ready</span></div>
+              <div class="mc-desc">Instructional reading units based on BRU Lesson Plans, academic texts, and interactive tools</div>
+            </div>
+            <div class="mc-arrow">›</div>
+          </div>
+        </div>
+        <div class="menu-card card-purple" onclick="nav('screen-c')">
+          <div class="mc-accent"></div>
+          <div class="mc-inner">
+            <div class="mc-icon-wrap">🧠</div>
+            <div class="mc-body">
+              <div class="mc-title">Reading Strategies <span class="mc-badge badge-done">1 / 6 Active</span></div>
+              <div class="mc-desc">Explicit reading skills and strategy instruction with worked examples and guided practice</div>
+            </div>
+            <div class="mc-arrow">›</div>
+          </div>
+        </div>
+        <div class="menu-card card-gold" onclick="nav('screen-d')">
+          <div class="mc-accent"></div>
+          <div class="mc-inner">
+            <div class="mc-icon-wrap">⚡</div>
+            <div class="mc-body">
+              <div class="mc-title">Practice &amp; Activities</div>
+              <div class="mc-desc">Interactive learning activities and strategy practice</div>
+            </div>
+            <div class="mc-arrow">›</div>
+          </div>
+        </div>
+        <div class="menu-card card-teal" onclick="nav('screen-e')">
+          <div class="mc-accent"></div>
+          <div class="mc-inner">
+            <div class="mc-icon-wrap">📊</div>
+            <div class="mc-body">
+              <div class="mc-title">Learning Progress</div>
+              <div class="mc-desc">Learning progress monitoring and application usage records</div>
+            </div>
+            <div class="mc-arrow">›</div>
+          </div>
+        </div>
+      </div>
+
+    </div><!-- /.home-wrap -->
+  </div><!-- /#screen-home -->
+
+  <!-- ════════ B. READING LESSONS ════════ -->
+  <div id="screen-b" class="screen app-screen">
+    <div class="inner-wrap">
+      <div class="inner-top">
+        <button class="back-btn" onclick="nav('screen-home')">←</button>
+        <div>
+          <div class="inner-eye">Reading Lessons</div>
+          <div class="inner-h">Course Units</div>
+        </div>
+      </div>
+      <p style="font-size:.82rem;color:var(--muted);margin-bottom:18px;">💡
+        แตะที่ Unit 1 เพื่อเข้าสู่เนื้อหาบทเรียน เอกสารอ่าน และกิจกรรมการเรียนรู้</p>
+      <div class="timeline">
+        <!-- Lesson 1 (Active) -->
+        <div class="tl-item" onclick="openLessonDetail(1)" style="cursor:pointer;">
+          <div class="tl-dot cur">▶</div>
+          <div class="tl-card cur" style="border-color:rgba(232,201,122,.5);background:var(--surface2);position:relative;">
+            <div
+              style="position:absolute;top:12px;right:14px;font-size:.72rem;color:var(--gold);font-weight:700;display:flex;align-items:center;gap:4px;">
+              <span>คลิกเข้าสู่เนื้อหา</span> <span style="font-size:.9rem;">➔</span>
+            </div>
+            <div class="tl-unit-label c">Lesson Plan 1 · Unit 1 · Active · Weeks 2–3</div>
+            <h4 style="color:var(--gold2);padding-right:90px;">Previewing &amp; Predicting and Identifying Main Ideas</h4>
+            <div class="tl-tags">
+              <span class="tl-tag" style="border-color:var(--gold);color:var(--gold)">📖 Navigating Main Ideas</span>
+              <span class="tl-tag">Vocabulary Preview</span>
+              <span class="tl-tag">Topic Sentence Tool</span>
+              <span class="tl-tag">Passages 1–3</span>
+              <span class="tl-tag">6 hrs</span>
+            </div>
+            <div class="tl-bar-row">
+              <div class="tl-mini-bar">
+                <div class="tl-mini-fill cur" style="width:100%"></div>
+              </div>
+              <span class="tl-pct" style="color:var(--gold)">Active</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- Unit 2 (Locked) -->
+        <div class="tl-item" style="cursor:default;">
+          <div class="tl-dot lock">🔒</div>
+          <div class="tl-card lock">
+            <div class="tl-unit-label">Lesson Plan 2 · Unit 2 · Locked · Weeks 4–5</div>
+            <h4>Unit 2: Supporting Details and Idea Relationships</h4>
+            <div class="tl-tags"><span class="tl-tag">Upcoming Module</span><span class="tl-tag">รอแผนการสอน</span></div>
+            <div class="tl-bar-row">
+              <div class="tl-mini-bar">
+                <div class="tl-mini-fill" style="width:0%"></div>
+              </div><span class="tl-pct">Locked</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- Unit 3 (Locked) -->
+        <div class="tl-item" style="cursor:default;">
+          <div class="tl-dot lock">🔒</div>
+          <div class="tl-card lock">
+            <div class="tl-unit-label">Lesson Plan 3 · Unit 3 · Locked · Weeks 6–7</div>
+            <h4>Unit 3: Vocabulary in Context and Sentence Meaning</h4>
+            <div class="tl-tags"><span class="tl-tag">Upcoming Module</span><span class="tl-tag">รอแผนการสอน</span></div>
+            <div class="tl-bar-row">
+              <div class="tl-mini-bar">
+                <div class="tl-mini-fill" style="width:0%"></div>
+              </div><span class="tl-pct">Locked</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- Unit 4 (Locked) -->
+        <div class="tl-item" style="cursor:default;">
+          <div class="tl-dot lock">🔒</div>
+          <div class="tl-card lock">
+            <div class="tl-unit-label">Lesson Plan 4 · Unit 4 · Locked · Weeks 8–9</div>
+            <h4>Unit 4: References, Connectives, and Text Organization</h4>
+            <div class="tl-tags"><span class="tl-tag">Upcoming Module</span><span class="tl-tag">รอแผนการสอน</span></div>
+            <div class="tl-bar-row">
+              <div class="tl-mini-bar">
+                <div class="tl-mini-fill" style="width:0%"></div>
+              </div><span class="tl-pct">Locked</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- Unit 5 (Locked) -->
+        <div class="tl-item" style="cursor:default;">
+          <div class="tl-dot lock">🔒</div>
+          <div class="tl-card lock">
+            <div class="tl-unit-label">Lesson Plan 5 · Unit 5 · Locked · Weeks 10–11</div>
+            <h4>Unit 5: Text Interpretation and Paraphrased Meaning</h4>
+            <div class="tl-tags"><span class="tl-tag">Upcoming Module</span><span class="tl-tag">รอแผนการสอน</span></div>
+            <div class="tl-bar-row">
+              <div class="tl-mini-bar">
+                <div class="tl-mini-fill" style="width:0%"></div>
+              </div><span class="tl-pct">Locked</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- Unit 6 (Locked) -->
+        <div class="tl-item" style="cursor:default;">
+          <div class="tl-dot lock">🔒</div>
+          <div class="tl-card lock">
+            <div class="tl-unit-label">Lesson Plan 6 · Unit 6 · Locked · Weeks 12–13</div>
+            <h4>Unit 6: Integrated Reading Practice</h4>
+            <div class="tl-tags"><span class="tl-tag">Upcoming Module</span><span class="tl-tag">รอแผนการสอน</span></div>
+            <div class="tl-bar-row">
+              <div class="tl-mini-bar">
+                <div class="tl-mini-fill" style="width:0%"></div>
+              </div><span class="tl-pct">Locked</span>
+            </div>
+          </div>
+        </div>
+
+        <div
+          style="margin-top:8px;margin-left:56px;background:var(--surface2);border:1px solid var(--border);border-radius:10px;padding:12px 16px;display:flex;justify-content:space-between;align-items:center;">
+          <span
+            style="font-family:'DM Mono',monospace;font-size:.68rem;letter-spacing:1.5px;color:var(--muted);text-transform:uppercase;">Course Total</span>
+          <div style="display:flex;gap:16px;"><span
+              style="font-family:'DM Mono',monospace;font-size:.78rem;color:var(--gold);">Unit 1 Active (6 hrs)</span><span
+              style="font-family:'DM Mono',monospace;font-size:.78rem;color:var(--teal);">12 Weeks</span></div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ════════ C. READING STRATEGIES ════════ -->
+  <div id="screen-c" class="screen app-screen">
+    <div class="inner-wrap">
+      <div class="inner-top">
+        <button class="back-btn" onclick="nav('screen-home')">←</button>
+        <div>
+          <div class="inner-eye">Reading Strategies</div>
+          <div class="inner-h">Strategy Library</div>
+        </div>
+      </div>
+      <p style="font-size:.82rem;color:var(--muted);margin-bottom:18px;">💡
+        แตะที่ Strategy 1 เพื่อดูเทคนิคและตัวอย่างการฝึกปฏิบัติ</p>
+      <div class="strat-list">
+        <!-- Strategy 1: Active -->
+        <div class="strat-row" onclick="openStrategyDetail(1)"
+          style="cursor:pointer;border-color:rgba(78,205,196,.4);background:var(--surface2);">
+          <div class="strat-icon-box" style="background:rgba(78,205,196,.15);border:1px solid rgba(78,205,196,.35)">🔭</div>
+          <div class="strat-info">
+            <div class="strat-label" style="color:var(--teal)">Unit 1 · Lesson Plan 1 · Weeks 2–3 · Active Module</div>
+            <div class="strat-title" style="color:var(--gold2)">Previewing and Predicting ➔</div>
+            <div class="strat-desc">Preview titles, headings, pictures, and opening sentences to activate prior
+              knowledge — then predict the topic and main idea of each passage before reading. Includes Vocabulary
+              Preview and Prediction Quiz.</div>
+          </div>
+          <div class="strat-dot" style="background:var(--green)"></div>
+        </div>
+        <!-- Strategy 2 -->
+        <div class="strat-row" onclick="openStrategyDetail(2)">
+          <div class="strat-icon-box" style="background:rgba(92,201,148,.1);border:1px solid rgba(92,201,148,.3)">⚡</div>
+          <div class="strat-info">
+            <div class="strat-label" style="color:var(--green)">Unit 2 · Weeks 4–5 · Completed</div>
+            <div class="strat-title">Skimming and Scanning</div>
+            <div class="strat-desc">Skim for main ideas and scan for specific information quickly and efficiently</div>
+          </div>
+          <div class="strat-dot" style="background:var(--green)"></div>
+        </div>
+        <!-- Strategy 3 -->
+        <div class="strat-row" onclick="openStrategyDetail(3)"
+          style="border-color:rgba(232,201,122,.35);background:var(--surface2)">
+          <div class="strat-icon-box" style="background:rgba(232,201,122,.1);border:1px solid rgba(232,201,122,.25)">📖</div>
+          <div class="strat-info">
+            <div class="strat-label" style="color:var(--gold)">Unit 3 · Weeks 6–7 · In Progress</div>
+            <div class="strat-title">Using Context Clues</div>
+            <div class="strat-desc">Guess the meaning of unfamiliar words using surrounding context</div>
+          </div>
+          <div class="strat-dot" style="background:var(--gold)"></div>
+        </div>
+        <!-- Strategy 4 -->
+        <div class="strat-row" onclick="openStrategyDetail(4)" style="opacity:.5">
+          <div class="strat-icon-box" style="background:var(--surface2);border:1px solid var(--border)">🗂</div>
+          <div class="strat-info">
+            <div class="strat-label">Unit 4 · Weeks 8–9 · Locked</div>
+            <div class="strat-title">Identifying Text Organization</div>
+            <div class="strat-desc">Recognise how texts are structured: cause-effect, comparison, sequence</div>
+          </div>
+          <div class="strat-dot" style="background:var(--border2)"></div>
+        </div>
+        <!-- Strategy 5 -->
+        <div class="strat-row" onclick="openStrategyDetail(5)" style="opacity:.4">
+          <div class="strat-icon-box" style="background:var(--surface2);border:1px solid var(--border)">💡</div>
+          <div class="strat-info">
+            <div class="strat-label">Unit 5 · Weeks 10–11 · Locked</div>
+            <div class="strat-title">Making Inferences</div>
+            <div class="strat-desc">Read between the lines — draw logical conclusions from implied information</div>
+          </div>
+          <div class="strat-dot" style="background:var(--border2)"></div>
+        </div>
+        <!-- Strategy 6 -->
+        <div class="strat-row" onclick="openStrategyDetail(6)" style="opacity:.3">
+          <div class="strat-icon-box" style="background:var(--surface2);border:1px solid var(--border)">🔄</div>
+          <div class="strat-info">
+            <div class="strat-label">Unit 6 · Weeks 12–13 · Locked</div>
+            <div class="strat-title">Integrated Strategy Review</div>
+            <div class="strat-desc">Apply all strategies together in extended reading practice</div>
+          </div>
+          <div class="strat-dot" style="background:var(--border2)"></div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ════════ D. PRACTICE & QUIZ ════════ -->
+  <div id="screen-d" class="screen app-screen">
+    <div class="inner-wrap">
+      <div class="inner-top">
+        <button class="back-btn" onclick="nav('screen-home')">←</button>
+        <div>
+          <div class="inner-eye">Practice & Quiz</div>
+          <div class="inner-h">Interactive Activities</div>
+        </div>
+      </div>
+      <div class="feedback-badge"><span>⚡</span> All quizzes provide immediate feedback after each item</div>
+      <div class="quiz-list">
+        <div class="qb-card b1" onclick="openLessonDetail(1)"
+          style="border-color:rgba(78,205,196,.5);background:var(--surface2);">
+          <div class="qb-icon" style="background:rgba(78,205,196,.15);border-color:rgba(78,205,196,.35)">🔭</div>
+          <div class="qb-body">
+            <div class="qb-section" style="color:var(--teal)">Unit 1 · Interactive Module</div>
+            <div class="qb-title" style="color:var(--gold2)">Lesson 1 Reading &amp; Strategy Practice ➔</div>
+            <div class="qb-desc">ฝึกปฏิบัติ Pre-reading, While-reading (Interactive Highlighter) และ Post-reading
+              Evaluation</div>
+            <div class="qb-meta">
+              <span class="qb-items">3 Passages · Interactive Highlighting</span>
+              <span class="qb-start" style="color:var(--gold)">Open Lesson ➔</span>
+            </div>
+          </div>
+        </div>
+        <div class="qb-card b1" onclick="openInteractiveQuiz(2)">
+          <div class="qb-icon" style="background:rgba(91,141,238,.12);border-color:rgba(91,141,238,.25)">⚡</div>
+          <div class="qb-body">
+            <div class="qb-section">Unit 2 · Completed</div>
+            <div class="qb-title">Main Idea Challenge, Timed Scanning Task</div>
+            <div class="qb-desc">Identify main ideas under time pressure and scan for specific information</div>
+            <div class="qb-meta"><span class="qb-items">Skimming and Scanning</span><span
+                style="color:var(--green);font-size:.72rem;font-weight:600">✓ Done</span></div>
+          </div>
+        </div>
+        <div class="qb-card b3" onclick="openInteractiveQuiz(3)">
+          <div class="qb-icon" style="background:rgba(232,201,122,.1);border-color:rgba(232,201,122,.25)">📖</div>
+          <div class="qb-body">
+            <div class="qb-section" style="color:var(--gold)">Unit 3 · In Progress</div>
+            <div class="qb-title">Context Clue Game, Vocabulary Quiz</div>
+            <div class="qb-desc">Interactive game to identify word meanings using context clues</div>
+            <div class="qb-meta"><span class="qb-items">Using Context Clues</span><span class="qb-start">Start →</span>
+            </div>
+          </div>
+        </div>
+        <div class="qb-card" onclick="openInteractiveQuiz(4)" style="opacity:.5">
+          <div class="qb-icon" style="background:var(--surface2)">🗂</div>
+          <div class="qb-body">
+            <div class="qb-section">Unit 4 · Locked</div>
+            <div class="qb-title">Reference Matching Task, Text Structure Practice</div>
+            <div class="qb-desc">Match references and practice identifying text organisation</div>
+            <div class="qb-meta"><span class="qb-items">Identifying Text Organization</span><span
+                style="color:var(--muted);font-size:.72rem">🔒 Locked</span></div>
+          </div>
+        </div>
+        <div class="qb-card" onclick="openInteractiveQuiz(5)" style="opacity:.4">
+          <div class="qb-icon" style="background:var(--surface2)">💡</div>
+          <div class="qb-body">
+            <div class="qb-section">Unit 5 · Locked</div>
+            <div class="qb-title">Inference Detective, Paraphrasing Practice</div>
+            <div class="qb-desc">Draw logical inferences and practise paraphrasing techniques</div>
+            <div class="qb-meta"><span class="qb-items">Making Inferences</span><span
+                style="color:var(--muted);font-size:.72rem">🔒 Locked</span></div>
+          </div>
+        </div>
+        <div class="qb-card" onclick="openInteractiveQuiz(6)" style="opacity:.3">
+          <div class="qb-icon" style="background:var(--surface2)">🔄</div>
+          <div class="qb-body">
+            <div class="qb-section">Unit 6 · Locked</div>
+            <div class="qb-title">Integrated Reading Challenge, Progress Check</div>
+            <div class="qb-desc">Apply all strategies in a full-length integrated reading challenge</div>
+            <div class="qb-meta"><span class="qb-items">Integrated Strategy Review</span><span
+                style="color:var(--muted);font-size:.72rem">🔒 Locked</span></div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ════════ LESSON DETAIL SCREEN (NEW) ════════ -->
+  <div id="screen-lesson-detail" class="screen app-screen">
+    <div class="inner-wrap">
+      <div class="inner-top">
+        <button class="back-btn" onclick="nav('screen-b')">←</button>
+        <div>
+          <div class="inner-eye" id="ld-eye">Lesson Detail · Unit 1</div>
+          <div class="inner-h" id="ld-heading">Navigating Main Ideas</div>
+        </div>
+      </div>
+
+      <!-- Header Banner -->
+      <div class="lesson-header-banner">
+        <div class="lh-badge" id="ld-badge">Lesson Plan 1 · Unit 1</div>
+        <h2 class="lh-title" id="ld-title">Previewing &amp; Predicting and Identifying Main Ideas</h2>
+        <div class="lh-meta">
+          <span>📖 Code: 2031103</span>
+          <span>⏱ 6 Periods (Weeks 2–3)</span>
+          <span>👩‍🏫 Asst. Prof. Naviya Chutopama</span>
+        </div>
+      </div>
+
+      <!-- Stage Navigation Tabs -->
+      <div class="stage-nav">
+        <button class="stage-tab active" id="st-tab-1" onclick="switchLessonStage(1)">1. Pre-Reading</button>
+        <button class="stage-tab" id="st-tab-2" onclick="switchLessonStage(2)">2. While-Reading</button>
+        <button class="stage-tab" id="st-tab-3" onclick="switchLessonStage(3)">3. Post-Reading</button>
+      </div>
+
+      <!-- ── STAGE 1: PRE-READING ── -->
+      <div class="stage-content active" id="stage-content-1">
+        <div class="content-block">
+          <h3>🎯 Core Concept &amp; Objectives</h3>
+          <p><strong>Core Concept:</strong> This unit introduces basic reading strategies needed to understand academic
+            texts. Students learn how to preview a text, make predictions before reading, identify topic sentences, and
+            locate central main ideas.</p>
+          <p style="margin-bottom:0;"><strong>Performance Goal:</strong> Complete the Vocabulary Preview and Prediction
+            Quiz on the Web-Based Application with at least <strong>70% accuracy</strong>.</p>
+        </div>
+
+        <div class="content-block">
+          <h3>🔍 6.1.3 Warm-Up &amp; Strategy Key Concepts</h3>
+          <p>Before reading any text, active readers don't jump directly into line 1. Instead, they
+            <strong>Preview</strong> and <strong>Predict</strong>:</p>
+          <ul style="padding-left:20px;font-size:.88rem;color:var(--muted);line-height:1.7;margin-bottom:12px;">
+            <li><strong>Previewing:</strong> Scan the Title, Subheadings, Visuals (charts/photos), and the first
+              sentences of paragraphs.</li>
+            <li><strong>Predicting:</strong> Ask yourself: <em>"What will this text discuss?"</em> and <em>"What is the
+                author's primary focus?"</em></li>
+          </ul>
+        </div>
+
+        <div class="content-block">
+          <h3>📚 6.1.5 Vocabulary Preview (Academic Words)</h3>
+          <p>คลิกดูการ์ดคำศัพท์สำคัญประจำ Unit 1 เพื่อเตรียมความพร้อมก่อนเข้าสู่บทความอ่าน:</p>
+          <div class="vocab-grid">
+            <div class="vocab-card">
+              <div class="vc-word"><span>Preview</span> <span class="vc-pos">verb</span></div>
+              <div class="vc-meaning">การสำรวจเนื้อหาคร่าวๆ ก่อนอ่านจริง</div>
+              <div class="vc-ex">"Good readers preview the text features to understand its organization."</div>
+            </div>
+            <div class="vocab-card">
+              <div class="vc-word"><span>Predict</span> <span class="vc-pos">verb</span></div>
+              <div class="vc-meaning">การคาดเดาหรือทำนายเนื้อหาล่วงหน้า</div>
+              <div class="vc-ex">"You can predict the author's argument by looking at the headline."</div>
+            </div>
+            <div class="vocab-card">
+              <div class="vc-word"><span>Topic Sentence</span> <span class="vc-pos">noun</span></div>
+              <div class="vc-meaning">ประโยคใจความหลักของย่อหน้า</div>
+              <div class="vc-ex">"The topic sentence is often located at the beginning of an academic paragraph."</div>
+            </div>
+            <div class="vocab-card">
+              <div class="vc-word"><span>Main Idea</span> <span class="vc-pos">noun</span></div>
+              <div class="vc-meaning">ใจความสำคัญ หรือข้อความสรุปของบทความ</div>
+              <div class="vc-ex">"Identify the central main idea without getting lost in minor supporting details."
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div style="text-align:right;margin-top:16px;">
+          <button class="action-primary-btn" onclick="switchLessonStage(2)">Next: Go to While-Reading Stage ➔</button>
+        </div>
+      </div>
+
+      <!-- ── STAGE 2: WHILE-READING ── -->
+      <div class="stage-content" id="stage-content-2">
+        <div class="content-block">
+          <h3>📖 Academic Reading Practice (Passages 1–3)</h3>
+          <p>ใช้เครื่องมือ <strong>Interactive Highlighter</strong> ด้านล่างเพื่อฝึกระบุ <strong>Topic Sentence
+              (ประโยคใจความหลัก)</strong> และ <strong>Supporting Details</strong> ในบทความ:</p>
+
+          <!-- Highlighter Toolbar -->
+          <div class="passage-controls">
+            <span style="font-size:.78rem;font-weight:600;color:var(--muted);margin-right:6px;">Highlighter Mode:</span>
+            <button class="hl-btn active" id="hl-mode-topic" onclick="setHlMode('topic')">🟡 Highlight Topic
+              Sentence</button>
+            <button class="hl-btn" id="hl-mode-detail" onclick="setHlMode('detail')">🟢 Highlight Supporting
+              Details</button>
+            <button class="hl-btn" onclick="clearPassageHighlights()" style="color:var(--red);">✖ Clear
+              Highlights</button>
+          </div>
+
+          <!-- Passage 1 Box (A2-B1 Level) -->
+          <div style="margin-bottom:24px;">
+            <div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:8px;">
+              <div style="display:flex;align-items:center;gap:6px;">
+                <h4 style="font-family:'Playfair Display',serif;font-size:1.05rem;color:var(--gold);">Passage 1: Sleep
+                  and Academic Success</h4>
+              </div>
+              <span
+                style="font-family:'DM Mono',monospace;font-size:.65rem;color:var(--teal);background:rgba(78,205,196,.12);border:1px solid rgba(78,205,196,.3);padding:2px 8px;border-radius:12px;">CEFR
+                A2–B1</span>
+            </div>
+
+            <div class="passage-img-wrap">
+              <img src="assets/images/passage1_sleep.jpg" alt="Memory Consolidation & Healthy Sleep" class="passage-img"
+                loading="lazy">
+              <div class="passage-img-caption">
+                <span>🖼 Figure 1.1: Memory Consolidation During Sleep</span>
+                <span style="font-family:'DM Mono',monospace;">Text Feature Clue</span>
+              </div>
+            </div>
+
+            <div class="passage-text-box" id="passage-1">
+              <span class="passage-sentence" onclick="toggleSentenceHl(this)">Getting enough sleep every night is
+                essential for university students who want to improve their learning and academic grades.</span>
+              <span class="passage-sentence" onclick="toggleSentenceHl(this)">When students sleep for seven to eight
+                hours, their brains process new lessons and store information into long-term memory.</span>
+              <span class="passage-sentence" onclick="toggleSentenceHl(this)">In addition, well-rested students can
+                concentrate better in lectures, solve difficult problems faster, and feel less stress before
+                exams.</span>
+              <span class="passage-sentence" onclick="toggleSentenceHl(this)">On the other hand, staying up late causes
+                fatigue, poor memory, and difficulty paying attention in class.</span>
+            </div>
+            <div style="font-size:.76rem;color:var(--muted);margin-top:6px;font-style:italic;">💡 Tip:
+              แตะประโยคแรกเพื่อเน้นสีเหลืองเป็น Topic Sentence (ประโยคใจความหลัก)</div>
+          </div>
+
+          <!-- Passage 2 Box (B1-B2 Level) -->
+          <div style="margin-bottom:24px;">
+            <div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:8px;">
+              <div style="display:flex;align-items:center;gap:6px;">
+                <h4 style="font-family:'Playfair Display',serif;font-size:1.05rem;color:var(--gold);">Passage 2: Urban
+                  Gardens in Modern Cities</h4>
+              </div>
+              <span
+                style="font-family:'DM Mono',monospace;font-size:.65rem;color:var(--gold);background:rgba(232,201,122,.12);border:1px solid rgba(232,201,122,.3);padding:2px 8px;border-radius:12px;">CEFR
+                B1–B2</span>
+            </div>
+
+            <div class="passage-img-wrap">
+              <img src="assets/images/passage2_gardens.jpg" alt="Rooftop Community Gardens in Modern Cities"
+                class="passage-img" loading="lazy">
+              <div class="passage-img-caption">
+                <span>🖼 Figure 1.2: Rooftop & Community Plots in Eco-Friendly Cities</span>
+                <span style="font-family:'DM Mono',monospace;">Visual Preview</span>
+              </div>
+            </div>
+
+            <div class="passage-text-box" id="passage-2">
+              <span class="passage-sentence" onclick="toggleSentenceHl(this)">Urban community gardens offer significant
+                environmental, economic, and social advantages for modern metropolitan cities.</span>
+              <span class="passage-sentence" onclick="toggleSentenceHl(this)">These green public spaces absorb harmful
+                carbon emissions, lower urban temperatures, and noticeably enhance air quality.</span>
+              <span class="passage-sentence" onclick="toggleSentenceHl(this)">Furthermore, local neighborhood gardens
+                encourage sustainable agricultural practices and provide city residents with fresh, affordable food
+                options.</span>
+            </div>
+          </div>
+
+          <!-- Passage 3 / Mini-Story Box (A2-B2 Universal Story) -->
+          <div
+            style="margin-bottom:14px;background:linear-gradient(135deg,rgba(232,201,122,.08),var(--surface2));border:1.5px solid rgba(232,201,122,.3);border-radius:14px;padding:18px;">
+            <div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:10px;">
+              <div style="display:flex;align-items:center;gap:8px;">
+                <span style="font-size:1.2rem;">🌿</span>
+                <h4 style="font-family:'Playfair Display',serif;font-size:1.15rem;color:var(--gold2);">Passage 3
+                  (Story): The Secret of the Rainforest Expedition</h4>
+              </div>
+              <span
+                style="font-family:'DM Mono',monospace;font-size:.65rem;color:var(--green);background:rgba(92,201,148,.15);border:1px solid rgba(92,201,148,.3);padding:2px 8px;border-radius:12px;">CEFR
+                A2–B2 Story</span>
+            </div>
+
+            <div class="passage-img-wrap">
+              <img src="assets/images/passage3_rainforest.jpg" alt="Maya studying Amazon Rainforest satellite maps"
+                class="passage-img" loading="lazy">
+              <div class="passage-img-caption">
+                <span>🖼 Figure 1.3: Maya analyzing Amazon Canopy Satellite Maps & Botanical Findings</span>
+                <span style="font-family:'DM Mono',monospace;">Story Visual Clue</span>
+              </div>
+            </div>
+
+            <div class="passage-text-box" id="passage-3"
+              style="background:var(--surface3);border-color:rgba(232,201,122,.2);margin-bottom:14px;">
+              <p style="margin-bottom:10px;"><span class="passage-sentence" onclick="toggleSentenceHl(this)">Maya, a
+                  university environmental science student, had only forty minutes to prepare for her international
+                  research seminar.</span> <span class="passage-sentence" onclick="toggleSentenceHl(this)">Instead of
+                  reading a four-hundred-page rainforest ecology report word for word, she skillfully applied previewing
+                  strategies to find key scientific findings quickly.</span></p>
+              <p style="margin-bottom:10px;"><span class="passage-sentence" onclick="toggleSentenceHl(this)">First, she
+                  surveyed the table of contents and noticed an intriguing chapter heading: "Uncharted Canopy Habitats
+                  and Rare Species in the Amazon Basin."</span> <span class="passage-sentence"
+                  onclick="toggleSentenceHl(this)">By examining colorful satellite photographs and reading the opening
+                  summary sentence, Maya accurately predicted that the text explained newly discovered plant species
+                  capable of producing natural medicines.</span></p>
+              <p style="margin-bottom:0;"><span class="passage-sentence" onclick="toggleSentenceHl(this)">Consequently,
+                  her smart reading habits enabled her to extract essential scientific evidence in just fifteen minutes,
+                  allowing her to deliver an outstanding presentation to her professors and fellow researchers.</span>
+              </p>
+            </div>
+            <p style="font-size:.8rem;color:var(--gold);margin-bottom:0;">💡 <em>ฝึกเน้นข้อความ Topic Sentence
+                ในย่อหน้าด้วยปุ่ม Highlighter ด้านบน หรือเริ่มทำแบบฝึกหัด 5 ข้อ</em></p>
+          </div>
+        </div>
+
+        <div style="display:flex;justify-content:space-between;margin-top:16px;">
+          <button class="action-primary-btn" onclick="switchLessonStage(1)"
+            style="background:var(--surface2);color:var(--text);border:1px solid var(--border);">← Previous
+            Stage</button>
+          <button class="action-primary-btn" onclick="switchLessonStage(3)">Next: Post-Reading Stage ➔</button>
+        </div>
+      </div>
+
+      <!-- ── STAGE 3: POST-READING ── -->
+      <div class="stage-content" id="stage-content-3">
+        <div class="content-block">
+          <h3>📊 6.3 Post-Reading Evaluation &amp; Rubrics</h3>
+          <p>เมื่ออ่านบทความจบแล้ว นักศึกษาจะประเมินผลผ่านเกณฑ์ Scoring Rubric ของอาจารย์ผู้สอน (Asst. Prof. Naviya
+            Chutopama):</p>
+
+          <div style="overflow-x:auto;margin-top:12px;">
+            <table style="width:100%;border-collapse:collapse;font-size:.78rem;color:var(--text);text-align:left;">
+              <thead>
+                <tr style="background:var(--surface2);border-bottom:2px solid var(--border2);color:var(--gold);">
+                  <th style="padding:10px 8px;">Assessment Criteria</th>
+                  <th style="padding:10px 8px;">Excellent (4)</th>
+                  <th style="padding:10px 8px;">Good (3)</th>
+                  <th style="padding:10px 8px;">Fair (2)</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr style="border-bottom:1px solid var(--border);">
+                  <td style="padding:10px 8px;font-weight:600;">Previewing Skills</td>
+                  <td style="padding:10px 8px;color:var(--green);">Accurately identifies titles, subheadings & topic
+                    sentences</td>
+                  <td style="padding:10px 8px;">Identifies most elements with minor errors</td>
+                  <td style="padding:10px 8px;color:var(--muted);">Identifies basic elements only</td>
+                </tr>
+                <tr style="border-bottom:1px solid var(--border);">
+                  <td style="padding:10px 8px;font-weight:600;">Predicting Accuracy</td>
+                  <td style="padding:10px 8px;color:var(--green);">Highly plausible and logical predictions verified
+                    after reading</td>
+                  <td style="padding:10px 8px;">Reasonable predictions with adequate rationale</td>
+                  <td style="padding:10px 8px;color:var(--muted);">Vague or weakly supported predictions</td>
+                </tr>
+                <tr>
+                  <td style="padding:10px 8px;font-weight:600;">Topic Sentence & Main Idea</td>
+                  <td style="padding:10px 8px;color:var(--green);">Consistently locates topic sentences and states
+                    concise main idea</td>
+                  <td style="padding:10px 8px;">Locates in explicit paragraphs; requires minor guidance</td>
+                  <td style="padding:10px 8px;color:var(--muted);">Confuses supporting details with main idea</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+
+        <div class="content-block"
+          style="border-color:rgba(78,205,196,.3);background:linear-gradient(135deg,rgba(78,205,196,.08),var(--surface));">
+          <div style="display:flex;align-items:center;gap:10px;margin-bottom:8px;">
+            <span style="font-size:1.4rem;">🎯</span>
+            <h3 style="margin-bottom:0;">Story Practice &amp; Quiz (ระดับ A2–B2 · 5 ข้อ)</h3>
+          </div>
+          <p>ทดสอบทักษะการอ่าน Previewing, Predicting และ Identifying Main Idea จากบทความและ Story <em>"The Secret of
+              the Rainforest Expedition"</em> จำนวน 5 ข้อ พร้อมระบบตรวจคำตอบทันที</p>
+          <button class="action-primary-btn" onclick="openInteractiveQuiz(1)" style="margin-top:6px;">🚀
+            เริ่มทำแบบฝึกหัด 5 ข้อ (Story Quiz) ➔</button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ════════ STRATEGY DETAIL SCREEN ════════ -->
+  <div id="screen-strategy-detail" class="screen app-screen">
+    <div class="inner-wrap">
+      <div class="inner-top">
+        <button class="back-btn" onclick="nav('screen-c')">←</button>
+        <div>
+          <div class="inner-eye">Reading Strategy Guide</div>
+          <div class="inner-h" id="strat-view-title">Previewing and Predicting</div>
+        </div>
+      </div>
+
+      <div class="content-block">
+        <div class="lh-badge" style="color:var(--teal);border-color:var(--teal)">Strategy 1 · Core Reading Skill</div>
+        <h3 style="margin-top:8px;">How to Preview and Predict (CEFR A2–B2 Strategy)</h3>
+        <p>การฝึกสำรวจและคาดเดาเนื้อหาก่อนอ่าน (Previewing &amp; Predicting)
+          เป็นกลยุทธ์สำคัญที่ช่วยให้นักศึกษาอ่านบทความภาษาอังกฤษเชิงวิชาการได้เร็วขึ้นและจับใจความได้แม่นยำขึ้นถึง 40%
+        </p>
+
+        <div style="margin:20px 0;display:flex;flex-direction:column;gap:14px;">
+          <div
+            style="background:var(--surface2);border-left:3px solid var(--gold);padding:14px 16px;border-radius:8px;">
+            <h4 style="font-size:.95rem;font-weight:700;color:var(--gold);margin-bottom:4px;">Step 1: Read the Title &
+              Subheadings</h4>
+            <p style="font-size:.82rem;color:var(--muted);margin-bottom:0;">ชื่อเรื่องบอกหัวข้อหลัก (Topic) โดยตรง
+              ถามตนเองว่ารู้จักอะไรเกี่ยวกับหัวข้อนี้บ้าง</p>
+          </div>
+          <div
+            style="background:var(--surface2);border-left:3px solid var(--teal);padding:14px 16px;border-radius:8px;">
+            <h4 style="font-size:.95rem;font-weight:700;color:var(--teal);margin-bottom:4px;">Step 2: Examine Visual
+              Features & Bold Words</h4>
+            <p style="font-size:.82rem;color:var(--muted);margin-bottom:0;">สังเกตรูปภาพ แผนภูมิ
+              หรือคำศัพท์ตัวหนาที่เน้นย้ำประเด็นสำคัญ</p>
+          </div>
+          <div
+            style="background:var(--surface2);border-left:3px solid var(--green);padding:14px 16px;border-radius:8px;">
+            <h4 style="font-size:.95rem;font-weight:700;color:var(--green);margin-bottom:4px;">Step 3: Read the First
+              Sentence (Topic Sentence)</h4>
+            <p style="font-size:.82rem;color:var(--muted);margin-bottom:0;">
+              อ่านประโยคแรกของแต่ละย่อหน้าเพื่อดูทิศทางของเนื้อหา</p>
+          </div>
+        </div>
+
+        <button class="action-primary-btn" onclick="openLessonDetail(1)">📖 เข้าสู่บทเรียน Unit 1 เพื่อฝึกปฏิบัติ
+          ➔</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- ════════ INTERACTIVE QUIZ SCREEN (5 QUESTIONS · A2-B2) ════════ -->
+  <div id="screen-quiz-interactive" class="screen app-screen">
+    <div class="inner-wrap">
+      <div class="inner-top">
+        <button class="back-btn" onclick="nav('screen-d')">←</button>
+        <div>
+          <div class="inner-eye">CEFR A2–B2 Assessment</div>
+          <div class="inner-h" id="quiz-screen-title">Unit 1: Reading Strategy & Story Practice</div>
+        </div>
+      </div>
+
+      <!-- Question 1 (A2-B1: Identifying Strategy Action) -->
+      <div class="quiz-q-box" id="qbox-1">
+        <div class="quiz-q-num">Question 1 of 5 · Level A2–B1 · Previewing Clues</div>
+        <div class="quiz-q-text">According to Passage 3, why did Maya decide to <u>preview</u> the ecology report
+          instead of reading every single word?</div>
+        <div class="quiz-options">
+          <button class="quiz-opt"
+            onclick="selectQuizAnswer(1, 0, false, 'Maya did not want to skip studying; she had limited time to prepare for her seminar.')">A.
+            Because she wanted to avoid preparing and leave the university early.</button>
+          <button class="quiz-opt"
+            onclick="selectQuizAnswer(1, 1, true, 'Correct! She had limited time (40 minutes) and previewing allowed her to extract key scientific findings quickly.')">B.
+            Because she had limited time (40 minutes) and needed to find key scientific findings quickly.</button>
+          <button class="quiz-opt" onclick="selectQuizAnswer(1, 2, false, 'She did not read the entire 400 pages.')">C.
+            Because her professor ordered her to memorize all 400 pages word for word.</button>
+        </div>
+        <div class="quiz-feedback" id="qfb-1"></div>
+      </div>
+
+      <!-- Question 2 (B1: Topic Sentence Recognition) -->
+      <div class="quiz-q-box" id="qbox-2">
+        <div class="quiz-q-num">Question 2 of 5 · Level B1 · Topic Sentence Location</div>
+        <div class="quiz-q-text">Which sentence in Paragraph 1 expresses the main controlling idea (Topic Sentence)?
+        </div>
+        <div class="quiz-options">
+          <button class="quiz-opt"
+            onclick="selectQuizAnswer(2, 0, false, 'This sentence provides only background introduction.')">A. "Maya, a
+            university environmental science student, had only forty minutes to prepare..."</button>
+          <button class="quiz-opt"
+            onclick="selectQuizAnswer(2, 1, true, 'Correct! This sentence states the main idea of how Maya skillfully applied previewing strategies to locate findings quickly.')">B.
+            "Instead of reading a four-hundred-page rainforest ecology report word for word, she skillfully applied
+            previewing strategies..."</button>
+          <button class="quiz-opt" onclick="selectQuizAnswer(2, 2, false, 'This is from Paragraph 2.')">C. "First, she
+            surveyed the table of contents and noticed an intriguing chapter heading..."</button>
+        </div>
+        <div class="quiz-feedback" id="qfb-2"></div>
+      </div>
+
+      <!-- Question 3 (B1-B2: Academic Vocabulary in Context) -->
+      <div class="quiz-q-box" id="qbox-3">
+        <div class="quiz-q-num">Question 3 of 5 · Level B1–B2 · Vocabulary in Context</div>
+        <div class="quiz-q-text">In Passage 3, what does the word <b>"surveyed"</b> in <i>"she surveyed the table of
+            contents"</i> mean?</div>
+        <div class="quiz-options">
+          <button class="quiz-opt"
+            onclick="selectQuizAnswer(3, 0, true, 'Correct! In reading contexts, survey means to scan or inspect text components to obtain a quick overview.')">A.
+            Looked at or inspected key headings carefully to get a quick general view.</button>
+          <button class="quiz-opt"
+            onclick="selectQuizAnswer(3, 1, false, 'Surveying in reading is not asking people questions.')">B.
+            Distributed a public questionnaire to random people.</button>
+          <button class="quiz-opt" onclick="selectQuizAnswer(3, 2, false, 'Incorrect definition.')">C. Drew a physical
+            geographic map of the Amazon river.</button>
+        </div>
+        <div class="quiz-feedback" id="qfb-3"></div>
+      </div>
+
+      <!-- Question 4 (B1: Predicting Content) -->
+      <div class="quiz-q-box" id="qbox-4">
+        <div class="quiz-q-num">Question 4 of 5 · Level B1 · Making Predictions</div>
+        <div class="quiz-q-text">What text features helped Maya <u>predict</u> that the article explained newly
+          discovered plant species in the Amazon?</div>
+        <div class="quiz-options">
+          <button class="quiz-opt"
+            onclick="selectQuizAnswer(4, 0, false, 'Audio podcasts were not mentioned in the passage.')">A. Listening to
+            an online podcast about rainforest animal sounds.</button>
+          <button class="quiz-opt"
+            onclick="selectQuizAnswer(4, 1, true, 'Correct! She used the chapter heading, satellite photographs, and opening summary sentence.')">B.
+            The chapter heading, satellite photographs, and opening summary sentence.</button>
+          <button class="quiz-opt"
+            onclick="selectQuizAnswer(4, 2, false, 'The index alone does not provide satellite photo clues.')">C. Only
+            the page numbers listed in the report index.</button>
+        </div>
+        <div class="quiz-feedback" id="qfb-4"></div>
+      </div>
+
+      <!-- Question 5 (B1-B2: Central Main Idea) -->
+      <div class="quiz-q-box" id="qbox-5">
+        <div class="quiz-q-num">Question 5 of 5 · Level B1–B2 · Central Main Idea</div>
+        <div class="quiz-q-text">What is the central main idea of the entire story in Passage 3?</div>
+        <div class="quiz-options">
+          <button class="quiz-opt"
+            onclick="selectQuizAnswer(5, 0, false, 'This is a minor detail about presentation time, not the central thesis.')">A.
+            Academic seminar presentations should always be under fifteen minutes.</button>
+          <button class="quiz-opt"
+            onclick="selectQuizAnswer(5, 1, false, 'The story focuses on reading strategy, not solely the rainforest location.')">B.
+            The Amazon Basin is the only place with rare medicinal plants.</button>
+          <button class="quiz-opt"
+            onclick="selectQuizAnswer(5, 2, true, 'Excellent! Effective previewing and predicting strategies allow students to locate essential academic evidence quickly and succeed in their studies.')">C.
+            Applying previewing and predicting strategies enables students to locate key academic information quickly
+            and achieve learning success.</button>
+        </div>
+        <div class="quiz-feedback" id="qfb-5"></div>
+      </div>
+
+      <!-- Quiz Action Bar -->
+      <div class="quiz-action-bar">
+        <div style="font-family:'DM Mono',monospace;font-size:.82rem;color:var(--gold);" id="quiz-score-badge">Score: 0
+          / 5</div>
+        <button class="action-primary-btn" onclick="finishQuiz()">Finish &amp; Record Score ✓</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- ════════ E. PROGRESS ════════ -->
+  <div id="screen-e" class="screen app-screen">
+    <div class="inner-wrap">
+      <div class="inner-top">
+        <button class="back-btn" onclick="nav('screen-home')">←</button>
+        <div>
+          <div class="inner-eye">Learning Progress</div>
+          <div class="inner-h">Progress Monitoring</div>
+        </div>
+      </div>
+      <div class="stats-row">
+        <div class="stat-box">
+          <div class="sv gold">2/6</div>
+          <div class="sl">Units Completed</div>
+        </div>
+        <div class="stat-box">
+          <div class="sv teal">78%</div>
+          <div class="sl">Average Quiz Score</div>
+        </div>
+        <div class="stat-box">
+          <div class="sv green">85%</div>
+          <div class="sl">Best Score</div>
+        </div>
+        <div class="stat-box">
+          <div class="sv red">8/12</div>
+          <div class="sl">Quizzes Completed</div>
+        </div>
+      </div>
+      <div class="es-title">Application Usage Records — Engagement Indicators</div>
+      <div class="eng-item">
+        <div class="eng-num-box" style="background:rgba(78,205,196,.08);border-color:rgba(78,205,196,.2)"><span
+            class="env" style="color:var(--teal)">14</span><span class="enu">times</span></div>
+        <div class="eng-text">
+          <div class="et">Login Frequency</div>
+          <div class="es">Number of times the application was accessed during the semester</div>
+        </div>
+        <div class="eng-icon2">🔑</div>
+      </div>
+      <div class="eng-item">
+        <div class="eng-num-box" style="background:rgba(92,201,148,.08);border-color:rgba(92,201,148,.2)"><span
+            class="env" style="color:var(--green)">8.4</span><span class="enu">hours</span></div>
+        <div class="eng-text">
+          <div class="et">Time Spent on Learning Activities</div>
+          <div class="es">Total active time on reading lessons, strategies, and quizzes</div>
+        </div>
+        <div class="eng-icon2">⏱</div>
+      </div>
+      <div class="eng-item">
+        <div class="eng-num-box" style="background:rgba(232,201,122,.08);border-color:rgba(232,201,122,.2)"><span
+            class="env" style="color:var(--gold)">26</span><span class="enu">tasks</span></div>
+        <div class="eng-text">
+          <div class="et">Completed Activities</div>
+          <div class="es">Reading exercises and interactive learning tasks finished</div>
+        </div>
+        <div class="eng-icon2">📋</div>
+      </div>
+      <div class="eng-item">
+        <div class="eng-num-box" style="background:rgba(224,92,92,.08);border-color:rgba(224,92,92,.2)"><span
+            class="env" style="color:var(--red)">8</span><span class="enu">quizzes</span></div>
+        <div class="eng-text">
+          <div class="et">Quiz Completion</div>
+          <div class="es">Formative quizzes submitted out of 12 total across all units</div>
+        </div>
+        <div class="eng-icon2">✅</div>
+      </div>
+      <div class="quiz-hist" style="margin-top:16px">
+        <div class="qh-header">
+          <h4>Quiz Score History</h4><span>Semester 1 · 2031103</span>
+        </div>
+        <div class="qh-row">
+          <div class="qh-icon" style="background:rgba(92,201,148,.12)">📗</div>
+          <div class="qh-info">
+            <div class="qi-t">Unit 1 — Main Ideas Quiz</div>
+            <div class="qi-d">Vocabulary Preview + Prediction Quiz</div>
+          </div>
+          <div class="qh-score q-pass">85%</div>
+        </div>
+        <div class="qh-row">
+          <div class="qh-icon" style="background:rgba(232,201,122,.12)">📒</div>
+          <div class="qh-info">
+            <div class="qi-t">Unit 2 — Supporting Details Quiz</div>
+            <div class="qi-d">Main Idea Challenge + Timed Scanning Task</div>
+          </div>
+          <div class="qh-score q-mid">72%</div>
+        </div>
+        <div class="qh-row" style="opacity:.5">
+          <div class="qh-icon" style="background:rgba(122,132,154,.08)">📙</div>
+          <div class="qh-info">
+            <div class="qi-t">Unit 3 — Vocabulary Quiz</div>
+            <div class="qi-d">Not yet completed</div>
+          </div>
+          <div class="qh-score" style="color:var(--muted)">—</div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Login flash overlay -->
+  <div id="login-flash"></div>
+
+  <!-- Bottom Nav -->
+  <nav class="bnav" id="bnav">
+    <button class="bnav-btn active" id="tab-home" onclick="nav('screen-home')"><svg viewBox="0 0 24 24" fill="none"
+        stroke="currentColor" stroke-width="2">
+        <path d="M3 9l9-7 9 7v11a2 2 0 01-2 2H5a2 2 0 01-2-2z" />
+        <polyline points="9,22 9,12 15,12 15,22" />
+      </svg>Home</button>
+    <button class="bnav-btn" id="tab-b" onclick="nav('screen-b')"><svg viewBox="0 0 24 24" fill="none"
+        stroke="currentColor" stroke-width="2">
+        <path d="M4 19.5A2.5 2.5 0 016.5 17H20" />
+        <path d="M6.5 2H20v20H6.5A2.5 2.5 0 014 19.5v-15A2.5 2.5 0 016.5 2z" />
+      </svg>Reading</button>
+    <button class="bnav-btn" id="tab-c" onclick="nav('screen-c')"><svg viewBox="0 0 24 24" fill="none"
+        stroke="currentColor" stroke-width="2">
+        <circle cx="12" cy="12" r="10" />
+        <path d="M12 8v4l3 3" />
+      </svg>Strategies</button>
+    <button class="bnav-btn" id="tab-d" onclick="nav('screen-d')"><svg viewBox="0 0 24 24" fill="none"
+        stroke="currentColor" stroke-width="2">
+        <rect x="2" y="7" width="20" height="14" rx="2" />
+        <path d="M16 2l-4 5-4-5" />
+      </svg>Practice</button>
+    <button class="bnav-btn" id="tab-e" onclick="nav('screen-e')"><svg viewBox="0 0 24 24" fill="none"
+        stroke="currentColor" stroke-width="2">
+        <line x1="18" y1="20" x2="18" y2="10" />
+        <line x1="12" y1="20" x2="12" y2="4" />
+        <line x1="6" y1="20" x2="6" y2="14" />
+      </svg>Progress</button>
+  </nav>
+
+  <div class="toast" id="toast"></div>
+
+  <script>
+    // ═══════════ CONFIG ═══════════
+    const ALLOWED_DOMAIN = null; // null = open, 'bru.ac.th' = restrict
+    const DEMO_USERS = {
+      'test@gmail.com': { name: 'Test User', given_name: 'Test', password: '123456', color: '#4285F4' }
+    };
+    const DEMO_DEFAULT_PASSWORD = '123456';
+
+    // ═══════════ STATE ═══════════
+    let currentUser = null, pendingEmail = '', pwdVisible = false;
+
+    // ═══════════ INIT ═══════════
+    window.addEventListener('load', () => {
+      setTimeout(() => document.getElementById('loading-overlay').classList.add('hide'), 700);
+      document.querySelectorAll('.signin-input').forEach(inp => {
+        inp.addEventListener('focus', () => inp.closest('.input-group').classList.add('focused'));
+        inp.addEventListener('blur', () => {
+          inp.closest('.input-group').classList.remove('focused');
+          inp.closest('.input-group').classList.toggle('has-value', !!inp.value);
+        });
+      });
+      const stored = sessionStorage.getItem('rs_user');
+      if (stored) { try { loginSuccess(JSON.parse(stored), false); } catch (e) { sessionStorage.removeItem('rs_user'); } }
+    });
+
+    // ═══════════ SIGN-IN ═══════════
+    function onEmailInput() {
+      const v = document.getElementById('input-email').value;
+      document.getElementById('grp-email').classList.toggle('has-value', v.length > 0);
+      clearErr('signin-error-email');
+      document.getElementById('input-email').classList.remove('error-field');
+    }
+    function onPasswordInput() {
+      const v = document.getElementById('input-password').value;
+      document.getElementById('grp-password').classList.toggle('has-value', v.length > 0);
+      clearErr('signin-error-pwd');
+      document.getElementById('input-password').classList.remove('error-field');
+    }
+
+    function nextToPassword() {
+      let email = document.getElementById('input-email').value.trim().toLowerCase();
+      if (!email.includes('@') && ALLOWED_DOMAIN) email += '@' + ALLOWED_DOMAIN;
+      const domain = email.split('@')[1] || '';
+      if (!email || !email.includes('@') || !domain) {
+        showErr('signin-error-email', 'Please enter a valid email address');
+        document.getElementById('input-email').classList.add('error-field');
+        shakify('grp-email'); return;
+      }
+      if (ALLOWED_DOMAIN && domain !== ALLOWED_DOMAIN) {
+        showErr('signin-error-email', `This account is not from @${ALLOWED_DOMAIN}. Use your university email.`);
+        document.getElementById('input-email').classList.add('error-field');
+        shakify('grp-email'); return;
+      }
+      spinBtn('btn-next-email-txt', 'spin-email', true);
+      setTimeout(() => {
+        spinBtn('btn-next-email-txt', 'spin-email', false);
+        pendingEmail = email;
+        document.getElementById('chip-email-text').textContent = email;
+        const chip = document.getElementById('chip-avatar');
+        chip.textContent = email[0].toUpperCase(); chip.style.background = '#4285F4';
+        goStep('step-email', 'step-password');
+        setTimeout(() => document.getElementById('input-password').focus(), 350);
+      }, 700);
+    }
+
+    // ═══════════ DEMO LOGIN (bypass) ═══════════
+    function demoLogin() {
+      const demoUser = {
+        name: 'Demo User',
+        given_name: 'Demo',
+        email: 'demo@bru.ac.th',
+        color: '#e8c97a'
+      };
+      document.getElementById('success-name-msg').textContent = 'Welcome, Demo!';
+      goStep('step-email', 'step-success');
+      setTimeout(() => {
+        sessionStorage.setItem('rs_user', JSON.stringify(demoUser));
+        loginSuccess(demoUser, true);
+      }, 400);
+    }
+
+    function submitSignIn() {
+      const pwd = document.getElementById('input-password').value;
+      if (!pwd) { showErr('signin-error-pwd', 'Enter your password'); document.getElementById('input-password').classList.add('error-field'); return; }
+      spinBtn('btn-signin-txt', 'spin-pwd', true);
+      setTimeout(() => {
+        spinBtn('btn-signin-txt', 'spin-pwd', false);
+        const known = DEMO_USERS[pendingEmail];
+        if (pwd !== (known ? known.password : DEMO_DEFAULT_PASSWORD)) {
+          showErr('signin-error-pwd', 'Wrong password. (Demo: 123456)');
+          document.getElementById('input-password').classList.add('error-field');
+          document.getElementById('input-password').value = '';
+          document.getElementById('grp-password').classList.remove('has-value');
+          shakify('grp-password'); return;
+        }
+        const user = known ? { ...known, email: pendingEmail } : { name: pendingEmail.split('@')[0], given_name: pendingEmail.split('@')[0], email: pendingEmail, color: '#4285F4' };
+        document.getElementById('success-name-msg').textContent = `Welcome, ${user.given_name}!`;
+        goStep('step-password', 'step-success');
+        setTimeout(() => { sessionStorage.setItem('rs_user', JSON.stringify(user)); loginSuccess(user, true); }, 1100);
+      }, 900);
+    }
+
+    function backToEmail() {
+      document.getElementById('input-password').value = '';
+      document.getElementById('grp-password').classList.remove('has-value');
+      clearErr('signin-error-pwd');
+      const active = document.querySelector('.signin-step.active');
+      if (active) active.classList.remove('active');
+      document.getElementById('step-email').classList.add('active');
+      setTimeout(() => document.getElementById('input-email').focus(), 300);
+    }
+    function showForgot() {
+      const active = document.querySelector('.signin-step.active');
+      if (active) active.classList.remove('active');
+      document.getElementById('step-forgot').classList.add('active');
+    }
+    function goStep(a, b) { document.getElementById(a).classList.remove('active'); document.getElementById(b).classList.add('active'); }
+    function togglePwd() {
+      pwdVisible = !pwdVisible;
+      document.getElementById('input-password').type = pwdVisible ? 'text' : 'password';
+      document.getElementById('eye-btn').textContent = pwdVisible ? '🙈' : '👁';
+    }
+    function spinBtn(t, s, on) { document.getElementById(t).style.display = on ? 'none' : 'inline'; document.getElementById(s).classList.toggle('show', on); }
+    function shakify(id) {
+      const el = document.getElementById(id); let i = 0;
+      const steps = [8, -8, 6, -6, 4, -4, 2, -2, 0];
+      const next = () => { if (i >= steps.length) { el.style.transform = ''; return; } el.style.transform = `translateX(${steps[i++]}px)`; setTimeout(next, 40); };
+      next();
+    }
+    function showErr(id, msg) { const e = document.getElementById(id); if (e) { e.textContent = msg; e.classList.add('show'); } }
+    function clearErr(id) { const e = document.getElementById(id); if (e) { e.textContent = ''; e.classList.remove('show'); } }
+
+    // ═══════════ LOGIN SUCCESS ═══════════
+    function loginSuccess(user, animate) {
+      currentUser = user;
+      const profile = getProfile(user.email);
+      const displayName = profile ? profile.fullname : (user.given_name || user.name);
+      const initial = displayName[0].toUpperCase();
+
+      // Top bar
+      document.getElementById('tb-avatar').textContent = initial;
+      document.getElementById('tb-avatar').style.background = user.color || 'var(--gold)';
+      document.getElementById('tb-name').textContent = displayName;
+      document.getElementById('tb-meta').textContent = profile ? `${profile.studentId} · Sec.${profile.section}` : user.email;
+      document.getElementById('top-bar').classList.add('show');
+      document.body.classList.add('logged-in');
+      document.getElementById('bnav').classList.add('show');
+
+      // Greeting
+      document.getElementById('greeting-name').textContent = displayName.split(' ')[0];
+
+      // Profile card
+      renderProfileCard(profile);
+
+      // Cinematic flash transition → Home
+      const flash = document.getElementById('login-flash');
+      setTimeout(() => {
+        flash.classList.add('flash-in');
+        setTimeout(() => {
+          nav('screen-home');
+          // Reset signin steps for next session
+          document.querySelectorAll('.signin-step').forEach(s => s.classList.remove('active'));
+          document.getElementById('step-email').classList.add('active');
+          document.getElementById('input-email').value = '';
+          document.getElementById('input-password').value = '';
+          // Fade out overlay
+          setTimeout(() => {
+            flash.classList.remove('flash-in');
+            flash.classList.add('flash-out');
+            setTimeout(() => flash.classList.remove('flash-out'), 400);
+            // Toast after arriving home
+            if (animate) {
+              if (!profile) showToast('Welcome! Please complete your profile 📝');
+              else showToast(`Welcome back, ${displayName.split(' ')[0]}! 👋`);
+            }
+          }, 80);
+        }, 350);
+      }, 500);
+    }
+
+    function signOut() {
+      sessionStorage.removeItem('rs_user');
+      currentUser = null;
+      document.getElementById('top-bar').classList.remove('show');
+      document.getElementById('bnav').classList.remove('show');
+      document.body.classList.remove('logged-in');
+      // Reset sign-in steps
+      document.querySelectorAll('.signin-step').forEach(s => s.classList.remove('active'));
+      document.getElementById('step-email').classList.add('active');
+      document.getElementById('input-email').value = '';
+      document.getElementById('input-password').value = '';
+      document.getElementById('grp-email').classList.remove('has-value', 'focused');
+      document.getElementById('grp-password').classList.remove('has-value', 'focused');
+      clearErr('signin-error-email'); clearErr('signin-error-pwd');
+      // Show signin screen
+      document.querySelectorAll('.screen').forEach(s => s.classList.remove('active'));
+      document.getElementById('screen-signin').classList.add('active');
+      showToast('Signed out successfully.');
+    }
+
+    // ═══════════ PROFILE ═══════════
+    function getProfileKey(email) { return 'rs_profile_' + email; }
+    function getProfile(email) { const s = localStorage.getItem(getProfileKey(email)); return s ? JSON.parse(s) : null; }
+    function saveProfile(email, p) { localStorage.setItem(getProfileKey(email), JSON.stringify(p)); }
+
+    function openProfileModal(isEdit) {
+      if (!currentUser) return;
+      const p = getProfile(currentUser.email);
+      if (isEdit && p) {
+        document.getElementById('pm-fullname').value = p.fullname || '';
+        document.getElementById('pm-studentid').value = p.studentId || '';
+        document.getElementById('pm-section').value = p.section || '';
+        document.getElementById('pm-faculty').value = p.faculty || '';
+        document.getElementById('pm-year').value = p.year || '';
+      }
+      document.getElementById('pm-email-display').textContent = currentUser.email;
+      document.getElementById('profile-modal-overlay').classList.add('show');
+    }
+    function closeProfileModal() { document.getElementById('profile-modal-overlay').classList.remove('show'); }
+
+    function clearPmError(fid) {
+      document.getElementById(fid).classList.remove('error');
+      const e = document.getElementById('err-' + fid.replace('pm-', ''));
+      if (e) e.classList.remove('show');
+    }
+
+    function submitProfile() {
+      const fullname = document.getElementById('pm-fullname').value.trim();
+      const studentId = document.getElementById('pm-studentid').value.trim();
+      const section = document.getElementById('pm-section').value;
+      const faculty = document.getElementById('pm-faculty').value.trim();
+      const year = document.getElementById('pm-year').value;
+      let ok = true;
+      if (!fullname) { document.getElementById('pm-fullname').classList.add('error'); document.getElementById('err-fullname').classList.add('show'); ok = false; }
+      if (!studentId) { document.getElementById('pm-studentid').classList.add('error'); document.getElementById('err-studentid').classList.add('show'); ok = false; }
+      if (!section) { document.getElementById('pm-section').classList.add('error'); document.getElementById('err-section').classList.add('show'); ok = false; }
+      if (!ok) return;
+      document.getElementById('pm-submit-txt').style.display = 'none';
+      document.getElementById('pm-spinner').classList.add('show');
+      document.getElementById('pm-submit-btn').disabled = true;
+      setTimeout(() => {
+        const profile = { fullname, studentId, section, faculty, year, email: currentUser.email, updatedAt: new Date().toISOString() };
+        saveProfile(currentUser.email, profile);
+        // Update UI
+        document.getElementById('tb-name').textContent = fullname;
+        document.getElementById('tb-avatar').textContent = fullname[0].toUpperCase();
+        document.getElementById('tb-meta').textContent = `${studentId} · Sec.${section}`;
+        document.getElementById('greeting-name').textContent = fullname.split(' ')[0];
+        renderProfileCard(profile);
+        document.getElementById('pm-submit-txt').style.display = 'inline';
+        document.getElementById('pm-spinner').classList.remove('show');
+        document.getElementById('pm-submit-btn').disabled = false;
+        closeProfileModal();
+        showToast('✅ Profile saved successfully!');
+      }, 800);
+    }
+
+    function handlePhotoUpload(e) {
+      const file = e.target.files[0];
+      if (!file) return;
+      const reader = new FileReader();
+      reader.onload = ev => {
+        const ring = document.getElementById('pm-avatar-preview');
+        ring.innerHTML = `<img src="${ev.target.result}" style="width:100%;height:100%;border-radius:50%;object-fit:cover;">`;
+        document.getElementById('tb-avatar').innerHTML = `<img src="${ev.target.result}" style="width:100%;height:100%;object-fit:cover;">`;
+      };
+      reader.readAsDataURL(file);
+    }
+
+    function renderProfileCard(profile) {
+      const card = document.getElementById('profile-info-card');
+      if (!card) return;  // element not in DOM, skip safely
+      if (!profile) { card.classList.remove('show'); return; }
+      card.classList.add('show');
+      const av = document.getElementById('pic-av'); if (av) av.textContent = profile.fullname[0].toUpperCase();
+      const nm = document.getElementById('pic-name'); if (nm) nm.textContent = profile.fullname;
+      const sid = document.getElementById('pic-sid'); if (sid) sid.textContent = '🎓 ' + profile.studentId;
+      const sec = document.getElementById('pic-sec'); if (sec) sec.textContent = 'Sec.' + profile.section;
+      const yr = document.getElementById('pic-yr');
+      if (yr) { if (profile.year) { yr.textContent = 'Year ' + profile.year; yr.style.display = ''; } else yr.style.display = 'none'; }
+    }
+
+    // ═══════════ NAVIGATION ═══════════
+    const TABS = { 'screen-home': 'tab-home', 'screen-b': 'tab-b', 'screen-c': 'tab-c', 'screen-d': 'tab-d', 'screen-e': 'tab-e' };
+    function nav(id) {
+      if (id !== 'screen-signin' && !currentUser) return;
+      document.querySelectorAll('.screen').forEach(s => s.classList.remove('active'));
+      document.querySelectorAll('.bnav-btn').forEach(b => b.classList.remove('active'));
+      const target = document.getElementById(id);
+      if (target) target.classList.add('active');
+      if (TABS[id]) document.getElementById(TABS[id]).classList.add('active');
+      window.scrollTo({ top: 0, behavior: 'smooth' });
+    }
+
+    // ═══════════ LESSON DETAIL & STAGES ═══════════
+    function openLessonDetail(unitId) {
+      if (unitId === 1) {
+        document.getElementById('ld-eye').textContent = 'Lesson Plan 1 · Unit 1 (Active)';
+        document.getElementById('ld-badge').textContent = 'Lesson Plan 1 · Unit 1';
+        document.getElementById('ld-heading').textContent = 'Navigating Main Ideas';
+        document.getElementById('ld-title').textContent = 'Previewing & Predicting and Identifying Main Ideas';
+        switchLessonStage(1);
+        nav('screen-lesson-detail');
+      } else if (unitId === 2) {
+        showToast('📖 Unit 2: Supporting Details and Idea Relationships (Completed)');
+        document.getElementById('ld-eye').textContent = 'Lesson Plan 2 · Unit 2';
+        document.getElementById('ld-badge').textContent = 'Lesson Plan 2 · Unit 2';
+        document.getElementById('ld-heading').textContent = 'Supporting Details';
+        document.getElementById('ld-title').textContent = 'Supporting Details and Idea Relationships';
+        switchLessonStage(1);
+        nav('screen-lesson-detail');
+      } else if (unitId === 3) {
+        showToast('📖 Unit 3: Vocabulary in Context (In Progress)');
+        document.getElementById('ld-eye').textContent = 'Lesson Plan 3 · Unit 3';
+        document.getElementById('ld-badge').textContent = 'Lesson Plan 3 · Unit 3';
+        document.getElementById('ld-heading').textContent = 'Context Clues';
+        document.getElementById('ld-title').textContent = 'Vocabulary in Context and Sentence Meaning';
+        switchLessonStage(1);
+        nav('screen-lesson-detail');
+      } else {
+        showToast(`🔒 Unit ${unitId} is locked. Complete previous units first!`);
+      }
+    }
+
+    function switchLessonStage(num) {
+      for (let i = 1; i <= 3; i++) {
+        const tab = document.getElementById(`st-tab-${i}`);
+        const content = document.getElementById(`stage-content-${i}`);
+        if (tab) tab.classList.toggle('active', i === num);
+        if (content) content.classList.toggle('active', i === num);
+      }
+      window.scrollTo({ top: 0, behavior: 'smooth' });
+    }
+
+    // ═══════════ STRATEGY VIEWER ═══════════
+    function openStrategyDetail(unitId) {
+      if (unitId === 1) {
+        document.getElementById('strat-view-title').textContent = 'Unit 1: Previewing and Predicting';
+        nav('screen-strategy-detail');
+      } else {
+        showToast(`Strategy ${unitId} guide is available in course materials.`);
+      }
+    }
+
+    // ═══════════ HIGHLIGHTER TOOL ═══════════
+    let currentHlMode = 'topic'; // 'topic' or 'detail'
+
+    function setHlMode(mode) {
+      currentHlMode = mode;
+      document.getElementById('hl-mode-topic').classList.toggle('active', mode === 'topic');
+      document.getElementById('hl-mode-detail').classList.toggle('active', mode === 'detail');
+      showToast(mode === 'topic' ? '🟡 Selected: Topic Sentence Highlighter' : '🟢 Selected: Supporting Details Highlighter');
+    }
+
+    function toggleSentenceHl(el) {
+      if (currentHlMode === 'topic') {
+        if (el.classList.contains('hl-topic')) {
+          el.classList.remove('hl-topic');
+        } else {
+          el.classList.remove('hl-detail');
+          el.classList.add('hl-topic');
+          showToast('🟡 Highlighted as Topic Sentence');
+        }
+      } else if (currentHlMode === 'detail') {
+        if (el.classList.contains('hl-detail')) {
+          el.classList.remove('hl-detail');
+        } else {
+          el.classList.remove('hl-topic');
+          el.classList.add('hl-detail');
+          showToast('🟢 Highlighted as Supporting Detail');
+        }
+      }
+    }
+
+    function clearPassageHighlights() {
+      document.querySelectorAll('.passage-sentence').forEach(s => {
+        s.classList.remove('hl-topic', 'hl-detail');
+      });
+      showToast('Cleared all highlights.');
+    }
+
+    // ═══════════ INTERACTIVE QUIZ ENGINE ═══════════
+    let quizScore = 0;
+    const answeredQuestions = {};
+
+    function openInteractiveQuiz(unitId) {
+      if (unitId === 1) {
+        quizScore = 0;
+        for (let k in answeredQuestions) delete answeredQuestions[k];
+        document.querySelectorAll('.quiz-opt').forEach(opt => {
+          opt.classList.remove('selected', 'correct', 'wrong', 'locked');
+          opt.disabled = false;
+        });
+        document.querySelectorAll('.quiz-feedback').forEach(fb => {
+          fb.className = 'quiz-feedback';
+          fb.textContent = '';
+          fb.style.display = 'none';
+        });
+        document.getElementById('quiz-score-badge').textContent = 'Score: 0 / 5';
+        nav('screen-quiz-interactive');
+      } else {
+        showToast(`Quiz for Unit ${unitId} is scheduled in upcoming weeks.`);
+      }
+    }
+
+    function selectQuizAnswer(qNum, optIdx, isCorrect, feedbackMsg) {
+      if (answeredQuestions[qNum]) return; // Already answered
+      answeredQuestions[qNum] = isCorrect;
+
+      const qBox = document.getElementById(`qbox-${qNum}`);
+      const opts = qBox.querySelectorAll('.quiz-opt');
+
+      opts.forEach((btn, idx) => {
+        btn.classList.add('locked');
+        btn.disabled = true;
+        if (idx === optIdx) {
+          if (isCorrect) {
+            btn.classList.add('correct');
+          } else {
+            btn.classList.add('wrong');
+          }
+        }
+        // Also highlight correct answer if wrong was picked
+        if (!isCorrect && isCorrectOption(qNum, idx)) {
+          btn.classList.add('correct');
+        }
+      });
+
+      if (isCorrect) quizScore++;
+
+      const fb = document.getElementById(`qfb-${qNum}`);
+      fb.textContent = feedbackMsg;
+      fb.className = `quiz-feedback ${isCorrect ? 'correct' : 'wrong'}`;
+      fb.style.display = 'block';
+
+      document.getElementById('quiz-score-badge').textContent = `Score: ${quizScore} / 5`;
+    }
+
+    function isCorrectOption(qNum, idx) {
+      if (qNum === 1 && idx === 1) return true;
+      if (qNum === 2 && idx === 1) return true;
+      if (qNum === 3 && idx === 0) return true;
+      if (qNum === 4 && idx === 1) return true;
+      if (qNum === 5 && idx === 2) return true;
+      return false;
+    }
+
+    function finishQuiz() {
+      const totalAnswered = Object.keys(answeredQuestions).length;
+      if (totalAnswered < 5) {
+        showToast(`กรุณาตอบคำถามให้ครบทั้ง 5 ข้อก่อน (ทำแล้ว ${totalAnswered}/5)`);
+        return;
+      }
+      const pct = Math.round((quizScore / 5) * 100);
+      showToast(`🎉 ทำควิซเสร็จสิ้น! คะแนนของคุณ: ${quizScore}/5 (${pct}%)`);
+
+      // Return to progress screen to see updated record
+      setTimeout(() => {
+        nav('screen-e');
+      }, 1200);
+    }
+
+    // ═══════════ TOAST ═══════════
+    function showToast(msg) {
+      const t = document.getElementById('toast');
+      t.textContent = msg; t.classList.add('show');
+      setTimeout(() => t.classList.remove('show'), 3500);
+    }
+
+    // Close modal on overlay click
+    document.getElementById('profile-modal-overlay').addEventListener('click', function (e) {
+      if (e.target === this) closeProfileModal();
+    });
+  </script>
+</body>
+
+</html>
