@@ -93,6 +93,18 @@ body{font-family:'DM Sans',sans-serif;background:var(--bg);color:var(--text);min
 .signin-error{background:rgba(224,92,92,.1);border:1px solid rgba(224,92,92,.3);color:var(--red);border-radius:10px;padding:12px 16px;font-size:.84rem;margin-top:16px;display:none;text-align:left;line-height:1.5;}
 .signin-error.show{display:block;}
 
+/* ── Testing Phase Demo Button ── */
+.signin-test-box{margin-top:22px;padding-top:18px;border-top:1px dashed rgba(232,201,122,.25);}
+.signin-divider{display:flex;align-items:center;gap:10px;margin-bottom:12px;}
+.signin-divider::before,.signin-divider::after{content:'';flex:1;height:1px;background:var(--border);}
+.signin-divider span{font-family:'DM Mono',monospace;font-size:.62rem;letter-spacing:1.5px;color:var(--gold);text-transform:uppercase;font-weight:600;}
+.demo-signin-btn{width:100%;background:linear-gradient(135deg,rgba(232,201,122,.12),rgba(78,205,196,.12));border:1.5px solid rgba(232,201,122,.35);color:var(--gold2);padding:11px 16px;border-radius:12px;font-family:'DM Sans',sans-serif;font-size:.86rem;font-weight:600;cursor:pointer;display:flex;align-items:center;justify-content:center;gap:8px;transition:all .25s cubic-bezier(.4,0,.2,1);box-shadow:0 4px 14px rgba(0,0,0,.25);}
+.demo-signin-btn:hover{background:linear-gradient(135deg,rgba(232,201,122,.22),rgba(78,205,196,.22));border-color:var(--gold);transform:translateY(-2px);box-shadow:0 6px 20px rgba(232,201,122,.2);color:#fff;}
+.demo-signin-btn:active{transform:translateY(0);}
+.demo-btn-icon{font-size:1.05rem;}
+.demo-badge{font-family:'DM Mono',monospace;font-size:.6rem;background:rgba(232,201,122,.2);border:1px solid rgba(232,201,122,.5);color:var(--gold);padding:2px 6px;border-radius:5px;letter-spacing:.5px;margin-left:auto;}
+
+
 /* ══════════════════════════════════
    PROFILE MODAL
 ══════════════════════════════════ */
@@ -371,6 +383,100 @@ body.logged-in .app-screen{padding-top:58px;}
 .quiz-action-bar{display:flex;justify-content:space-between;align-items:center;margin-top:20px;}
 .action-primary-btn{background:linear-gradient(135deg,var(--gold),#c9a84c);color:#0d0f14;border:none;padding:12px 24px;border-radius:24px;font-weight:700;font-size:.9rem;cursor:pointer;transition:all .2s;}
 .action-primary-btn:hover{transform:translateY(-2px);box-shadow:0 6px 20px rgba(232,201,122,.3);}
+
+/* ══════════════════════════════════
+   EXPANDED LESSON CONTENT STYLES
+══════════════════════════════════ */
+
+/* Concept Highlight Box */
+.concept-box{background:linear-gradient(135deg,rgba(232,201,122,.06),var(--surface2));border:1.5px solid rgba(232,201,122,.25);border-radius:14px;padding:20px;margin:16px 0;}
+.concept-box h4{font-family:'Playfair Display',serif;font-size:1.05rem;font-weight:700;color:var(--gold);margin-bottom:10px;display:flex;align-items:center;gap:8px;}
+.concept-box p{font-size:.88rem;color:var(--muted);line-height:1.75;margin-bottom:10px;}
+.concept-box p:last-child{margin-bottom:0;}
+
+/* Key Term inline */
+.key-term{background:rgba(232,201,122,.15);color:var(--gold2);padding:2px 8px;border-radius:6px;font-weight:600;border-bottom:2px solid var(--gold);}
+.key-term-teal{background:rgba(78,205,196,.15);color:var(--teal);padding:2px 8px;border-radius:6px;font-weight:600;border-bottom:2px solid var(--teal);}
+
+/* Visual Diagram (CSS-based) */
+.visual-diagram{background:var(--surface);border:1px solid var(--border);border-radius:14px;padding:20px;margin:16px 0;overflow:hidden;}
+.visual-diagram .vd-title{font-family:'DM Mono',monospace;font-size:.7rem;letter-spacing:2px;text-transform:uppercase;color:var(--teal);margin-bottom:14px;display:flex;align-items:center;gap:8px;}
+.visual-diagram .vd-title::after{content:'';flex:1;height:1px;background:linear-gradient(90deg,rgba(78,205,196,.3),transparent);}
+
+/* Text Feature Demo */
+.tf-demo{border:1.5px solid var(--border2);border-radius:12px;overflow:hidden;background:var(--surface2);}
+.tf-demo-header{padding:14px 16px;border-bottom:1px solid var(--border);}
+.tf-label{display:inline-flex;align-items:center;gap:6px;font-family:'DM Mono',monospace;font-size:.62rem;padding:3px 10px;border-radius:20px;margin:2px 4px 2px 0;}
+.tf-label-gold{background:rgba(232,201,122,.12);color:var(--gold);border:1px solid rgba(232,201,122,.3);}
+.tf-label-teal{background:rgba(78,205,196,.12);color:var(--teal);border:1px solid rgba(78,205,196,.3);}
+.tf-label-green{background:rgba(92,201,148,.12);color:var(--green);border:1px solid rgba(92,201,148,.3);}
+.tf-label-purple{background:rgba(155,114,232,.12);color:#b090f0;border:1px solid rgba(155,114,232,.3);}
+.tf-demo-body{padding:14px 16px;}
+.tf-bold-word{background:rgba(155,114,232,.2);color:#c4a8f5;padding:1px 5px;border-radius:4px;font-weight:700;}
+
+/* Paragraph Structure Demo */
+.para-demo{display:flex;flex-direction:column;gap:6px;}
+.para-line{height:10px;border-radius:5px;transition:all .3s;}
+.para-line-topic{background:linear-gradient(90deg,var(--gold),var(--gold2));height:14px;box-shadow:0 2px 8px rgba(232,201,122,.3);}
+.para-line-detail{background:var(--surface3);opacity:.7;}
+.para-line-label{font-family:'DM Mono',monospace;font-size:.65rem;margin-top:4px;}
+
+/* Exercise Box */
+.exercise-box{background:linear-gradient(135deg,rgba(78,205,196,.05),var(--surface));border:1.5px solid rgba(78,205,196,.25);border-radius:14px;padding:20px;margin:18px 0;}
+.exercise-box h4{font-family:'Playfair Display',serif;font-size:1rem;font-weight:700;color:var(--teal);margin-bottom:6px;display:flex;align-items:center;gap:8px;}
+.exercise-box .ex-instruction{font-size:.82rem;color:var(--muted);margin-bottom:14px;line-height:1.6;}
+.ex-options{display:flex;flex-direction:column;gap:8px;}
+.ex-opt{background:var(--surface2);border:1.5px solid var(--border);border-radius:10px;padding:12px 16px;color:var(--text);font-size:.86rem;cursor:pointer;transition:all .2s;text-align:left;display:flex;align-items:center;gap:10px;line-height:1.5;}
+.ex-opt:hover:not(.ex-locked){border-color:var(--teal);background:rgba(78,205,196,.06);}
+.ex-opt.ex-selected{border-color:var(--gold);background:rgba(232,201,122,.1);}
+.ex-opt.ex-correct{border-color:var(--green)!important;background:rgba(92,201,148,.15)!important;}
+.ex-opt.ex-wrong{border-color:var(--red)!important;background:rgba(224,92,92,.12)!important;}
+.ex-opt .ex-letter{width:28px;height:28px;border-radius:50%;background:var(--surface3);border:1px solid var(--border);display:flex;align-items:center;justify-content:center;font-family:'DM Mono',monospace;font-size:.75rem;font-weight:600;flex-shrink:0;}
+.ex-opt.ex-correct .ex-letter{background:rgba(92,201,148,.2);border-color:var(--green);color:var(--green);}
+.ex-opt.ex-wrong .ex-letter{background:rgba(224,92,92,.15);border-color:var(--red);color:var(--red);}
+.ex-feedback{margin-top:10px;padding:10px 14px;border-radius:8px;font-size:.82rem;line-height:1.6;display:none;}
+.ex-feedback.show{display:block;}
+.ex-feedback.correct{background:rgba(92,201,148,.1);border:1px solid rgba(92,201,148,.3);color:var(--green);}
+.ex-feedback.wrong{background:rgba(224,92,92,.1);border:1px solid rgba(224,92,92,.3);color:var(--red);}
+
+/* Comparison Table */
+.compare-table{width:100%;border-collapse:collapse;font-size:.82rem;margin:12px 0;}
+.compare-table th{background:var(--surface2);color:var(--gold);padding:12px 14px;text-align:left;font-family:'Playfair Display',serif;font-weight:700;border-bottom:2px solid var(--border2);}
+.compare-table td{padding:12px 14px;border-bottom:1px solid var(--border);color:var(--text);line-height:1.6;vertical-align:top;}
+.compare-table tr:last-child td{border-bottom:none;}
+
+/* Example Paragraph Box */
+.example-para{background:var(--surface2);border:1px solid var(--border);border-radius:12px;padding:18px;margin:12px 0;line-height:1.85;font-size:.9rem;font-family:'Georgia',serif;color:#d8deea;}
+.example-para .hl-gold{background:rgba(232,201,122,.35);padding:2px 4px;border-radius:4px;border-bottom:2px solid var(--gold);}
+.example-para .hl-teal{background:rgba(78,205,196,.25);padding:2px 4px;border-radius:4px;border-bottom:2px solid var(--teal);}
+
+/* Signal Word Chip */
+.signal-chip{display:inline-block;background:rgba(155,114,232,.12);color:#b090f0;border:1px solid rgba(155,114,232,.3);padding:3px 10px;border-radius:16px;font-family:'DM Mono',monospace;font-size:.72rem;margin:2px 4px;}
+
+/* Self-Check Quiz */
+.self-check-wrap{background:var(--surface);border:1px solid var(--border);border-radius:14px;overflow:hidden;margin:16px 0;}
+.self-check-header{background:linear-gradient(135deg,#132247,#1b3060);padding:16px 20px;border-bottom:1px solid rgba(232,201,122,.2);}
+.self-check-header h4{font-family:'Playfair Display',serif;font-size:1.05rem;color:var(--gold2);margin-bottom:4px;}
+.self-check-header p{font-size:.78rem;color:var(--muted);}
+.sc-question{padding:16px 20px;border-bottom:1px solid var(--border);}
+.sc-question:last-child{border-bottom:none;}
+.sc-q-text{font-size:.9rem;font-weight:600;margin-bottom:10px;line-height:1.5;}
+.sc-score-bar{padding:16px 20px;background:var(--surface2);display:flex;justify-content:space-between;align-items:center;}
+.sc-score{font-family:'DM Mono',monospace;font-size:1.1rem;font-weight:700;}
+
+/* Reflection Box */
+.reflection-box{background:linear-gradient(135deg,rgba(155,114,232,.06),var(--surface));border:1.5px solid rgba(155,114,232,.25);border-radius:14px;padding:20px;margin:16px 0;}
+.reflection-box h4{color:#b090f0;font-family:'Playfair Display',serif;margin-bottom:10px;}
+.reflection-box ul{padding-left:20px;font-size:.86rem;color:var(--muted);line-height:1.8;}
+
+/* Section Divider */
+.section-divider{display:flex;align-items:center;gap:12px;margin:28px 0 20px;}
+.section-divider .sd-num{width:36px;height:36px;border-radius:50%;background:linear-gradient(135deg,var(--gold),#c9a84c);color:#0d0f14;display:flex;align-items:center;justify-content:center;font-family:'DM Mono',monospace;font-size:.85rem;font-weight:700;flex-shrink:0;}
+.section-divider h3{font-family:'Playfair Display',serif;font-size:1.15rem;font-weight:700;color:var(--text);}
+.section-divider .sd-line{flex:1;height:1px;background:linear-gradient(90deg,var(--border2),transparent);}
+
+/* Guided Question */
+.guided-q{background:rgba(232,201,122,.06);border-left:3px solid var(--gold);padding:12px 16px;border-radius:0 10px 10px 0;margin:12px 0;font-size:.86rem;color:var(--gold2);line-height:1.6;font-style:italic;}
 </style>
 </head>
 <body>
@@ -486,6 +592,16 @@ body.logged-in .app-screen{padding-top:58px;}
             <div class="btn-spinner" id="spin-email"></div>
           </button>
         </div>
+
+        <!-- Testing Phase 1-Click Sign-in -->
+        <div class="signin-test-box">
+          <div class="signin-divider"><span>Testing Phase</span></div>
+          <button type="button" class="demo-signin-btn" onclick="demoQuickSignIn()" title="เข้าสู่ระบบทดสอบทันทีโดยไม่ต้องกรอกอีเมล">
+            <span class="demo-btn-icon">⚡</span>
+            <span class="demo-btn-text">Demo Sign-in (ไม่ต้องใช้อีเมล)</span>
+            <span class="demo-badge">1-Click</span>
+          </button>
+        </div>
       </div>
 
       <!-- Step 2: Password -->
@@ -569,14 +685,14 @@ body.logged-in .app-screen{padding-top:58px;}
     </div>
 
     <!-- Continue strip -->
-    <div class="continue-strip" onclick="nav('screen-b')">
+    <div class="continue-strip" onclick="openLessonDetail(1)">
       <div class="cs-icon">▶</div>
       <div class="cs-info">
-        <div class="cs-tag">Continue where you left off</div>
-        <div class="cs-title">Unit 3 — Vocabulary in Context and Sentence Meaning</div>
+        <div class="cs-tag">Current Active Lesson · Unit 1</div>
+        <div class="cs-title">Previewing &amp; Predicting and Identifying Main Ideas</div>
         <div class="cs-bar-row">
-          <div class="cs-bar"><div class="cs-bar-fill" style="width:55%"></div></div>
-          <span class="cs-pct">55%</span>
+          <div class="cs-bar"><div class="cs-bar-fill" style="width:100%"></div></div>
+          <span class="cs-pct">Active</span>
         </div>
       </div>
       <div class="cs-arrow">›</div>
@@ -593,8 +709,8 @@ body.logged-in .app-screen{padding-top:58px;}
         <div class="mc-inner">
           <div class="mc-icon-wrap">📖</div>
           <div class="mc-body">
-            <div class="mc-title">Reading Lessons <span class="mc-badge badge-cur">In Progress</span></div>
-            <div class="mc-desc">Six instructional units with reading passages, learning activities, and integrated reading exercises</div>
+            <div class="mc-title">Reading Lessons <span class="mc-badge badge-cur">Unit 1 Active</span></div>
+            <div class="mc-desc">Three instructional stages: Pre-Reading, While-Reading, and Post-Reading with interactive tools</div>
           </div>
           <div class="mc-arrow">›</div>
         </div>
@@ -604,7 +720,7 @@ body.logged-in .app-screen{padding-top:58px;}
         <div class="mc-inner">
           <div class="mc-icon-wrap">🧠</div>
           <div class="mc-body">
-            <div class="mc-title">Reading Strategies <span class="mc-badge badge-done">2 / 6 Done</span></div>
+            <div class="mc-title">Reading Strategies <span class="mc-badge badge-done">Unit 1 Ready</span></div>
             <div class="mc-desc">Explicit reading skills and strategy instruction with worked examples and guided practice</div>
           </div>
           <div class="mc-arrow">›</div>
@@ -641,39 +757,39 @@ body.logged-in .app-screen{padding-top:58px;}
   <div class="inner-wrap">
     <div class="inner-top">
       <button class="back-btn" onclick="nav('screen-home')">←</button>
-      <div><div class="inner-eye">Reading Lessons</div><div class="inner-h">Six Instructional Units</div></div>
+      <div><div class="inner-eye">Reading Lessons</div><div class="inner-h">Instructional Units</div></div>
     </div>
     <p style="font-size:.82rem;color:var(--muted);margin-bottom:18px;">💡 แตะที่การ์ดยูนิตเพื่อคลิกเข้าสู่เนื้อหาบทเรียน เอกสารอ่าน และกิจกรรมการเรียนรู้</p>
     <div class="timeline">
-      <!-- Lesson 1 (Clickable) -->
+      <!-- Lesson 1 (Clickable Active Unit) -->
       <div class="tl-item" onclick="openLessonDetail(1)" style="cursor:pointer;">
-        <div class="tl-dot done">✓</div>
-        <div class="tl-card" style="border-color:rgba(232,201,122,.5);background:var(--surface2);position:relative;">
+        <div class="tl-dot cur">▶</div>
+        <div class="tl-card cur" style="border-color:rgba(232,201,122,.6);background:var(--surface2);position:relative;">
           <div style="position:absolute;top:12px;right:14px;font-size:.72rem;color:var(--gold);font-weight:700;display:flex;align-items:center;gap:4px;">
             <span>คลิกเข้าสู่เนื้อหา</span> <span style="font-size:.9rem;">➔</span>
           </div>
-          <div class="tl-unit-label d">Lesson Plan 1 · Unit 1 · Completed · Weeks 2–3</div>
+          <div class="tl-unit-label c">Lesson Plan 1 · Unit 1 · Active Unit · Weeks 2–3</div>
           <h4 style="color:var(--gold2);padding-right:90px;">Previewing &amp; Predicting and Identifying Main Ideas</h4>
           <div class="tl-tags">
             <span class="tl-tag" style="border-color:var(--gold);color:var(--gold)">📖 Navigating Main Ideas</span>
+            <span class="tl-tag">Text Features</span>
             <span class="tl-tag">Vocabulary Preview</span>
-            <span class="tl-tag">Prediction Quiz</span>
-            <span class="tl-tag">Topic Sentence Tool</span>
+            <span class="tl-tag">Highlighter Tool</span>
             <span class="tl-tag">Passages 1–3</span>
             <span class="tl-tag">6 hrs</span>
           </div>
           <div class="tl-bar-row">
-            <div class="tl-mini-bar"><div class="tl-mini-fill done" style="width:100%"></div></div>
-            <span class="tl-pct" style="color:var(--green)">100%</span>
+            <div class="tl-mini-bar"><div class="tl-mini-fill cur" style="width:100%"></div></div>
+            <span class="tl-pct" style="color:var(--gold)">Ready</span>
           </div>
         </div>
       </div>
 
-      <div class="tl-item" onclick="openLessonDetail(2)" style="cursor:pointer;"><div class="tl-dot done">✓</div><div class="tl-card"><div class="tl-unit-label d">Lesson Plan 2 · Unit 2 · Completed · Weeks 4–5</div><h4>Supporting Details and Idea Relationships</h4><div class="tl-tags"><span class="tl-tag">Skimming and Scanning</span><span class="tl-tag">Main Idea Challenge</span><span class="tl-tag">Timed Scanning Task</span><span class="tl-tag">6 hrs</span></div><div class="tl-bar-row"><div class="tl-mini-bar"><div class="tl-mini-fill done" style="width:100%"></div></div><span class="tl-pct" style="color:var(--green)">100%</span></div></div></div>
-      <div class="tl-item" onclick="openLessonDetail(3)" style="cursor:pointer;"><div class="tl-dot cur">▶</div><div class="tl-card cur"><div class="tl-unit-label c">Lesson Plan 3 · Unit 3 · In Progress · Weeks 6–7</div><h4>Vocabulary in Context and Sentence Meaning</h4><div class="tl-tags"><span class="tl-tag">Using Context Clues</span><span class="tl-tag">Context Clue Game</span><span class="tl-tag">Vocabulary Quiz</span><span class="tl-tag">6 hrs</span></div><div class="tl-bar-row"><div class="tl-mini-bar"><div class="tl-mini-fill cur" style="width:55%"></div></div><span class="tl-pct" style="color:var(--gold)">55%</span></div></div></div>
-      <div class="tl-item" onclick="openLessonDetail(4)" style="cursor:pointer;"><div class="tl-dot lock">🔒</div><div class="tl-card lock"><div class="tl-unit-label">Lesson Plan 4 · Unit 4 · Locked · Weeks 8–9</div><h4>References, Connectives, and Text Organization</h4><div class="tl-tags"><span class="tl-tag">Identifying Text Organization</span><span class="tl-tag">Reference Matching Task</span><span class="tl-tag">Text Structure Practice</span><span class="tl-tag">6 hrs</span></div><div class="tl-bar-row"><div class="tl-mini-bar"><div class="tl-mini-fill" style="width:0%"></div></div><span class="tl-pct">0%</span></div></div></div>
-      <div class="tl-item" onclick="openLessonDetail(5)" style="cursor:pointer;"><div class="tl-dot lock">🔒</div><div class="tl-card lock"><div class="tl-unit-label">Lesson Plan 5 · Unit 5 · Locked · Weeks 10–11</div><h4>Text Interpretation and Paraphrased Meaning</h4><div class="tl-tags"><span class="tl-tag">Making Inferences</span><span class="tl-tag">Inference Detective</span><span class="tl-tag">Paraphrasing Practice</span><span class="tl-tag">6 hrs</span></div><div class="tl-bar-row"><div class="tl-mini-bar"><div class="tl-mini-fill" style="width:0%"></div></div><span class="tl-pct">0%</span></div></div></div>
-      <div class="tl-item" onclick="openLessonDetail(6)" style="cursor:pointer;"><div class="tl-dot lock">🔒</div><div class="tl-card lock"><div class="tl-unit-label">Lesson Plan 6 · Unit 6 · Locked · Weeks 12–13</div><h4>Integrated Reading Practice</h4><div class="tl-tags"><span class="tl-tag">Integrated Strategy Review</span><span class="tl-tag">Reading Challenge</span><span class="tl-tag">Progress Check</span><span class="tl-tag">6 hrs</span></div><div class="tl-bar-row"><div class="tl-mini-bar"><div class="tl-mini-fill" style="width:0%"></div></div><span class="tl-pct">0%</span></div></div></div>
+      <div class="tl-item" onclick="openLessonDetail(2)" style="cursor:pointer;"><div class="tl-dot lock">🔒</div><div class="tl-card lock"><div class="tl-unit-label">Lesson Plan 2 · Unit 2 · Locked · Weeks 4–5</div><h4>Supporting Details and Idea Relationships</h4><div class="tl-tags"><span class="tl-tag">Skimming and Scanning</span><span class="tl-tag">Main Idea Challenge</span><span class="tl-tag">6 hrs</span></div><div class="tl-bar-row"><div class="tl-mini-bar"><div class="tl-mini-fill" style="width:0%"></div></div><span class="tl-pct">Locked</span></div></div></div>
+      <div class="tl-item" onclick="openLessonDetail(3)" style="cursor:pointer;"><div class="tl-dot lock">🔒</div><div class="tl-card lock"><div class="tl-unit-label">Lesson Plan 3 · Unit 3 · Locked · Weeks 6–7</div><h4>Vocabulary in Context and Sentence Meaning</h4><div class="tl-tags"><span class="tl-tag">Using Context Clues</span><span class="tl-tag">Context Clue Game</span><span class="tl-tag">6 hrs</span></div><div class="tl-bar-row"><div class="tl-mini-bar"><div class="tl-mini-fill" style="width:0%"></div></div><span class="tl-pct">Locked</span></div></div></div>
+      <div class="tl-item" onclick="openLessonDetail(4)" style="cursor:pointer;"><div class="tl-dot lock">🔒</div><div class="tl-card lock"><div class="tl-unit-label">Lesson Plan 4 · Unit 4 · Locked · Weeks 8–9</div><h4>References, Connectives, and Text Organization</h4><div class="tl-tags"><span class="tl-tag">Identifying Text Organization</span><span class="tl-tag">Reference Matching</span><span class="tl-tag">6 hrs</span></div><div class="tl-bar-row"><div class="tl-mini-bar"><div class="tl-mini-fill" style="width:0%"></div></div><span class="tl-pct">Locked</span></div></div></div>
+      <div class="tl-item" onclick="openLessonDetail(5)" style="cursor:pointer;"><div class="tl-dot lock">🔒</div><div class="tl-card lock"><div class="tl-unit-label">Lesson Plan 5 · Unit 5 · Locked · Weeks 10–11</div><h4>Text Interpretation and Paraphrased Meaning</h4><div class="tl-tags"><span class="tl-tag">Making Inferences</span><span class="tl-tag">Inference Detective</span><span class="tl-tag">6 hrs</span></div><div class="tl-bar-row"><div class="tl-mini-bar"><div class="tl-mini-fill" style="width:0%"></div></div><span class="tl-pct">Locked</span></div></div></div>
+      <div class="tl-item" onclick="openLessonDetail(6)" style="cursor:pointer;"><div class="tl-dot lock">🔒</div><div class="tl-card lock"><div class="tl-unit-label">Lesson Plan 6 · Unit 6 · Locked · Weeks 12–13</div><h4>Integrated Reading Practice</h4><div class="tl-tags"><span class="tl-tag">Integrated Strategy Review</span><span class="tl-tag">Reading Challenge</span><span class="tl-tag">6 hrs</span></div><div class="tl-bar-row"><div class="tl-mini-bar"><div class="tl-mini-fill" style="width:0%"></div></div><span class="tl-pct">Locked</span></div></div></div>
       <div style="margin-top:8px;margin-left:56px;background:var(--surface2);border:1px solid var(--border);border-radius:10px;padding:12px 16px;display:flex;justify-content:space-between;align-items:center;">
         <span style="font-family:'DM Mono',monospace;font-size:.68rem;letter-spacing:1.5px;color:var(--muted);text-transform:uppercase;">Total</span>
         <div style="display:flex;gap:16px;"><span style="font-family:'DM Mono',monospace;font-size:.78rem;color:var(--gold);">35 Hours</span><span style="font-family:'DM Mono',monospace;font-size:.78rem;color:var(--teal);">12 Weeks</span></div>
@@ -700,11 +816,11 @@ body.logged-in .app-screen{padding-top:58px;}
         </div>
         <div class="strat-dot" style="background:var(--green)"></div>
       </div>
-      <div class="strat-row" onclick="openStrategyDetail(2)"><div class="strat-icon-box" style="background:rgba(92,201,148,.1);border:1px solid rgba(92,201,148,.3)">⚡</div><div class="strat-info"><div class="strat-label" style="color:var(--green)">Unit 2 · Weeks 4–5 · Completed</div><div class="strat-title">Skimming and Scanning</div><div class="strat-desc">Skim for main ideas and scan for specific information quickly and efficiently</div></div><div class="strat-dot" style="background:var(--green)"></div></div>
-      <div class="strat-row" onclick="openStrategyDetail(3)" style="border-color:rgba(232,201,122,.35);background:var(--surface2)"><div class="strat-icon-box" style="background:rgba(232,201,122,.1);border:1px solid rgba(232,201,122,.25)">📖</div><div class="strat-info"><div class="strat-label" style="color:var(--gold)">Unit 3 · Weeks 6–7 · In Progress</div><div class="strat-title">Using Context Clues</div><div class="strat-desc">Guess the meaning of unfamiliar words using surrounding context</div></div><div class="strat-dot" style="background:var(--gold)"></div></div>
-      <div class="strat-row" onclick="openStrategyDetail(4)" style="opacity:.5"><div class="strat-icon-box" style="background:var(--surface2);border:1px solid var(--border)">🗂</div><div class="strat-info"><div class="strat-label">Unit 4 · Weeks 8–9 · Locked</div><div class="strat-title">Identifying Text Organization</div><div class="strat-desc">Recognise how texts are structured: cause-effect, comparison, sequence</div></div><div class="strat-dot" style="background:var(--border2)"></div></div>
-      <div class="strat-row" onclick="openStrategyDetail(5)" style="opacity:.4"><div class="strat-icon-box" style="background:var(--surface2);border:1px solid var(--border)">💡</div><div class="strat-info"><div class="strat-label">Unit 5 · Weeks 10–11 · Locked</div><div class="strat-title">Making Inferences</div><div class="strat-desc">Read between the lines — draw logical conclusions from implied information</div></div><div class="strat-dot" style="background:var(--border2)"></div></div>
-      <div class="strat-row" onclick="openStrategyDetail(6)" style="opacity:.3"><div class="strat-icon-box" style="background:var(--surface2);border:1px solid var(--border)">🔄</div><div class="strat-info"><div class="strat-label">Unit 6 · Weeks 12–13 · Locked</div><div class="strat-title">Integrated Strategy Review</div><div class="strat-desc">Apply all strategies together in extended reading practice</div></div><div class="strat-dot" style="background:var(--border2)"></div></div>
+      <div class="strat-row" onclick="openStrategyDetail(2)" style="opacity:.5"><div class="strat-icon-box" style="background:var(--surface2);border:1px solid var(--border)">⚡</div><div class="strat-info"><div class="strat-label">Unit 2 · Weeks 4–5 · Locked</div><div class="strat-title">Skimming and Scanning</div><div class="strat-desc">Skim for main ideas and scan for specific information quickly and efficiently</div></div><div class="strat-dot" style="background:var(--border2)"></div></div>
+      <div class="strat-row" onclick="openStrategyDetail(3)" style="opacity:.5"><div class="strat-icon-box" style="background:var(--surface2);border:1px solid var(--border)">📖</div><div class="strat-info"><div class="strat-label">Unit 3 · Weeks 6–7 · Locked</div><div class="strat-title">Using Context Clues</div><div class="strat-desc">Guess the meaning of unfamiliar words using surrounding context</div></div><div class="strat-dot" style="background:var(--border2)"></div></div>
+      <div class="strat-row" onclick="openStrategyDetail(4)" style="opacity:.4"><div class="strat-icon-box" style="background:var(--surface2);border:1px solid var(--border)">🗂</div><div class="strat-info"><div class="strat-label">Unit 4 · Weeks 8–9 · Locked</div><div class="strat-title">Identifying Text Organization</div><div class="strat-desc">Recognise how texts are structured: cause-effect, comparison, sequence</div></div><div class="strat-dot" style="background:var(--border2)"></div></div>
+      <div class="strat-row" onclick="openStrategyDetail(5)" style="opacity:.3"><div class="strat-icon-box" style="background:var(--surface2);border:1px solid var(--border)">💡</div><div class="strat-info"><div class="strat-label">Unit 5 · Weeks 10–11 · Locked</div><div class="strat-title">Making Inferences</div><div class="strat-desc">Read between the lines — draw logical conclusions from implied information</div></div><div class="strat-dot" style="background:var(--border2)"></div></div>
+      <div class="strat-row" onclick="openStrategyDetail(6)" style="opacity:.2"><div class="strat-icon-box" style="background:var(--surface2);border:1px solid var(--border)">🔄</div><div class="strat-info"><div class="strat-label">Unit 6 · Weeks 12–13 · Locked</div><div class="strat-title">Integrated Strategy Review</div><div class="strat-desc">Apply all strategies together in extended reading practice</div></div><div class="strat-dot" style="background:var(--border2)"></div></div>
     </div>
   </div>
 </div>
@@ -765,26 +881,458 @@ body.logged-in .app-screen{padding-top:58px;}
       <button class="stage-tab" id="st-tab-3" onclick="switchLessonStage(3)">3. Post-Reading</button>
     </div>
 
-    <!-- ── STAGE 1: PRE-READING ── -->
+    <!-- ── STAGE 1: PRE-READING — Learning Key Concepts ── -->
     <div class="stage-content active" id="stage-content-1">
+
+      <!-- ═══ Section 1.1: Core Concept & Objectives ═══ -->
       <div class="content-block">
-        <h3>🎯 Core Concept &amp; Objectives</h3>
-        <p><strong>Core Concept:</strong> This unit introduces basic reading strategies needed to understand academic texts. Students learn how to preview a text, make predictions before reading, identify topic sentences, and locate central main ideas.</p>
-        <p style="margin-bottom:0;"><strong>Performance Goal:</strong> Complete the Vocabulary Preview and Prediction Quiz on the Web-Based Application with at least <strong>70% accuracy</strong>.</p>
+        <h3>🎯 Unit 1 — Core Concept &amp; Objectives</h3>
+        <p><strong>Core Concept:</strong> This unit teaches you the basic knowledge you need to understand academic texts in English. You will learn about <span class="key-term">Text Features</span>, <span class="key-term">Topic Sentences</span>, <span class="key-term">Main Ideas</span>, and <span class="key-term-teal">Supporting Details</span>.</p>
+        <p><strong>Performance Goal:</strong> Complete the Vocabulary Preview and exercises on the Web-Based Application with at least <strong>70% accuracy</strong>.</p>
+        <div style="background:var(--surface2);border:1px solid var(--border);border-radius:10px;padding:14px 16px;margin-top:12px;">
+          <p style="font-size:.82rem;font-weight:600;color:var(--gold);margin-bottom:8px;">📋 What You Will Learn in This Unit:</p>
+          <ul style="padding-left:20px;font-size:.84rem;color:var(--muted);line-height:1.8;">
+            <li>✅ Understand what <strong>Text Features</strong> are and why they help readers</li>
+            <li>✅ Find the <strong>Topic Sentence</strong> in a paragraph</li>
+            <li>✅ Identify the <strong>Main Idea</strong> of a text</li>
+            <li>✅ Recognize <strong>Supporting Details</strong> that explain the main idea</li>
+            <li>✅ Know the difference between Main Idea and Supporting Details</li>
+          </ul>
+        </div>
+        <p style="margin-top:12px;font-size:.78rem;color:var(--muted);font-style:italic;">💡 Note: Reading <strong>strategies</strong> (Previewing &amp; Predicting techniques) are taught in the <strong>Reading Strategies</strong> module → tap "Strategies" in the bottom menu.</p>
+      </div>
+
+      <!-- ═══ Section 1.2: Understanding Text Features ═══ -->
+      <div class="section-divider">
+        <div class="sd-num">1</div>
+        <h3>Understanding Text Features</h3>
+        <div class="sd-line"></div>
       </div>
 
       <div class="content-block">
-        <h3>🔍 6.1.3 Warm-Up &amp; Strategy Key Concepts</h3>
-        <p>Before reading any text, active readers don't jump directly into line 1. Instead, they <strong>Preview</strong> and <strong>Predict</strong>:</p>
-        <ul style="padding-left:20px;font-size:.88rem;color:var(--muted);line-height:1.7;margin-bottom:12px;">
-          <li><strong>Previewing:</strong> Scan the Title, Subheadings, Visuals (charts/photos), and the first sentences of paragraphs.</li>
-          <li><strong>Predicting:</strong> Ask yourself: <em>"What will this text discuss?"</em> and <em>"What is the author's primary focus?"</em></li>
+        <h3>📰 What Are Text Features?</h3>
+        <p><span class="key-term">Text Features</span> are the special parts of a text that help you understand the content <strong>before</strong> you start reading every word. They are like <strong>road signs</strong> 🚦 — they guide you and tell you what to expect.</p>
+        <p>When you look at an article or a textbook page, you can see many text features. <strong>Good readers always look at text features first.</strong> This helps them understand the topic faster.</p>
+
+        <div class="concept-box">
+          <h4>🔑 Why Are Text Features Important?</h4>
+          <p>Text features help you:</p>
+          <ul style="padding-left:20px;font-size:.86rem;color:var(--muted);line-height:1.8;">
+            <li>📌 <strong>Find the topic quickly</strong> — The title tells you what the text is about</li>
+            <li>📌 <strong>Organize information</strong> — Subheadings break the text into smaller parts</li>
+            <li>📌 <strong>Understand difficult words</strong> — Bold words show important vocabulary</li>
+            <li>📌 <strong>See examples visually</strong> — Images and charts make the content clearer</li>
+          </ul>
+        </div>
+
+        <h3 style="font-size:1rem;margin-top:20px;margin-bottom:12px;">📋 Types of Text Features</h3>
+        <p>Here are the most common text features you will find in academic texts:</p>
+
+        <!-- CSS-based Text Feature Demo -->
+        <div class="visual-diagram">
+          <div class="vd-title">Interactive Example — Text Features on an Article Page</div>
+          <div class="tf-demo">
+            <div class="tf-demo-header">
+              <div style="margin-bottom:6px;">
+                <span class="tf-label tf-label-gold">← TITLE</span>
+              </div>
+              <h4 style="font-family:'Playfair Display',serif;font-size:1.1rem;color:var(--gold2);">The Benefits of Regular Exercise for Students</h4>
+            </div>
+            <div class="tf-demo-body">
+              <div style="margin-bottom:10px;">
+                <span class="tf-label tf-label-teal">← SUBHEADING</span>
+              </div>
+              <h5 style="font-size:.9rem;color:var(--teal);margin-bottom:8px;">Physical Health Improvements</h5>
+              <p style="font-size:.82rem;color:var(--muted);line-height:1.7;margin-bottom:10px;">
+                Regular exercise helps students stay healthy and <span class="tf-bold-word">energetic</span>
+                <span class="tf-label tf-label-purple" style="font-size:.55rem;margin-left:4px;">← BOLD WORD</span>
+                throughout the school year. Students who exercise at least three times a week report better sleep quality and higher concentration levels in class.
+              </p>
+              <div style="background:var(--surface3);border:1px solid var(--border);border-radius:8px;padding:10px;margin-bottom:4px;">
+                <div style="height:60px;background:linear-gradient(135deg,#1a3050,#2a4070);border-radius:6px;display:flex;align-items:center;justify-content:center;color:var(--muted);font-size:.75rem;">📸 [Image: Students exercising]</div>
+                <p style="font-size:.72rem;color:var(--muted);margin-top:6px;text-align:center;">
+                  <span class="tf-label tf-label-green" style="font-size:.55rem;">← CAPTION</span>
+                  Figure 1: Students doing morning exercise at the university field
+                </p>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div style="overflow-x:auto;margin-top:16px;">
+          <table class="compare-table">
+            <thead>
+              <tr>
+                <th>Text Feature</th>
+                <th>What It Looks Like</th>
+                <th>How It Helps You</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr><td style="font-weight:600;color:var(--gold);">📌 Title</td><td>Large text at the top of the page</td><td>Tells you the main topic of the whole text</td></tr>
+              <tr><td style="font-weight:600;color:var(--teal);">📌 Subheading</td><td>Smaller heading inside the text</td><td>Breaks the text into sections — each section has one idea</td></tr>
+              <tr><td style="font-weight:600;color:#b090f0;">📌 Bold Words</td><td>Words in <strong>thick dark letters</strong></td><td>Shows important vocabulary or key terms</td></tr>
+              <tr><td style="font-weight:600;color:var(--green);">📌 Images &amp; Charts</td><td>Pictures, graphs, diagrams</td><td>Makes information visual and easier to understand</td></tr>
+              <tr><td style="font-weight:600;color:var(--green);">📌 Captions</td><td>Small text under an image</td><td>Explains what the image shows</td></tr>
+              <tr><td style="font-weight:600;color:var(--muted);">📌 Numbered Lists</td><td>Items with 1, 2, 3…</td><td>Shows steps, order, or a list of points</td></tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+
+      <!-- Exercise 1: Text Features -->
+      <div class="exercise-box" id="ex-tf">
+        <h4>✏️ Mini Exercise 1: Text Features</h4>
+        <p class="ex-instruction">Look at the text feature example above. Answer the question:</p>
+        <p style="font-size:.9rem;font-weight:600;margin-bottom:12px;">Q: What does the <strong>title</strong> of a text tell you?</p>
+        <div class="ex-options">
+          <button class="ex-opt" onclick="checkMiniAnswer('ex-tf',0,1)"><span class="ex-letter">A</span>The main topic of the whole text</button>
+          <button class="ex-opt" onclick="checkMiniAnswer('ex-tf',1,0)"><span class="ex-letter">B</span>The name of the author only</button>
+          <button class="ex-opt" onclick="checkMiniAnswer('ex-tf',2,0)"><span class="ex-letter">C</span>The date the text was published</button>
+        </div>
+        <div class="ex-feedback" id="ex-tf-fb"></div>
+      </div>
+
+      <!-- ═══ Section 1.3: Topic Sentence ═══ -->
+      <div class="section-divider">
+        <div class="sd-num">2</div>
+        <h3>What is a Topic Sentence?</h3>
+        <div class="sd-line"></div>
+      </div>
+
+      <div class="content-block">
+        <h3>💬 Understanding Topic Sentences</h3>
+        <p>Every paragraph in an academic text has one sentence that is more important than the others. This sentence is called the <span class="key-term">Topic Sentence</span>.</p>
+
+        <div class="concept-box">
+          <h4>📖 Definition</h4>
+          <p>A <strong>topic sentence</strong> is the sentence that tells the <strong>main point</strong> of the paragraph. It is the most general sentence — it covers everything else in the paragraph.</p>
+          <p>Think of it like a <strong>title for the paragraph</strong>. All other sentences in the paragraph explain, describe, or give examples of the topic sentence.</p>
+        </div>
+
+        <h3 style="font-size:1rem;margin-top:20px;margin-bottom:10px;">📍 Where Do We Find Topic Sentences?</h3>
+        <p>In academic English texts, the topic sentence is usually at the <strong>beginning</strong> of the paragraph (the first sentence). Sometimes, it can also be at the end.</p>
+
+        <!-- Visual: Paragraph Structure -->
+        <div class="visual-diagram">
+          <div class="vd-title">Paragraph Structure — Topic Sentence Position</div>
+          <div style="display:grid;grid-template-columns:1fr 1fr;gap:16px;">
+            <div>
+              <p style="font-size:.75rem;font-weight:600;color:var(--gold);margin-bottom:8px;">Most Common: First Sentence</p>
+              <div class="para-demo">
+                <div class="para-line para-line-topic" style="width:85%"></div>
+                <div class="para-line para-line-detail" style="width:100%"></div>
+                <div class="para-line para-line-detail" style="width:90%"></div>
+                <div class="para-line para-line-detail" style="width:75%"></div>
+              </div>
+              <p class="para-line-label" style="color:var(--gold);">🟡 = Topic Sentence</p>
+            </div>
+            <div>
+              <p style="font-size:.75rem;font-weight:600;color:var(--muted);margin-bottom:8px;">Sometimes: Last Sentence</p>
+              <div class="para-demo">
+                <div class="para-line para-line-detail" style="width:100%"></div>
+                <div class="para-line para-line-detail" style="width:85%"></div>
+                <div class="para-line para-line-detail" style="width:95%"></div>
+                <div class="para-line para-line-topic" style="width:80%"></div>
+              </div>
+              <p class="para-line-label" style="color:var(--gold);">🟡 = Topic Sentence</p>
+            </div>
+          </div>
+        </div>
+
+        <h3 style="font-size:1rem;margin-top:20px;margin-bottom:10px;">🔎 How to Recognize a Topic Sentence</h3>
+        <p>Ask yourself: <em>"Which sentence covers the whole paragraph?"</em> The topic sentence is:</p>
+        <ul style="padding-left:20px;font-size:.86rem;color:var(--muted);line-height:1.8;margin-bottom:14px;">
+          <li>✅ The <strong>most general</strong> sentence (not too specific)</li>
+          <li>✅ It <strong>introduces the main point</strong> of the paragraph</li>
+          <li>✅ All other sentences <strong>explain or support</strong> this sentence</li>
         </ul>
+
+        <h3 style="font-size:1rem;margin-top:20px;margin-bottom:10px;">📝 Example 1:</h3>
+        <div class="example-para">
+          <span class="hl-gold">Drinking enough water every day is very important for good health.</span> Water helps your body stay cool, especially in hot weather. It also helps your brain work better and keeps your skin healthy. Doctors recommend that people drink at least 8 glasses of water per day.
+        </div>
+        <p style="font-size:.8rem;color:var(--gold);margin-top:6px;">👆 The <strong>first sentence</strong> (highlighted in gold) is the topic sentence. It tells the main point: <em>drinking water is important.</em> The other sentences give more details about <em>why</em> it is important.</p>
+
+        <h3 style="font-size:1rem;margin-top:20px;margin-bottom:10px;">📝 Example 2:</h3>
+        <div class="example-para">
+          <span class="hl-gold">Learning a second language gives students many advantages in their future careers.</span> Companies prefer employees who can communicate with international clients. Bilingual workers often earn higher salaries. Moreover, speaking another language helps people understand different cultures and build stronger relationships with colleagues from other countries.
+        </div>
+        <p style="font-size:.8rem;color:var(--gold);margin-top:6px;">👆 Again, the <strong>first sentence</strong> is the topic sentence. It states the main point: <em>learning a second language has many advantages.</em></p>
+      </div>
+
+      <!-- Exercise 2: Topic Sentence -->
+      <div class="exercise-box" id="ex-ts">
+        <h4>✏️ Mini Exercise 2: Find the Topic Sentence</h4>
+        <p class="ex-instruction">Read the paragraph below and choose the <strong>topic sentence</strong>:</p>
+        <div class="example-para" style="margin-bottom:14px;">
+          Many students enjoy reading books during their free time. Some prefer novels about adventure or fantasy. Others like to read books about science or history. Reading helps students improve their vocabulary, imagination, and general knowledge.
+        </div>
+        <p style="font-size:.88rem;font-weight:600;margin-bottom:10px;">Q: Which sentence is the topic sentence?</p>
+        <div class="ex-options">
+          <button class="ex-opt" onclick="checkMiniAnswer('ex-ts',0,1)"><span class="ex-letter">A</span>Many students enjoy reading books during their free time.</button>
+          <button class="ex-opt" onclick="checkMiniAnswer('ex-ts',1,0)"><span class="ex-letter">B</span>Some prefer novels about adventure or fantasy.</button>
+          <button class="ex-opt" onclick="checkMiniAnswer('ex-ts',2,0)"><span class="ex-letter">C</span>Others like to read books about science or history.</button>
+        </div>
+        <div class="ex-feedback" id="ex-ts-fb"></div>
+      </div>
+
+      <!-- ═══ Section 1.4: Main Idea ═══ -->
+      <div class="section-divider">
+        <div class="sd-num">3</div>
+        <h3>What is the Main Idea?</h3>
+        <div class="sd-line"></div>
       </div>
 
       <div class="content-block">
-        <h3>📚 6.1.5 Vocabulary Preview (Academic Words)</h3>
-        <p>คลิกดูการ์ดคำศัพท์สำคัญประจำ Unit 1 เพื่อเตรียมความพร้อมก่อนเข้าสู่บทความอ่าน:</p>
+        <h3>🎯 Understanding the Main Idea</h3>
+        <p>The <span class="key-term">Main Idea</span> is the <strong>most important message</strong> that the writer wants to tell you. It answers the question: <em>"What is this text mostly about?"</em></p>
+
+        <div class="concept-box">
+          <h4>📖 Topic vs. Main Idea — What's the Difference?</h4>
+          <p>Many students confuse <strong>Topic</strong> and <strong>Main Idea</strong>. They are related, but they are different:</p>
+        </div>
+
+        <!-- Visual: Topic vs Main Idea -->
+        <div class="visual-diagram">
+          <div class="vd-title">Comparison — Topic vs. Main Idea</div>
+          <div style="display:grid;grid-template-columns:1fr 1fr;gap:16px;">
+            <div style="background:rgba(78,205,196,.08);border:1.5px solid rgba(78,205,196,.3);border-radius:12px;padding:16px;text-align:center;">
+              <div style="font-size:2rem;margin-bottom:8px;">📌</div>
+              <h4 style="font-family:'Playfair Display',serif;color:var(--teal);font-size:1rem;margin-bottom:8px;">TOPIC</h4>
+              <p style="font-size:.82rem;color:var(--muted);line-height:1.6;">A <strong>word or short phrase</strong> (1–3 words)</p>
+              <div style="background:var(--surface);border:1px solid var(--border);border-radius:8px;padding:10px;margin-top:10px;">
+                <p style="font-size:.9rem;font-weight:700;color:var(--teal);">Example: "Sleep"</p>
+              </div>
+              <p style="font-size:.72rem;color:var(--muted);margin-top:6px;">= The subject the text talks about</p>
+            </div>
+            <div style="background:rgba(232,201,122,.08);border:1.5px solid rgba(232,201,122,.3);border-radius:12px;padding:16px;text-align:center;">
+              <div style="font-size:2rem;margin-bottom:8px;">💡</div>
+              <h4 style="font-family:'Playfair Display',serif;color:var(--gold);font-size:1rem;margin-bottom:8px;">MAIN IDEA</h4>
+              <p style="font-size:.82rem;color:var(--muted);line-height:1.6;">A <strong>complete sentence</strong> that states the key point</p>
+              <div style="background:var(--surface);border:1px solid var(--border);border-radius:8px;padding:10px;margin-top:10px;">
+                <p style="font-size:.9rem;font-weight:700;color:var(--gold);">"Getting enough sleep is essential for students."</p>
+              </div>
+              <p style="font-size:.72rem;color:var(--muted);margin-top:6px;">= What the author wants to say about the topic</p>
+            </div>
+          </div>
+        </div>
+
+        <h3 style="font-size:1rem;margin-top:20px;margin-bottom:10px;">💡 How to Find the Main Idea</h3>
+        <p>To find the main idea, ask yourself these questions:</p>
+        <div style="display:flex;flex-direction:column;gap:10px;margin:12px 0;">
+          <div style="background:var(--surface2);border-left:3px solid var(--gold);padding:12px 16px;border-radius:0 8px 8px 0;">
+            <p style="font-size:.86rem;color:var(--text);margin:0;">❓ <em>"What is the most important point the writer wants to tell me?"</em></p>
+          </div>
+          <div style="background:var(--surface2);border-left:3px solid var(--teal);padding:12px 16px;border-radius:0 8px 8px 0;">
+            <p style="font-size:.86rem;color:var(--text);margin:0;">❓ <em>"If I can say the whole text in ONE sentence, what would it be?"</em></p>
+          </div>
+          <div style="background:var(--surface2);border-left:3px solid var(--green);padding:12px 16px;border-radius:0 8px 8px 0;">
+            <p style="font-size:.86rem;color:var(--text);margin:0;">❓ <em>"What does the topic sentence say about the topic?"</em></p>
+          </div>
+        </div>
+
+        <h3 style="font-size:1rem;margin-top:20px;margin-bottom:10px;">📝 Example — Finding the Main Idea:</h3>
+        <div class="example-para">
+          <span class="hl-gold">Getting enough sleep every night is essential for university students who want to improve their learning and academic grades.</span> When students sleep for seven to eight hours, their brains process new lessons and store information into long-term memory. In addition, well-rested students can concentrate better in lectures, solve difficult problems faster, and feel less stress before exams.
+        </div>
+        <div style="background:var(--surface2);border:1px solid var(--border);border-radius:10px;padding:14px;margin-top:10px;">
+          <p style="font-size:.82rem;color:var(--muted);margin-bottom:6px;">📌 <strong>Topic:</strong> <span style="color:var(--teal)">Sleep</span> (one word)</p>
+          <p style="font-size:.82rem;color:var(--muted);margin:0;">💡 <strong>Main Idea:</strong> <span style="color:var(--gold)">"Getting enough sleep is essential for university students who want to improve their learning."</span> (a full sentence)</p>
+        </div>
+      </div>
+
+      <!-- Exercise 3: Main Idea -->
+      <div class="exercise-box" id="ex-mi">
+        <h4>✏️ Mini Exercise 3: Find the Main Idea</h4>
+        <p class="ex-instruction">Read the paragraph below:</p>
+        <div class="example-para" style="margin-bottom:14px;">
+          Eating breakfast every morning is important for students' health and concentration. Students who eat breakfast have more energy to study and pay attention in class. Breakfast also helps the brain remember new information better. Without breakfast, students often feel tired and hungry before lunchtime.
+        </div>
+        <p style="font-size:.88rem;font-weight:600;margin-bottom:10px;">Q: What is the <strong>main idea</strong> of this paragraph?</p>
+        <div class="ex-options">
+          <button class="ex-opt" onclick="checkMiniAnswer('ex-mi',0,0)"><span class="ex-letter">A</span>Breakfast helps the brain remember new information.</button>
+          <button class="ex-opt" onclick="checkMiniAnswer('ex-mi',1,1)"><span class="ex-letter">B</span>Eating breakfast is important for students' health and concentration.</button>
+          <button class="ex-opt" onclick="checkMiniAnswer('ex-mi',2,0)"><span class="ex-letter">C</span>Students feel tired and hungry without breakfast.</button>
+        </div>
+        <div class="ex-feedback" id="ex-mi-fb"></div>
+      </div>
+
+      <!-- ═══ Section 1.5: Supporting Details ═══ -->
+      <div class="section-divider">
+        <div class="sd-num">4</div>
+        <h3>Supporting Details</h3>
+        <div class="sd-line"></div>
+      </div>
+
+      <div class="content-block">
+        <h3>📋 What Are Supporting Details?</h3>
+        <p><span class="key-term-teal">Supporting Details</span> are the sentences in a paragraph that <strong>explain, prove, or give examples</strong> of the main idea. They help the reader understand the main idea better.</p>
+        <p>If the main idea is like an <strong>umbrella</strong> ☂️, then supporting details are like the <strong>raindrops</strong> underneath — they all connect to the umbrella (main idea).</p>
+
+        <div class="concept-box">
+          <h4>🔑 Types of Supporting Details</h4>
+          <p>Supporting details can be different types:</p>
+          <ul style="padding-left:20px;font-size:.86rem;color:var(--muted);line-height:1.8;">
+            <li>📎 <strong>Examples:</strong> <em>"For example, students who sleep well get better grades."</em></li>
+            <li>📎 <strong>Reasons:</strong> <em>"This is because sleep helps the brain store new information."</em></li>
+            <li>📎 <strong>Facts / Statistics:</strong> <em>"Research shows that 70% of top students sleep 8 hours."</em></li>
+            <li>📎 <strong>Explanations:</strong> <em>"The brain processes memories during deep sleep stages."</em></li>
+            <li>📎 <strong>Descriptions:</strong> <em>"Well-rested students look more alert and focused in class."</em></li>
+          </ul>
+        </div>
+
+        <!-- Visual: Main Idea Umbrella -->
+        <div class="visual-diagram">
+          <div class="vd-title">Visual — Main Idea &amp; Supporting Details (Umbrella Model)</div>
+          <div style="text-align:center;padding:10px 0;">
+            <!-- Umbrella -->
+            <div style="display:inline-block;background:linear-gradient(135deg,var(--gold),#c9a84c);color:#0d0f14;padding:14px 28px;border-radius:40px 40px 0 0;font-family:'Playfair Display',serif;font-weight:700;font-size:.95rem;margin-bottom:2px;">
+              ☂️ MAIN IDEA
+            </div>
+            <div style="width:4px;height:20px;background:var(--gold);margin:0 auto;"></div>
+            <p style="font-size:.72rem;color:var(--gold);margin-bottom:12px;font-style:italic;">"The most important point of the paragraph"</p>
+            <!-- Raindrops -->
+            <div style="display:flex;justify-content:center;gap:10px;flex-wrap:wrap;">
+              <div style="background:rgba(78,205,196,.12);border:1px solid rgba(78,205,196,.3);border-radius:10px;padding:10px 14px;text-align:center;min-width:80px;">
+                <div style="font-size:1.2rem;margin-bottom:4px;">💧</div>
+                <p style="font-size:.72rem;color:var(--teal);font-weight:600;margin:0;">Example</p>
+              </div>
+              <div style="background:rgba(92,201,148,.12);border:1px solid rgba(92,201,148,.3);border-radius:10px;padding:10px 14px;text-align:center;min-width:80px;">
+                <div style="font-size:1.2rem;margin-bottom:4px;">💧</div>
+                <p style="font-size:.72rem;color:var(--green);font-weight:600;margin:0;">Reason</p>
+              </div>
+              <div style="background:rgba(155,114,232,.12);border:1px solid rgba(155,114,232,.3);border-radius:10px;padding:10px 14px;text-align:center;min-width:80px;">
+                <div style="font-size:1.2rem;margin-bottom:4px;">💧</div>
+                <p style="font-size:.72rem;color:#b090f0;font-weight:600;margin:0;">Fact</p>
+              </div>
+              <div style="background:rgba(232,201,122,.12);border:1px solid rgba(232,201,122,.3);border-radius:10px;padding:10px 14px;text-align:center;min-width:80px;">
+                <div style="font-size:1.2rem;margin-bottom:4px;">💧</div>
+                <p style="font-size:.72rem;color:var(--gold);font-weight:600;margin:0;">Explanation</p>
+              </div>
+            </div>
+            <p style="font-size:.72rem;color:var(--teal);margin-top:10px;font-style:italic;">↑ Supporting Details — They explain, prove, or illustrate the Main Idea</p>
+          </div>
+        </div>
+
+        <h3 style="font-size:1rem;margin-top:20px;margin-bottom:10px;">📝 Example — Identifying Supporting Details:</h3>
+        <div class="example-para">
+          <span class="hl-gold">Urban community gardens offer significant environmental, economic, and social advantages for modern cities.</span> <span class="hl-teal">These green public spaces absorb harmful carbon emissions, lower urban temperatures, and noticeably enhance air quality.</span> <span class="hl-teal">Furthermore, local neighborhood gardens encourage sustainable agricultural practices and provide city residents with fresh, affordable food options.</span>
+        </div>
+        <div style="background:var(--surface2);border:1px solid var(--border);border-radius:10px;padding:14px;margin-top:10px;">
+          <p style="font-size:.82rem;color:var(--gold);margin-bottom:6px;">🟡 <strong>Topic Sentence (Main Idea):</strong> "Urban community gardens offer significant advantages."</p>
+          <p style="font-size:.82rem;color:var(--teal);margin:0;">🟢 <strong>Supporting Details:</strong> (1) They absorb carbon and enhance air quality — (2) They provide fresh, affordable food</p>
+        </div>
+      </div>
+
+      <!-- Exercise 4: Supporting Details -->
+      <div class="exercise-box" id="ex-sd">
+        <h4>✏️ Mini Exercise 4: Identify Supporting Details</h4>
+        <p class="ex-instruction">Read the paragraph below. The <strong>topic sentence</strong> is highlighted in gold:</p>
+        <div class="example-para" style="margin-bottom:14px;">
+          <span class="hl-gold">Using a smartphone too much can cause problems for students.</span> First, looking at a small screen for a long time can hurt your eyes. Second, students who use their phones at night often cannot sleep well. Finally, social media apps can make students feel stressed and waste time.
+        </div>
+        <p style="font-size:.88rem;font-weight:600;margin-bottom:10px;">Q: Which of the following is a <strong>supporting detail</strong> from this paragraph?</p>
+        <div class="ex-options">
+          <button class="ex-opt" onclick="checkMiniAnswer('ex-sd',0,0)"><span class="ex-letter">A</span>Using a smartphone too much can cause problems for students.</button>
+          <button class="ex-opt" onclick="checkMiniAnswer('ex-sd',1,1)"><span class="ex-letter">B</span>Students who use their phones at night often cannot sleep well.</button>
+          <button class="ex-opt" onclick="checkMiniAnswer('ex-sd',2,0)"><span class="ex-letter">C</span>Smartphones are popular with young people around the world.</button>
+        </div>
+        <div class="ex-feedback" id="ex-sd-fb"></div>
+      </div>
+
+      <!-- ═══ Section 1.6: Main Idea vs Supporting Details ═══ -->
+      <div class="section-divider">
+        <div class="sd-num">5</div>
+        <h3>Main Idea vs. Supporting Details</h3>
+        <div class="sd-line"></div>
+      </div>
+
+      <div class="content-block">
+        <h3>⚖️ How to Tell Them Apart</h3>
+        <p>Sometimes it is difficult to decide if a sentence is the <strong>main idea</strong> or a <strong>supporting detail</strong>. Here is a simple comparison:</p>
+
+        <div style="overflow-x:auto;">
+          <table class="compare-table">
+            <thead>
+              <tr>
+                <th style="color:var(--gold);">🟡 Main Idea</th>
+                <th style="color:var(--teal);">🟢 Supporting Detail</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr><td>The <strong>most general</strong> sentence</td><td>A <strong>specific</strong> sentence</td></tr>
+              <tr><td>Covers the <strong>whole paragraph</strong></td><td>Explains only <strong>one part</strong> of the main idea</td></tr>
+              <tr><td>Usually the <strong>first</strong> sentence</td><td>Comes <strong>after</strong> the main idea</td></tr>
+              <tr><td>Cannot be removed (the paragraph won't make sense)</td><td>Can be removed and the paragraph still has a point</td></tr>
+            </tbody>
+          </table>
+        </div>
+
+        <h3 style="font-size:1rem;margin-top:20px;margin-bottom:10px;">🔍 Signal Words for Supporting Details</h3>
+        <p>Supporting details often start with these <strong>signal words</strong> or <strong>transition words</strong>:</p>
+        <div style="margin:12px 0;display:flex;flex-wrap:wrap;gap:6px;">
+          <span class="signal-chip">For example</span>
+          <span class="signal-chip">In addition</span>
+          <span class="signal-chip">Furthermore</span>
+          <span class="signal-chip">Also</span>
+          <span class="signal-chip">Moreover</span>
+          <span class="signal-chip">First / Second / Third</span>
+          <span class="signal-chip">On the other hand</span>
+          <span class="signal-chip">As a result</span>
+          <span class="signal-chip">For instance</span>
+          <span class="signal-chip">Because</span>
+        </div>
+        <p style="font-size:.82rem;color:var(--muted);margin-top:8px;">💡 <em>Tip: When you see these words, the sentence is probably a supporting detail, not the main idea.</em></p>
+
+        <h3 style="font-size:1rem;margin-top:20px;margin-bottom:10px;">📝 Practice: Main Idea or Supporting Detail?</h3>
+        <p>Read these four sentences from a paragraph about <strong>exercise</strong>:</p>
+        <div style="display:flex;flex-direction:column;gap:8px;margin:12px 0;">
+          <div style="background:rgba(232,201,122,.1);border:1px solid rgba(232,201,122,.3);border-radius:8px;padding:10px 14px;display:flex;align-items:center;gap:10px;">
+            <span style="font-size:.75rem;font-weight:700;color:var(--gold);min-width:70px;">🟡 MAIN IDEA</span>
+            <span style="font-size:.86rem;color:var(--text);">Regular exercise provides many health benefits for university students.</span>
+          </div>
+          <div style="background:rgba(78,205,196,.08);border:1px solid rgba(78,205,196,.2);border-radius:8px;padding:10px 14px;display:flex;align-items:center;gap:10px;">
+            <span style="font-size:.75rem;font-weight:700;color:var(--teal);min-width:70px;">🟢 DETAIL</span>
+            <span style="font-size:.86rem;color:var(--text);"><em>For example,</em> exercise reduces stress and anxiety.</span>
+          </div>
+          <div style="background:rgba(78,205,196,.08);border:1px solid rgba(78,205,196,.2);border-radius:8px;padding:10px 14px;display:flex;align-items:center;gap:10px;">
+            <span style="font-size:.75rem;font-weight:700;color:var(--teal);min-width:70px;">🟢 DETAIL</span>
+            <span style="font-size:.86rem;color:var(--text);"><em>In addition,</em> it helps students sleep better at night.</span>
+          </div>
+          <div style="background:rgba(78,205,196,.08);border:1px solid rgba(78,205,196,.2);border-radius:8px;padding:10px 14px;display:flex;align-items:center;gap:10px;">
+            <span style="font-size:.75rem;font-weight:700;color:var(--teal);min-width:70px;">🟢 DETAIL</span>
+            <span style="font-size:.86rem;color:var(--text);"><em>Moreover,</em> active students have better concentration in class.</span>
+          </div>
+        </div>
+        <p style="font-size:.8rem;color:var(--muted);">👆 Notice: The main idea is <strong>general</strong> ("many health benefits"). The details are <strong>specific</strong> (stress, sleep, concentration) and use <strong>signal words</strong> (For example, In addition, Moreover).</p>
+      </div>
+
+      <!-- Exercise 5: Main Idea vs Supporting Detail -->
+      <div class="exercise-box" id="ex-mvs">
+        <h4>✏️ Mini Exercise 5: Main Idea or Supporting Detail?</h4>
+        <p class="ex-instruction">Read the sentence below. Is it a <strong>main idea</strong> or a <strong>supporting detail</strong>?</p>
+        <div class="example-para" style="margin-bottom:14px;">
+          "Furthermore, students who participate in group study sessions usually remember the material longer than those who study alone."
+        </div>
+        <p style="font-size:.88rem;font-weight:600;margin-bottom:10px;">Q: This sentence is a…</p>
+        <div class="ex-options">
+          <button class="ex-opt" onclick="checkMiniAnswer('ex-mvs',0,0)"><span class="ex-letter">A</span>Main Idea — because it is the most important point</button>
+          <button class="ex-opt" onclick="checkMiniAnswer('ex-mvs',1,1)"><span class="ex-letter">B</span>Supporting Detail — because it uses a signal word ("Furthermore") and gives a specific example</button>
+        </div>
+        <div class="ex-feedback" id="ex-mvs-fb"></div>
+      </div>
+
+      <!-- ═══ Section 1.7: Vocabulary Preview ═══ -->
+      <div class="section-divider">
+        <div class="sd-num">6</div>
+        <h3>Vocabulary Preview</h3>
+        <div class="sd-line"></div>
+      </div>
+
+      <div class="content-block">
+        <h3>📚 Academic Vocabulary for Unit 1</h3>
+        <p>Before reading the passages in Stage 2, review these important academic words. Understanding these words will help you read the passages more easily.</p>
         <div class="vocab-grid">
           <div class="vocab-card">
             <div class="vc-word"><span>Preview</span> <span class="vc-pos">verb</span></div>
@@ -799,27 +1347,48 @@ body.logged-in .app-screen{padding-top:58px;}
           <div class="vocab-card">
             <div class="vc-word"><span>Topic Sentence</span> <span class="vc-pos">noun</span></div>
             <div class="vc-meaning">ประโยคใจความหลักของย่อหน้า</div>
-            <div class="vc-ex">"The topic sentence is often located at the beginning of an academic paragraph."</div>
+            <div class="vc-ex">"The topic sentence is often located at the beginning of a paragraph."</div>
           </div>
           <div class="vocab-card">
             <div class="vc-word"><span>Main Idea</span> <span class="vc-pos">noun</span></div>
             <div class="vc-meaning">ใจความสำคัญ หรือข้อความสรุปของบทความ</div>
-            <div class="vc-ex">"Identify the central main idea without getting lost in minor supporting details."</div>
+            <div class="vc-ex">"Identify the central main idea without getting lost in minor details."</div>
+          </div>
+          <div class="vocab-card">
+            <div class="vc-word"><span>Supporting Detail</span> <span class="vc-pos">noun</span></div>
+            <div class="vc-meaning">รายละเอียดที่อธิบายหรือสนับสนุนใจความหลัก</div>
+            <div class="vc-ex">"The supporting details provide evidence for the main idea."</div>
+          </div>
+          <div class="vocab-card">
+            <div class="vc-word"><span>Text Feature</span> <span class="vc-pos">noun</span></div>
+            <div class="vc-meaning">ส่วนประกอบของบทความ เช่น หัวเรื่อง รูปภาพ คำหนา</div>
+            <div class="vc-ex">"Text features like titles and images help readers understand the text quickly."</div>
+          </div>
+          <div class="vocab-card">
+            <div class="vc-word"><span>Subheading</span> <span class="vc-pos">noun</span></div>
+            <div class="vc-meaning">หัวข้อย่อยที่แบ่งเนื้อหาออกเป็นส่วนๆ</div>
+            <div class="vc-ex">"Each subheading introduces a new section of the article."</div>
+          </div>
+          <div class="vocab-card">
+            <div class="vc-word"><span>Paragraph</span> <span class="vc-pos">noun</span></div>
+            <div class="vc-meaning">ย่อหน้า — กลุ่มประโยคที่พูดถึงหัวข้อเดียวกัน</div>
+            <div class="vc-ex">"Each paragraph in an academic text usually has one main idea."</div>
           </div>
         </div>
       </div>
 
-      <div style="text-align:right;margin-top:16px;">
+      <div style="display:flex;justify-content:flex-end;margin-top:16px;">
         <button class="action-primary-btn" onclick="switchLessonStage(2)">Next: Go to While-Reading Stage ➔</button>
       </div>
     </div>
 
-    <!-- ── STAGE 2: WHILE-READING ── -->
+    <!-- ── STAGE 2: WHILE-READING — Interactive Reading Practice ── -->
     <div class="stage-content" id="stage-content-2">
       <div class="content-block">
         <h3>📖 Academic Reading Practice (Passages 1–3)</h3>
-        <p>ใช้เครื่องมือ <strong>Interactive Highlighter</strong> ด้านล่างเพื่อฝึกระบุ <strong>Topic Sentence (ประโยคใจความหลัก)</strong> และ <strong>Supporting Details</strong> ในบทความ:</p>
-        
+        <p>Now it is time to practice reading real passages! Use the <strong>Interactive Highlighter</strong> tool below to identify <span class="key-term">Topic Sentences</span> and <span class="key-term-teal">Supporting Details</span> in each passage.</p>
+        <p style="font-size:.82rem;color:var(--muted);">💡 <strong>วิธีใช้:</strong> เลือกโหมด Highlighter ก่อน → แตะที่ประโยคในบทความ → ประโยคจะถูกเน้นสีตามโหมดที่เลือก (🟡 = Topic Sentence / 🟢 = Supporting Detail)</p>
+
         <!-- Highlighter Toolbar -->
         <div class="passage-controls">
           <span style="font-size:.78rem;font-weight:600;color:var(--muted);margin-right:6px;">Highlighter Mode:</span>
@@ -828,7 +1397,7 @@ body.logged-in .app-screen{padding-top:58px;}
           <button class="hl-btn" onclick="clearPassageHighlights()" style="color:var(--red);">✖ Clear Highlights</button>
         </div>
 
-        <!-- Passage 1 Box (A2-B1 Level) -->
+        <!-- ── Passage 1 (A2-B1 Level) ── -->
         <div style="margin-bottom:24px;">
           <div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:8px;">
             <div style="display:flex;align-items:center;gap:6px;">
@@ -836,6 +1405,9 @@ body.logged-in .app-screen{padding-top:58px;}
             </div>
             <span style="font-family:'DM Mono',monospace;font-size:.65rem;color:var(--teal);background:rgba(78,205,196,.12);border:1px solid rgba(78,205,196,.3);padding:2px 8px;border-radius:12px;">CEFR A2–B1</span>
           </div>
+
+          <!-- Guided Question -->
+          <div class="guided-q">❓ <strong>Before reading:</strong> Look at the title "Sleep and Academic Success." What do you think this passage will talk about?</div>
 
           <div class="passage-img-wrap">
             <img src="assets/images/passage1_sleep.jpg" alt="Memory Consolidation & Healthy Sleep" class="passage-img" loading="lazy">
@@ -852,9 +1424,21 @@ body.logged-in .app-screen{padding-top:58px;}
             <span class="passage-sentence" onclick="toggleSentenceHl(this)">On the other hand, staying up late causes fatigue, poor memory, and difficulty paying attention in class.</span>
           </div>
           <div style="font-size:.76rem;color:var(--muted);margin-top:6px;font-style:italic;">💡 Tip: แตะประโยคแรกเพื่อเน้นสีเหลืองเป็น Topic Sentence (ประโยคใจความหลัก)</div>
+
+          <!-- Comprehension Check: Passage 1 -->
+          <div class="exercise-box" id="ex-p1" style="margin-top:12px;">
+            <h4>📝 Comprehension Check — Passage 1</h4>
+            <p style="font-size:.88rem;font-weight:600;margin-bottom:10px;">Q: What is the <strong>main idea</strong> of Passage 1?</p>
+            <div class="ex-options">
+              <button class="ex-opt" onclick="checkMiniAnswer('ex-p1',0,1)"><span class="ex-letter">A</span>Getting enough sleep is essential for university students' learning.</button>
+              <button class="ex-opt" onclick="checkMiniAnswer('ex-p1',1,0)"><span class="ex-letter">B</span>Students should sleep exactly eight hours every night.</button>
+              <button class="ex-opt" onclick="checkMiniAnswer('ex-p1',2,0)"><span class="ex-letter">C</span>Staying up late is very common among students.</button>
+            </div>
+            <div class="ex-feedback" id="ex-p1-fb"></div>
+          </div>
         </div>
 
-        <!-- Passage 2 Box (B1-B2 Level) -->
+        <!-- ── Passage 2 (B1-B2 Level) ── -->
         <div style="margin-bottom:24px;">
           <div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:8px;">
             <div style="display:flex;align-items:center;gap:6px;">
@@ -862,6 +1446,9 @@ body.logged-in .app-screen{padding-top:58px;}
             </div>
             <span style="font-family:'DM Mono',monospace;font-size:.65rem;color:var(--gold);background:rgba(232,201,122,.12);border:1px solid rgba(232,201,122,.3);padding:2px 8px;border-radius:12px;">CEFR B1–B2</span>
           </div>
+
+          <!-- Guided Question -->
+          <div class="guided-q">❓ <strong>Before reading:</strong> Look at the image below. What kind of "garden" do you think the text is about? Where is it located?</div>
 
           <div class="passage-img-wrap">
             <img src="assets/images/passage2_gardens.jpg" alt="Rooftop Community Gardens in Modern Cities" class="passage-img" loading="lazy">
@@ -876,9 +1463,21 @@ body.logged-in .app-screen{padding-top:58px;}
             <span class="passage-sentence" onclick="toggleSentenceHl(this)">These green public spaces absorb harmful carbon emissions, lower urban temperatures, and noticeably enhance air quality.</span>
             <span class="passage-sentence" onclick="toggleSentenceHl(this)">Furthermore, local neighborhood gardens encourage sustainable agricultural practices and provide city residents with fresh, affordable food options.</span>
           </div>
+
+          <!-- Comprehension Check: Passage 2 -->
+          <div class="exercise-box" id="ex-p2" style="margin-top:12px;">
+            <h4>📝 Comprehension Check — Passage 2</h4>
+            <p style="font-size:.88rem;font-weight:600;margin-bottom:10px;">Q: Which sentence is a <strong>supporting detail</strong> in Passage 2?</p>
+            <div class="ex-options">
+              <button class="ex-opt" onclick="checkMiniAnswer('ex-p2',0,0)"><span class="ex-letter">A</span>Urban community gardens offer significant advantages for modern cities.</button>
+              <button class="ex-opt" onclick="checkMiniAnswer('ex-p2',1,1)"><span class="ex-letter">B</span>These green spaces absorb harmful carbon emissions and enhance air quality.</button>
+              <button class="ex-opt" onclick="checkMiniAnswer('ex-p2',2,0)"><span class="ex-letter">C</span>Cities are growing larger every year.</button>
+            </div>
+            <div class="ex-feedback" id="ex-p2-fb"></div>
+          </div>
         </div>
 
-        <!-- Passage 3 / Mini-Story Box (A2-B2 Universal Story) -->
+        <!-- ── Passage 3 / Mini-Story (A2-B2) ── -->
         <div style="margin-bottom:14px;background:linear-gradient(135deg,rgba(232,201,122,.08),var(--surface2));border:1.5px solid rgba(232,201,122,.3);border-radius:14px;padding:18px;">
           <div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:10px;">
             <div style="display:flex;align-items:center;gap:8px;">
@@ -887,6 +1486,9 @@ body.logged-in .app-screen{padding-top:58px;}
             </div>
             <span style="font-family:'DM Mono',monospace;font-size:.65rem;color:var(--green);background:rgba(92,201,148,.15);border:1px solid rgba(92,201,148,.3);padding:2px 8px;border-radius:12px;">CEFR A2–B2 Story</span>
           </div>
+
+          <!-- Guided Question -->
+          <div class="guided-q">❓ <strong>Before reading:</strong> Look at the title and image. What do you predict this story is about? Who is the main character?</div>
 
           <div class="passage-img-wrap">
             <img src="assets/images/passage3_rainforest.jpg" alt="Maya studying Amazon Rainforest satellite maps" class="passage-img" loading="lazy">
@@ -902,6 +1504,18 @@ body.logged-in .app-screen{padding-top:58px;}
             <p style="margin-bottom:0;"><span class="passage-sentence" onclick="toggleSentenceHl(this)">Consequently, her smart reading habits enabled her to extract essential scientific evidence in just fifteen minutes, allowing her to deliver an outstanding presentation to her professors and fellow researchers.</span></p>
           </div>
           <p style="font-size:.8rem;color:var(--gold);margin-bottom:0;">💡 <em>ฝึกเน้นข้อความ Topic Sentence (สีเหลือง) และ Supporting Details (สีเขียว) ในบทความด้วยปุ่ม Highlighter ด้านบน</em></p>
+
+          <!-- Comprehension Check: Passage 3 -->
+          <div class="exercise-box" id="ex-p3" style="margin-top:12px;background:linear-gradient(135deg,rgba(78,205,196,.05),rgba(232,201,122,.05));">
+            <h4>📝 Comprehension Check — Passage 3</h4>
+            <p style="font-size:.88rem;font-weight:600;margin-bottom:10px;">Q: What text features did Maya use to read the report quickly?</p>
+            <div class="ex-options">
+              <button class="ex-opt" onclick="checkMiniAnswer('ex-p3',0,0)"><span class="ex-letter">A</span>She read every page carefully from beginning to end.</button>
+              <button class="ex-opt" onclick="checkMiniAnswer('ex-p3',1,1)"><span class="ex-letter">B</span>She used the table of contents, chapter headings, photographs, and opening sentences.</button>
+              <button class="ex-opt" onclick="checkMiniAnswer('ex-p3',2,0)"><span class="ex-letter">C</span>She asked her professor to summarize the report for her.</button>
+            </div>
+            <div class="ex-feedback" id="ex-p3-fb"></div>
+          </div>
         </div>
       </div>
 
@@ -911,11 +1525,99 @@ body.logged-in .app-screen{padding-top:58px;}
       </div>
     </div>
 
-    <!-- ── STAGE 3: POST-READING ── -->
+    <!-- ── STAGE 3: POST-READING — Review & Self-Assessment ── -->
     <div class="stage-content" id="stage-content-3">
+
+      <!-- Summary Section -->
       <div class="content-block">
-        <h3>📊 6.3 Post-Reading Evaluation &amp; Rubrics</h3>
-        <p>เมื่ออ่านบทความจบแล้ว นักศึกษาจะประเมินผลผ่านเกณฑ์ Scoring Rubric ของอาจารย์ผู้สอน (Asst. Prof. Naviya Chutopama):</p>
+        <h3>📝 Summary: What You Learned in Unit 1</h3>
+        <p>Congratulations! You have completed the main learning content of Unit 1. Here is a quick summary of the key concepts:</p>
+        <div style="display:flex;flex-direction:column;gap:10px;margin:14px 0;">
+          <div style="background:var(--surface2);border-left:3px solid var(--gold);padding:12px 16px;border-radius:0 8px 8px 0;">
+            <p style="font-size:.86rem;color:var(--text);margin:0;"><strong>1. Text Features</strong> — Special parts of a text (title, subheading, images, captions, bold words) that help you understand the content before reading every word.</p>
+          </div>
+          <div style="background:var(--surface2);border-left:3px solid var(--teal);padding:12px 16px;border-radius:0 8px 8px 0;">
+            <p style="font-size:.86rem;color:var(--text);margin:0;"><strong>2. Topic Sentence</strong> — The sentence that tells the main point of a paragraph. It is usually the first sentence and is the most general sentence in the paragraph.</p>
+          </div>
+          <div style="background:var(--surface2);border-left:3px solid var(--green);padding:12px 16px;border-radius:0 8px 8px 0;">
+            <p style="font-size:.86rem;color:var(--text);margin:0;"><strong>3. Main Idea</strong> — The most important message of the whole text. It is a complete sentence that tells you what the author wants to say about the topic.</p>
+          </div>
+          <div style="background:var(--surface2);border-left:3px solid #b090f0;padding:12px 16px;border-radius:0 8px 8px 0;">
+            <p style="font-size:.86rem;color:var(--text);margin:0;"><strong>4. Supporting Details</strong> — Specific sentences that explain, prove, or give examples of the main idea. They often start with signal words like "For example," "In addition," "Furthermore."</p>
+          </div>
+          <div style="background:var(--surface2);border-left:3px solid var(--red);padding:12px 16px;border-radius:0 8px 8px 0;">
+            <p style="font-size:.86rem;color:var(--text);margin:0;"><strong>5. Main Idea ≠ Supporting Detail</strong> — The main idea is general and covers the whole paragraph. Supporting details are specific and explain one part of the main idea.</p>
+          </div>
+        </div>
+      </div>
+
+      <!-- Self-Check Quiz -->
+      <div class="self-check-wrap">
+        <div class="self-check-header">
+          <h4>🧠 Self-Check Quiz — Unit 1 Review</h4>
+          <p>ตอบคำถาม 5 ข้อ เพื่อตรวจสอบความเข้าใจก่อนจบบทเรียน</p>
+        </div>
+
+        <div class="sc-question">
+          <div class="sc-q-text">Q1: A "text feature" is…</div>
+          <div class="ex-options" id="sc-q1">
+            <button class="ex-opt" onclick="checkMiniAnswer('sc-q1',0,0)"><span class="ex-letter">A</span>A type of grammar rule</button>
+            <button class="ex-opt" onclick="checkMiniAnswer('sc-q1',1,1)"><span class="ex-letter">B</span>A special part of a text like titles, images, or bold words that help readers understand the content</button>
+            <button class="ex-opt" onclick="checkMiniAnswer('sc-q1',2,0)"><span class="ex-letter">C</span>The last paragraph of an article</button>
+          </div>
+          <div class="ex-feedback" id="sc-q1-fb"></div>
+        </div>
+
+        <div class="sc-question">
+          <div class="sc-q-text">Q2: Where is the topic sentence usually found in an academic paragraph?</div>
+          <div class="ex-options" id="sc-q2">
+            <button class="ex-opt" onclick="checkMiniAnswer('sc-q2',0,1)"><span class="ex-letter">A</span>At the beginning (the first sentence)</button>
+            <button class="ex-opt" onclick="checkMiniAnswer('sc-q2',1,0)"><span class="ex-letter">B</span>Always in the middle</button>
+            <button class="ex-opt" onclick="checkMiniAnswer('sc-q2',2,0)"><span class="ex-letter">C</span>It is never in the paragraph — it is in the title</button>
+          </div>
+          <div class="ex-feedback" id="sc-q2-fb"></div>
+        </div>
+
+        <div class="sc-question">
+          <div class="sc-q-text">Q3: What is the difference between "topic" and "main idea"?</div>
+          <div class="ex-options" id="sc-q3">
+            <button class="ex-opt" onclick="checkMiniAnswer('sc-q3',0,0)"><span class="ex-letter">A</span>They mean the same thing</button>
+            <button class="ex-opt" onclick="checkMiniAnswer('sc-q3',1,1)"><span class="ex-letter">B</span>A "topic" is a word or short phrase; a "main idea" is a complete sentence about the topic</button>
+            <button class="ex-opt" onclick="checkMiniAnswer('sc-q3',2,0)"><span class="ex-letter">C</span>A "topic" is longer than a "main idea"</button>
+          </div>
+          <div class="ex-feedback" id="sc-q3-fb"></div>
+        </div>
+
+        <div class="sc-question">
+          <div class="sc-q-text">Q4: Which of these signal words usually starts a <strong>supporting detail</strong>?</div>
+          <div class="ex-options" id="sc-q4">
+            <button class="ex-opt" onclick="checkMiniAnswer('sc-q4',0,0)"><span class="ex-letter">A</span>In conclusion</button>
+            <button class="ex-opt" onclick="checkMiniAnswer('sc-q4',1,0)"><span class="ex-letter">B</span>The title says</button>
+            <button class="ex-opt" onclick="checkMiniAnswer('sc-q4',2,1)"><span class="ex-letter">C</span>For example / Furthermore / In addition</button>
+          </div>
+          <div class="ex-feedback" id="sc-q4-fb"></div>
+        </div>
+
+        <div class="sc-question">
+          <div class="sc-q-text">Q5: Read this paragraph: <em>"Social media affects students' mental health in many ways. For instance, comparing yourself to others online can lower self-esteem. Also, spending too much time on social media reduces sleep quality."</em> — What is the <strong>main idea</strong>?</div>
+          <div class="ex-options" id="sc-q5">
+            <button class="ex-opt" onclick="checkMiniAnswer('sc-q5',0,0)"><span class="ex-letter">A</span>Spending too much time on social media reduces sleep quality.</button>
+            <button class="ex-opt" onclick="checkMiniAnswer('sc-q5',1,1)"><span class="ex-letter">B</span>Social media affects students' mental health in many ways.</button>
+            <button class="ex-opt" onclick="checkMiniAnswer('sc-q5',2,0)"><span class="ex-letter">C</span>Comparing yourself to others online can lower self-esteem.</button>
+          </div>
+          <div class="ex-feedback" id="sc-q5-fb"></div>
+        </div>
+
+        <div class="sc-score-bar">
+          <span style="font-size:.82rem;color:var(--muted);">Self-Check Score</span>
+          <span class="sc-score" id="sc-score-display" style="color:var(--gold);">— / 5</span>
+        </div>
+      </div>
+
+      <!-- Scoring Rubric -->
+      <div class="content-block" style="margin-top:16px;">
+        <h3>📊 Post-Reading Evaluation &amp; Rubrics</h3>
+        <p>เกณฑ์ Scoring Rubric ของอาจารย์ผู้สอน (Asst. Prof. Naviya Chutopama):</p>
         
         <div style="overflow-x:auto;margin-top:12px;">
           <table style="width:100%;border-collapse:collapse;font-size:.78rem;color:var(--text);text-align:left;">
@@ -951,6 +1653,18 @@ body.logged-in .app-screen{padding-top:58px;}
         </div>
       </div>
 
+      <!-- Reflection -->
+      <div class="reflection-box">
+        <h4>💭 Reflection — Think About What You Learned</h4>
+        <p style="font-size:.86rem;color:var(--muted);margin-bottom:10px;">ลองคิดทบทวนสิ่งที่เรียนรู้ในบทนี้:</p>
+        <ul>
+          <li>What was the easiest concept for you? (Text Features, Topic Sentence, Main Idea, or Supporting Details?)</li>
+          <li>What was the most difficult part? What do you need to practice more?</li>
+          <li>How can you use these skills when reading your textbooks or exam passages?</li>
+        </ul>
+      </div>
+
+      <!-- Completion Card -->
       <div class="content-block" style="border-color:rgba(92,201,148,.3);background:linear-gradient(135deg,rgba(92,201,148,.08),var(--surface));">
         <div style="display:flex;align-items:center;gap:10px;margin-bottom:8px;">
           <span style="font-size:1.4rem;">🎉</span>
@@ -1153,6 +1867,38 @@ function shakify(id) {
 function showErr(id,msg) { const e=document.getElementById(id); if(e){e.textContent=msg;e.classList.add('show');} }
 function clearErr(id) { const e=document.getElementById(id); if(e){e.textContent='';e.classList.remove('show');} }
 
+// ═══════════ DEMO QUICK SIGN-IN (TESTING PHASE) ═══════════
+function demoQuickSignIn() {
+  const demoUser = {
+    name: 'Demo Student',
+    given_name: 'Demo Student',
+    email: 'demo.student@bru.ac.th',
+    color: '#e8c97a'
+  };
+  // Preset default test profile if not exists
+  if (!getProfile(demoUser.email)) {
+    saveProfile(demoUser.email, {
+      fullname: 'Demo Student (นักศึกษาทดสอบ)',
+      studentId: '6711990001',
+      section: '1',
+      faculty: 'คณะครุศาสตร์ (Faculty of Education)',
+      year: '2',
+      email: demoUser.email,
+      updatedAt: new Date().toISOString()
+    });
+  }
+  const active = document.querySelector('.signin-step.active');
+  if (active) active.classList.remove('active');
+  document.getElementById('success-name-msg').textContent = 'Welcome, Demo Tester!';
+  document.getElementById('step-success').classList.add('active');
+
+  setTimeout(() => {
+    sessionStorage.setItem('rs_user', JSON.stringify(demoUser));
+    loginSuccess(demoUser, true);
+    showToast('🚀 เข้าสู่ระบบในโหมด Demo สำเร็จ!');
+  }, 700);
+}
+
 // ═══════════ LOGIN SUCCESS ═══════════
 function loginSuccess(user, animate) {
   currentUser = user;
@@ -1305,24 +2051,8 @@ function openLessonDetail(unitId) {
     document.getElementById('ld-title').textContent = 'Previewing & Predicting and Identifying Main Ideas';
     switchLessonStage(1);
     nav('screen-lesson-detail');
-  } else if (unitId === 2) {
-    showToast('📖 Unit 2: Supporting Details and Idea Relationships (Completed)');
-    document.getElementById('ld-eye').textContent = 'Lesson Plan 2 · Unit 2';
-    document.getElementById('ld-badge').textContent = 'Lesson Plan 2 · Unit 2';
-    document.getElementById('ld-heading').textContent = 'Supporting Details';
-    document.getElementById('ld-title').textContent = 'Supporting Details and Idea Relationships';
-    switchLessonStage(1);
-    nav('screen-lesson-detail');
-  } else if (unitId === 3) {
-    showToast('📖 Unit 3: Vocabulary in Context (In Progress)');
-    document.getElementById('ld-eye').textContent = 'Lesson Plan 3 · Unit 3';
-    document.getElementById('ld-badge').textContent = 'Lesson Plan 3 · Unit 3';
-    document.getElementById('ld-heading').textContent = 'Context Clues';
-    document.getElementById('ld-title').textContent = 'Vocabulary in Context and Sentence Meaning';
-    switchLessonStage(1);
-    nav('screen-lesson-detail');
   } else {
-    showToast(`🔒 Unit ${unitId} is locked. Complete previous units first!`);
+    showToast(`🔒 Unit ${unitId} อยู่ในแผนการสอนสัปดาห์ถัดไป (กำลังโฟกัสที่ Lesson Plan 1)`);
   }
 }
 
@@ -1478,3 +2208,4 @@ document.getElementById('profile-modal-overlay').addEventListener('click', funct
 </script>
 </body>
 </html>
+  
