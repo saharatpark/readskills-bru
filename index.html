@@ -175,7 +175,7 @@
             <label for="input-password">Password</label>
             <input type="password" id="input-password" class="signin-input" autocomplete="current-password"
               oninput="onPasswordInput()" onkeydown="if(event.key==='Enter')submitSignIn()">
-            <button class="eye-toggle" type="button" onclick="togglePwd()" id="eye-btn">👁</button>
+            <button class="eye-toggle" aria-label="Show or hide password" type="button" onclick="togglePwd()" id="eye-btn">👁</button>
           </div>
           <p class="input-helper" style="margin-bottom:4px">Enter your password to continue</p>
           <div class="signin-error" id="signin-error-pwd"></div>
@@ -321,7 +321,7 @@
   <div id="screen-b" class="screen app-screen">
     <div class="inner-wrap">
       <div class="inner-top">
-        <button class="back-btn" onclick="nav('screen-home')">←</button>
+        <button class="back-btn" aria-label="Back" onclick="nav('screen-home')">←</button>
         <div>
           <div class="inner-eye">Reading Lessons</div>
           <div class="inner-h">Instructional Units</div>
@@ -445,7 +445,7 @@
   <div id="screen-c" class="screen app-screen">
     <div class="inner-wrap">
       <div class="inner-top">
-        <button class="back-btn" onclick="nav('screen-home')">←</button>
+        <button class="back-btn" aria-label="Back" onclick="nav('screen-home')">←</button>
         <div>
           <div class="inner-eye">Reading Strategies</div>
           <div class="inner-h">Strategy Library</div>
@@ -520,7 +520,7 @@
   <div id="screen-d" class="screen app-screen">
     <div class="inner-wrap">
       <div class="inner-top">
-        <button class="back-btn" onclick="nav('screen-home')">←</button>
+        <button class="back-btn" aria-label="Back" onclick="nav('screen-home')">←</button>
         <div>
           <div class="inner-eye">Practice & Quiz</div>
           <div class="inner-h">Interactive Activities</div>
@@ -603,7 +603,7 @@
       <!-- ── UNIT 1 HUB VIEW (Table of Contents / Section Selector) ── -->
       <div id="unit1-hub-view" class="unit-hub-wrap">
         <div class="inner-top">
-          <button class="back-btn" onclick="nav('screen-b')">←</button>
+          <button class="back-btn" aria-label="Back" onclick="nav('screen-b')">←</button>
           <div>
             <div class="inner-eye" id="ld-eye">Reading Lesson · Unit 1</div>
             <div class="inner-h" id="ld-heading">การหาใจความสำคัญและกลยุทธ์ก่อนอ่าน</div>
@@ -3734,7 +3734,7 @@
   <div id="screen-strategy-detail" class="screen app-screen">
     <div class="inner-wrap">
       <div class="inner-top">
-        <button class="back-btn" onclick="nav('screen-c')">←</button>
+        <button class="back-btn" aria-label="Back" onclick="nav('screen-c')">←</button>
         <div>
           <div class="inner-eye">Reading Strategy Guide</div>
           <div class="inner-h" id="strat-view-title">Previewing &amp; Predicting</div>
@@ -3905,7 +3905,7 @@
   <div id="screen-quiz-interactive" class="screen app-screen">
     <div class="inner-wrap">
       <div class="inner-top">
-        <button class="back-btn" onclick="nav('screen-d')">←</button>
+        <button class="back-btn" aria-label="Back" onclick="nav('screen-d')">←</button>
         <div>
           <div class="inner-eye">Formative Assessment · Unit 1</div>
           <div class="inner-h">Main Ideas &amp; Previewing Quiz</div>
@@ -4035,7 +4035,7 @@
   <div id="screen-e" class="screen app-screen">
     <div class="inner-wrap">
       <div class="inner-top">
-        <button class="back-btn" onclick="nav('screen-home')">←</button>
+        <button class="back-btn" aria-label="Back" onclick="nav('screen-home')">←</button>
         <div>
           <div class="inner-eye">Learning Progress</div>
           <div class="inner-h">Progress Monitoring</div>

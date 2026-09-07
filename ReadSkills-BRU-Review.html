@@ -396,8 +396,8 @@
     }
 
     .signin-next-btn {
-      background: linear-gradient(135deg, #4285F4, #2d6fd4);
-      color: #fff;
+      background: linear-gradient(135deg, var(--gold), var(--gold2));
+      color: #1a1608;
       border: none;
       padding: 12px 28px;
       border-radius: 50px;
@@ -406,13 +406,13 @@
       font-weight: 700;
       cursor: pointer;
       transition: transform .2s, box-shadow .2s;
-      box-shadow: 0 4px 16px rgba(66, 133, 244, .3);
+      box-shadow: 0 4px 16px rgba(232, 201, 122, .3);
       min-width: 90px;
     }
 
     .signin-next-btn:hover {
       transform: translateY(-2px);
-      box-shadow: 0 6px 24px rgba(66, 133, 244, .4);
+      box-shadow: 0 6px 24px rgba(232, 201, 122, .4);
     }
 
     .btn-spinner {
@@ -3735,6 +3735,86 @@
       line-height: 1.6;
     }
 
+    /* ══════════════════════════════════
+   RESPONSIVE / MOBILE
+   (เพิ่มภายหลังเพื่อรองรับหน้าจอเล็ก — ไม่แตะโครงสร้างเดิม)
+══════════════════════════════════ */
+    @media (max-width: 720px) {
+      .home-wrap,
+      .inner-wrap {
+        padding-left: 16px;
+        padding-right: 16px;
+      }
+
+      .flow-card {
+        padding: 18px 16px;
+      }
+
+      .lesson-header-banner,
+      .unit-progress-card {
+        padding: 18px 16px;
+      }
+    }
+
+    @media (max-width: 480px) {
+      .pm-row {
+        grid-template-columns: 1fr;
+      }
+
+      .stats-row {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 6px;
+      }
+
+      .stat-box {
+        padding: 12px;
+      }
+
+      .profile-modal {
+        max-width: 94vw;
+      }
+
+      .profile-modal-top {
+        padding: 22px 18px 18px;
+      }
+
+      .profile-modal-body {
+        padding: 18px 16px;
+      }
+
+      .signin-card {
+        padding: 26px 18px;
+        max-width: 94vw;
+      }
+
+      .hero-wrap h1 {
+        letter-spacing: -.2px;
+      }
+
+      .qj-pill {
+        min-width: 120px;
+        font-size: .82rem;
+        padding: 9px 12px;
+      }
+    }
+
+    @media (max-width: 380px) {
+      .flow-card {
+        padding: 16px 14px;
+      }
+
+      .inner-wrap,
+      .home-wrap {
+        padding-left: 12px;
+        padding-right: 12px;
+      }
+
+      .stats-row {
+        grid-template-columns: 1fr 1fr;
+        gap: 6px;
+      }
+    }
+
 </style>
 </head>
 
@@ -3902,7 +3982,7 @@
             <label for="input-password">Password</label>
             <input type="password" id="input-password" class="signin-input" autocomplete="current-password"
               oninput="onPasswordInput()" onkeydown="if(event.key==='Enter')submitSignIn()">
-            <button class="eye-toggle" type="button" onclick="togglePwd()" id="eye-btn">👁</button>
+            <button class="eye-toggle" aria-label="Show or hide password" type="button" onclick="togglePwd()" id="eye-btn">👁</button>
           </div>
           <p class="input-helper" style="margin-bottom:4px">Enter your password to continue</p>
           <div class="signin-error" id="signin-error-pwd"></div>
@@ -4048,7 +4128,7 @@
   <div id="screen-b" class="screen app-screen">
     <div class="inner-wrap">
       <div class="inner-top">
-        <button class="back-btn" onclick="nav('screen-home')">←</button>
+        <button class="back-btn" aria-label="Back" onclick="nav('screen-home')">←</button>
         <div>
           <div class="inner-eye">Reading Lessons</div>
           <div class="inner-h">Instructional Units</div>
@@ -4172,7 +4252,7 @@
   <div id="screen-c" class="screen app-screen">
     <div class="inner-wrap">
       <div class="inner-top">
-        <button class="back-btn" onclick="nav('screen-home')">←</button>
+        <button class="back-btn" aria-label="Back" onclick="nav('screen-home')">←</button>
         <div>
           <div class="inner-eye">Reading Strategies</div>
           <div class="inner-h">Strategy Library</div>
@@ -4247,7 +4327,7 @@
   <div id="screen-d" class="screen app-screen">
     <div class="inner-wrap">
       <div class="inner-top">
-        <button class="back-btn" onclick="nav('screen-home')">←</button>
+        <button class="back-btn" aria-label="Back" onclick="nav('screen-home')">←</button>
         <div>
           <div class="inner-eye">Practice & Quiz</div>
           <div class="inner-h">Interactive Activities</div>
@@ -4330,7 +4410,7 @@
       <!-- ── UNIT 1 HUB VIEW (Table of Contents / Section Selector) ── -->
       <div id="unit1-hub-view" class="unit-hub-wrap">
         <div class="inner-top">
-          <button class="back-btn" onclick="nav('screen-b')">←</button>
+          <button class="back-btn" aria-label="Back" onclick="nav('screen-b')">←</button>
           <div>
             <div class="inner-eye" id="ld-eye">Reading Lesson · Unit 1</div>
             <div class="inner-h" id="ld-heading">การหาใจความสำคัญและกลยุทธ์ก่อนอ่าน</div>
@@ -7461,7 +7541,7 @@
   <div id="screen-strategy-detail" class="screen app-screen">
     <div class="inner-wrap">
       <div class="inner-top">
-        <button class="back-btn" onclick="nav('screen-c')">←</button>
+        <button class="back-btn" aria-label="Back" onclick="nav('screen-c')">←</button>
         <div>
           <div class="inner-eye">Reading Strategy Guide</div>
           <div class="inner-h" id="strat-view-title">Previewing &amp; Predicting</div>
@@ -7632,7 +7712,7 @@
   <div id="screen-quiz-interactive" class="screen app-screen">
     <div class="inner-wrap">
       <div class="inner-top">
-        <button class="back-btn" onclick="nav('screen-d')">←</button>
+        <button class="back-btn" aria-label="Back" onclick="nav('screen-d')">←</button>
         <div>
           <div class="inner-eye">Formative Assessment · Unit 1</div>
           <div class="inner-h">Main Ideas &amp; Previewing Quiz</div>
@@ -7762,7 +7842,7 @@
   <div id="screen-e" class="screen app-screen">
     <div class="inner-wrap">
       <div class="inner-top">
-        <button class="back-btn" onclick="nav('screen-home')">←</button>
+        <button class="back-btn" aria-label="Back" onclick="nav('screen-home')">←</button>
         <div>
           <div class="inner-eye">Learning Progress</div>
           <div class="inner-h">Progress Monitoring</div>
