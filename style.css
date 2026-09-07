@@ -1226,6 +1226,7 @@
     .card-blue .mc-icon-wrap {
       background: rgba(91, 141, 238, .1);
       border: 1px solid rgba(91, 141, 238, .2);
+      color: #5b8dee;
     }
 
     .card-blue:hover {
@@ -1239,6 +1240,7 @@
     .card-purple .mc-icon-wrap {
       background: rgba(155, 114, 232, .1);
       border: 1px solid rgba(155, 114, 232, .2);
+      color: #9b72e8;
     }
 
     .card-purple:hover {
@@ -1252,6 +1254,7 @@
     .card-gold .mc-icon-wrap {
       background: rgba(232, 201, 122, .1);
       border: 1px solid rgba(232, 201, 122, .2);
+      color: var(--gold);
     }
 
     .card-gold:hover {
@@ -1265,6 +1268,7 @@
     .card-teal .mc-icon-wrap {
       background: rgba(78, 205, 196, .1);
       border: 1px solid rgba(78, 205, 196, .2);
+      color: var(--teal);
     }
 
     .card-teal:hover {
