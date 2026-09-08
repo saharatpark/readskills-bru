@@ -5,6 +5,24 @@
 
 ---
 
+## 📌 อัปเดตล่าสุด (2026-09-08)
+
+1. **ดีไซน์ Home + Sign-in ปรับเป็น "Direction A"** (จาก Design Canvas ที่นำเสนอไว้ก่อนหน้า):
+   - Home: รวม greeting + avatar เป็นแถวเดียว, การ์ด "เรียนต่อ" (Continue) เป็นไล่สีกรมท่า-ทองพร้อมปุ่มเล่นวงกลม, 4 เมนูการ์ดเปลี่ยนจากลิสต์แนวตั้งเป็นกริดไอคอน 2 คอลัมน์ (ยุบเหลือ 1 คอลัมน์บนจอแคบ)
+   - Sign-in: ไอคอน emoji → SVG, ปุ่มหลักเป็นไล่สีทอง, ชื่อมหาวิทยาลัยใต้โลโก้เป็น pill ทอง
+   - Passage/exercise UI (`ex-opt`, letter badges) ตรงกับ mockup อยู่แล้วไม่ต้องแก้
+   - ยังไม่ได้ทำ: Desktop side-nav layout (มีอยู่ใน mockup `DesktopHome.dc.html`) — ต้องปรับโครงสร้างทุกหน้าจอ ยังไม่ได้ลงมือเพราะเสี่ยงกระทบฟีเจอร์เดิม รอ confirm ก่อนเริ่ม
+
+2. **Unit 1 เนื้อหาเขียนใหม่ทั้งหมดเป็นระดับ CEFR A2-B1** (ทั้ง Reading Lessons 8 topics และ Reading Strategies module) อ้างอิงจาก `1. AJ.Bow Lesson Plan Unit 1.docx` ของผู้สอน:
+   - Topic 1–8 (`topic-pane-1` ถึง `topic-pane-8`) และ `#screen-strategy-detail` ปรับคำศัพท์/ประโยคให้ง่ายลงจาก B2+ เดิม (เช่น "controlling idea", "coral bleaching") โดยคงโครงสร้าง id/onclick/class เดิมทั้งหมด ไม่กระทบ app.js
+   - เพิ่ม diagram/mind-map ใหม่ให้ Topic 2 (ตำแหน่ง Topic Sentence), Topic 3 (mind-map Topic→Main Idea→Details), Topic 5 (เปรียบเทียบ Main Idea vs Details) ที่เดิมไม่มีภาพประกอบ
+   - Topic 7 (Passage A–F) และแบบฝึกหัดทั้งหมดปรับคำศัพท์ง่ายลงเช่นกัน โดยคำตอบที่ถูกต้องของแต่ละข้อไม่เปลี่ยน
+   - Commit: `2f5c754` "Simplify Unit 1 content to CEFR A2-B1 level"
+
+3. **แผนถัดไป (รอผู้ใช้):** ผู้ใช้แจ้งว่า Lesson Plan มีทั้งหมด 6 หน่วย (Unit 1–6) แต่ละหน่วยแบ่งเป็น 2 module (Reading Lesson + Reading Strategies) — ตอนนี้มีไฟล์ Lesson Plan ของ Unit 1 เท่านั้น เมื่อได้ไฟล์ Lesson Plan ของ Unit 2–6 จะทำเนื้อหาต่อในรูปแบบเดียวกัน (A2-B1, มี diagram/รูปภาพ, มีแบบฝึกหัด)
+
+---
+
 ## โครงสร้างไฟล์ปัจจุบัน
 
 โปรเจกต์ถูกแยกจากไฟล์ `index.html` เดี่ยว (8,672 บรรทัด) ออกเป็น 3 ไฟล์:
