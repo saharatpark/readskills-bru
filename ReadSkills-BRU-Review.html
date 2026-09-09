@@ -10,20 +10,20 @@
     rel="stylesheet">
   <style>
     :root {
-      --bg: #0d0f14;
-      --surface: #161a24;
-      --surface2: #1e2433;
-      --surface3: #232b3e;
-      --border: #2a3045;
-      --border2: #344060;
-      --gold: #e8c97a;
-      --gold2: #f5dfa0;
-      --teal: #4ecdc4;
-      --teal2: #38b2aa;
-      --red: #e05c5c;
-      --green: #5cc994;
-      --text: #e8eaf2;
-      --muted: #7a849a;
+      --bg: #E6D8F0;
+      --surface: #DCC9EA;
+      --surface2: #E6DCF2;
+      --surface3: #D3C1E6;
+      --border: #C2A0DB;
+      --border2: #9B7FC2;
+      --gold: #7A5EA0;
+      --gold2: #9B7FC2;
+      --teal: #B6688A;
+      --teal2: #C98BA6;
+      --red: #C4544F;
+      --green: #5B9375;
+      --text: #372E48;
+      --muted: #6E5F82;
       --radius: 14px;
     }
 
@@ -504,8 +504,8 @@
     }
 
     .signin-error {
-      background: rgba(224, 92, 92, .1);
-      border: 1px solid rgba(224, 92, 92, .3);
+      background: rgba(196, 84, 79, .1);
+      border: 1px solid rgba(196, 84, 79, .3);
       color: var(--red);
       border-radius: 10px;
       padding: 12px 16px;
@@ -638,7 +638,7 @@
     }
 
     .profile-modal-top {
-      background: linear-gradient(135deg, #1a3a6e 0%, #2d5bb5 60%, #1e3d7e 100%);
+      background: linear-gradient(135deg, #7A5EA0 0%, #9B7FC2 60%, #6F5590 100%);
       padding: 28px 28px 24px;
       text-align: center;
       position: relative;
@@ -658,7 +658,7 @@
       width: 68px;
       height: 68px;
       border-radius: 50%;
-      border: 3px solid rgba(232, 201, 122, .6);
+      border: 3px solid rgba(122, 94, 160, .6);
       background: rgba(255, 255, 255, .1);
       display: flex;
       align-items: center;
@@ -796,8 +796,8 @@
 
     .pm-submit-btn {
       width: 100%;
-      background: linear-gradient(135deg, var(--gold), #c9a84c);
-      color: #0d0f14;
+      background: linear-gradient(135deg, var(--gold), #6F5590);
+      color: #FBF8FD;
       border: none;
       padding: 15px;
       border-radius: 12px;
@@ -807,7 +807,7 @@
       cursor: pointer;
       margin-top: 8px;
       transition: transform .2s, box-shadow .2s;
-      box-shadow: 0 4px 18px rgba(232, 201, 122, .25);
+      box-shadow: 0 4px 18px rgba(122, 94, 160, .25);
       display: flex;
       align-items: center;
       justify-content: center;
@@ -816,7 +816,7 @@
 
     .pm-submit-btn:hover {
       transform: translateY(-2px);
-      box-shadow: 0 8px 28px rgba(232, 201, 122, .35);
+      box-shadow: 0 8px 28px rgba(122, 94, 160, .35);
     }
 
     .pm-submit-btn:disabled {
@@ -858,7 +858,7 @@
       height: 32px;
       border-radius: 50%;
       background: var(--gold);
-      color: #0d0f14;
+      color: #FBF8FD;
       display: flex;
       align-items: center;
       justify-content: center;
@@ -1451,13 +1451,13 @@
 
     .tl-dot.done {
       border-color: var(--green);
-      background: rgba(92, 201, 148, .1);
+      background: rgba(91, 147, 117, .1);
       color: var(--green);
     }
 
     .tl-dot.cur {
       border-color: var(--gold);
-      background: rgba(232, 201, 122, .1);
+      background: rgba(122, 94, 160, .1);
       color: var(--gold);
     }
 
@@ -1480,7 +1480,7 @@
     }
 
     .tl-card.cur {
-      border-color: rgba(232, 201, 122, .35);
+      border-color: rgba(122, 94, 160, .35);
       background: var(--surface2);
     }
 
@@ -2032,8 +2032,8 @@
    LESSON & CONTENT DETAIL SCREENS
 ══════════════════════════════════ */
     .lesson-header-banner {
-      background: linear-gradient(135deg, #132247, #1b3060);
-      border: 1px solid rgba(232, 201, 122, .25);
+      background: linear-gradient(135deg, #5A4479, #4A3868);
+      border: 1px solid rgba(122, 94, 160, .25);
       border-radius: var(--radius);
       padding: 20px;
       margin-bottom: 20px;
@@ -2057,9 +2057,9 @@
       font-size: .65rem;
       letter-spacing: 2px;
       text-transform: uppercase;
-      color: var(--gold);
-      background: rgba(232, 201, 122, .1);
-      border: 1px solid rgba(232, 201, 122, .3);
+      color: #E8D6F5;
+      background: rgba(255, 255, 255, .12);
+      border: 1px solid rgba(255, 255, 255, .3);
       padding: 4px 10px;
       border-radius: 20px;
       margin-bottom: 10px;
@@ -2071,6 +2071,7 @@
       font-weight: 700;
       line-height: 1.25;
       margin-bottom: 8px;
+      color: #FBF8FD;
     }
 
     .lh-meta {
@@ -2117,7 +2118,7 @@
       background: var(--surface);
       color: var(--gold);
       box-shadow: 0 2px 8px rgba(0, 0, 0, .25);
-      border: 1px solid rgba(232, 201, 122, .3);
+      border: 1px solid rgba(122, 94, 160, .3);
     }
 
     .stage-content {
@@ -2194,7 +2195,7 @@
       font-family: 'DM Mono', monospace;
       font-size: .65rem;
       color: var(--teal);
-      background: rgba(78, 205, 196, .1);
+      background: rgba(182, 104, 138, .1);
       padding: 2px 6px;
       border-radius: 4px;
     }
@@ -2244,7 +2245,7 @@
 
     .hl-btn.active {
       border-color: var(--gold);
-      background: rgba(232, 201, 122, .15);
+      background: rgba(122, 94, 160, .15);
       color: var(--gold);
     }
 
@@ -2294,7 +2295,7 @@
       padding: 22px;
       line-height: 2.0;
       font-size: .96rem;
-      color: #d8deea;
+      color: #372E48;
       font-family: 'Georgia', serif;
     }
 
@@ -2306,17 +2307,17 @@
     }
 
     .passage-sentence:hover {
-      background: rgba(255, 255, 255, .08);
+      background: rgba(55, 46, 72, .1);
     }
 
     .passage-sentence.hl-topic {
-      background: rgba(232, 201, 122, .35);
+      background: rgba(122, 94, 160, .35);
       color: #fff;
       border-bottom: 2px solid var(--gold);
     }
 
     .passage-sentence.hl-detail {
-      background: rgba(78, 205, 196, .3);
+      background: rgba(182, 104, 138, .3);
       color: #fff;
       border-bottom: 2px solid var(--teal);
     }
@@ -2369,24 +2370,24 @@
 
     .quiz-opt:hover:not(.locked) {
       border-color: var(--gold);
-      background: rgba(232, 201, 122, .05);
+      background: rgba(122, 94, 160, .05);
     }
 
     .quiz-opt.selected {
       border-color: var(--gold);
-      background: rgba(232, 201, 122, .12);
+      background: rgba(122, 94, 160, .12);
       color: var(--gold);
     }
 
     .quiz-opt.correct {
       border-color: var(--green) !important;
-      background: rgba(92, 201, 148, .18) !important;
+      background: rgba(91, 147, 117, .18) !important;
       color: #fff !important;
     }
 
     .quiz-opt.wrong {
       border-color: var(--red) !important;
-      background: rgba(224, 92, 92, .18) !important;
+      background: rgba(196, 84, 79, .18) !important;
       color: #fff !important;
     }
 
@@ -2401,15 +2402,15 @@
 
     .quiz-feedback.correct {
       display: block;
-      background: rgba(92, 201, 148, .12);
-      border: 1px solid rgba(92, 201, 148, .3);
+      background: rgba(91, 147, 117, .12);
+      border: 1px solid rgba(91, 147, 117, .3);
       color: var(--green);
     }
 
     .quiz-feedback.wrong {
       display: block;
-      background: rgba(224, 92, 92, .12);
-      border: 1px solid rgba(224, 92, 92, .3);
+      background: rgba(196, 84, 79, .12);
+      border: 1px solid rgba(196, 84, 79, .3);
       color: var(--red);
     }
 
@@ -2421,8 +2422,8 @@
     }
 
     .action-primary-btn {
-      background: linear-gradient(135deg, var(--gold), #c9a84c);
-      color: #0d0f14;
+      background: linear-gradient(135deg, var(--gold), #6F5590);
+      color: #FBF8FD;
       border: none;
       padding: 12px 24px;
       border-radius: 24px;
@@ -2434,7 +2435,7 @@
 
     .action-primary-btn:hover {
       transform: translateY(-2px);
-      box-shadow: 0 6px 20px rgba(232, 201, 122, .3);
+      box-shadow: 0 6px 20px rgba(122, 94, 160, .3);
     }
 
     /* ══════════════════════════════════
@@ -2447,8 +2448,8 @@
     }
 
     .unit-progress-card {
-      background: linear-gradient(135deg, #132247, #1b3060);
-      border: 1px solid rgba(232, 201, 122, .25);
+      background: linear-gradient(135deg, #5A4479, #4A3868);
+      border: 1px solid rgba(122, 94, 160, .25);
       border-radius: var(--radius);
       padding: 18px 20px;
       margin-bottom: 20px;
@@ -2521,11 +2522,11 @@
 
     .unit-sec-card.active-sec {
       border-color: var(--teal);
-      background: linear-gradient(135deg, rgba(78, 205, 196, .08), var(--surface));
+      background: linear-gradient(135deg, rgba(182, 104, 138, .08), var(--surface));
     }
 
     .unit-sec-card.completed {
-      border-color: rgba(92, 201, 148, .4);
+      border-color: rgba(91, 147, 117, .4);
     }
 
     .usc-top {
@@ -2546,26 +2547,26 @@
     }
 
     .usc-badge-gold {
-      background: rgba(232, 201, 122, .12);
+      background: rgba(122, 94, 160, .12);
       color: var(--gold);
-      border: 1px solid rgba(232, 201, 122, .3);
+      border: 1px solid rgba(122, 94, 160, .3);
     }
 
     .usc-badge-teal {
-      background: rgba(78, 205, 196, .12);
+      background: rgba(182, 104, 138, .12);
       color: var(--teal);
-      border: 1px solid rgba(78, 205, 196, .3);
+      border: 1px solid rgba(182, 104, 138, .3);
     }
 
     .usc-badge-green {
-      background: rgba(92, 201, 148, .12);
+      background: rgba(91, 147, 117, .12);
       color: var(--green);
-      border: 1px solid rgba(92, 201, 148, .3);
+      border: 1px solid rgba(91, 147, 117, .3);
     }
 
     .usc-badge-purple {
       background: rgba(155, 114, 232, .12);
-      color: #b090f0;
+      color: #6B4F96;
       border: 1px solid rgba(155, 114, 232, .3);
     }
 
@@ -2703,22 +2704,22 @@
     }
 
     .rfn-btn-primary {
-      background: linear-gradient(135deg, var(--gold), #c9a84c);
-      color: #0d0f14;
+      background: linear-gradient(135deg, var(--gold), #6F5590);
+      color: #FBF8FD;
       border: none;
       font-weight: 700;
-      box-shadow: 0 4px 14px rgba(232, 201, 122, .25);
+      box-shadow: 0 4px 14px rgba(122, 94, 160, .25);
     }
 
     .rfn-btn-primary:hover {
       transform: translateY(-2px);
-      box-shadow: 0 6px 20px rgba(232, 201, 122, .35);
+      box-shadow: 0 6px 20px rgba(122, 94, 160, .35);
     }
 
     /* Concept Highlight Box */
     .concept-box {
-      background: linear-gradient(135deg, rgba(232, 201, 122, .06), var(--surface2));
-      border: 1.5px solid rgba(232, 201, 122, .25);
+      background: linear-gradient(135deg, rgba(122, 94, 160, .06), var(--surface2));
+      border: 1.5px solid rgba(122, 94, 160, .25);
       border-radius: 14px;
       padding: 20px;
       margin: 16px 0;
@@ -2748,7 +2749,7 @@
 
     /* Key Term inline */
     .key-term {
-      background: rgba(232, 201, 122, .15);
+      background: rgba(122, 94, 160, .15);
       color: var(--gold2);
       padding: 2px 8px;
       border-radius: 6px;
@@ -2757,7 +2758,7 @@
     }
 
     .key-term-teal {
-      background: rgba(78, 205, 196, .15);
+      background: rgba(182, 104, 138, .15);
       color: var(--teal);
       padding: 2px 8px;
       border-radius: 6px;
@@ -2767,11 +2768,11 @@
 
     .key-term-purple {
       background: rgba(155, 114, 232, .15);
-      color: #c4a8f5;
+      color: #6B4F96;
       padding: 2px 8px;
       border-radius: 6px;
       font-weight: 600;
-      border-bottom: 2px solid #b090f0;
+      border-bottom: 2px solid #6B4F96;
     }
 
     /* Visual Diagram (CSS-based) */
@@ -2800,7 +2801,7 @@
       content: '';
       flex: 1;
       height: 1px;
-      background: linear-gradient(90deg, rgba(78, 205, 196, .3), transparent);
+      background: linear-gradient(90deg, rgba(182, 104, 138, .3), transparent);
     }
 
     /* Text Feature Demo */
@@ -2828,26 +2829,26 @@
     }
 
     .tf-label-gold {
-      background: rgba(232, 201, 122, .12);
+      background: rgba(122, 94, 160, .12);
       color: var(--gold);
-      border: 1px solid rgba(232, 201, 122, .3);
+      border: 1px solid rgba(122, 94, 160, .3);
     }
 
     .tf-label-teal {
-      background: rgba(78, 205, 196, .12);
+      background: rgba(182, 104, 138, .12);
       color: var(--teal);
-      border: 1px solid rgba(78, 205, 196, .3);
+      border: 1px solid rgba(182, 104, 138, .3);
     }
 
     .tf-label-green {
-      background: rgba(92, 201, 148, .12);
+      background: rgba(91, 147, 117, .12);
       color: var(--green);
-      border: 1px solid rgba(92, 201, 148, .3);
+      border: 1px solid rgba(91, 147, 117, .3);
     }
 
     .tf-label-purple {
       background: rgba(155, 114, 232, .12);
-      color: #b090f0;
+      color: #6B4F96;
       border: 1px solid rgba(155, 114, 232, .3);
     }
 
@@ -2857,7 +2858,7 @@
 
     .tf-bold-word {
       background: rgba(155, 114, 232, .2);
-      color: #c4a8f5;
+      color: #6B4F96;
       padding: 1px 5px;
       border-radius: 4px;
       font-weight: 700;
@@ -2865,8 +2866,8 @@
 
     /* Exercise Box */
     .exercise-box {
-      background: linear-gradient(135deg, rgba(78, 205, 196, .05), var(--surface));
-      border: 1.5px solid rgba(78, 205, 196, .25);
+      background: linear-gradient(135deg, rgba(182, 104, 138, .05), var(--surface));
+      border: 1.5px solid rgba(182, 104, 138, .25);
       border-radius: 14px;
       padding: 20px;
       margin: 18px 0;
@@ -2914,22 +2915,22 @@
 
     .ex-opt:hover:not(.ex-locked) {
       border-color: var(--teal);
-      background: rgba(78, 205, 196, .06);
+      background: rgba(182, 104, 138, .06);
     }
 
     .ex-opt.ex-selected {
       border-color: var(--gold);
-      background: rgba(232, 201, 122, .1);
+      background: rgba(122, 94, 160, .1);
     }
 
     .ex-opt.ex-correct {
       border-color: var(--green) !important;
-      background: rgba(92, 201, 148, .15) !important;
+      background: rgba(91, 147, 117, .15) !important;
     }
 
     .ex-opt.ex-wrong {
       border-color: var(--red) !important;
-      background: rgba(224, 92, 92, .12) !important;
+      background: rgba(196, 84, 79, .12) !important;
     }
 
     .ex-opt .ex-letter {
@@ -2948,13 +2949,13 @@
     }
 
     .ex-opt.ex-correct .ex-letter {
-      background: rgba(92, 201, 148, .2);
+      background: rgba(91, 147, 117, .2);
       border-color: var(--green);
       color: var(--green);
     }
 
     .ex-opt.ex-wrong .ex-letter {
-      background: rgba(224, 92, 92, .15);
+      background: rgba(196, 84, 79, .15);
       border-color: var(--red);
       color: var(--red);
     }
@@ -2973,14 +2974,14 @@
     }
 
     .ex-feedback.correct {
-      background: rgba(92, 201, 148, .1);
-      border: 1px solid rgba(92, 201, 148, .3);
+      background: rgba(91, 147, 117, .1);
+      border: 1px solid rgba(91, 147, 117, .3);
       color: var(--green);
     }
 
     .ex-feedback.wrong {
-      background: rgba(224, 92, 92, .1);
-      border: 1px solid rgba(224, 92, 92, .3);
+      background: rgba(196, 84, 79, .1);
+      border: 1px solid rgba(196, 84, 79, .3);
       color: var(--red);
     }
 
@@ -3024,18 +3025,18 @@
       line-height: 1.85;
       font-size: .9rem;
       font-family: 'Georgia', serif;
-      color: #d8deea;
+      color: #372E48;
     }
 
     .example-para .hl-gold {
-      background: rgba(232, 201, 122, .35);
+      background: rgba(122, 94, 160, .35);
       padding: 2px 4px;
       border-radius: 4px;
       border-bottom: 2px solid var(--gold);
     }
 
     .example-para .hl-teal {
-      background: rgba(78, 205, 196, .25);
+      background: rgba(182, 104, 138, .25);
       padding: 2px 4px;
       border-radius: 4px;
       border-bottom: 2px solid var(--teal);
@@ -3045,7 +3046,7 @@
     .signal-chip {
       display: inline-block;
       background: rgba(155, 114, 232, .12);
-      color: #b090f0;
+      color: #6B4F96;
       border: 1px solid rgba(155, 114, 232, .3);
       padding: 3px 10px;
       border-radius: 16px;
@@ -3064,15 +3065,15 @@
     }
 
     .self-check-header {
-      background: linear-gradient(135deg, #132247, #1b3060);
+      background: linear-gradient(135deg, #5A4479, #4A3868);
       padding: 16px 20px;
-      border-bottom: 1px solid rgba(232, 201, 122, .2);
+      border-bottom: 1px solid rgba(122, 94, 160, .2);
     }
 
     .self-check-header h4 {
       font-family: 'Playfair Display', serif;
       font-size: 1.05rem;
-      color: var(--gold2);
+      color: #F0E6F8;
       margin-bottom: 4px;
     }
 
@@ -3121,7 +3122,7 @@
     }
 
     .reflection-box h4 {
-      color: #b090f0;
+      color: #6B4F96;
       font-family: 'Playfair Display', serif;
       margin-bottom: 10px;
     }
@@ -3158,7 +3159,7 @@
       width: 28px;
       height: 28px;
       border-radius: 50%;
-      background: rgba(78, 205, 196, .15);
+      background: rgba(182, 104, 138, .15);
       border: 1px solid var(--teal);
       color: var(--teal);
       display: flex;
@@ -3209,12 +3210,12 @@
     }
 
     .ips-clue:hover {
-      background: rgba(78, 205, 196, .2);
+      background: rgba(182, 104, 138, .2);
       border-style: solid;
     }
 
     .ips-clue.inspected {
-      background: rgba(92, 201, 148, .2);
+      background: rgba(91, 147, 117, .2);
       border-color: var(--green);
       color: var(--green);
       border-style: solid;
@@ -3245,8 +3246,8 @@
       display: flex;
       flex-wrap: wrap;
       gap: 10px;
-      background: linear-gradient(135deg, rgba(26, 35, 58, 0.95), rgba(16, 22, 38, 0.98));
-      border: 1.5px solid rgba(232, 201, 122, 0.35);
+      background: linear-gradient(135deg, rgba(230, 216, 240, 0.95), rgba(220, 201, 234, 0.98));
+      border: 1.5px solid rgba(122, 94, 160, 0.35);
       border-radius: 14px;
       padding: 14px 16px;
       margin: 14px 0 24px;
@@ -3256,9 +3257,9 @@
     .qj-pill {
       flex: 1 1 auto;
       min-width: 140px;
-      background: rgba(255, 255, 255, 0.07);
-      border: 1.5px solid rgba(255, 255, 255, 0.15);
-      color: #f8fafc;
+      background: rgba(122, 94, 160, 0.1);
+      border: 1.5px solid rgba(122, 94, 160, 0.3);
+      color: #7A5EA0;
       padding: 10px 16px;
       border-radius: 10px;
       font-family: 'DM Sans', sans-serif;
@@ -3276,11 +3277,11 @@
     }
 
     .qj-pill:hover {
-      background: rgba(232, 201, 122, 0.22);
-      color: #ffffff;
+      background: rgba(122, 94, 160, 0.22);
+      color: #4A3868;
       border-color: var(--gold);
       transform: translateY(-2px);
-      box-shadow: 0 6px 16px rgba(232, 201, 122, 0.25);
+      box-shadow: 0 6px 16px rgba(122, 94, 160, 0.25);
     }
 
     .qj-pill:active {
@@ -3289,9 +3290,9 @@
 
     /* Sequential Flow Card */
     .flow-card {
-      background: rgba(20, 26, 42, 0.75);
+      background: rgba(230, 216, 240, 0.75);
       backdrop-filter: blur(10px);
-      border: 1px solid rgba(255, 255, 255, 0.07);
+      border: 1px solid rgba(55, 46, 72, 0.08);
       border-radius: 16px;
       padding: 22px 24px;
       margin-bottom: 24px;
@@ -3301,7 +3302,7 @@
     }
 
     .flow-card:hover {
-      border-color: rgba(232, 201, 122, 0.28);
+      border-color: rgba(122, 94, 160, 0.28);
     }
 
     .flow-header {
@@ -3310,7 +3311,7 @@
       gap: 12px;
       margin-bottom: 16px;
       padding-bottom: 12px;
-      border-bottom: 1px solid rgba(255, 255, 255, 0.06);
+      border-bottom: 1px solid rgba(55, 46, 72, 0.08);
     }
 
     .flow-step-badge {
@@ -3323,41 +3324,41 @@
       font-family: 'DM Mono', monospace;
       font-size: 0.85rem;
       font-weight: 700;
-      background: rgba(78, 205, 196, 0.12);
+      background: rgba(182, 104, 138, 0.12);
       color: var(--teal);
-      border: 1px solid rgba(78, 205, 196, 0.3);
+      border: 1px solid rgba(182, 104, 138, 0.3);
       flex-shrink: 0;
     }
 
     .flow-step-gold {
-      background: rgba(232, 201, 122, 0.12);
+      background: rgba(122, 94, 160, 0.12);
       color: var(--gold);
-      border-color: rgba(232, 201, 122, 0.3);
+      border-color: rgba(122, 94, 160, 0.3);
     }
 
     .flow-step-purple {
       background: rgba(155, 114, 232, 0.12);
-      color: #c4a8f5;
+      color: #6B4F96;
       border-color: rgba(155, 114, 232, 0.3);
     }
 
     .flow-step-green {
-      background: rgba(92, 201, 148, 0.12);
+      background: rgba(91, 147, 117, 0.12);
       color: var(--green);
-      border-color: rgba(92, 201, 148, 0.3);
+      border-color: rgba(91, 147, 117, 0.3);
     }
 
     .flow-step-red {
-      background: rgba(224, 92, 92, 0.12);
+      background: rgba(196, 84, 79, 0.12);
       color: var(--red);
-      border-color: rgba(224, 92, 92, 0.3);
+      border-color: rgba(196, 84, 79, 0.3);
     }
 
     .flow-title {
       font-family: 'Playfair Display', serif;
       font-size: 1.15rem;
       font-weight: 700;
-      color: #f8fafc;
+      color: #372E48;
       margin: 0;
     }
 
@@ -3410,21 +3411,21 @@
     }
 
     .flip-card-front {
-      background: linear-gradient(145deg, rgba(22, 28, 45, 0.95), rgba(15, 20, 35, 0.95));
-      border-color: rgba(78, 205, 196, .35);
+      background: linear-gradient(145deg, rgba(250, 245, 253, 0.95), rgba(240, 230, 248, 0.95));
+      border-color: rgba(182, 104, 138, .35);
       box-shadow: 0 6px 18px rgba(0, 0, 0, 0.25);
     }
 
     .flip-card-front:hover {
       border-color: var(--teal);
-      box-shadow: 0 8px 26px rgba(78, 205, 196, .2);
+      box-shadow: 0 8px 26px rgba(182, 104, 138, .2);
       transform: translateY(-2px);
     }
 
     .flip-card-back {
-      background: linear-gradient(145deg, #132247, #101a35);
+      background: linear-gradient(145deg, #5A4479, #4A3868);
       transform: rotateY(180deg);
-      border-color: rgba(232, 201, 122, .4);
+      border-color: rgba(122, 94, 160, .4);
       box-shadow: 0 6px 18px rgba(0, 0, 0, 0.3);
     }
 
@@ -3432,14 +3433,14 @@
       font-family: 'Playfair Display', serif;
       font-size: 1.45rem;
       font-weight: 700;
-      color: var(--gold2);
+      color: #6F5590;
       margin-bottom: 2px;
     }
 
     .fcf-phonetic {
       font-family: 'DM Mono', monospace;
       font-size: .8rem;
-      color: var(--teal);
+      color: #8A4A64;
       margin-bottom: 8px;
     }
 
@@ -3447,9 +3448,9 @@
       display: inline-block;
       padding: 2px 8px;
       border-radius: 12px;
-      background: rgba(78, 205, 196, .15);
-      border: 1px solid rgba(78, 205, 196, .3);
-      color: var(--teal);
+      background: rgba(182, 104, 138, .15);
+      border: 1px solid rgba(182, 104, 138, .3);
+      color: #8A4A64;
       font-size: .7rem;
       font-weight: 700;
     }
@@ -3465,32 +3466,32 @@
     .fcb-thai {
       font-size: 1.1rem;
       font-weight: 700;
-      color: var(--gold);
+      color: #E8D6F5;
       margin-bottom: 8px;
     }
 
     .fcb-synonyms {
       font-size: .78rem;
-      color: var(--teal);
+      color: #F0C8DC;
       margin-bottom: 8px;
       line-height: 1.5;
     }
 
     .fcb-ex {
       font-size: .82rem;
-      color: var(--text);
+      color: #FBF8FD;
       line-height: 1.6;
       font-style: italic;
-      background: rgba(0, 0, 0, .25);
+      background: rgba(0, 0, 0, .2);
       padding: 8px 10px;
       border-radius: 8px;
-      border-left: 3px solid var(--gold);
+      border-left: 3px solid #C9A8E8;
     }
 
     /* Sentence Dissector Widget */
     .sentence-dissector {
-      background: rgba(18, 24, 38, 0.8);
-      border: 1.5px solid rgba(232, 201, 122, .3);
+      background: rgba(230, 216, 240, 0.8);
+      border: 1.5px solid rgba(122, 94, 160, .3);
       border-radius: 14px;
       padding: 20px;
       margin: 18px 0;
@@ -3501,12 +3502,12 @@
       font-size: 1.02rem;
       line-height: 2.2;
       font-family: 'Georgia', serif;
-      color: #f1f5f9;
+      color: #372E48;
       margin-bottom: 14px;
-      background: rgba(10, 14, 24, 0.7);
+      background: rgba(255, 255, 255, 0.6);
       padding: 14px 18px;
       border-radius: 10px;
-      border: 1px solid rgba(255, 255, 255, 0.08);
+      border: 1px solid rgba(55, 46, 72, 0.1);
     }
 
     .sd-token {
@@ -3520,41 +3521,41 @@
     }
 
     .sd-token:hover {
-      background: rgba(255, 255, 255, .1);
+      background: rgba(55, 46, 72, .12);
       transform: translateY(-1px);
     }
 
     .sd-token.active-topic {
-      background: rgba(232, 201, 122, .3) !important;
+      background: rgba(122, 94, 160, .3) !important;
       border-bottom-color: var(--gold) !important;
-      color: var(--gold2) !important;
+      color: #6F5590 !important;
       font-weight: 700;
     }
 
     .sd-token.active-idea {
-      background: rgba(78, 205, 196, .3) !important;
+      background: rgba(182, 104, 138, .3) !important;
       border-bottom-color: var(--teal) !important;
-      color: #81e6d9 !important;
+      color: #8A4A64 !important;
       font-weight: 700;
     }
 
     .sd-token.active-signal {
       background: rgba(155, 114, 232, .3) !important;
-      border-bottom-color: #b090f0 !important;
-      color: #d6bcfa !important;
+      border-bottom-color: #6B4F96 !important;
+      color: #6B4F96 !important;
       font-weight: 700;
     }
 
     .sd-token.active-detail {
-      background: rgba(92, 201, 148, .3) !important;
+      background: rgba(91, 147, 117, .3) !important;
       border-bottom-color: var(--green) !important;
-      color: #a7f3d0 !important;
+      color: #2A5540 !important;
       font-weight: 700;
     }
 
     .sd-role-box {
-      background: rgba(10, 14, 24, 0.7);
-      border: 1px solid rgba(255, 255, 255, 0.08);
+      background: rgba(255, 255, 255, 0.6);
+      border: 1px solid rgba(55, 46, 72, 0.1);
       border-radius: 10px;
       padding: 12px 16px;
       min-height: 54px;
@@ -3573,25 +3574,25 @@
     }
 
     .sdr-gold {
-      background: rgba(232, 201, 122, .2);
+      background: rgba(122, 94, 160, .2);
       border: 1px solid var(--gold);
       color: var(--gold);
     }
 
     .sdr-teal {
-      background: rgba(78, 205, 196, .2);
+      background: rgba(182, 104, 138, .2);
       border: 1px solid var(--teal);
       color: var(--teal);
     }
 
     .sdr-purple {
       background: rgba(155, 114, 232, .2);
-      border: 1px solid #b090f0;
-      color: #b090f0;
+      border: 1px solid #6B4F96;
+      color: #6B4F96;
     }
 
     .sdr-green {
-      background: rgba(92, 201, 148, .2);
+      background: rgba(91, 147, 117, .2);
       border: 1px solid var(--green);
       color: var(--green);
     }
@@ -3611,8 +3612,8 @@
     }
 
     .sm-card {
-      background: rgba(18, 24, 38, 0.75);
-      border: 1px solid rgba(255, 255, 255, 0.08);
+      background: rgba(230, 216, 240, 0.75);
+      border: 1px solid rgba(55, 46, 72, 0.1);
       border-radius: 12px;
       padding: 14px;
       transition: all .2s;
@@ -3648,8 +3649,8 @@
     }
 
     .sm-pill {
-      background: rgba(255, 255, 255, 0.05);
-      border: 1px solid rgba(255, 255, 255, 0.1);
+      background: rgba(122, 94, 160, 0.08);
+      border: 1px solid rgba(122, 94, 160, 0.25);
       color: var(--text);
       font-size: .75rem;
       padding: 3px 8px;
@@ -3659,12 +3660,12 @@
 
     /* Exam Traps Box */
     .trap-box {
-      background: linear-gradient(135deg, rgba(224, 92, 92, .08), rgba(20, 24, 36, 0.9));
-      border: 1.5px solid rgba(224, 92, 92, .3);
+      background: linear-gradient(135deg, rgba(196, 84, 79, .08), rgba(245, 223, 212, 0.9));
+      border: 1.5px solid rgba(196, 84, 79, .3);
       border-radius: 14px;
       padding: 18px;
       margin: 18px 0;
-      box-shadow: 0 4px 20px rgba(224, 92, 92, 0.08);
+      box-shadow: 0 4px 20px rgba(196, 84, 79, 0.08);
     }
 
     .trap-title {
@@ -3679,8 +3680,8 @@
     }
 
     .trap-item {
-      background: rgba(15, 20, 32, 0.8);
-      border: 1px solid rgba(224, 92, 92, .2);
+      background: rgba(230, 216, 240, 0.8);
+      border: 1px solid rgba(196, 84, 79, .2);
       border-radius: 10px;
       padding: 12px 14px;
       margin-bottom: 8px;
@@ -3696,7 +3697,7 @@
       display: inline-block;
       padding: 2px 8px;
       border-radius: 6px;
-      background: rgba(224, 92, 92, .2);
+      background: rgba(196, 84, 79, .2);
       color: var(--red);
       font-weight: 700;
       font-size: .7rem;
@@ -3705,8 +3706,8 @@
 
     /* Bilingual Block */
     .bilingual-block {
-      background: rgba(18, 24, 38, 0.7);
-      border: 1px solid rgba(255, 255, 255, 0.08);
+      background: rgba(230, 216, 240, 0.7);
+      border: 1px solid rgba(55, 46, 72, 0.1);
       border-radius: 12px;
       padding: 14px 18px;
       margin: 12px 0;
@@ -3715,7 +3716,7 @@
 
     .bb-en {
       font-size: .9rem;
-      color: #f1f5f9;
+      color: #372E48;
       line-height: 1.7;
       margin-bottom: 8px;
       font-family: 'Georgia', serif;
@@ -3723,10 +3724,10 @@
 
     .bb-th {
       font-size: .84rem;
-      color: #94a3b8;
+      color: #6E5F82;
       line-height: 1.6;
       padding-top: 8px;
-      border-top: 1px dashed rgba(255, 255, 255, 0.08);
+      border-top: 1px dashed rgba(55, 46, 72, 0.1);
     }
 
     /* ── AMBIENT SNOW & INTERACTIVE PARTICLE CANVAS ── */
@@ -3753,14 +3754,14 @@
     }
 
     .ex-opt.ex-correct {
-      background: rgba(92, 201, 148, .18) !important;
+      background: rgba(91, 147, 117, .18) !important;
       border-color: var(--green) !important;
       color: var(--green) !important;
       font-weight: 700;
     }
 
     .ex-opt.ex-wrong {
-      background: rgba(224, 92, 92, .15) !important;
+      background: rgba(196, 84, 79, .15) !important;
       border-color: var(--red) !important;
       color: var(--red) !important;
     }
@@ -3791,7 +3792,7 @@
       justify-content: space-between;
       align-items: center;
       padding: 8px 14px;
-      background: rgba(15, 20, 32, .9);
+      background: rgba(230, 216, 240, .9);
       font-size: .75rem;
       color: var(--muted);
       border-top: 1px solid var(--border);
@@ -3799,8 +3800,8 @@
 
     /* ── GUIDED QUESTION BOX ── */
     .guided-q {
-      background: rgba(78, 205, 196, .06);
-      border: 1px solid rgba(78, 205, 196, .25);
+      background: rgba(182, 104, 138, .06);
+      border: 1px solid rgba(182, 104, 138, .25);
       border-left: 3px solid var(--teal);
       border-radius: 10px;
       padding: 10px 14px;
@@ -3922,7 +3923,7 @@
         <div style="position:relative;display:inline-block;margin-bottom:14px">
           <div class="profile-avatar-ring" id="pm-avatar-preview">🎓</div>
           <label for="pm-photo-input"
-            style="position:absolute;bottom:0;right:0;width:24px;height:24px;border-radius:50%;background:var(--gold);color:#0d0f14;display:flex;align-items:center;justify-content:center;cursor:pointer;font-size:.75rem;border:2px solid var(--surface);box-shadow:0 2px 6px rgba(0,0,0,.3);">✏</label>
+            style="position:absolute;bottom:0;right:0;width:24px;height:24px;border-radius:50%;background:var(--gold);color:#FBF8FD;display:flex;align-items:center;justify-content:center;cursor:pointer;font-size:.75rem;border:2px solid var(--surface);box-shadow:0 2px 6px rgba(0,0,0,.3);">✏</label>
           <input type="file" id="pm-photo-input" accept="image/*" style="display:none"
             onchange="handlePhotoUpload(event)">
         </div>
@@ -4226,7 +4227,7 @@
         <div class="tl-item" onclick="openLessonDetail(1)" style="cursor:pointer;">
           <div class="tl-dot cur">▶</div>
           <div class="tl-card cur"
-            style="border-color:rgba(232,201,122,.6);background:var(--surface2);position:relative;">
+            style="border-color:rgba(122,94,160,.6);background:var(--surface2);position:relative;">
             <div
               style="position:absolute;top:12px;right:14px;font-size:.72rem;color:var(--gold);font-weight:700;display:flex;align-items:center;gap:4px;">
               <span>คลิกเข้าสู่เนื้อหา</span> <span style="font-size:.9rem;">➔</span>
@@ -4347,8 +4348,8 @@
         แตะที่กลยุทธ์เพื่อดูเทคนิคและตัวอย่างการฝึกปฏิบัติ</p>
       <div class="strat-list">
         <div class="strat-row" onclick="openStrategyDetail(1)"
-          style="cursor:pointer;border-color:rgba(78,205,196,.4);background:var(--surface2);">
-          <div class="strat-icon-box" style="background:rgba(78,205,196,.15);border:1px solid rgba(78,205,196,.35)">🔭
+          style="cursor:pointer;border-color:rgba(182,104,138,.4);background:var(--surface2);">
+          <div class="strat-icon-box" style="background:rgba(182,104,138,.15);border:1px solid rgba(182,104,138,.35)">🔭
           </div>
           <div class="strat-info">
             <div class="strat-label" style="color:var(--teal)">Unit 1 · Lesson Plan 1 · Weeks 2–3 · Active Module</div>
@@ -4421,8 +4422,8 @@
       <div class="feedback-badge"><span>⚡</span> All quizzes provide immediate feedback after each item</div>
       <div class="quiz-list">
         <div class="qb-card b1" onclick="openLessonDetail(1)"
-          style="border-color:rgba(78,205,196,.5);background:var(--surface2);">
-          <div class="qb-icon" style="background:rgba(78,205,196,.15);border-color:rgba(78,205,196,.35)">🔭</div>
+          style="border-color:rgba(182,104,138,.5);background:var(--surface2);">
+          <div class="qb-icon" style="background:rgba(182,104,138,.15);border-color:rgba(182,104,138,.35)">🔭</div>
           <div class="qb-body">
             <div class="qb-section" style="color:var(--teal)">Unit 1 · Interactive Module</div>
             <div class="qb-title" style="color:var(--gold2)">Lesson 1 Reading &amp; Strategy Practice ➔</div>
@@ -4445,7 +4446,7 @@
           </div>
         </div>
         <div class="qb-card b3" onclick="openInteractiveQuiz(3)">
-          <div class="qb-icon" style="background:rgba(232,201,122,.1);border-color:rgba(232,201,122,.25)">📖</div>
+          <div class="qb-icon" style="background:rgba(122,94,160,.1);border-color:rgba(122,94,160,.25)">📖</div>
           <div class="qb-body">
             <div class="qb-section" style="color:var(--gold)">Unit 3 · In Progress</div>
             <div class="qb-title">Context Clue Game, Vocabulary Quiz</div>
@@ -4538,7 +4539,7 @@
 
         <!-- Objectives & Core Concept Banner (Prominently displayed upon entering Unit 1) -->
         <div class="content-block"
-          style="border-color:rgba(232,201,122,.35);background:linear-gradient(135deg,#152342,#1c2f5a);margin-bottom:20px;box-shadow:0 4px 20px rgba(0,0,0,.25);">
+          style="border-color:rgba(122,94,160,.35);background:linear-gradient(135deg,#5A4479,#4A3868);margin-bottom:20px;box-shadow:0 4px 20px rgba(0,0,0,.25);">
           <div
             style="display:flex;justify-content:space-between;align-items:center;margin-bottom:10px;flex-wrap:wrap;gap:8px;">
             <h3 style="font-family:'Playfair Display',serif;font-size:1.15rem;color:var(--gold2);margin-bottom:0;">🎯
@@ -4551,7 +4552,7 @@
             central main idea accurately (Performance Goal: ≥ 70% accuracy).
           </p>
           <div
-            style="background:var(--surface2);border:1px solid rgba(232,201,122,.25);border-radius:10px;padding:12px 16px;">
+            style="background:var(--surface2);border:1px solid rgba(122,94,160,.25);border-radius:10px;padding:12px 16px;">
             <p style="font-size:.8rem;font-weight:700;color:var(--teal);margin-bottom:6px;">📋 Learning Objectives &amp;
               Performance Indicators (ผศ. นาวียา ชูโตประมา):</p>
             <ul style="padding-left:18px;font-size:.82rem;color:var(--muted);line-height:1.75;margin:0;">
@@ -4778,33 +4779,33 @@
               </div>
 
               <div class="visual-diagram"
-                style="background:#0f172a;border:1.5px solid rgba(78,205,196,.3);margin:14px 0;">
+                style="background:#4A3868;border:1.5px solid rgba(182,104,138,.3);margin:14px 0;">
                 <div class="vd-title">INFOGRAPHIC: หน้าบทความจำลอง 8 ส่วนประกอบ</div>
                 <div style="text-align:center;margin-bottom:10px;">
                   <svg viewBox="0 0 700 360"
-                    style="width:100%;max-width:100%;height:auto;border-radius:10px;background:#1e293b;"
+                    style="width:100%;max-width:100%;height:auto;border-radius:10px;background:#5A4479;"
                     xmlns="http://www.w3.org/2000/svg">
-                    <rect x="20" y="15" width="660" height="330" rx="8" fill="#0f172a" stroke="#334155"
+                    <rect x="20" y="15" width="660" height="330" rx="8" fill="#4A3868" stroke="#6B5C82"
                       stroke-width="2" />
 
                     <!-- 1. Title -->
-                    <rect x="40" y="30" width="400" height="36" rx="6" fill="rgba(232,201,122,.18)" stroke="#e8c97a"
+                    <rect x="40" y="30" width="400" height="36" rx="6" fill="rgba(122,94,160,.18)" stroke="#C9A8E8"
                       stroke-width="1.5" />
-                    <text x="50" y="53" fill="#e8c97a" font-family="'DM Sans', sans-serif" font-weight="700"
+                    <text x="50" y="53" fill="#C9A8E8" font-family="'DM Sans', sans-serif" font-weight="700"
                       font-size="13">1. TITLE (ชื่อเรื่องหลัก) — Global Topic</text>
                     <text x="455" y="53" fill="#cbd5e1" font-family="'DM Sans', sans-serif" font-size="11">➔
                       บอกหัวข้อใหญ่และขอบเขตงานวิจัย</text>
 
                     <!-- 2. Subheading -->
-                    <rect x="40" y="78" width="300" height="28" rx="5" fill="rgba(78,205,196,.18)" stroke="#4ecdc4"
+                    <rect x="40" y="78" width="300" height="28" rx="5" fill="rgba(182,104,138,.18)" stroke="#E8A8C4"
                       stroke-width="1.5" />
-                    <text x="50" y="97" fill="#4ecdc4" font-family="'DM Sans', sans-serif" font-weight="600"
+                    <text x="50" y="97" fill="#E8A8C4" font-family="'DM Sans', sans-serif" font-weight="600"
                       font-size="12">2. SUBHEADING (หัวข้อย่อย)</text>
                     <text x="355" y="97" fill="#cbd5e1" font-family="'DM Sans', sans-serif" font-size="11">➔
                       แบ่งส่วนเนื้อหาและระบุหัวข้อย่อย</text>
 
                     <!-- 3. Paragraph & Bold Word -->
-                    <rect x="40" y="118" width="370" height="95" rx="6" fill="#1e293b" stroke="#334155" />
+                    <rect x="40" y="118" width="370" height="95" rx="6" fill="#5A4479" stroke="#6B5C82" />
                     <text x="50" y="138" fill="#cbd5e1" font-family="'DM Sans', sans-serif"
                       font-size="11">ย่อหน้าเริ่มต้นด้วยประโยคใจความสำคัญ...</text>
                     <rect x="50" y="150" width="135" height="22" rx="4" fill="rgba(155,114,232,.3)" stroke="#9b72e8" />
@@ -4816,10 +4817,10 @@
                       font-size="10">ตามด้วยหลักฐาน ข้อมูลตัวเลข และการอ้างอิง...</text>
 
                     <!-- 4. Graphic & Caption Box -->
-                    <rect x="430" y="118" width="230" height="135" rx="6" fill="rgba(92,201,148,.12)" stroke="#5cc994"
+                    <rect x="430" y="118" width="230" height="135" rx="6" fill="rgba(91,147,117,.12)" stroke="#8CDBAE"
                       stroke-width="1.5" />
-                    <rect x="445" y="130" width="200" height="48" rx="4" fill="#162e26" />
-                    <text x="460" y="158" fill="#5cc994" font-family="'DM Sans', sans-serif" font-weight="700"
+                    <rect x="445" y="130" width="200" height="48" rx="4" fill="#45524A" />
+                    <text x="460" y="158" fill="#8CDBAE" font-family="'DM Sans', sans-serif" font-weight="700"
                       font-size="11.5">📊 4. FIGURE / GRAPH</text>
                     <text x="445" y="192" fill="#a7f3d0" font-family="'DM Sans', sans-serif"
                       font-size="9.5">แผนภาพ/กราฟช่วยให้เห็นแนวโน้มตัวเลข</text>
@@ -4829,8 +4830,8 @@
                       font-size="9">สรุปผลลัพธ์สำคัญจากรูปภาพ</text>
 
                     <!-- 6. Bullet List & 7. Callout Box -->
-                    <rect x="40" y="225" width="370" height="95" rx="6" fill="#1e293b" stroke="#334155" />
-                    <text x="50" y="244" fill="#e8c97a" font-family="'DM Sans', sans-serif" font-weight="600"
+                    <rect x="40" y="225" width="370" height="95" rx="6" fill="#5A4479" stroke="#6B5C82" />
+                    <text x="50" y="244" fill="#C9A8E8" font-family="'DM Sans', sans-serif" font-weight="600"
                       font-size="11">6. BULLETED LIST (รายการแบบจุด):</text>
                     <text x="60" y="264" fill="#cbd5e1" font-family="'DM Sans', sans-serif" font-size="10">• ข้อสรุปที่
                       1: จัดกลุ่มประเด็นสำคัญให้อ่านเร็ว</text>
@@ -4840,7 +4841,7 @@
                       3: ลดความซับซ้อนของข้อมูลยาวๆ</text>
 
                     <!-- 8. Footnote -->
-                    <rect x="430" y="265" width="230" height="55" rx="6" fill="#0b1329" stroke="#1d2d50" />
+                    <rect x="430" y="265" width="230" height="55" rx="6" fill="#332347" stroke="#4A3868" />
                     <text x="440" y="284" fill="#93c5fd" font-family="'DM Mono', monospace" font-size="9.5">7. SIDEBAR /
                       8. FOOTNOTE (*)</text>
                     <text x="440" y="302" fill="#94a3b8" font-family="'DM Sans', sans-serif"
@@ -4912,7 +4913,7 @@
               </div>
 
               <div class="concept-box" style="border-left-color:var(--teal);">
-                <div class="example-para" style="background:#0f172a;border-color:rgba(78,205,196,.3);">
+                <div class="example-para">
                   <div style="font-size:1.15rem;font-weight:700;color:var(--gold);margin-bottom:6px;">Article Title:
                     Warmer Seas Are Hurting Coral Reefs</div>
                   <div style="font-size:.78rem;color:var(--teal);margin-bottom:10px;font-family:'DM Mono',monospace;">
@@ -5195,43 +5196,43 @@
                 </div>
               </div>
 
-              <div class="visual-diagram" style="background:#0f172a;border:1.5px solid rgba(232,201,122,.3);margin:14px 0;">
+              <div class="visual-diagram" style="background:#4A3868;border:1.5px solid rgba(122,94,160,.3);margin:14px 0;">
                 <div class="vd-title">DIAGRAM: Topic Sentence อยู่ตรงไหนของย่อหน้า</div>
                 <div style="text-align:center;margin-bottom:10px;">
-                  <svg viewBox="0 0 700 260" style="width:100%;max-width:100%;height:auto;border-radius:10px;background:#1e293b;" xmlns="http://www.w3.org/2000/svg">
-                    <rect x="20" y="15" width="660" height="230" rx="8" fill="#0f172a" stroke="#334155" stroke-width="2" />
+                  <svg viewBox="0 0 700 260" style="width:100%;max-width:100%;height:auto;border-radius:10px;background:#5A4479;" xmlns="http://www.w3.org/2000/svg">
+                    <rect x="20" y="15" width="660" height="230" rx="8" fill="#4A3868" stroke="#6B5C82" stroke-width="2" />
                     <!-- Paragraph A: TS first -->
                     <text x="40" y="40" fill="#94a3b8" font-family="'DM Sans', sans-serif" font-size="11">Paragraph A — Topic Sentence FIRST (~80%)</text>
-                    <rect x="40" y="48" width="300" height="22" rx="4" fill="rgba(232,201,122,.25)" stroke="#e8c97a" stroke-width="1.5" />
-                    <text x="48" y="63" fill="#e8c97a" font-family="'DM Mono', monospace" font-size="10" font-weight="700">Topic Sentence</text>
-                    <rect x="40" y="74" width="300" height="14" rx="3" fill="#334155" />
-                    <rect x="40" y="92" width="300" height="14" rx="3" fill="#334155" />
-                    <rect x="40" y="110" width="300" height="14" rx="3" fill="#334155" />
+                    <rect x="40" y="48" width="300" height="22" rx="4" fill="rgba(122,94,160,.25)" stroke="#C9A8E8" stroke-width="1.5" />
+                    <text x="48" y="63" fill="#C9A8E8" font-family="'DM Mono', monospace" font-size="10" font-weight="700">Topic Sentence</text>
+                    <rect x="40" y="74" width="300" height="14" rx="3" fill="#6B5C82" />
+                    <rect x="40" y="92" width="300" height="14" rx="3" fill="#6B5C82" />
+                    <rect x="40" y="110" width="300" height="14" rx="3" fill="#6B5C82" />
                     <text x="40" y="140" fill="#64748b" font-family="'DM Sans', sans-serif" font-size="9">➔ ประโยคแรกบอกใจความหลัก แล้วตามด้วยรายละเอียด</text>
 
                     <!-- Paragraph B: TS last -->
                     <text x="380" y="40" fill="#94a3b8" font-family="'DM Sans', sans-serif" font-size="11">Paragraph B — Topic Sentence LAST (~15%)</text>
-                    <rect x="380" y="48" width="280" height="14" rx="3" fill="#334155" />
-                    <rect x="380" y="66" width="280" height="14" rx="3" fill="#334155" />
-                    <rect x="380" y="84" width="280" height="14" rx="3" fill="#334155" />
-                    <rect x="380" y="104" width="280" height="22" rx="4" fill="rgba(78,205,196,.25)" stroke="#4ecdc4" stroke-width="1.5" />
-                    <text x="388" y="119" fill="#4ecdc4" font-family="'DM Mono', monospace" font-size="10" font-weight="700">Topic Sentence</text>
+                    <rect x="380" y="48" width="280" height="14" rx="3" fill="#6B5C82" />
+                    <rect x="380" y="66" width="280" height="14" rx="3" fill="#6B5C82" />
+                    <rect x="380" y="84" width="280" height="14" rx="3" fill="#6B5C82" />
+                    <rect x="380" y="104" width="280" height="22" rx="4" fill="rgba(182,104,138,.25)" stroke="#E8A8C4" stroke-width="1.5" />
+                    <text x="388" y="119" fill="#E8A8C4" font-family="'DM Mono', monospace" font-size="10" font-weight="700">Topic Sentence</text>
                     <text x="380" y="140" fill="#64748b" font-family="'DM Sans', sans-serif" font-size="9">➔ รายละเอียดมาก่อน แล้วสรุปท้ายด้วย Topic Sentence</text>
 
                     <!-- Paragraph C: TS middle -->
                     <text x="40" y="170" fill="#94a3b8" font-family="'DM Sans', sans-serif" font-size="11">Paragraph C — Topic Sentence in the MIDDLE (~5%)</text>
-                    <rect x="40" y="178" width="300" height="14" rx="3" fill="#334155" />
+                    <rect x="40" y="178" width="300" height="14" rx="3" fill="#6B5C82" />
                     <rect x="40" y="196" width="300" height="22" rx="4" fill="rgba(196,168,245,.25)" stroke="#c4a8f5" stroke-width="1.5" />
                     <text x="48" y="211" fill="#c4a8f5" font-family="'DM Mono', monospace" font-size="10" font-weight="700">Topic Sentence</text>
-                    <rect x="40" y="222" width="300" height="14" rx="3" fill="#334155" />
+                    <rect x="40" y="222" width="300" height="14" rx="3" fill="#6B5C82" />
 
                     <!-- Paragraph D: Sandwich -->
                     <text x="380" y="170" fill="#94a3b8" font-family="'DM Sans', sans-serif" font-size="11">Paragraph D — SANDWICH (first + last)</text>
-                    <rect x="380" y="178" width="280" height="18" rx="4" fill="rgba(92,201,148,.25)" stroke="#5cc994" stroke-width="1.5" />
-                    <text x="386" y="191" fill="#5cc994" font-family="'DM Mono', monospace" font-size="9" font-weight="700">Topic Sentence (first)</text>
-                    <rect x="380" y="200" width="280" height="14" rx="3" fill="#334155" />
-                    <rect x="380" y="218" width="280" height="18" rx="4" fill="rgba(92,201,148,.25)" stroke="#5cc994" stroke-width="1.5" />
-                    <text x="386" y="231" fill="#5cc994" font-family="'DM Mono', monospace" font-size="9" font-weight="700">Same idea again (last)</text>
+                    <rect x="380" y="178" width="280" height="18" rx="4" fill="rgba(91,147,117,.25)" stroke="#8CDBAE" stroke-width="1.5" />
+                    <text x="386" y="191" fill="#8CDBAE" font-family="'DM Mono', monospace" font-size="9" font-weight="700">Topic Sentence (first)</text>
+                    <rect x="380" y="200" width="280" height="14" rx="3" fill="#6B5C82" />
+                    <rect x="380" y="218" width="280" height="18" rx="4" fill="rgba(91,147,117,.25)" stroke="#8CDBAE" stroke-width="1.5" />
+                    <text x="386" y="231" fill="#8CDBAE" font-family="'DM Mono', monospace" font-size="9" font-weight="700">Same idea again (last)</text>
                   </svg>
                 </div>
               </div>
@@ -5333,7 +5334,7 @@
                     (Fact) ไม่มีอะไรให้อธิบายต่อในย่อหน้า</div>
                 </div>
                 <div class="trap-item">
-                  <span class="trap-badge" style="background:rgba(92,201,148,.2);color:var(--green);">Ideal: Perfect
+                  <span class="trap-badge" style="background:rgba(91,147,117,.2);color:var(--green);">Ideal: Perfect
                     Balance (สมบูรณ์แบบ)</span>
                   <strong style="color:var(--green);">"Online shopping gives small businesses three big advantages."</strong>
                   <div style="color:#a7f3d0;font-size:.8rem;margin-top:2px;">✅ เหมาะสมที่สุด: มี Topic (Online shopping)
@@ -5536,11 +5537,11 @@
                 </table>
               </div>
 
-              <div class="visual-diagram" style="background:#0f172a;border:1.5px solid rgba(78,205,196,.3);margin:14px 0;">
+              <div class="visual-diagram" style="background:#4A3868;border:1.5px solid rgba(182,104,138,.3);margin:14px 0;">
                 <div class="vd-title">MIND-MAP: จาก Topic ไปสู่ Main Idea และ Supporting Details</div>
                 <div style="text-align:center;margin-bottom:10px;">
-                  <svg viewBox="0 0 700 300" style="width:100%;max-width:100%;height:auto;border-radius:10px;background:#1e293b;" xmlns="http://www.w3.org/2000/svg">
-                    <rect x="20" y="15" width="660" height="270" rx="8" fill="#0f172a" stroke="#334155" stroke-width="2" />
+                  <svg viewBox="0 0 700 300" style="width:100%;max-width:100%;height:auto;border-radius:10px;background:#5A4479;" xmlns="http://www.w3.org/2000/svg">
+                    <rect x="20" y="15" width="660" height="270" rx="8" fill="#4A3868" stroke="#6B5C82" stroke-width="2" />
                     <!-- Topic -->
                     <rect x="270" y="30" width="160" height="34" rx="6" fill="rgba(147,197,253,.2)" stroke="#93c5fd" stroke-width="1.5" />
                     <text x="350" y="52" fill="#93c5fd" font-family="'DM Sans', sans-serif" font-weight="700" font-size="12" text-anchor="middle">TOPIC: Plastic waste</text>
@@ -5548,24 +5549,24 @@
                     <line x1="350" y1="64" x2="350" y2="88" stroke="#64748b" stroke-width="2" />
                     <polygon points="345,86 355,86 350,96" fill="#64748b" />
                     <!-- Main Idea -->
-                    <rect x="220" y="98" width="260" height="40" rx="6" fill="rgba(232,201,122,.2)" stroke="#e8c97a" stroke-width="1.5" />
-                    <text x="350" y="115" fill="#e8c97a" font-family="'DM Sans', sans-serif" font-weight="700" font-size="11.5" text-anchor="middle">MAIN IDEA (the umbrella)</text>
+                    <rect x="220" y="98" width="260" height="40" rx="6" fill="rgba(122,94,160,.2)" stroke="#C9A8E8" stroke-width="1.5" />
+                    <text x="350" y="115" fill="#C9A8E8" font-family="'DM Sans', sans-serif" font-weight="700" font-size="11.5" text-anchor="middle">MAIN IDEA (the umbrella)</text>
                     <text x="350" y="131" fill="#f4e3b0" font-family="'DM Sans', sans-serif" font-size="9.5" text-anchor="middle">Plastic waste is harming ocean animals and beaches.</text>
                     <!-- arrows to 3 details -->
                     <line x1="280" y1="138" x2="120" y2="185" stroke="#64748b" stroke-width="1.5" />
                     <line x1="350" y1="138" x2="350" y2="185" stroke="#64748b" stroke-width="1.5" />
                     <line x1="420" y1="138" x2="580" y2="185" stroke="#64748b" stroke-width="1.5" />
                     <!-- Supporting details -->
-                    <rect x="40" y="188" width="160" height="70" rx="6" fill="#162e26" stroke="#5cc994" stroke-width="1.5" />
-                    <text x="120" y="208" fill="#5cc994" font-family="'DM Sans', sans-serif" font-weight="700" font-size="10.5" text-anchor="middle">Detail 1</text>
+                    <rect x="40" y="188" width="160" height="70" rx="6" fill="#45524A" stroke="#8CDBAE" stroke-width="1.5" />
+                    <text x="120" y="208" fill="#8CDBAE" font-family="'DM Sans', sans-serif" font-weight="700" font-size="10.5" text-anchor="middle">Detail 1</text>
                     <text x="120" y="228" fill="#a7f3d0" font-family="'DM Sans', sans-serif" font-size="9" text-anchor="middle">Fish and turtles</text>
                     <text x="120" y="242" fill="#a7f3d0" font-family="'DM Sans', sans-serif" font-size="9" text-anchor="middle">eat plastic by mistake</text>
-                    <rect x="270" y="188" width="160" height="70" rx="6" fill="#162e26" stroke="#5cc994" stroke-width="1.5" />
-                    <text x="350" y="208" fill="#5cc994" font-family="'DM Sans', sans-serif" font-weight="700" font-size="10.5" text-anchor="middle">Detail 2</text>
+                    <rect x="270" y="188" width="160" height="70" rx="6" fill="#45524A" stroke="#8CDBAE" stroke-width="1.5" />
+                    <text x="350" y="208" fill="#8CDBAE" font-family="'DM Sans', sans-serif" font-weight="700" font-size="10.5" text-anchor="middle">Detail 2</text>
                     <text x="350" y="228" fill="#a7f3d0" font-family="'DM Sans', sans-serif" font-size="9" text-anchor="middle">Beaches are covered</text>
                     <text x="350" y="242" fill="#a7f3d0" font-family="'DM Sans', sans-serif" font-size="9" text-anchor="middle">with trash</text>
-                    <rect x="500" y="188" width="160" height="70" rx="6" fill="#162e26" stroke="#5cc994" stroke-width="1.5" />
-                    <text x="580" y="208" fill="#5cc994" font-family="'DM Sans', sans-serif" font-weight="700" font-size="10.5" text-anchor="middle">Detail 3</text>
+                    <rect x="500" y="188" width="160" height="70" rx="6" fill="#45524A" stroke="#8CDBAE" stroke-width="1.5" />
+                    <text x="580" y="208" fill="#8CDBAE" font-family="'DM Sans', sans-serif" font-weight="700" font-size="10.5" text-anchor="middle">Detail 3</text>
                     <text x="580" y="228" fill="#a7f3d0" font-family="'DM Sans', sans-serif" font-size="9" text-anchor="middle">Cleanup costs a lot</text>
                     <text x="580" y="242" fill="#a7f3d0" font-family="'DM Sans', sans-serif" font-size="9" text-anchor="middle">of money</text>
                     <text x="350" y="278" fill="#64748b" font-family="'DM Sans', sans-serif" font-size="9.5" text-anchor="middle">💡 Main Idea is the "umbrella" — it covers all the small details underneath it.</text>
@@ -5588,10 +5589,10 @@
                 <p style="font-size:.84rem;color:var(--text);line-height:1.7;">Sometimes a paragraph does not have a
                   clear Topic Sentence. Use this <strong>simple formula</strong>:</p>
                 <div
-                  style="background:rgba(20,26,44,0.9);padding:14px;border-radius:10px;border:1px solid var(--gold);margin:12px 0;text-align:center;font-weight:700;color:var(--gold2);font-family:'DM Mono',monospace;font-size:.86rem;">
+                  style="background:rgba(122,94,160,.12);padding:14px;border-radius:10px;border:1px solid var(--gold);margin:12px 0;text-align:center;font-weight:700;color:#6F5590;font-family:'DM Mono',monospace;font-size:.86rem;">
                   Implied Main Idea = Topic (หัวข้อ) + สิ่งที่ทุกตัวอย่างมีเหมือนกัน (Common Point)
                 </div>
-                <div class="example-para" style="background:#0f172a;margin-top:12px;">
+                <div class="example-para" style="margin-top:12px;">
                   <strong>ตัวอย่างย่อหน้า Implied Main Idea:</strong><br>
                   <em>"In the morning, Sarah does not check her phone before breakfast. At lunch, she goes for a walk
                     without her phone. After 8:00 PM, she turns off her phone and reads a book instead."</em>
@@ -5794,11 +5795,11 @@
               </div>
 
               <div class="visual-diagram"
-                style="background:#0f172a;border:1.5px solid rgba(155,114,232,.3);margin:14px 0;">
+                style="background:#4A3868;border:1.5px solid rgba(155,114,232,.3);margin:14px 0;">
                 <div class="vd-title">INFOGRAPHIC: ลำดับชั้นรายละเอียด (The Umbrella &amp; Pillar Hierarchy)</div>
                 <div style="text-align:center;padding:12px 0;">
                   <div
-                    style="display:inline-block;background:linear-gradient(135deg,#e8c97a,#d4af37);color:#0d0f14;padding:12px 28px;border-radius:30px 30px 0 0;font-family:'Playfair Display',serif;font-weight:700;font-size:1.05rem;">
+                    style="display:inline-block;background:linear-gradient(135deg,#7A5EA0,#6F5590);color:#FBF8FD;padding:12px 28px;border-radius:30px 30px 0 0;font-family:'Playfair Display',serif;font-weight:700;font-size:1.05rem;">
                     ☂️ TOPIC SENTENCE / MAIN IDEA (ร่มคันใหญ่คลุมทั้งย่อหน้า)
                   </div>
                   <div style="width:4px;height:18px;background:var(--gold);margin:0 auto;"></div>
@@ -5807,7 +5808,7 @@
                     style="display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:14px;margin-top:8px;">
                     <!-- Major Detail Box -->
                     <div
-                      style="background:rgba(78,205,196,.1);border:1.5px solid var(--teal);border-radius:12px;padding:14px;text-align:left;">
+                      style="background:rgba(182,104,138,.1);border:1.5px solid var(--teal);border-radius:12px;padding:14px;text-align:left;">
                       <div style="display:flex;align-items:center;gap:8px;margin-bottom:6px;">
                         <span style="font-size:1.2rem;">🏛️</span>
                         <strong style="color:var(--teal);font-size:.9rem;">MAJOR DETAILS (เสาหลัก)</strong>
@@ -5821,7 +5822,7 @@
 
                     <!-- Minor Detail Box -->
                     <div
-                      style="background:rgba(92,201,148,.1);border:1.5px solid var(--green);border-radius:12px;padding:14px;text-align:left;">
+                      style="background:rgba(91,147,117,.1);border:1.5px solid var(--green);border-radius:12px;padding:14px;text-align:left;">
                       <div style="display:flex;align-items:center;gap:8px;margin-bottom:6px;">
                         <span style="font-size:1.2rem;">🔬</span>
                         <strong style="color:var(--green);font-size:.9rem;">MINOR DETAILS (ข้อมูลเสริม)</strong>
@@ -5921,7 +5922,7 @@
               </div>
 
               <div class="concept-box" style="border-left-color:var(--teal);">
-                <div class="example-para" style="background:#0f172a;">
+                <div class="example-para">
                   <p style="margin-bottom:6px;"><span class="hl-gold">[1] Rooftop gardens give cities two big
                       environmental benefits.</span></p>
                   <p style="margin-bottom:6px;"><span class="hl-teal">[2] First, these green spaces reduce
@@ -6146,7 +6147,7 @@
               </div>
 
               <div class="concept-box" style="border-left-color:var(--gold);">
-                <div class="example-para" style="background:#0f172a;">
+                <div class="example-para">
                   <em>"Using clean energy gives us big benefits for the environment and the economy. Solar
                     and wind power make clean electricity without polluting the air. Also,
                     investing in green energy creates many new jobs in local communities."</em>
@@ -6228,29 +6229,29 @@
                 </table>
               </div>
 
-              <div class="visual-diagram" style="background:#0f172a;border:1.5px solid rgba(232,201,122,.3);margin:14px 0;">
+              <div class="visual-diagram" style="background:#4A3868;border:1.5px solid rgba(122,94,160,.3);margin:14px 0;">
                 <div class="vd-title">DIAGRAM: Main Idea เป็นร่มใหญ่ / Supporting Details เป็นข้อมูลย่อยข้างใน</div>
                 <div style="text-align:center;margin-bottom:10px;">
-                  <svg viewBox="0 0 700 260" style="width:100%;max-width:100%;height:auto;border-radius:10px;background:#1e293b;" xmlns="http://www.w3.org/2000/svg">
-                    <rect x="20" y="15" width="660" height="230" rx="8" fill="#0f172a" stroke="#334155" stroke-width="2" />
+                  <svg viewBox="0 0 700 260" style="width:100%;max-width:100%;height:auto;border-radius:10px;background:#5A4479;" xmlns="http://www.w3.org/2000/svg">
+                    <rect x="20" y="15" width="660" height="230" rx="8" fill="#4A3868" stroke="#6B5C82" stroke-width="2" />
                     <!-- Left: Main Idea umbrella -->
-                    <text x="170" y="42" fill="#e8c97a" font-family="'DM Sans', sans-serif" font-weight="700" font-size="13" text-anchor="middle">🟡 MAIN IDEA (ร่มใหญ่)</text>
-                    <path d="M 60 130 A 110 90 0 0 1 280 130 Z" fill="rgba(232,201,122,.22)" stroke="#e8c97a" stroke-width="2" />
-                    <rect x="60" y="128" width="6" height="90" fill="#e8c97a" />
+                    <text x="170" y="42" fill="#C9A8E8" font-family="'DM Sans', sans-serif" font-weight="700" font-size="13" text-anchor="middle">🟡 MAIN IDEA (ร่มใหญ่)</text>
+                    <path d="M 60 130 A 110 90 0 0 1 280 130 Z" fill="rgba(122,94,160,.22)" stroke="#C9A8E8" stroke-width="2" />
+                    <rect x="60" y="128" width="6" height="90" fill="#C9A8E8" />
                     <text x="170" y="100" fill="#f4e3b0" font-family="'DM Sans', sans-serif" font-size="10" text-anchor="middle">General, covers</text>
                     <text x="170" y="115" fill="#f4e3b0" font-family="'DM Sans', sans-serif" font-size="10" text-anchor="middle">the whole paragraph</text>
                     <text x="170" y="235" fill="#94a3b8" font-family="'DM Sans', sans-serif" font-size="9.5" text-anchor="middle">"Clean energy has big benefits."</text>
 
                     <!-- Right: Supporting details as small facts -->
-                    <text x="530" y="42" fill="#4ecdc4" font-family="'DM Sans', sans-serif" font-weight="700" font-size="13" text-anchor="middle">🟢 SUPPORTING DETAILS (ข้อมูลย่อย)</text>
-                    <rect x="400" y="60" width="110" height="50" rx="6" fill="rgba(78,205,196,.15)" stroke="#4ecdc4" stroke-width="1.5" />
-                    <text x="455" y="80" fill="#4ecdc4" font-family="'DM Sans', sans-serif" font-size="9.5" text-anchor="middle" font-weight="700">Fact 1</text>
+                    <text x="530" y="42" fill="#E8A8C4" font-family="'DM Sans', sans-serif" font-weight="700" font-size="13" text-anchor="middle">🟢 SUPPORTING DETAILS (ข้อมูลย่อย)</text>
+                    <rect x="400" y="60" width="110" height="50" rx="6" fill="rgba(182,104,138,.15)" stroke="#E8A8C4" stroke-width="1.5" />
+                    <text x="455" y="80" fill="#E8A8C4" font-family="'DM Sans', sans-serif" font-size="9.5" text-anchor="middle" font-weight="700">Fact 1</text>
                     <text x="455" y="96" fill="#a7f3d0" font-family="'DM Sans', sans-serif" font-size="8.5" text-anchor="middle">No air pollution</text>
-                    <rect x="520" y="60" width="110" height="50" rx="6" fill="rgba(78,205,196,.15)" stroke="#4ecdc4" stroke-width="1.5" />
-                    <text x="575" y="80" fill="#4ecdc4" font-family="'DM Sans', sans-serif" font-size="9.5" text-anchor="middle" font-weight="700">Fact 2</text>
+                    <rect x="520" y="60" width="110" height="50" rx="6" fill="rgba(182,104,138,.15)" stroke="#E8A8C4" stroke-width="1.5" />
+                    <text x="575" y="80" fill="#E8A8C4" font-family="'DM Sans', sans-serif" font-size="9.5" text-anchor="middle" font-weight="700">Fact 2</text>
                     <text x="575" y="96" fill="#a7f3d0" font-family="'DM Sans', sans-serif" font-size="8.5" text-anchor="middle">Creates new jobs</text>
-                    <rect x="460" y="125" width="110" height="50" rx="6" fill="rgba(78,205,196,.15)" stroke="#4ecdc4" stroke-width="1.5" />
-                    <text x="515" y="145" fill="#4ecdc4" font-family="'DM Sans', sans-serif" font-size="9.5" text-anchor="middle" font-weight="700">Fact 3</text>
+                    <rect x="460" y="125" width="110" height="50" rx="6" fill="rgba(182,104,138,.15)" stroke="#E8A8C4" stroke-width="1.5" />
+                    <text x="515" y="145" fill="#E8A8C4" font-family="'DM Sans', sans-serif" font-size="9.5" text-anchor="middle" font-weight="700">Fact 3</text>
                     <text x="515" y="161" fill="#a7f3d0" font-family="'DM Sans', sans-serif" font-size="8.5" text-anchor="middle">Costs are falling</text>
                     <text x="515" y="235" fill="#94a3b8" font-family="'DM Sans', sans-serif" font-size="9.5" text-anchor="middle">Small, specific facts and numbers</text>
 
@@ -6384,7 +6385,7 @@
                         <div class="fcb-ex">"Good students always <strong>preview</strong> the headings before
                           reading the article."</div>
                       </div>
-                      <div class="fcf-hint" style="color:var(--gold);">🔄 แตะเพื่อพลิกกลับ</div>
+                      <div class="fcf-hint" style="color:#E8D6F5;">🔄 แตะเพื่อพลิกกลับ</div>
                     </div>
                   </div>
                 </div>
@@ -6407,7 +6408,7 @@
                         <div class="fcb-ex">"You can <strong>predict</strong> the topic by looking at the
                           picture on the cover."</div>
                       </div>
-                      <div class="fcf-hint" style="color:var(--gold);">🔄 แตะเพื่อพลิกกลับ</div>
+                      <div class="fcf-hint" style="color:#E8D6F5;">🔄 แตะเพื่อพลิกกลับ</div>
                     </div>
                   </div>
                 </div>
@@ -6430,7 +6431,7 @@
                         <div class="fcb-ex">"The first line of the paragraph is the <strong>topic
                             sentence</strong>."</div>
                       </div>
-                      <div class="fcf-hint" style="color:var(--gold);">🔄 แตะเพื่อพลิกกลับ</div>
+                      <div class="fcf-hint" style="color:#E8D6F5;">🔄 แตะเพื่อพลิกกลับ</div>
                     </div>
                   </div>
                 </div>
@@ -6453,7 +6454,7 @@
                         <div class="fcb-ex">"What is the writer's <strong>main idea</strong> about
                           helping the environment?"</div>
                       </div>
-                      <div class="fcf-hint" style="color:var(--gold);">🔄 แตะเพื่อพลิกกลับ</div>
+                      <div class="fcf-hint" style="color:#E8D6F5;">🔄 แตะเพื่อพลิกกลับ</div>
                     </div>
                   </div>
                 </div>
@@ -6476,7 +6477,7 @@
                         <div class="fcb-ex">"The writer gave a number as a <strong>supporting
                             detail</strong>."</div>
                       </div>
-                      <div class="fcf-hint" style="color:var(--gold);">🔄 แตะเพื่อพลิกกลับ</div>
+                      <div class="fcf-hint" style="color:#E8D6F5;">🔄 แตะเพื่อพลิกกลับ</div>
                     </div>
                   </div>
                 </div>
@@ -6499,7 +6500,7 @@
                         <div class="fcb-ex">"<strong>Text features</strong> like pictures and headings help
                           readers understand long reports."</div>
                       </div>
-                      <div class="fcf-hint" style="color:var(--gold);">🔄 แตะเพื่อพลิกกลับ</div>
+                      <div class="fcf-hint" style="color:#E8D6F5;">🔄 แตะเพื่อพลิกกลับ</div>
                     </div>
                   </div>
                 </div>
@@ -6522,7 +6523,7 @@
                         <div class="fcb-ex">"Look at each <strong>subheading</strong> to find the part you need."
                         </div>
                       </div>
-                      <div class="fcf-hint" style="color:var(--gold);">🔄 แตะเพื่อพลิกกลับ</div>
+                      <div class="fcf-hint" style="color:#E8D6F5;">🔄 แตะเพื่อพลิกกลับ</div>
                     </div>
                   </div>
                 </div>
@@ -6546,7 +6547,7 @@
                         <div class="fcb-ex">"Use the words around it as <strong>context clues</strong> to guess
                           the meaning of a new word."</div>
                       </div>
-                      <div class="fcf-hint" style="color:var(--gold);">🔄 แตะเพื่อพลิกกลับ</div>
+                      <div class="fcf-hint" style="color:#E8D6F5;">🔄 แตะเพื่อพลิกกลับ</div>
                     </div>
                   </div>
                 </div>
@@ -6728,7 +6729,7 @@
               <!-- Passage A Exercises (5 questions) -->
               <div style="margin-top:16px;">
                 <div
-                  style="font-size:.88rem;font-weight:700;color:var(--teal);margin-bottom:10px;padding:8px 12px;background:rgba(78,205,196,.08);border-radius:8px;">
+                  style="font-size:.88rem;font-weight:700;color:var(--teal);margin-bottom:10px;padding:8px 12px;background:rgba(182,104,138,.08);border-radius:8px;">
                   📝 แบบฝึกหัดบทอ่าน A — 5 ข้อ (Comprehension Exercises)</div>
 
                 <div class="exercise-box" id="ex-pA-1" style="margin-bottom:14px;">
@@ -6886,7 +6887,7 @@
               <!-- Passage B Exercises (5 questions) -->
               <div style="margin-top:16px;">
                 <div
-                  style="font-size:.88rem;font-weight:700;color:var(--gold);margin-bottom:10px;padding:8px 12px;background:rgba(232,201,122,.08);border-radius:8px;">
+                  style="font-size:.88rem;font-weight:700;color:var(--gold);margin-bottom:10px;padding:8px 12px;background:rgba(122,94,160,.08);border-radius:8px;">
                   📝 แบบฝึกหัดบทอ่าน B — 5 ข้อ</div>
 
                 <div class="exercise-box" id="ex-pB-1" style="margin-bottom:14px;">
@@ -7202,7 +7203,7 @@
               <!-- Passage D Exercises (5 questions) -->
               <div style="margin-top:16px;">
                 <div
-                  style="font-size:.88rem;font-weight:700;color:var(--green);margin-bottom:10px;padding:8px 12px;background:rgba(92,201,148,.08);border-radius:8px;">
+                  style="font-size:.88rem;font-weight:700;color:var(--green);margin-bottom:10px;padding:8px 12px;background:rgba(91,147,117,.08);border-radius:8px;">
                   📝 แบบฝึกหัดบทอ่าน D — 5 ข้อ</div>
 
                 <div class="exercise-box" id="ex-pD-1" style="margin-bottom:14px;">
@@ -7309,7 +7310,7 @@
 
             <!-- ════ PASSAGE E: LONG (~280 words) ════ -->
             <div class="flow-card" id="t7-p5"
-              style="background:linear-gradient(135deg,rgba(232,201,122,.06),var(--surface2));border:1.5px solid rgba(232,201,122,.3);margin-bottom:8px;">
+              style="background:linear-gradient(135deg,rgba(122,94,160,.06),var(--surface2));border:1.5px solid rgba(122,94,160,.3);margin-bottom:8px;">
               <div class="flow-header">
                 <span class="flow-step-badge flow-step-gold">E</span>
                 <div>
@@ -7341,7 +7342,7 @@
               </div>
 
               <div class="passage-text-box" id="passage-E"
-                style="background:var(--surface3);border-color:rgba(232,201,122,.2);">
+                style="background:var(--surface3);border-color:rgba(122,94,160,.2);">
                 <p style="margin-bottom:12px;font-size:.82rem;color:var(--muted);font-weight:600;">— ย่อหน้าที่ 1
                   (Paragraph 1) —</p>
                 <p style="margin-bottom:12px;">
@@ -7388,7 +7389,7 @@
               <!-- Passage E Exercises (7 questions — longer passage) -->
               <div style="margin-top:16px;">
                 <div
-                  style="font-size:.88rem;font-weight:700;color:var(--gold);margin-bottom:10px;padding:8px 12px;background:rgba(232,201,122,.08);border-radius:8px;">
+                  style="font-size:.88rem;font-weight:700;color:var(--gold);margin-bottom:10px;padding:8px 12px;background:rgba(122,94,160,.08);border-radius:8px;">
                   📝 แบบฝึกหัดบทอ่าน E — 7 ข้อ (บทความยาว)</div>
 
                 <div class="exercise-box" id="ex-pE-1" style="margin-bottom:14px;">
@@ -7590,7 +7591,7 @@
               <!-- Passage F Exercises (5 questions) -->
               <div style="margin-top:16px;">
                 <div
-                  style="font-size:.88rem;font-weight:700;color:var(--teal);margin-bottom:10px;padding:8px 12px;background:rgba(78,205,196,.08);border-radius:8px;">
+                  style="font-size:.88rem;font-weight:700;color:var(--teal);margin-bottom:10px;padding:8px 12px;background:rgba(182,104,138,.08);border-radius:8px;">
                   📝 แบบฝึกหัดบทอ่าน F — 5 ข้อ</div>
 
                 <div class="exercise-box" id="ex-pF-1" style="margin-bottom:14px;">
@@ -7911,10 +7912,10 @@
 
       <!-- Strategy Hero Banner -->
       <div class="lesson-header-banner"
-        style="background:linear-gradient(135deg,#133038,#1b4854);border-color:rgba(78,205,196,.3);">
-        <div class="lh-badge" style="color:var(--teal);border-color:var(--teal);background:rgba(78,205,196,.1);">
+        style="background:linear-gradient(135deg,#5A4479,#4A3868);border-color:rgba(182,104,138,.3);">
+        <div class="lh-badge" style="color:#F5DDE8;border-color:rgba(255,255,255,.35);background:rgba(255,255,255,.14);">
           Strategy Module 01 · Active Reading</div>
-        <h2 class="lh-title" style="color:var(--gold2);">The Art of Previewing &amp; Predicting</h2>
+        <h2 class="lh-title" style="color:#FBF8FD;">The Art of Previewing &amp; Predicting</h2>
         <p style="font-size:.84rem;color:#c2d8dc;line-height:1.65;margin-bottom:0;">
           กลยุทธ์การสำรวจและคาดเดาเนื้อหาก่อนเริ่มอ่านจริง ช่วยให้สมองพร้อม
           และทำให้อ่านบทความได้เร็วขึ้นและเข้าใจลึกซึ้งยิ่งขึ้น
@@ -7978,7 +7979,7 @@
           แต่เป็นการคิดอย่างมีเหตุผลตามสูตรนี้:</p>
 
         <div
-          style="background:linear-gradient(135deg,rgba(232,201,122,.1),rgba(78,205,196,.1));border:1.5px solid var(--gold);border-radius:14px;padding:18px;text-align:center;margin:16px 0;">
+          style="background:linear-gradient(135deg,rgba(122,94,160,.1),rgba(182,104,138,.1));border:1.5px solid var(--gold);border-radius:14px;padding:18px;text-align:center;margin:16px 0;">
           <p
             style="font-family:'DM Mono',monospace;font-size:1.05rem;font-weight:700;color:var(--gold2);margin-bottom:6px;">
             [ Text Clues ] + [ Prior Background Knowledge ] = Accurate Prediction 🎯
@@ -8081,11 +8082,11 @@
       </div>
 
       <!-- Quiz Header Banner -->
-      <div class="lesson-header-banner" style="background:linear-gradient(135deg,#182848,#203a70);margin-bottom:18px;">
+      <div class="lesson-header-banner" style="background:linear-gradient(135deg,#5A4479,#4A3868);margin-bottom:18px;">
         <div style="display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:8px;">
           <div class="lh-badge">Unit 1 Interactive Quiz · 5 Questions</div>
           <div id="quiz-score-badge"
-            style="font-family:'DM Mono',monospace;font-size:.85rem;font-weight:700;background:rgba(232,201,122,.2);color:var(--gold2);padding:4px 12px;border-radius:20px;border:1px solid rgba(232,201,122,.4);">
+            style="font-family:'DM Mono',monospace;font-size:.85rem;font-weight:700;background:rgba(122,94,160,.2);color:var(--gold2);padding:4px 12px;border-radius:20px;border:1px solid rgba(122,94,160,.4);">
             Score: 0 / 5</div>
         </div>
         <h2 class="lh-title" style="font-size:1.25rem;">Previewing, Predicting &amp; Main Ideas Mastery</h2>
@@ -8229,7 +8230,7 @@
       </div>
       <div class="es-title">Application Usage Records — Engagement Indicators</div>
       <div class="eng-item">
-        <div class="eng-num-box" style="background:rgba(78,205,196,.08);border-color:rgba(78,205,196,.2)"><span
+        <div class="eng-num-box" style="background:rgba(182,104,138,.08);border-color:rgba(182,104,138,.2)"><span
             class="env" style="color:var(--teal)">14</span><span class="enu">times</span></div>
         <div class="eng-text">
           <div class="et">Login Frequency</div>
@@ -8238,7 +8239,7 @@
         <div class="eng-icon2">🔑</div>
       </div>
       <div class="eng-item">
-        <div class="eng-num-box" style="background:rgba(92,201,148,.08);border-color:rgba(92,201,148,.2)"><span
+        <div class="eng-num-box" style="background:rgba(91,147,117,.08);border-color:rgba(91,147,117,.2)"><span
             class="env" style="color:var(--green)">8.4</span><span class="enu">hours</span></div>
         <div class="eng-text">
           <div class="et">Time Spent on Learning Activities</div>
@@ -8247,7 +8248,7 @@
         <div class="eng-icon2">⏱</div>
       </div>
       <div class="eng-item">
-        <div class="eng-num-box" style="background:rgba(232,201,122,.08);border-color:rgba(232,201,122,.2)"><span
+        <div class="eng-num-box" style="background:rgba(122,94,160,.08);border-color:rgba(122,94,160,.2)"><span
             class="env" style="color:var(--gold)">26</span><span class="enu">tasks</span></div>
         <div class="eng-text">
           <div class="et">Completed Activities</div>
@@ -8256,7 +8257,7 @@
         <div class="eng-icon2">📋</div>
       </div>
       <div class="eng-item">
-        <div class="eng-num-box" style="background:rgba(224,92,92,.08);border-color:rgba(224,92,92,.2)"><span
+        <div class="eng-num-box" style="background:rgba(196,84,79,.08);border-color:rgba(196,84,79,.2)"><span
             class="env" style="color:var(--red)">8</span><span class="enu">quizzes</span></div>
         <div class="eng-text">
           <div class="et">Quiz Completion</div>
@@ -8269,7 +8270,7 @@
           <h4>Quiz Score History</h4><span>Semester 1 · 2031103</span>
         </div>
         <div class="qh-row">
-          <div class="qh-icon" style="background:rgba(92,201,148,.12)">📗</div>
+          <div class="qh-icon" style="background:rgba(91,147,117,.12)">📗</div>
           <div class="qh-info">
             <div class="qi-t">Unit 1 — Main Ideas Quiz</div>
             <div class="qi-d">Vocabulary Preview + Prediction Quiz</div>
@@ -8277,7 +8278,7 @@
           <div class="qh-score q-pass">85%</div>
         </div>
         <div class="qh-row">
-          <div class="qh-icon" style="background:rgba(232,201,122,.12)">📒</div>
+          <div class="qh-icon" style="background:rgba(122,94,160,.12)">📒</div>
           <div class="qh-info">
             <div class="qi-t">Unit 2 — Supporting Details Quiz</div>
             <div class="qi-d">Main Idea Challenge + Timed Scanning Task</div>
@@ -9045,12 +9046,10 @@
       const particleCount = isMobile ? 40 : 75;
       const particles = [];
 
-      // Screens that use the Direction G cozy-lavender palette get a
-      // brighter, more visible snow treatment; every other (dark) screen
-      // keeps the original gold/cyan/white starlight look.
+      // The whole app now uses the Direction G cozy-lavender palette, so
+      // every screen gets the brighter, more visible snow treatment.
       function isLightScreen() {
-        const el = document.querySelector('.screen.active');
-        return !!el && (el.id === 'screen-signin' || el.id === 'screen-home');
+        return true;
       }
 
       // Mouse-reactive "wind" — snow gently drifts away from the pointer.

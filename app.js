@@ -714,12 +714,10 @@
       const particleCount = isMobile ? 40 : 75;
       const particles = [];
 
-      // Screens that use the Direction G cozy-lavender palette get a
-      // brighter, more visible snow treatment; every other (dark) screen
-      // keeps the original gold/cyan/white starlight look.
+      // The whole app now uses the Direction G cozy-lavender palette, so
+      // every screen gets the brighter, more visible snow treatment.
       function isLightScreen() {
-        const el = document.querySelector('.screen.active');
-        return !!el && (el.id === 'screen-signin' || el.id === 'screen-home');
+        return true;
       }
 
       // Mouse-reactive "wind" — snow gently drifts away from the pointer.
