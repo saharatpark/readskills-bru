@@ -8,7 +8,8 @@
   <link
     href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700;900&family=DM+Sans:wght@300;400;500;600&family=DM+Mono:wght@400;500&display=swap"
     rel="stylesheet">
-  <style>    :root {
+  <style>
+    :root {
       --bg: #0d0f14;
       --surface: #161a24;
       --surface2: #1e2433;
@@ -142,10 +143,14 @@
       width: 100%;
     }
 
+    #screen-signin {
+      background: #E6D8F0;
+    }
+
     .badge {
       display: inline-block;
-      border: 1px solid rgba(232, 201, 122, .5);
-      color: var(--gold);
+      border: 1px solid rgba(122, 94, 160, .4);
+      color: #7A5EA0;
       font-size: 10.5px;
       letter-spacing: 3.5px;
       text-transform: uppercase;
@@ -154,7 +159,7 @@
       margin-bottom: 28px;
       font-family: 'DM Mono', monospace;
       backdrop-filter: blur(4px);
-      background: rgba(232, 201, 122, .05);
+      background: rgba(122, 94, 160, .08);
     }
 
     .hero-wrap h1 {
@@ -164,14 +169,15 @@
       line-height: 1.08;
       margin-bottom: 20px;
       letter-spacing: -.5px;
+      color: #372E48;
     }
 
     .hero-wrap h1 .gold {
-      color: var(--gold);
+      color: #7A5EA0;
     }
 
     .hero-sub {
-      color: var(--muted);
+      color: #6E5F82;
       font-size: 1rem;
       max-width: 420px;
       margin: 0 auto 36px;
@@ -181,8 +187,8 @@
 
     /* Sign-in card */
     .signin-card {
-      background: var(--surface);
-      border: 1px solid var(--border);
+      background: #DCC9EA;
+      border: 1px solid #C2A0DB;
       border-radius: 20px;
       padding: 32px 28px;
       max-width: 400px;
@@ -199,7 +205,7 @@
       left: 0;
       right: 0;
       height: 2px;
-      background: linear-gradient(90deg, var(--gold), var(--teal), var(--gold));
+      background: linear-gradient(90deg, #7A5EA0, #B6688A, #7A5EA0);
     }
 
     .signin-step {
@@ -234,13 +240,13 @@
       width: 52px;
       height: 52px;
       border-radius: 50%;
-      background: linear-gradient(135deg, #1a3a6e, #2d5bb5);
+      background: linear-gradient(135deg, #7A5EA0, #9B7FC2);
       display: flex;
       align-items: center;
       justify-content: center;
       font-size: 1.4rem;
       margin-bottom: 10px;
-      box-shadow: 0 4px 16px rgba(45, 91, 181, .3);
+      box-shadow: 0 4px 16px rgba(122, 94, 160, .3);
     }
 
     .bru-logo-area h3 {
@@ -248,6 +254,7 @@
       font-size: 1.2rem;
       font-weight: 700;
       margin-bottom: 4px;
+      color: #372E48;
     }
 
     .bru-logo-area p {
@@ -255,9 +262,9 @@
       font-size: .62rem;
       letter-spacing: 1.5px;
       text-transform: uppercase;
-      color: var(--gold);
-      border: 1px solid rgba(232, 201, 122, .4);
-      background: rgba(232, 201, 122, .06);
+      color: #7A5EA0;
+      border: 1px solid rgba(122, 94, 160, .35);
+      background: rgba(122, 94, 160, .08);
       padding: 4px 12px;
       border-radius: 40px;
       display: inline-block;
@@ -268,8 +275,8 @@
       display: inline-flex;
       align-items: center;
       gap: 8px;
-      background: var(--surface2);
-      border: 1px solid var(--border);
+      background: #E6DCF2;
+      border: 1px solid #C2A0DB;
       border-radius: 24px;
       padding: 6px 14px 6px 8px;
       margin-bottom: 22px;
@@ -278,7 +285,7 @@
     }
 
     .user-chip:hover {
-      border-color: var(--gold);
+      border-color: #7A5EA0;
     }
 
     .user-chip-avatar {
@@ -297,12 +304,12 @@
 
     .user-chip span {
       font-size: .82rem;
-      color: var(--text);
+      color: #372E48;
     }
 
     .chip-arrow {
       font-size: .7rem;
-      color: var(--muted);
+      color: #6E5F82;
       margin-left: 2px;
     }
 
@@ -318,7 +325,7 @@
       top: 50%;
       transform: translateY(-50%);
       font-size: .9rem;
-      color: var(--muted);
+      color: #6E5F82;
       pointer-events: none;
       transition: all .2s;
       background: transparent;
@@ -328,17 +335,17 @@
     .input-group.has-value label {
       top: 8px;
       font-size: .68rem;
-      color: var(--teal);
+      color: #7A5EA0;
       transform: none;
     }
 
     .signin-input {
       width: 100%;
-      background: var(--surface2);
-      border: 1.5px solid var(--border);
+      background: #E6DCF2;
+      border: 1.5px solid #C2A0DB;
       border-radius: 10px;
       padding: 22px 44px 8px 14px;
-      color: var(--text);
+      color: #372E48;
       font-family: 'DM Sans', sans-serif;
       font-size: .95rem;
       transition: border-color .2s;
@@ -346,7 +353,7 @@
     }
 
     .signin-input:focus {
-      border-color: var(--teal);
+      border-color: #7A5EA0;
     }
 
     .signin-input.error-field {
@@ -360,7 +367,7 @@
       transform: translateY(-50%);
       background: none;
       border: none;
-      color: var(--muted);
+      color: #6E5F82;
       cursor: pointer;
       font-size: 1rem;
       padding: 4px;
@@ -368,12 +375,12 @@
     }
 
     .eye-toggle:hover {
-      color: var(--text);
+      color: #372E48;
     }
 
     .input-helper {
       font-size: .75rem;
-      color: var(--muted);
+      color: #6E5F82;
       margin-bottom: 20px;
       text-align: left;
       padding-left: 2px;
@@ -390,7 +397,7 @@
     .signin-link-btn {
       background: none;
       border: none;
-      color: var(--teal);
+      color: #7A5EA0;
       font-family: 'DM Sans', sans-serif;
       font-size: .88rem;
       font-weight: 600;
@@ -400,12 +407,12 @@
     }
 
     .signin-link-btn:hover {
-      color: var(--gold);
+      color: #B6688A;
     }
 
     .signin-next-btn {
-      background: linear-gradient(135deg, var(--gold), var(--gold2));
-      color: #1a1608;
+      background: #7A5EA0;
+      color: #FBF8FD;
       border: none;
       padding: 12px 28px;
       border-radius: 50px;
@@ -414,13 +421,14 @@
       font-weight: 700;
       cursor: pointer;
       transition: transform .2s, box-shadow .2s;
-      box-shadow: 0 4px 16px rgba(232, 201, 122, .3);
+      box-shadow: 0 4px 16px rgba(122, 94, 160, .3);
       min-width: 90px;
     }
 
     .signin-next-btn:hover {
+      background: #6F5590;
       transform: translateY(-2px);
-      box-shadow: 0 6px 24px rgba(232, 201, 122, .4);
+      box-shadow: 0 6px 24px rgba(122, 94, 160, .4);
     }
 
     .btn-spinner {
@@ -446,7 +454,7 @@
 
     .forgot-note {
       font-size: .82rem;
-      color: var(--muted);
+      color: #6E5F82;
       line-height: 1.7;
       margin: 10px 0 20px;
       text-align: left;
@@ -461,8 +469,8 @@
       width: 60px;
       height: 60px;
       border-radius: 50%;
-      background: rgba(92, 201, 148, .15);
-      border: 2px solid var(--green);
+      background: rgba(91, 147, 117, .15);
+      border: 2px solid #5B9375;
       display: flex;
       align-items: center;
       justify-content: center;
@@ -487,12 +495,12 @@
       font-size: 1rem;
       font-weight: 600;
       margin-bottom: 6px;
-      color: var(--green);
+      color: #5B9375;
     }
 
     .success-wrap p {
       font-size: .82rem;
-      color: var(--muted);
+      color: #6E5F82;
     }
 
     .signin-error {
@@ -516,7 +524,7 @@
     .signin-test-box {
       margin-top: 22px;
       padding-top: 18px;
-      border-top: 1px dashed rgba(232, 201, 122, .25);
+      border-top: 1px dashed rgba(122, 94, 160, .3);
     }
 
     .signin-divider {
@@ -531,23 +539,23 @@
       content: '';
       flex: 1;
       height: 1px;
-      background: var(--border);
+      background: #C2A0DB;
     }
 
     .signin-divider span {
       font-family: 'DM Mono', monospace;
       font-size: .62rem;
       letter-spacing: 1.5px;
-      color: var(--gold);
+      color: #7A5EA0;
       text-transform: uppercase;
       font-weight: 600;
     }
 
     .demo-signin-btn {
       width: 100%;
-      background: linear-gradient(135deg, rgba(232, 201, 122, .12), rgba(78, 205, 196, .12));
-      border: 1.5px solid rgba(232, 201, 122, .35);
-      color: var(--gold2);
+      background: #F5DFD4;
+      border: 1.5px solid #EBCBBA;
+      color: #7A5442;
       padding: 11px 16px;
       border-radius: 12px;
       font-family: 'DM Sans', sans-serif;
@@ -559,15 +567,15 @@
       justify-content: center;
       gap: 8px;
       transition: all .25s cubic-bezier(.4, 0, .2, 1);
-      box-shadow: 0 4px 14px rgba(0, 0, 0, .25);
+      box-shadow: 0 4px 14px rgba(122, 94, 160, .12);
     }
 
     .demo-signin-btn:hover {
-      background: linear-gradient(135deg, rgba(232, 201, 122, .22), rgba(78, 205, 196, .22));
-      border-color: var(--gold);
+      background: #F0D0C0;
+      border-color: #B37A5B;
       transform: translateY(-2px);
-      box-shadow: 0 6px 20px rgba(232, 201, 122, .2);
-      color: #fff;
+      box-shadow: 0 6px 20px rgba(122, 94, 160, .18);
+      color: #5C3E2E;
     }
 
     .demo-signin-btn:active {
@@ -581,9 +589,9 @@
     .demo-badge {
       font-family: 'DM Mono', monospace;
       font-size: .6rem;
-      background: rgba(232, 201, 122, .2);
-      border: 1px solid rgba(232, 201, 122, .5);
-      color: var(--gold);
+      background: rgba(122, 94, 160, .15);
+      border: 1px solid rgba(122, 94, 160, .4);
+      color: #7A5EA0;
       padding: 2px 6px;
       border-radius: 5px;
       letter-spacing: .5px;
@@ -926,6 +934,10 @@
       padding-bottom: 72px;
     }
 
+    #screen-home {
+      background: #E6D8F0;
+    }
+
     .home-wrap {
       padding: 24px 24px 80px;
       max-width: 1040px;
@@ -961,7 +973,7 @@
       font-family: 'DM Mono', monospace;
       font-size: .62rem;
       letter-spacing: 2.5px;
-      color: var(--teal);
+      color: #7A5EA0;
       text-transform: uppercase;
       margin-bottom: 10px;
       display: flex;
@@ -973,7 +985,7 @@
       content: '';
       flex: 1;
       height: 1px;
-      background: linear-gradient(90deg, rgba(78, 205, 196, .3), transparent);
+      background: linear-gradient(90deg, rgba(122, 94, 160, .3), transparent);
     }
 
     .home-greeting h2 {
@@ -982,22 +994,23 @@
       font-weight: 700;
       line-height: 1.2;
       margin-bottom: 6px;
+      color: #372E48;
     }
 
     .home-greeting h2 em {
-      color: var(--gold);
+      color: #7A5EA0;
       font-style: italic;
     }
 
     .home-greeting p {
       font-size: .8rem;
-      color: var(--muted);
+      color: #6E5F82;
     }
 
     /* Profile card in home */
     .profile-info-card {
-      background: linear-gradient(135deg, #1a2640, #1e2d50);
-      border: 1px solid rgba(232, 201, 122, .2);
+      background: #E6DCF2;
+      border: 1px solid #C2A0DB;
       border-radius: var(--radius);
       padding: 14px 18px;
       display: none;
@@ -1014,14 +1027,14 @@
       width: 42px;
       height: 42px;
       border-radius: 50%;
-      background: var(--gold);
-      color: #0d0f14;
+      background: #7A5EA0;
+      color: #FBF8FD;
       display: flex;
       align-items: center;
       justify-content: center;
       font-size: 1.1rem;
       font-weight: 700;
-      border: 2px solid var(--gold2);
+      border: 2px solid #9B7FC2;
       flex-shrink: 0;
     }
 
@@ -1032,12 +1045,13 @@
     .pic-name {
       font-size: .95rem;
       font-weight: 700;
+      color: #372E48;
     }
 
     .pic-meta {
       font-family: 'DM Mono', monospace;
       font-size: .7rem;
-      color: var(--muted);
+      color: #6E5F82;
       margin-top: 3px;
       display: flex;
       gap: 8px;
@@ -1045,16 +1059,16 @@
     }
 
     .pic-tag {
-      background: var(--surface2);
-      border: 1px solid var(--border);
+      background: #DCC9EA;
+      border: 1px solid #C2A0DB;
       padding: 2px 8px;
       border-radius: 8px;
     }
 
     /* Continue strip */
     .continue-strip {
-      background: linear-gradient(135deg, #132247, #1b3060);
-      border: 1px solid rgba(232, 201, 122, .25);
+      background: #E6DCF2;
+      border: 1px solid #C2A0DB;
       border-radius: 18px;
       padding: 18px 20px;
       display: flex;
@@ -1063,27 +1077,27 @@
       margin-bottom: 24px;
       cursor: pointer;
       transition: all .2s;
-      box-shadow: 0 4px 20px rgba(8, 12, 24, .35);
+      box-shadow: 0 4px 20px rgba(122, 94, 160, .1);
     }
 
     .continue-strip:hover {
-      border-color: var(--gold);
+      border-color: #7A5EA0;
       transform: translateY(-2px);
-      box-shadow: 0 8px 28px rgba(232, 201, 122, .15);
+      box-shadow: 0 8px 28px rgba(122, 94, 160, .18);
     }
 
     .cs-icon {
       width: 42px;
       height: 42px;
       border-radius: 50%;
-      background: var(--gold);
+      background: #7A5EA0;
       border: none;
       display: flex;
       align-items: center;
       justify-content: center;
       font-size: 1rem;
       flex-shrink: 0;
-      box-shadow: 0 4px 14px rgba(232, 201, 122, .35);
+      box-shadow: 0 4px 14px rgba(122, 94, 160, .35);
     }
 
     .cs-info {
@@ -1095,7 +1109,7 @@
       font-family: 'DM Mono', monospace;
       font-size: .6rem;
       letter-spacing: 1.5px;
-      color: #93c5fd;
+      color: #7A5FA0;
       text-transform: uppercase;
       margin-bottom: 4px;
     }
@@ -1104,7 +1118,7 @@
       font-family: 'Playfair Display', serif;
       font-size: .96rem;
       font-weight: 700;
-      color: var(--text);
+      color: #372E48;
       margin-bottom: 8px;
     }
 
@@ -1117,30 +1131,30 @@
     .cs-bar {
       flex: 1;
       height: 3px;
-      background: rgba(255, 255, 255, .1);
+      background: #D3C1E6;
       border-radius: 4px;
       overflow: hidden;
     }
 
     .cs-bar-fill {
       height: 100%;
-      background: linear-gradient(90deg, var(--gold), var(--gold2));
+      background: #C98F63;
       border-radius: 4px;
     }
 
     .cs-pct {
       font-family: 'DM Mono', monospace;
       font-size: .62rem;
-      color: #8ea3c9;
+      color: #7E739C;
     }
 
     .cs-arrow {
       width: 30px;
       height: 30px;
       border-radius: 50%;
-      background: rgba(232, 201, 122, .12);
-      border: 1px solid rgba(232, 201, 122, .3);
-      color: var(--gold);
+      background: rgba(122, 94, 160, .12);
+      border: 1px solid rgba(122, 94, 160, .3);
+      color: #7A5EA0;
       font-size: 1rem;
       display: flex;
       align-items: center;
@@ -1150,8 +1164,8 @@
     }
 
     .continue-strip:hover .cs-arrow {
-      background: var(--gold);
-      color: #1a1608;
+      background: #7A5EA0;
+      color: #FBF8FD;
     }
 
     /* Menu label */
@@ -1166,14 +1180,14 @@
       font-family: 'Playfair Display', serif;
       font-size: 1.05rem;
       font-weight: 700;
-      color: var(--text);
+      color: #372E48;
       white-space: nowrap;
     }
 
     .msl-line {
       flex: 1;
       height: 1px;
-      background: linear-gradient(90deg, var(--border), transparent);
+      background: linear-gradient(90deg, #C2A0DB, transparent);
     }
 
     /* Menu cards — icon-top grid tiles */
@@ -1184,8 +1198,8 @@
     }
 
     .menu-card {
-      background: var(--surface);
-      border: 1px solid var(--border);
+      background: #DCC9EA;
+      border: 1px solid #C2A0DB;
       border-radius: 16px;
       padding: 0;
       overflow: hidden;
@@ -1196,13 +1210,13 @@
     }
 
     .menu-card:hover {
-      border-color: var(--border2);
+      border-color: #9B7FC2;
       transform: translateY(-3px);
-      box-shadow: 0 8px 24px rgba(0, 0, 0, .3);
+      box-shadow: 0 8px 24px rgba(122, 94, 160, .18);
     }
 
     .menu-card:hover .mc-arrow {
-      color: var(--gold);
+      color: #7A5EA0;
       transform: translateX(2px);
     }
 
@@ -1240,7 +1254,7 @@
       font-family: 'Playfair Display', serif;
       font-size: .94rem;
       font-weight: 700;
-      color: var(--text);
+      color: #372E48;
       margin-bottom: 5px;
       display: flex;
       align-items: center;
@@ -1250,7 +1264,7 @@
 
     .mc-desc {
       font-size: .72rem;
-      color: var(--muted);
+      color: #6E5F82;
       line-height: 1.5;
       display: -webkit-box;
       -webkit-line-clamp: 2;
@@ -1262,7 +1276,7 @@
       position: absolute;
       top: 16px;
       right: 16px;
-      color: var(--border2);
+      color: #C2A0DB;
       font-size: 1.05rem;
       flex-shrink: 0;
       transition: all .2s;
@@ -1276,71 +1290,71 @@
     }
 
     .badge-cur {
-      background: rgba(232, 201, 122, .12);
-      color: var(--gold);
-      border: 1px solid rgba(232, 201, 122, .25);
+      background: rgba(122, 94, 160, .14);
+      color: #7A5EA0;
+      border: 1px solid rgba(122, 94, 160, .3);
     }
 
     .badge-done {
-      background: rgba(92, 201, 148, .1);
-      color: var(--green);
-      border: 1px solid rgba(92, 201, 148, .2);
+      background: rgba(91, 147, 117, .12);
+      color: #5B9375;
+      border: 1px solid rgba(91, 147, 117, .25);
     }
 
     .card-blue .mc-accent {
-      background: #5b8dee;
+      background: #7A5EA0;
     }
 
     .card-blue .mc-icon-wrap {
-      background: rgba(91, 141, 238, .1);
-      border: 1px solid rgba(91, 141, 238, .2);
-      color: #5b8dee;
+      background: #EAE0F5;
+      border: 1px solid rgba(122, 94, 160, .2);
+      color: #7A5EA0;
     }
 
     .card-blue:hover {
-      border-color: rgba(91, 141, 238, .4);
+      border-color: rgba(122, 94, 160, .4);
     }
 
     .card-purple .mc-accent {
-      background: #9b72e8;
+      background: #B6688A;
     }
 
     .card-purple .mc-icon-wrap {
-      background: rgba(155, 114, 232, .1);
-      border: 1px solid rgba(155, 114, 232, .2);
-      color: #9b72e8;
+      background: #F5DFE4;
+      border: 1px solid rgba(182, 104, 138, .2);
+      color: #B6688A;
     }
 
     .card-purple:hover {
-      border-color: rgba(155, 114, 232, .4);
+      border-color: rgba(182, 104, 138, .4);
     }
 
     .card-gold .mc-accent {
-      background: var(--gold);
+      background: #B98B4E;
     }
 
     .card-gold .mc-icon-wrap {
-      background: rgba(232, 201, 122, .1);
-      border: 1px solid rgba(232, 201, 122, .2);
-      color: var(--gold);
+      background: #F5E6D4;
+      border: 1px solid rgba(185, 139, 78, .2);
+      color: #B98B4E;
     }
 
     .card-gold:hover {
-      border-color: rgba(232, 201, 122, .4);
+      border-color: rgba(185, 139, 78, .4);
     }
 
     .card-teal .mc-accent {
-      background: var(--teal);
+      background: #5B9375;
     }
 
     .card-teal .mc-icon-wrap {
-      background: rgba(78, 205, 196, .1);
-      border: 1px solid rgba(78, 205, 196, .2);
-      color: var(--teal);
+      background: #DCEBE3;
+      border: 1px solid rgba(91, 147, 117, .2);
+      color: #5B9375;
     }
 
     .card-teal:hover {
-      border-color: rgba(78, 205, 196, .4);
+      border-color: rgba(91, 147, 117, .4);
     }
 
     /* ══════════════════════════════════
@@ -3883,6 +3897,7 @@
         gap: 6px;
       }
     }
+
 </style>
 </head>
 
@@ -4003,7 +4018,7 @@
         <!-- Step 1: Email -->
         <div class="signin-step active" id="step-email">
           <div class="bru-logo-area">
-            <div class="bru-logo-circle"><svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="#e8eaf2" stroke-width="1.8"><path d="M12 3L2 8l10 5 8-4v6" stroke-linejoin="round" stroke-linecap="round"/><path d="M6 10.5V15c0 1.5 3 3 6 3s6-1.5 6-3v-4.5" stroke-linejoin="round" stroke-linecap="round"/></svg></div>
+            <div class="bru-logo-circle"><svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="#FBF8FD" stroke-width="1.8"><path d="M12 3L2 8l10 5 8-4v6" stroke-linejoin="round" stroke-linecap="round"/><path d="M6 10.5V15c0 1.5 3 3 6 3s6-1.5 6-3v-4.5" stroke-linejoin="round" stroke-linecap="round"/></svg></div>
             <h3>Sign in</h3>
             <p>Buriram Rajabhat University</p>
           </div>
@@ -4037,7 +4052,7 @@
         <!-- Step 2: Password -->
         <div class="signin-step" id="step-password">
           <div class="bru-logo-area">
-            <div class="bru-logo-circle"><svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="#e8eaf2" stroke-width="1.8"><path d="M12 3L2 8l10 5 8-4v6" stroke-linejoin="round" stroke-linecap="round"/><path d="M6 10.5V15c0 1.5 3 3 6 3s6-1.5 6-3v-4.5" stroke-linejoin="round" stroke-linecap="round"/></svg></div>
+            <div class="bru-logo-circle"><svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="#FBF8FD" stroke-width="1.8"><path d="M12 3L2 8l10 5 8-4v6" stroke-linejoin="round" stroke-linecap="round"/><path d="M6 10.5V15c0 1.5 3 3 6 3s6-1.5 6-3v-4.5" stroke-linejoin="round" stroke-linecap="round"/></svg></div>
             <h3>Welcome</h3>
             <p>Buriram Rajabhat University</p>
           </div>
@@ -4066,7 +4081,7 @@
         <!-- Step 3: Forgot -->
         <div class="signin-step" id="step-forgot">
           <div class="bru-logo-area">
-            <div class="bru-logo-circle"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#e8eaf2" stroke-width="1.8"><circle cx="8" cy="15" r="4" stroke-linecap="round"/><path d="M10.5 12.5L20 3M17 6l2.5 2.5M14 9l2 2" stroke-linecap="round" stroke-linejoin="round"/></svg></div>
+            <div class="bru-logo-circle"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#FBF8FD" stroke-width="1.8"><circle cx="8" cy="15" r="4" stroke-linecap="round"/><path d="M10.5 12.5L20 3M17 6l2.5 2.5M14 9l2 2" stroke-linecap="round" stroke-linejoin="round"/></svg></div>
             <h3>Account recovery</h3>
             <p>Buriram Rajabhat University</p>
           </div>
@@ -4076,7 +4091,7 @@
           </p>
           <div class="signin-actions" style="justify-content:flex-end">
             <button class="signin-next-btn" onclick="backToEmail()"
-              style="background:var(--surface2);color:var(--text);box-shadow:none;border:1px solid var(--border)">←
+              style="background:#E6DCF2;color:#372E48;box-shadow:none;border:1px solid #C2A0DB">←
               Back</button>
           </div>
         </div>
@@ -4090,9 +4105,9 @@
           </div>
         </div>
 
-        <p style="font-size:.72rem;color:var(--muted);margin-top:16px;line-height:1.6;">
-          Demo: <span style="font-family:'DM Mono',monospace;color:var(--teal)">test@gmail.com</span> / <span
-            style="font-family:'DM Mono',monospace;color:var(--teal)">123456</span>
+        <p style="font-size:.72rem;color:#6E5F82;margin-top:16px;line-height:1.6;">
+          Demo: <span style="font-family:'DM Mono',monospace;color:#7A5EA0">test@gmail.com</span> / <span
+            style="font-family:'DM Mono',monospace;color:#7A5EA0">123456</span>
         </p>
       </div>
     </div>
@@ -4124,7 +4139,7 @@
 
       <!-- Continue strip -->
       <div class="continue-strip" onclick="openLessonDetail(1)">
-        <div class="cs-icon"><svg width="16" height="16" viewBox="0 0 24 24" fill="#1a1608"><path d="M8 5v14l11-7z"/></svg></div>
+        <div class="cs-icon"><svg width="16" height="16" viewBox="0 0 24 24" fill="#FBF8FD"><path d="M8 5v14l11-7z"/></svg></div>
         <div class="cs-info">
           <div class="cs-tag">Current Active Lesson · Unit 1</div>
           <div class="cs-title">Previewing &amp; Predicting and Identifying Main Ideas</div>
@@ -8313,7 +8328,8 @@
 
   <div class="toast" id="toast"></div>
 
-  <script>    // ═══════════ CONFIG ═══════════
+  <script>
+    // ═══════════ CONFIG ═══════════
     const ALLOWED_DOMAIN = null; // null = open, 'bru.ac.th' = restrict
     const DEMO_USERS = {
       'test@gmail.com': { name: 'Test User', given_name: 'Test', password: '123456', color: '#4285F4' }
@@ -9029,6 +9045,25 @@
       const particleCount = isMobile ? 40 : 75;
       const particles = [];
 
+      // Screens that use the Direction G cozy-lavender palette get a
+      // brighter, more visible snow treatment; every other (dark) screen
+      // keeps the original gold/cyan/white starlight look.
+      function isLightScreen() {
+        const el = document.querySelector('.screen.active');
+        return !!el && (el.id === 'screen-signin' || el.id === 'screen-home');
+      }
+
+      // Mouse-reactive "wind" — snow gently drifts away from the pointer.
+      let mouseX = null, mouseY = null;
+      window.addEventListener('mousemove', function (e) {
+        mouseX = e.clientX;
+        mouseY = e.clientY;
+      });
+      window.addEventListener('mouseleave', function () {
+        mouseX = null;
+        mouseY = null;
+      });
+
       class Snowflake {
         constructor() {
           this.reset(true);
@@ -9042,22 +9077,46 @@
           this.swingAmp = Math.random() * 1.2 + 0.5;
           this.swingFreq = Math.random() * 0.015 + 0.005;
           this.angle = Math.random() * Math.PI * 2;
-          this.opacity = Math.random() * 0.45 + 0.2; // 0.2 to 0.65
 
-          // Color palette: Ethereal crisp white, warm starlight gold, soft cyan
-          const hueChoice = Math.random();
-          if (hueChoice > 0.85) {
-            this.color = `rgba(232, 201, 122, ${this.opacity})`; // Gold starlight
-          } else if (hueChoice > 0.70) {
-            this.color = `rgba(78, 205, 196, ${this.opacity})`; // Cyan stardust
+          if (isLightScreen()) {
+            // Cozy-lavender screens: soft white with a light-purple glow,
+            // boosted opacity so it reads clearly against the pastel bg.
+            this.opacity = Math.random() * 0.35 + 0.55; // 0.55 to 0.9
+            this.size = Math.random() * 2.6 + 1.4; // 1.4px to 4px
+            const hueChoice = Math.random();
+            this.color = hueChoice > 0.6
+              ? `rgba(122, 94, 160, ${this.opacity * 0.8})` // Lavender fleck
+              : `rgba(255, 255, 255, ${this.opacity})`; // Bright snow
           } else {
-            this.color = `rgba(240, 246, 255, ${this.opacity})`; // Soft white snow
+            this.opacity = Math.random() * 0.45 + 0.2; // 0.2 to 0.65
+            // Color palette: Ethereal crisp white, warm starlight gold, soft cyan
+            const hueChoice = Math.random();
+            if (hueChoice > 0.85) {
+              this.color = `rgba(232, 201, 122, ${this.opacity})`; // Gold starlight
+            } else if (hueChoice > 0.70) {
+              this.color = `rgba(78, 205, 196, ${this.opacity})`; // Cyan stardust
+            } else {
+              this.color = `rgba(240, 246, 255, ${this.opacity})`; // Soft white snow
+            }
           }
         }
         update() {
           this.angle += this.swingFreq;
           this.x += Math.sin(this.angle) * this.swingAmp * 0.3 + this.speedX;
           this.y += this.speedY;
+
+          // Gently push away from the cursor when it comes near.
+          if (mouseX !== null) {
+            const dx = this.x - mouseX;
+            const dy = this.y - mouseY;
+            const dist = Math.sqrt(dx * dx + dy * dy) || 1;
+            const radius = 90;
+            if (dist < radius) {
+              const force = (radius - dist) / radius;
+              this.x += (dx / dist) * force * 3.2;
+              this.y += (dy / dist) * force * 3.2;
+            }
+          }
 
           // Wrap around bounds
           if (this.y > height + 10) this.reset(false);
@@ -9097,6 +9156,7 @@
 
       requestAnimationFrame(render);
     })();
+
 </script>
 </body>
 

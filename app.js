@@ -714,6 +714,25 @@
       const particleCount = isMobile ? 40 : 75;
       const particles = [];
 
+      // Screens that use the Direction G cozy-lavender palette get a
+      // brighter, more visible snow treatment; every other (dark) screen
+      // keeps the original gold/cyan/white starlight look.
+      function isLightScreen() {
+        const el = document.querySelector('.screen.active');
+        return !!el && (el.id === 'screen-signin' || el.id === 'screen-home');
+      }
+
+      // Mouse-reactive "wind" — snow gently drifts away from the pointer.
+      let mouseX = null, mouseY = null;
+      window.addEventListener('mousemove', function (e) {
+        mouseX = e.clientX;
+        mouseY = e.clientY;
+      });
+      window.addEventListener('mouseleave', function () {
+        mouseX = null;
+        mouseY = null;
+      });
+
       class Snowflake {
         constructor() {
           this.reset(true);
@@ -727,22 +746,46 @@
           this.swingAmp = Math.random() * 1.2 + 0.5;
           this.swingFreq = Math.random() * 0.015 + 0.005;
           this.angle = Math.random() * Math.PI * 2;
-          this.opacity = Math.random() * 0.45 + 0.2; // 0.2 to 0.65
 
-          // Color palette: Ethereal crisp white, warm starlight gold, soft cyan
-          const hueChoice = Math.random();
-          if (hueChoice > 0.85) {
-            this.color = `rgba(232, 201, 122, ${this.opacity})`; // Gold starlight
-          } else if (hueChoice > 0.70) {
-            this.color = `rgba(78, 205, 196, ${this.opacity})`; // Cyan stardust
+          if (isLightScreen()) {
+            // Cozy-lavender screens: soft white with a light-purple glow,
+            // boosted opacity so it reads clearly against the pastel bg.
+            this.opacity = Math.random() * 0.35 + 0.55; // 0.55 to 0.9
+            this.size = Math.random() * 2.6 + 1.4; // 1.4px to 4px
+            const hueChoice = Math.random();
+            this.color = hueChoice > 0.6
+              ? `rgba(122, 94, 160, ${this.opacity * 0.8})` // Lavender fleck
+              : `rgba(255, 255, 255, ${this.opacity})`; // Bright snow
           } else {
-            this.color = `rgba(240, 246, 255, ${this.opacity})`; // Soft white snow
+            this.opacity = Math.random() * 0.45 + 0.2; // 0.2 to 0.65
+            // Color palette: Ethereal crisp white, warm starlight gold, soft cyan
+            const hueChoice = Math.random();
+            if (hueChoice > 0.85) {
+              this.color = `rgba(232, 201, 122, ${this.opacity})`; // Gold starlight
+            } else if (hueChoice > 0.70) {
+              this.color = `rgba(78, 205, 196, ${this.opacity})`; // Cyan stardust
+            } else {
+              this.color = `rgba(240, 246, 255, ${this.opacity})`; // Soft white snow
+            }
           }
         }
         update() {
           this.angle += this.swingFreq;
           this.x += Math.sin(this.angle) * this.swingAmp * 0.3 + this.speedX;
           this.y += this.speedY;
+
+          // Gently push away from the cursor when it comes near.
+          if (mouseX !== null) {
+            const dx = this.x - mouseX;
+            const dy = this.y - mouseY;
+            const dist = Math.sqrt(dx * dx + dy * dy) || 1;
+            const radius = 90;
+            if (dist < radius) {
+              const force = (radius - dist) / radius;
+              this.x += (dx / dist) * force * 3.2;
+              this.y += (dy / dist) * force * 3.2;
+            }
+          }
 
           // Wrap around bounds
           if (this.y > height + 10) this.reset(false);
