@@ -23,7 +23,7 @@
     }
 
     body {
-      font-family: 'DM Sans', sans-serif;
+      font-family: 'Sarabun', sans-serif;
       background: var(--bg);
       color: var(--text);
       min-height: 100vh;
@@ -146,13 +146,13 @@
       padding: 6px 20px;
       border-radius: 40px;
       margin-bottom: 28px;
-      font-family: 'DM Mono', monospace;
+      font-family: 'Sarabun', sans-serif;
       backdrop-filter: blur(4px);
       background: rgba(122, 94, 160, .08);
     }
 
     .hero-wrap h1 {
-      font-family: 'Playfair Display', serif;
+      font-family: 'Sarabun', sans-serif;
       font-size: clamp(2.4rem, 7vw, 4rem);
       font-weight: 900;
       line-height: 1.08;
@@ -239,7 +239,7 @@
     }
 
     .bru-logo-area h3 {
-      font-family: 'Playfair Display', serif;
+      font-family: 'Sarabun', sans-serif;
       font-size: 1.2rem;
       font-weight: 700;
       margin-bottom: 4px;
@@ -247,7 +247,7 @@
     }
 
     .bru-logo-area p {
-      font-family: 'DM Mono', monospace;
+      font-family: 'Sarabun', sans-serif;
       font-size: .62rem;
       letter-spacing: 1.5px;
       text-transform: uppercase;
@@ -335,7 +335,7 @@
       border-radius: 10px;
       padding: 22px 44px 8px 14px;
       color: #372E48;
-      font-family: 'DM Sans', sans-serif;
+      font-family: 'Sarabun', sans-serif;
       font-size: .95rem;
       transition: border-color .2s;
       outline: none;
@@ -387,7 +387,7 @@
       background: none;
       border: none;
       color: #7A5EA0;
-      font-family: 'DM Sans', sans-serif;
+      font-family: 'Sarabun', sans-serif;
       font-size: .88rem;
       font-weight: 600;
       cursor: pointer;
@@ -405,7 +405,7 @@
       border: none;
       padding: 12px 28px;
       border-radius: 50px;
-      font-family: 'DM Sans', sans-serif;
+      font-family: 'Sarabun', sans-serif;
       font-size: .92rem;
       font-weight: 700;
       cursor: pointer;
@@ -532,7 +532,7 @@
     }
 
     .signin-divider span {
-      font-family: 'DM Mono', monospace;
+      font-family: 'Sarabun', sans-serif;
       font-size: .62rem;
       letter-spacing: 1.5px;
       color: #7A5EA0;
@@ -547,7 +547,7 @@
       color: #7A5442;
       padding: 11px 16px;
       border-radius: 12px;
-      font-family: 'DM Sans', sans-serif;
+      font-family: 'Sarabun', sans-serif;
       font-size: .86rem;
       font-weight: 600;
       cursor: pointer;
@@ -576,7 +576,7 @@
     }
 
     .demo-badge {
-      font-family: 'DM Mono', monospace;
+      font-family: 'Sarabun', sans-serif;
       font-size: .6rem;
       background: rgba(122, 94, 160, .15);
       border: 1px solid rgba(122, 94, 160, .4);
@@ -657,7 +657,7 @@
     }
 
     .profile-modal-top h3 {
-      font-family: 'Playfair Display', serif;
+      font-family: 'Sarabun', sans-serif;
       font-size: 1.2rem;
       font-weight: 700;
       color: #fff;
@@ -670,7 +670,7 @@
     }
 
     .pm-email {
-      font-family: 'DM Mono', monospace;
+      font-family: 'Sarabun', sans-serif;
       font-size: .75rem;
       color: rgba(255, 255, 255, .5);
       margin-top: 6px;
@@ -682,7 +682,7 @@
     }
 
     .pm-step-label {
-      font-family: 'DM Mono', monospace;
+      font-family: 'Sarabun', sans-serif;
       font-size: .68rem;
       letter-spacing: 2px;
       color: var(--muted);
@@ -724,7 +724,7 @@
       border-radius: 10px;
       padding: 12px 14px;
       color: var(--text);
-      font-family: 'DM Sans', sans-serif;
+      font-family: 'Sarabun', sans-serif;
       font-size: .95rem;
       transition: border-color .2s;
       outline: none;
@@ -750,7 +750,7 @@
       border-radius: 10px;
       padding: 12px 14px;
       color: var(--text);
-      font-family: 'DM Sans', sans-serif;
+      font-family: 'Sarabun', sans-serif;
       font-size: .95rem;
       transition: border-color .2s;
       outline: none;
@@ -790,7 +790,7 @@
       border: none;
       padding: 15px;
       border-radius: 12px;
-      font-family: 'DM Sans', sans-serif;
+      font-family: 'Sarabun', sans-serif;
       font-size: 1rem;
       font-weight: 700;
       cursor: pointer;
@@ -868,7 +868,7 @@
     }
 
     .tb-info .tb-meta {
-      font-family: 'DM Mono', monospace;
+      font-family: 'Sarabun', sans-serif;
       font-size: .6rem;
       color: var(--muted);
     }
@@ -889,7 +889,7 @@
     }
 
     .tb-logo {
-      font-family: 'Playfair Display', serif;
+      font-family: 'Sarabun', sans-serif;
       font-size: .95rem;
       font-weight: 700;
       color: var(--gold);
@@ -901,7 +901,7 @@
       color: var(--muted);
       padding: 5px 12px;
       border-radius: 20px;
-      font-family: 'DM Sans', sans-serif;
+      font-family: 'Sarabun', sans-serif;
       font-size: .73rem;
       cursor: pointer;
       transition: all .2s;
@@ -959,7 +959,7 @@
     }
 
     .hg-eye {
-      font-family: 'DM Mono', monospace;
+      font-family: 'Sarabun', sans-serif;
       font-size: .62rem;
       letter-spacing: 2.5px;
       color: #7A5EA0;
@@ -978,7 +978,7 @@
     }
 
     .home-greeting h2 {
-      font-family: 'Playfair Display', serif;
+      font-family: 'Sarabun', sans-serif;
       font-size: 1.75rem;
       font-weight: 700;
       line-height: 1.2;
@@ -1038,7 +1038,7 @@
     }
 
     .pic-meta {
-      font-family: 'DM Mono', monospace;
+      font-family: 'Sarabun', sans-serif;
       font-size: .7rem;
       color: #544566;
       margin-top: 3px;
@@ -1095,7 +1095,7 @@
     }
 
     .cs-tag {
-      font-family: 'DM Mono', monospace;
+      font-family: 'Sarabun', sans-serif;
       font-size: .6rem;
       letter-spacing: 1.5px;
       color: #7A5FA0;
@@ -1104,7 +1104,7 @@
     }
 
     .cs-title {
-      font-family: 'Playfair Display', serif;
+      font-family: 'Sarabun', sans-serif;
       font-size: .96rem;
       font-weight: 700;
       color: #372E48;
@@ -1132,7 +1132,7 @@
     }
 
     .cs-pct {
-      font-family: 'DM Mono', monospace;
+      font-family: 'Sarabun', sans-serif;
       font-size: .62rem;
       color: #7E739C;
     }
@@ -1166,7 +1166,7 @@
     }
 
     .msl-text {
-      font-family: 'Playfair Display', serif;
+      font-family: 'Sarabun', sans-serif;
       font-size: 1.05rem;
       font-weight: 700;
       color: #372E48;
@@ -1240,7 +1240,7 @@
     }
 
     .mc-title {
-      font-family: 'Playfair Display', serif;
+      font-family: 'Sarabun', sans-serif;
       font-size: .94rem;
       font-weight: 700;
       color: #372E48;
@@ -1272,7 +1272,7 @@
     }
 
     .mc-badge {
-      font-family: 'DM Mono', monospace;
+      font-family: 'Sarabun', sans-serif;
       font-size: .58rem;
       padding: 2px 8px;
       border-radius: 10px;
@@ -1385,7 +1385,7 @@
     }
 
     .inner-eye {
-      font-family: 'DM Mono', monospace;
+      font-family: 'Sarabun', sans-serif;
       font-size: .6rem;
       letter-spacing: 2px;
       color: var(--teal);
@@ -1394,7 +1394,7 @@
     }
 
     .inner-h {
-      font-family: 'Playfair Display', serif;
+      font-family: 'Sarabun', sans-serif;
       font-size: 1.5rem;
       font-weight: 700;
     }
@@ -1431,7 +1431,7 @@
       display: flex;
       align-items: center;
       justify-content: center;
-      font-family: 'DM Mono', monospace;
+      font-family: 'Sarabun', sans-serif;
       font-size: .75rem;
       flex-shrink: 0;
       position: relative;
@@ -1479,7 +1479,7 @@
     }
 
     .tl-unit-label {
-      font-family: 'DM Mono', monospace;
+      font-family: 'Sarabun', sans-serif;
       font-size: .6rem;
       letter-spacing: 1.5px;
       color: var(--muted);
@@ -1545,7 +1545,7 @@
     }
 
     .tl-pct {
-      font-family: 'DM Mono', monospace;
+      font-family: 'Sarabun', sans-serif;
       font-size: .65rem;
       color: var(--muted);
     }
@@ -1591,7 +1591,7 @@
     }
 
     .strat-label {
-      font-family: 'DM Mono', monospace;
+      font-family: 'Sarabun', sans-serif;
       font-size: .58rem;
       letter-spacing: 1.5px;
       text-transform: uppercase;
@@ -1599,7 +1599,7 @@
     }
 
     .strat-title {
-      font-family: 'Playfair Display', serif;
+      font-family: 'Sarabun', sans-serif;
       font-size: .95rem;
       font-weight: 700;
       margin-bottom: 3px;
@@ -1712,7 +1712,7 @@
     }
 
     .qb-section {
-      font-family: 'DM Mono', monospace;
+      font-family: 'Sarabun', sans-serif;
       font-size: .6rem;
       letter-spacing: 1.5px;
       color: var(--muted);
@@ -1721,7 +1721,7 @@
     }
 
     .qb-title {
-      font-family: 'Playfair Display', serif;
+      font-family: 'Sarabun', sans-serif;
       font-size: .9rem;
       font-weight: 700;
       margin-bottom: 4px;
@@ -1741,7 +1741,7 @@
     }
 
     .qb-items {
-      font-family: 'DM Mono', monospace;
+      font-family: 'Sarabun', sans-serif;
       font-size: .65rem;
       color: var(--muted);
     }
@@ -1768,7 +1768,7 @@
     }
 
     .sv {
-      font-family: 'Playfair Display', serif;
+      font-family: 'Sarabun', sans-serif;
       font-size: 2rem;
       font-weight: 700;
       line-height: 1;
@@ -1797,7 +1797,7 @@
     }
 
     .es-title {
-      font-family: 'DM Mono', monospace;
+      font-family: 'Sarabun', sans-serif;
       font-size: .6rem;
       letter-spacing: 2.5px;
       color: var(--muted);
@@ -1831,7 +1831,7 @@
     }
 
     .env {
-      font-family: 'DM Mono', monospace;
+      font-family: 'Sarabun', sans-serif;
       font-size: 1rem;
       font-weight: 500;
       line-height: 1;
@@ -1881,13 +1881,13 @@
     }
 
     .qh-header h4 {
-      font-family: 'Playfair Display', serif;
+      font-family: 'Sarabun', sans-serif;
       font-size: 1rem;
       font-weight: 700;
     }
 
     .qh-header span {
-      font-family: 'DM Mono', monospace;
+      font-family: 'Sarabun', sans-serif;
       font-size: .62rem;
       color: var(--muted);
     }
@@ -1931,7 +1931,7 @@
     }
 
     .qh-score {
-      font-family: 'DM Mono', monospace;
+      font-family: 'Sarabun', sans-serif;
       font-size: .85rem;
       font-weight: 500;
     }
@@ -1971,7 +1971,7 @@
       color: var(--muted);
       padding: 12px 8px 10px;
       cursor: pointer;
-      font-family: 'DM Sans', sans-serif;
+      font-family: 'Sarabun', sans-serif;
       font-size: .62rem;
       display: flex;
       flex-direction: column;
@@ -2042,7 +2042,7 @@
 
     .lh-badge {
       display: inline-block;
-      font-family: 'DM Mono', monospace;
+      font-family: 'Sarabun', sans-serif;
       font-size: .65rem;
       letter-spacing: 2px;
       text-transform: uppercase;
@@ -2055,7 +2055,7 @@
     }
 
     .lh-title {
-      font-family: 'Playfair Display', serif;
+      font-family: 'Sarabun', sans-serif;
       font-size: 1.45rem;
       font-weight: 700;
       line-height: 1.25;
@@ -2095,7 +2095,7 @@
       color: var(--muted);
       padding: 10px 6px;
       border-radius: 8px;
-      font-family: 'DM Sans', sans-serif;
+      font-family: 'Sarabun', sans-serif;
       font-size: .82rem;
       font-weight: 600;
       cursor: pointer;
@@ -2128,7 +2128,7 @@
     }
 
     .content-block h3 {
-      font-family: 'Playfair Display', serif;
+      font-family: 'Sarabun', sans-serif;
       font-size: 1.15rem;
       font-weight: 700;
       margin-bottom: 12px;
@@ -2181,7 +2181,7 @@
     }
 
     .vc-pos {
-      font-family: 'DM Mono', monospace;
+      font-family: 'Sarabun', sans-serif;
       font-size: .65rem;
       color: var(--teal);
       background: rgba(182, 104, 138, .1);
@@ -2285,7 +2285,7 @@
       line-height: 2.0;
       font-size: .96rem;
       color: #372E48;
-      font-family: 'Georgia', serif;
+      font-family: 'Sarabun', sans-serif;
     }
 
     .passage-sentence {
@@ -2321,7 +2321,7 @@
     }
 
     .quiz-q-num {
-      font-family: 'DM Mono', monospace;
+      font-family: 'Sarabun', sans-serif;
       font-size: .68rem;
       letter-spacing: 1.5px;
       color: var(--teal);
@@ -2463,7 +2463,7 @@
     }
 
     .upc-pct {
-      font-family: 'DM Mono', monospace;
+      font-family: 'Sarabun', sans-serif;
       font-size: .8rem;
       color: var(--gold);
       font-weight: 700;
@@ -2526,7 +2526,7 @@
     }
 
     .usc-badge {
-      font-family: 'DM Mono', monospace;
+      font-family: 'Sarabun', sans-serif;
       font-size: .65rem;
       letter-spacing: 1px;
       font-weight: 700;
@@ -2564,7 +2564,7 @@
     }
 
     .usc-title {
-      font-family: 'Playfair Display', serif;
+      font-family: 'Sarabun', sans-serif;
       font-size: 1.02rem;
       font-weight: 700;
       line-height: 1.35;
@@ -2591,7 +2591,7 @@
     }
 
     .usc-status {
-      font-family: 'DM Mono', monospace;
+      font-family: 'Sarabun', sans-serif;
       font-size: .65rem;
       color: var(--teal);
       font-weight: 600;
@@ -2645,7 +2645,7 @@
     }
 
     .rhn-meta {
-      font-family: 'DM Mono', monospace;
+      font-family: 'Sarabun', sans-serif;
       font-size: .72rem;
       color: var(--teal);
     }
@@ -2715,7 +2715,7 @@
     }
 
     .concept-box h4 {
-      font-family: 'Playfair Display', serif;
+      font-family: 'Sarabun', sans-serif;
       font-size: 1.05rem;
       font-weight: 700;
       color: var(--gold);
@@ -2775,7 +2775,7 @@
     }
 
     .visual-diagram .vd-title {
-      font-family: 'DM Mono', monospace;
+      font-family: 'Sarabun', sans-serif;
       font-size: .7rem;
       letter-spacing: 2px;
       text-transform: uppercase;
@@ -2810,7 +2810,7 @@
       display: inline-flex;
       align-items: center;
       gap: 6px;
-      font-family: 'DM Mono', monospace;
+      font-family: 'Sarabun', sans-serif;
       font-size: .62rem;
       padding: 3px 10px;
       border-radius: 20px;
@@ -2863,7 +2863,7 @@
     }
 
     .exercise-box h4 {
-      font-family: 'Playfair Display', serif;
+      font-family: 'Sarabun', sans-serif;
       font-size: 1rem;
       font-weight: 700;
       color: var(--teal);
@@ -2931,7 +2931,7 @@
       display: flex;
       align-items: center;
       justify-content: center;
-      font-family: 'DM Mono', monospace;
+      font-family: 'Sarabun', sans-serif;
       font-size: .75rem;
       font-weight: 600;
       flex-shrink: 0;
@@ -2987,7 +2987,7 @@
       color: var(--gold);
       padding: 12px 14px;
       text-align: left;
-      font-family: 'Playfair Display', serif;
+      font-family: 'Sarabun', sans-serif;
       font-weight: 700;
       border-bottom: 2px solid var(--border2);
     }
@@ -3013,7 +3013,7 @@
       margin: 12px 0;
       line-height: 1.85;
       font-size: .9rem;
-      font-family: 'Georgia', serif;
+      font-family: 'Sarabun', sans-serif;
       color: #372E48;
     }
 
@@ -3039,7 +3039,7 @@
       border: 1px solid rgba(155, 114, 232, .3);
       padding: 3px 10px;
       border-radius: 16px;
-      font-family: 'DM Mono', monospace;
+      font-family: 'Sarabun', sans-serif;
       font-size: .72rem;
       margin: 2px 4px;
     }
@@ -3060,7 +3060,7 @@
     }
 
     .self-check-header h4 {
-      font-family: 'Playfair Display', serif;
+      font-family: 'Sarabun', sans-serif;
       font-size: 1.05rem;
       color: #F0E6F8;
       margin-bottom: 4px;
@@ -3096,7 +3096,7 @@
     }
 
     .sc-score {
-      font-family: 'DM Mono', monospace;
+      font-family: 'Sarabun', sans-serif;
       font-size: 1.1rem;
       font-weight: 700;
     }
@@ -3112,7 +3112,7 @@
 
     .reflection-box h4 {
       color: #6B4F96;
-      font-family: 'Playfair Display', serif;
+      font-family: 'Sarabun', sans-serif;
       margin-bottom: 10px;
     }
 
@@ -3154,7 +3154,7 @@
       display: flex;
       align-items: center;
       justify-content: center;
-      font-family: 'DM Mono', monospace;
+      font-family: 'Sarabun', sans-serif;
       font-size: .8rem;
       font-weight: 700;
     }
@@ -3251,7 +3251,7 @@
       color: #7A5EA0;
       padding: 10px 16px;
       border-radius: 10px;
-      font-family: 'DM Sans', sans-serif;
+      font-family: 'Sarabun', sans-serif;
       font-size: 0.88rem;
       font-weight: 700;
       cursor: pointer;
@@ -3310,7 +3310,7 @@
       width: 32px;
       height: 32px;
       border-radius: 10px;
-      font-family: 'DM Mono', monospace;
+      font-family: 'Sarabun', sans-serif;
       font-size: 0.85rem;
       font-weight: 700;
       background: rgba(182, 104, 138, 0.12);
@@ -3344,7 +3344,7 @@
     }
 
     .flow-title {
-      font-family: 'Playfair Display', serif;
+      font-family: 'Sarabun', sans-serif;
       font-size: 1.15rem;
       font-weight: 700;
       color: #372E48;
@@ -3419,7 +3419,7 @@
     }
 
     .fcf-word {
-      font-family: 'Playfair Display', serif;
+      font-family: 'Sarabun', sans-serif;
       font-size: 1.45rem;
       font-weight: 700;
       color: #6F5590;
@@ -3427,7 +3427,7 @@
     }
 
     .fcf-phonetic {
-      font-family: 'DM Mono', monospace;
+      font-family: 'Sarabun', sans-serif;
       font-size: .8rem;
       color: #8A4A64;
       margin-bottom: 8px;
@@ -3490,7 +3490,7 @@
     .sd-sentence {
       font-size: 1.02rem;
       line-height: 2.2;
-      font-family: 'Georgia', serif;
+      font-family: 'Sarabun', sans-serif;
       color: #372E48;
       margin-bottom: 14px;
       background: rgba(255, 255, 255, 0.6);
@@ -3556,7 +3556,7 @@
     .sd-role-badge {
       padding: 4px 10px;
       border-radius: 6px;
-      font-family: 'DM Mono', monospace;
+      font-family: 'Sarabun', sans-serif;
       font-size: .75rem;
       font-weight: 700;
       flex-shrink: 0;
@@ -3615,7 +3615,7 @@
     }
 
     .sm-cat {
-      font-family: 'DM Mono', monospace;
+      font-family: 'Sarabun', sans-serif;
       font-size: .72rem;
       font-weight: 700;
       text-transform: uppercase;
@@ -3644,7 +3644,7 @@
       font-size: .75rem;
       padding: 3px 8px;
       border-radius: 12px;
-      font-family: 'DM Mono', monospace;
+      font-family: 'Sarabun', sans-serif;
     }
 
     /* Exam Traps Box */
@@ -3659,7 +3659,7 @@
 
     .trap-title {
       color: var(--red);
-      font-family: 'Playfair Display', serif;
+      font-family: 'Sarabun', sans-serif;
       font-size: 1rem;
       font-weight: 700;
       display: flex;
@@ -3708,7 +3708,7 @@
       color: #372E48;
       line-height: 1.7;
       margin-bottom: 8px;
-      font-family: 'Georgia', serif;
+      font-family: 'Sarabun', sans-serif;
     }
 
     .bb-th {
