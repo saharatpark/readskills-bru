@@ -286,6 +286,33 @@
       if (target) target.classList.add('active');
       if (TABS[id]) document.getElementById(TABS[id]).classList.add('active');
       window.scrollTo({ top: 0, behavior: 'smooth' });
+      if (id === 'screen-home') {
+        updateGreeting();
+        playHomeEntrance();
+      }
+    }
+
+    // ═══════════ HOME: DYNAMIC GREETING & ENTRANCE ANIMATION ═══════════
+    function updateGreeting() {
+      const hour = new Date().getHours();
+      let phrase, emoji;
+      if (hour >= 5 && hour < 12) { phrase = 'Good morning,'; emoji = '🌅'; }
+      else if (hour >= 12 && hour < 17) { phrase = 'Good afternoon,'; emoji = '☀️'; }
+      else if (hour >= 17 && hour < 21) { phrase = 'Good evening,'; emoji = '🌇'; }
+      else { phrase = 'Good evening,'; emoji = '🌙'; }
+      const phraseEl = document.getElementById('greeting-phrase');
+      const emojiEl = document.getElementById('greeting-emoji');
+      if (phraseEl) phraseEl.textContent = phrase;
+      if (emojiEl) emojiEl.textContent = emoji;
+    }
+
+    function playHomeEntrance() {
+      const wrap = document.querySelector('#screen-home .home-wrap');
+      if (!wrap) return;
+      wrap.classList.remove('play-in');
+      // Force reflow so the animation can retrigger every time Home is opened
+      void wrap.offsetWidth;
+      wrap.classList.add('play-in');
     }
 
     // ═══════════ MODULAR LESSON DETAIL & TOPIC VIEWER ═══════════
