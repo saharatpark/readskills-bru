@@ -294,8 +294,8 @@
     const completedTopics = JSON.parse(localStorage.getItem('rs_completed_u1_topics') || '{}');
 
     function updateUnit1ProgressUI() {
-      const total = 8;
-      const doneCount = [1, 2, 3, 4, 5, 6, 7, 8].filter(k => completedTopics[k]).length;
+      const total = 6;
+      const doneCount = [1, 2, 3, 4, 5, 6].filter(k => completedTopics[k]).length;
       const pct = Math.round((doneCount / total) * 100);
 
       const bar = document.getElementById('u1-progress-bar');
@@ -334,39 +334,39 @@
         cards2.forEach(c => c.style.display = 'none');
         cards3.forEach(c => c.style.display = 'none');
         if (title) title.textContent = 'Stage 1: ก่อนอ่าน (Pre-Reading) — เรียนรู้ทฤษฎีและเครื่องมืออ่าน';
-        if (desc) desc.textContent = 'เรียนรู้ทฤษฎีพื้นฐาน Text Features, Topic Sentences, Main Ideas และคำศัพท์วิชาการ (Topic 1–6)';
+        if (desc) desc.textContent = 'เรียนรู้ทฤษฎีพื้นฐาน Text Features และคำศัพท์วิชาการ พร้อม Pre-test ก่อนเริ่มเรียน (Topic 1–2)';
       } else if (stageNum === 2) {
         cards1.forEach(c => c.style.display = 'none');
         cards2.forEach(c => c.style.display = 'flex');
         cards3.forEach(c => c.style.display = 'none');
         if (title) title.textContent = 'Stage 2: ระหว่างอ่าน (While-Reading) — ฝึกอ่านบทความจริง';
-        if (desc) desc.textContent = 'ฝึกอ่านบทความ 5 เรื่อง (สั้น–ยาว) พร้อมไฮไลท์แบบ Interactive และแบบฝึกหัด ≥ 5 ข้อต่อเรื่อง (Topic 7)';
+        if (desc) desc.textContent = 'เรียนรู้ Topic Sentence และ Main Idea แล้วฝึกอ่านบทความ 3 เรื่อง (สั้น–ยาว) พร้อมไฮไลท์แบบ Interactive และแบบฝึกหัด (Topic 3–5)';
       } else if (stageNum === 3) {
         cards1.forEach(c => c.style.display = 'none');
         cards2.forEach(c => c.style.display = 'none');
         cards3.forEach(c => c.style.display = 'flex');
         if (title) title.textContent = 'Stage 3: หลังอ่าน (Post-Reading) — ทบทวนและประเมินผล';
-        if (desc) desc.textContent = 'แบบทดสอบประเมินตนเอง 5 ข้อ เกณฑ์ Scoring Rubric และบันทึกสะท้อนการเรียนรู้ (Topic 8)';
+        if (desc) desc.textContent = 'แบบทดสอบประเมินตนเอง 5 ข้อ เกณฑ์ Scoring Rubric และบันทึกสะท้อนการเรียนรู้ (Topic 6)';
       } else {
         // Show all
         cards1.forEach(c => c.style.display = 'flex');
         cards2.forEach(c => c.style.display = 'flex');
         cards3.forEach(c => c.style.display = 'flex');
         if (title) title.textContent = 'Unit 1: All Topics Overview (Pre + While + Post Reading)';
-        if (desc) desc.textContent = 'แสดงหัวข้อบทเรียนทั้ง 8 ส่วนของ Unit 1 ครบทั้ง 3 ขั้นตอน';
+        if (desc) desc.textContent = 'แสดงหัวข้อบทเรียนทั้ง 6 ส่วนของ Unit 1 ครบทั้ง 3 ขั้นตอน';
       }
     }
 
     function switchReaderStage(stageNum) {
       if (stageNum === 1) openLessonTopic(1);
-      else if (stageNum === 2) openLessonTopic(7);
-      else if (stageNum === 3) openLessonTopic(8);
+      else if (stageNum === 2) openLessonTopic(3);
+      else if (stageNum === 3) openLessonTopic(6);
     }
 
     function updateReaderStageTabs(topicIdx) {
       let stage = 1;
-      if (topicIdx === 7) stage = 2;
-      else if (topicIdx === 8) stage = 3;
+      if (topicIdx >= 3 && topicIdx <= 5) stage = 2;
+      else if (topicIdx === 6) stage = 3;
 
       for (let i = 1; i <= 3; i++) {
         const rTab = document.getElementById(`rst-tab-${i}`);
@@ -390,13 +390,11 @@
     const TOPIC_NAMES = [
       'Overview',
       'Topic 1: ส่วนประกอบของบทความ (Text Features)',
-      'Topic 2: ประโยคใจความสำคัญ (Topic Sentence)',
-      'Topic 3: ใจความสำคัญหลัก (Main Idea)',
-      'Topic 4: รายละเอียดและคำเชื่อม (Supporting Details)',
-      'Topic 5: เปรียบเทียบ Main Idea vs. Details',
-      'Topic 6: คำศัพท์วิชาการ (Vocabulary Preview)',
-      'Topic 7: ฝึกอ่านบทความ A–E (While-Reading)',
-      'Topic 8: แบบประเมินตนเอง (Post-Reading Quiz)'
+      'Topic 2: คำศัพท์วิชาการ (Vocabulary Preview)',
+      'Topic 3: ประโยคใจความสำคัญ (Topic Sentence)',
+      'Topic 4: ใจความสำคัญหลัก (Main Idea)',
+      'Topic 5: ฝึกอ่านบทความ 1–3 (While-Reading)',
+      'Topic 6: แบบประเมินตนเอง (Post-Reading Quiz)'
     ];
 
     function openLessonTopic(topicIdx) {
@@ -411,7 +409,7 @@
       updateReaderStageTabs(topicIdx);
 
       // Show only current topic pane
-      for (let i = 1; i <= 8; i++) {
+      for (let i = 1; i <= 6; i++) {
         const pane = document.getElementById(`topic-pane-${i}`);
         if (pane) pane.style.display = (i === topicIdx) ? 'block' : 'none';
       }
@@ -420,7 +418,7 @@
       const prevBtn = document.getElementById('rfn-prev-btn');
       const nextBtn = document.getElementById('rfn-next-btn');
       if (prevBtn) prevBtn.style.visibility = (topicIdx <= 1) ? 'hidden' : 'visible';
-      if (nextBtn) nextBtn.textContent = (topicIdx === 8) ? 'Finish Unit 1 🏁' : 'Next Topic ➔';
+      if (nextBtn) nextBtn.textContent = (topicIdx === 6) ? 'Finish Unit 1 🏁' : 'Next Topic ➔';
 
       // Mark as read/completed
       completedTopics[topicIdx] = true;
@@ -439,9 +437,9 @@
 
     function navigateLessonTopic(step) {
       const nextIdx = currentTopicIndex + step;
-      if (nextIdx >= 1 && nextIdx <= 8) {
+      if (nextIdx >= 1 && nextIdx <= 6) {
         openLessonTopic(nextIdx);
-      } else if (nextIdx > 8) {
+      } else if (nextIdx > 6) {
         showToast('🎉 ยินดีด้วย! คุณเรียนครบทุกหัวข้อใน Unit 1 เรียบร้อยแล้ว');
         closeLessonTopic();
       }
