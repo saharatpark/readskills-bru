@@ -2385,6 +2385,56 @@
       border-bottom: 2px solid var(--teal);
     }
 
+    /* Unit 2 — 3-color highlighter (Main Idea Challenge) */
+    .passage-sentence.hl-main {
+      background: rgba(217, 184, 60, .35);
+      color: #fff;
+      border-bottom: 2px solid #D9B83C;
+    }
+
+    .passage-sentence.hl-major {
+      background: rgba(91, 147, 117, .35);
+      color: #fff;
+      border-bottom: 2px solid var(--green);
+    }
+
+    .passage-sentence.hl-minor {
+      background: rgba(111, 168, 220, .35);
+      color: #fff;
+      border-bottom: 2px solid #6FA8DC;
+    }
+
+    /* Unit 2 — Timed Scanning Task */
+    .scan-timer-display {
+      font-weight: 700;
+      color: var(--teal);
+      font-size: .95rem;
+      font-variant-numeric: tabular-nums;
+    }
+
+    .scan-timer-display.scan-live {
+      color: #E05B5B;
+      animation: scanPulse 1s infinite;
+    }
+
+    @keyframes scanPulse {
+      0%, 100% { opacity: 1; }
+      50% { opacity: .5; }
+    }
+
+    .scan-source-box {
+      background: var(--surface2);
+      border: 1px solid var(--border);
+      border-radius: 10px;
+      padding: 14px 16px;
+      font-size: .84rem;
+      line-height: 1.8;
+      color: var(--muted);
+      margin-bottom: 14px;
+      max-height: 260px;
+      overflow-y: auto;
+    }
+
     /* Interactive Quiz Screen */
     .quiz-q-box {
       background: var(--surface);
@@ -4316,16 +4366,27 @@
         </div>
 
         <div class="tl-item" onclick="openLessonDetail(2)" style="cursor:pointer;">
-          <div class="tl-dot lock">🔒</div>
-          <div class="tl-card lock">
-            <div class="tl-unit-label">Lesson Plan 2 · Unit 2 · Locked · Weeks 4–5</div>
-            <h4>Supporting Details and Idea Relationships</h4>
-            <div class="tl-tags"><span class="tl-tag">Skimming and Scanning</span><span class="tl-tag">Main Idea
-                Challenge</span><span class="tl-tag">6 hrs</span></div>
+          <div class="tl-dot cur">▶</div>
+          <div class="tl-card cur"
+            style="border-color:rgba(122,94,160,.6);background:var(--surface2);position:relative;">
+            <div
+              style="position:absolute;top:12px;right:14px;font-size:.72rem;color:var(--gold);font-weight:700;display:flex;align-items:center;gap:4px;">
+              <span>คลิกเข้าสู่เนื้อหา</span> <span style="font-size:.9rem;">➔</span>
+            </div>
+            <div class="tl-unit-label c">Lesson Plan 2 · Unit 2 · Active Unit · Weeks 4–5</div>
+            <h4 style="color:var(--gold2);padding-right:90px;">Supporting Details and Idea Relationships</h4>
+            <div class="tl-tags">
+              <span class="tl-tag" style="border-color:var(--gold);color:var(--gold)">🔎 Skimming and Scanning</span>
+              <span class="tl-tag">Major/Minor Details</span>
+              <span class="tl-tag">Idea Relationships</span>
+              <span class="tl-tag">Timed Scanning Task</span>
+              <span class="tl-tag">6 hrs</span>
+            </div>
             <div class="tl-bar-row">
               <div class="tl-mini-bar">
-                <div class="tl-mini-fill" style="width:0%"></div>
-              </div><span class="tl-pct">Locked</span>
+                <div class="tl-mini-fill cur" style="width:100%"></div>
+              </div>
+              <span class="tl-pct" style="color:var(--gold)">Ready</span>
             </div>
           </div>
         </div>
@@ -6950,6 +7011,1129 @@
 
   </div>
 
+  <!-- ══════════════ UNIT 2 HUB VIEW (Topic Table of Contents) ══════════════ -->
+  <div id="unit2-hub-view" class="unit-hub-wrap" style="display:none;">
+    <div class="inner-top">
+      <button class="back-btn" aria-label="Back" onclick="nav('screen-b')">←</button>
+      <div>
+        <div class="inner-eye" id="ld-eye2">Reading Lesson · Unit 2</div>
+        <div class="inner-h" id="ld-heading2">Supporting Details and Idea Relationships</div>
+      </div>
+    </div>
+
+    <!-- Course Header Banner -->
+    <div class="lesson-header-banner">
+      <div class="lh-badge" id="ld-badge2">Lesson Plan 2 · Unit 2 (Active)</div>
+      <h2 class="lh-title" id="ld-title2">Supporting Details and Idea Relationships</h2>
+      <div class="lh-meta">
+        <span>📖 Code: 2031103</span>
+        <span>⏱ 6 Periods (Weeks 4–5)</span>
+        <span>👩‍🏫 Asst. Prof. Naviya Chutopama</span>
+        <span>🏫 BRU English Program</span>
+      </div>
+    </div>
+
+    <!-- Stage Navigation Tabs -->
+    <div class="stage-nav" id="u2-stage-nav">
+      <button class="stage-tab active" id="st2-tab-1" onclick="filterLessonStage2(1)">1. ก่อนอ่าน
+        (Pre-Reading)</button>
+      <button class="stage-tab" id="st2-tab-2" onclick="filterLessonStage2(2)">2. ระหว่างอ่าน (While-Reading)</button>
+      <button class="stage-tab" id="st2-tab-3" onclick="filterLessonStage2(3)">3. หลังอ่าน (Post-Reading)</button>
+    </div>
+
+    <!-- Stage Info Header -->
+    <div id="stage-info-header2"
+      style="background:var(--surface2);border-left:3px solid var(--gold);padding:12px 16px;border-radius:0 10px 10px 0;margin-bottom:18px;display:flex;justify-content:space-between;align-items:center;">
+      <div>
+        <h4 id="stage-info-title2" style="font-size:.92rem;color:var(--gold);margin-bottom:3px;">Stage 1: Pre-Reading
+          — Supporting Details, Skimming &amp; Scanning</h4>
+        <p id="stage-info-desc2" style="font-size:.76rem;color:var(--muted);margin:0;">เรียนรู้ Major/Minor
+          Supporting Details และกลยุทธ์ Skimming กับ Scanning</p>
+      </div>
+      <button onclick="filterLessonStage2(0)" id="btn-show-all-stages2"
+        style="background:none;border:1px solid var(--border);color:var(--teal);font-size:.72rem;padding:4px 10px;border-radius:14px;cursor:pointer;">Show
+        All Topics</button>
+    </div>
+
+    <!-- Objectives & Core Concept Banner -->
+    <div class="content-block"
+      style="border-color:rgba(122,94,160,.35);background:linear-gradient(135deg,#5A4479,#4A3868);margin-bottom:20px;box-shadow:0 4px 20px rgba(0,0,0,.25);">
+      <div
+        style="display:flex;justify-content:space-between;align-items:center;margin-bottom:10px;flex-wrap:wrap;gap:8px;">
+        <h3 style="font-family:'Sarabun',sans-serif;font-size:1.15rem;color:#F0E6F8;margin-bottom:0;">🎯
+          Unit 2 — Core Concept &amp; Objectives</h3>
+        <span class="usc-badge usc-badge-gold">Curriculum Standards · Code: 2031103</span>
+      </div>
+      <p style="font-size:.86rem;color:#d2ddf0;line-height:1.75;margin-bottom:12px;">
+        <strong>Core Concept:</strong> This unit builds on Unit 1 by teaching students to distinguish
+        <strong>major</strong> and <strong>minor supporting details</strong>, recognize how ideas relate to one
+        another (cause-effect, compare-contrast, sequence), and apply <strong>skimming</strong> (for main idea)
+        and <strong>scanning</strong> (for specific information) as active reading strategies (Performance Goal:
+        ≥ 70% accuracy on the Main Idea Challenge and Timed Scanning Task).
+      </p>
+      <div
+        style="background:var(--surface2);border:1px solid rgba(122,94,160,.25);border-radius:10px;padding:12px 16px;">
+        <p style="font-size:.8rem;font-weight:700;color:var(--teal);margin-bottom:6px;">📋 Learning Objectives &amp;
+          Performance Indicators (ผศ. นาวียา ชูโตประมา):</p>
+        <ul style="padding-left:18px;font-size:.82rem;color:var(--muted);line-height:1.75;margin:0;">
+          <li>✅ <strong>3.1:</strong> Identify major and minor supporting details, and describe how ideas within
+            a text relate to one another.</li>
+          <li>✅ <strong>3.2:</strong> Use skimming to find the main idea quickly, and scanning to locate specific
+            information under time pressure.</li>
+          <li>✅ <strong>3.3:</strong> Complete the <strong>Main Idea Challenge</strong> and <strong>Timed Scanning
+              Task</strong> on the web app with at least <strong>70% accuracy</strong>.</li>
+        </ul>
+      </div>
+    </div>
+
+    <!-- Unit Progress Card -->
+    <div class="unit-progress-card">
+      <div class="upc-header">
+        <span class="upc-title">📌 Unit 2 Learning Progress</span>
+        <span class="upc-pct" id="u2-progress-pct">0% Completed (0/6 Topics)</span>
+      </div>
+      <div class="upc-bar">
+        <div class="upc-fill" id="u2-progress-bar" style="width: 0%;"></div>
+      </div>
+      <p style="font-size:.76rem;color:var(--muted);margin:0;">💡 แตะเลือกหัวข้อด้านล่างเพื่อเข้าสู่เนื้อหาบทเรียน
+        สามารถเรียนทีละหัวข้อและทำ Mini Exercise สะสมความรู้ได้</p>
+    </div>
+
+    <!-- Section Cards Grid (Topics 1 to 6) -->
+    <div class="unit-sec-grid" id="unit-sec-grid2">
+      <!-- Topic 1 -->
+      <div class="unit-sec-card stage-sec2-1" onclick="openLessonTopic2(1)" id="u2-card-1">
+        <div class="usc-top">
+          <span class="usc-badge usc-badge-teal">Pre-Reading · 01</span>
+          <span class="usc-icon">🧩</span>
+        </div>
+        <div class="usc-title">1. Major &amp; Minor Supporting Details</div>
+        <div class="usc-desc">รายละเอียดสนับสนุนหลัก (Major) และรายละเอียดสนับสนุนย่อย (Minor) คืออะไร
+          และแยกความแตกต่างอย่างไร พร้อมตัวอย่างสีไล่ระดับ 🟡🟢🔵</div>
+        <div class="usc-footer">
+          <span>⏱ 16 mins · 2 Mini Exercises</span>
+          <span class="usc-status" id="u2-stat-1">Start ➔</span>
+        </div>
+      </div>
+
+      <!-- Topic 2 -->
+      <div class="unit-sec-card stage-sec2-1" onclick="openLessonTopic2(2)" id="u2-card-2">
+        <div class="usc-top">
+          <span class="usc-badge usc-badge-green">Pre-Reading · 02</span>
+          <span class="usc-icon">🔎</span>
+        </div>
+        <div class="usc-title">2. Skimming &amp; Scanning Strategies</div>
+        <div class="usc-desc">Skimming เพื่อหาใจความสำคัญอย่างรวดเร็ว vs. Scanning เพื่อค้นหาข้อมูลเฉพาะเจาะจง
+          พร้อมเทคนิคการฝึกฝนทั้งสองกลยุทธ์</div>
+        <div class="usc-footer">
+          <span>⏱ 15 mins · 2 Mini Exercises</span>
+          <span class="usc-status" id="u2-stat-2">Start ➔</span>
+        </div>
+      </div>
+
+      <!-- Topic 3 -->
+      <div class="unit-sec-card stage-sec2-2" onclick="openLessonTopic2(3)" id="u2-card-3">
+        <div class="usc-top">
+          <span class="usc-badge usc-badge-gold">While-Reading · 03</span>
+          <span class="usc-icon">🔗</span>
+        </div>
+        <div class="usc-title">3. Idea Relationships &amp; Signal Words</div>
+        <div class="usc-desc">ความสัมพันธ์ของใจความ: Cause-Effect, Compare-Contrast, Sequence
+          พร้อมคำเชื่อม (Signal Words) ที่บ่งบอกความสัมพันธ์แต่ละแบบ</div>
+        <div class="usc-footer">
+          <span>⏱ 18 mins · 3 Mini Exercises</span>
+          <span class="usc-status" id="u2-stat-3">Start ➔</span>
+        </div>
+      </div>
+
+      <!-- Topic 4 -->
+      <div class="unit-sec-card stage-sec2-2" onclick="openLessonTopic2(4)" id="u2-card-4">
+        <div class="usc-top">
+          <span class="usc-badge usc-badge-teal">While-Reading · 04</span>
+          <span class="usc-icon">🖍️</span>
+        </div>
+        <div class="usc-title">4. ฝึกอ่าน — Main Idea Challenge</div>
+        <div class="usc-desc">ฝึกอ่านบทความ 3 เรื่อง พร้อมไฮไลท์ 3 สี 🟡 Main Idea · 🟢 Major Detail · 🔵 Minor Detail
+          และแบบฝึกหัดท้ายบทความ</div>
+        <div class="usc-footer">
+          <span>⏱ 25 mins · 3 Passages · 9 Exercises</span>
+          <span class="usc-status" id="u2-stat-4">Start ➔</span>
+        </div>
+      </div>
+
+      <!-- Topic 5 -->
+      <div class="unit-sec-card stage-sec2-2" onclick="openLessonTopic2(5)" id="u2-card-5">
+        <div class="usc-top">
+          <span class="usc-badge usc-badge-teal">While-Reading · 05</span>
+          <span class="usc-icon">⏱️</span>
+        </div>
+        <div class="usc-title">5. Timed Scanning Task</div>
+        <div class="usc-desc">ฝึก Scanning ภายใต้เวลาจำกัด — ค้นหาข้อมูลเฉพาะเจาะจงจากบทความให้เร็วและแม่นยำที่สุด</div>
+        <div class="usc-footer">
+          <span>⏱ 15 mins · Timed Widget</span>
+          <span class="usc-status" id="u2-stat-5">Start ➔</span>
+        </div>
+      </div>
+
+      <!-- Topic 6 -->
+      <div class="unit-sec-card stage-sec2-3" onclick="openLessonTopic2(6)" id="u2-card-6">
+        <div class="usc-top">
+          <span class="usc-badge usc-badge-purple">Post-Reading · 06</span>
+          <span class="usc-icon">📊</span>
+        </div>
+        <div class="usc-title">6. Post-Reading &amp; Self-Check</div>
+        <div class="usc-desc">แบบทดสอบทบทวน 5 ข้อ เกณฑ์คะแนนรูบริก และสรุปความเข้าใจท้ายบท Unit 2</div>
+        <div class="usc-footer">
+          <span>⏱ 15 mins · Self-Check Quiz</span>
+          <span class="usc-status" id="u2-stat-6">Start ➔</span>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ══════════════ UNIT 2 TOPIC READER VIEW ══════════════ -->
+  <div id="unit2-reader-view" class="section-reader-mode">
+
+    <!-- Stage Navigation in Reader Mode -->
+    <div class="stage-nav" id="u2-reader-stage-nav" style="margin-bottom:14px;">
+      <button class="stage-tab active" id="rst2-tab-1" onclick="switchReaderStage2(1)">1. ก่อนอ่าน
+        (Pre-Reading)</button>
+      <button class="stage-tab" id="rst2-tab-2" onclick="switchReaderStage2(2)">2. ระหว่างอ่าน
+        (While-Reading)</button>
+      <button class="stage-tab" id="rst2-tab-3" onclick="switchReaderStage2(3)">3. หลังอ่าน (Post-Reading)</button>
+    </div>
+
+    <!-- Top Navigation Header -->
+    <div class="reader-header-nav">
+      <button class="rhn-back" onclick="closeLessonTopic2()">
+        <span>← สารบัญบทเรียน Unit 2</span>
+      </button>
+      <span class="rhn-meta" id="reader-topic-meta2">Topic 1 of 6</span>
+      <select class="rhn-quick-select" id="reader-quick-select2" onchange="openLessonTopic2(parseInt(this.value))">
+        <optgroup label="1. Pre-Reading Stage">
+          <option value="1">Topic 1: Major &amp; Minor Details</option>
+          <option value="2">Topic 2: Skimming &amp; Scanning</option>
+        </optgroup>
+        <optgroup label="2. While-Reading Stage">
+          <option value="3">Topic 3: Idea Relationships</option>
+          <option value="4">Topic 4: Main Idea Challenge</option>
+          <option value="5">Topic 5: Timed Scanning Task</option>
+        </optgroup>
+        <optgroup label="3. Post-Reading Stage">
+          <option value="6">Topic 6: Post-Reading &amp; Quiz</option>
+        </optgroup>
+      </select>
+    </div>
+
+    <!-- ═══ TOPIC 1: MAJOR & MINOR SUPPORTING DETAILS ═══ -->
+    <div class="topic-content-pane" id="topic2-pane-1">
+      <div class="content-block">
+        <div
+          style="display:flex;justify-content:space-between;align-items:center;margin-bottom:8px;flex-wrap:wrap;gap:8px;">
+          <h3 style="margin-bottom:0;">🧩 Topic 1: Major &amp; Minor Supporting Details
+            (รายละเอียดสนับสนุนหลักและย่อย)</h3>
+          <span class="usc-badge usc-badge-teal">Pre-Reading Stage · กลยุทธ์ก่อนอ่าน</span>
+        </div>
+
+        <div class="bilingual-block">
+          <div class="bb-en"><strong>Supporting details</strong> are the sentences that explain, prove, or give
+            examples for the main idea. <strong>Major supporting details</strong> directly explain the main idea
+            (the "big" reasons), while <strong>minor supporting details</strong> give extra examples, numbers, or
+            description that support a major detail.</div>
+          <div class="bb-th"><strong>Supporting Details</strong> คือประโยคที่อธิบาย พิสูจน์ หรือยกตัวอย่างสนับสนุน
+            ใจความสำคัญ แบ่งเป็น <strong>Major Supporting Details</strong> (รายละเอียดหลัก)
+            ที่อธิบายใจความสำคัญโดยตรง และ <strong>Minor Supporting Details</strong> (รายละเอียดย่อย)
+            ที่ขยายความหรือยกตัวอย่างเพิ่มเติมจาก Major Detail อีกที
+          </div>
+        </div>
+
+        <div class="flow-card" id="t2u-part1">
+          <div class="flow-header">
+            <span class="flow-step-badge flow-step-teal">01</span>
+            <div>
+              <h4 class="flow-title">ตัวอย่างย่อหน้าไล่สี: Main Idea → Major → Minor</h4>
+              <p class="flow-desc">สังเกตความสัมพันธ์แบบลำดับชั้น (Hierarchy) ของใจความในย่อหน้า</p>
+            </div>
+          </div>
+          <div class="passage-text-box" style="cursor:default;">
+            <span class="passage-sentence hl-main" style="cursor:default;">Regular exercise gives students three
+              important benefits for academic life.</span>
+            <span class="passage-sentence hl-major" style="cursor:default;">First, exercise improves concentration
+              during long study sessions.</span>
+            <span class="passage-sentence hl-minor" style="cursor:default;">For example, students who jog for
+              20 minutes before an exam often report feeling more alert.</span>
+            <span class="passage-sentence hl-major" style="cursor:default;">Second, exercise reduces stress before
+              tests.</span>
+            <span class="passage-sentence hl-minor" style="cursor:default;">A short walk between study blocks can
+              lower anxiety and heart rate.</span>
+          </div>
+          <div style="font-size:.78rem;color:var(--muted);margin-top:8px;line-height:1.7;">
+            🟡 <strong>Main Idea</strong> = ใจความสำคัญของทั้งย่อหน้า &nbsp;·&nbsp;
+            🟢 <strong>Major Detail</strong> = เหตุผลหลักที่สนับสนุน Main Idea โดยตรง &nbsp;·&nbsp;
+            🔵 <strong>Minor Detail</strong> = ตัวอย่าง/รายละเอียดที่ขยาย Major Detail อีกชั้นหนึ่ง
+          </div>
+        </div>
+
+        <div class="exercise-box" id="ex-u2t1-1" style="margin-bottom:14px;">
+          <h4>✏️ Mini Exercise 1.1</h4>
+          <p style="font-size:.9rem;font-weight:600;margin-bottom:12px;">Q: In the paragraph above, which sentence
+            is a <strong>Minor Supporting Detail</strong>?</p>
+          <div class="ex-options">
+            <button class="ex-opt"
+              onclick="checkModularAnswer('ex-u2t1-1',0,false,'❌ ประโยคนี้คือ Main Idea ของย่อหน้าทั้งหมด')"><span
+                class="ex-letter">A</span>Regular exercise gives students three important benefits.</button>
+            <button class="ex-opt"
+              onclick="checkModularAnswer('ex-u2t1-1',1,false,'❌ ประโยคนี้คือ Major Detail — เหตุผลหลักข้อที่ 1')"><span
+                class="ex-letter">B</span>Exercise improves concentration during long study sessions.</button>
+            <button class="ex-opt"
+              onclick="checkModularAnswer('ex-u2t1-1',2,true,'✅ ถูกต้อง! นี่คือ Minor Detail — ตัวอย่างที่เจาะจง (จ็อกกิ้ง 20 นาที) ที่ขยายความ Major Detail เรื่องสมาธิ')"><span
+                class="ex-letter">C</span>Students who jog for 20 minutes before an exam feel more alert.</button>
+          </div>
+          <div class="ex-feedback" id="ex-u2t1-1-fb"></div>
+        </div>
+
+        <div class="exercise-box" id="ex-u2t1-2">
+          <h4>✏️ Mini Exercise 1.2</h4>
+          <p style="font-size:.9rem;font-weight:600;margin-bottom:12px;">Q: What is the best test for telling a
+            Major Detail apart from a Minor Detail?</p>
+          <div class="ex-options">
+            <button class="ex-opt"
+              onclick="checkModularAnswer('ex-u2t1-2',0,true,'✅ ถูกต้อง! Major Detail จะตอบคำถามหลักของ Main Idea โดยตรง ส่วน Minor Detail จะเป็นแค่ตัวอย่าง/หลักฐานที่ขยาย Major Detail อีกที')"><span
+                class="ex-letter">A</span>Ask: does this sentence directly explain the main idea, or does it just
+              give an example/extra detail for another sentence?</button>
+            <button class="ex-opt"
+              onclick="checkModularAnswer('ex-u2t1-2',1,false,'❌ ความยาวของประโยคไม่ใช่เกณฑ์ตัดสิน Major/Minor')"><span
+                class="ex-letter">B</span>Count the number of words — longer sentences are always Major Details.</button>
+            <button class="ex-opt"
+              onclick="checkModularAnswer('ex-u2t1-2',2,false,'❌ ตำแหน่งในย่อหน้าไม่ใช่ตัวชี้วัดที่แม่นยำเสมอไป')"><span
+                class="ex-letter">C</span>The first sentence after the topic sentence is always a Minor Detail.</button>
+          </div>
+          <div class="ex-feedback" id="ex-u2t1-2-fb"></div>
+        </div>
+      </div>
+    </div>
+
+    <!-- ═══ TOPIC 2: SKIMMING & SCANNING STRATEGIES ═══ -->
+    <div class="topic-content-pane" id="topic2-pane-2">
+      <div class="content-block">
+        <div
+          style="display:flex;justify-content:space-between;align-items:center;margin-bottom:8px;flex-wrap:wrap;gap:8px;">
+          <h3 style="margin-bottom:0;">🔎 Topic 2: Skimming &amp; Scanning Strategies (กลยุทธ์การอ่านแบบเร็ว)</h3>
+          <span class="usc-badge usc-badge-teal">Pre-Reading Stage · กลยุทธ์ก่อนอ่าน</span>
+        </div>
+
+        <div class="bilingual-block">
+          <div class="bb-en"><strong>Skimming</strong> means reading quickly to get the general idea or main idea
+            of a text — you don't read every word. <strong>Scanning</strong> means moving your eyes quickly over a
+            text to find one specific piece of information, like a date, name, or number.</div>
+          <div class="bb-th"><strong>Skimming</strong> คือการอ่านผ่านๆ อย่างรวดเร็วเพื่อจับใจความสำคัญโดยรวม
+            ไม่จำเป็นต้องอ่านทุกคำ ส่วน <strong>Scanning</strong> คือการกวาดสายตาอย่างรวดเร็วเพื่อค้นหาข้อมูลเฉพาะ
+            เช่น วันที่ ชื่อ หรือตัวเลข</div>
+        </div>
+
+        <div style="overflow-x:auto;margin:16px 0;">
+          <table class="compare-table">
+            <thead>
+              <tr>
+                <th>ประเด็น</th>
+                <th style="color:var(--gold);">Skimming (อ่านข้าม)</th>
+                <th style="color:var(--teal);">Scanning (อ่านหา)</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td style="font-weight:700;">เป้าหมาย</td>
+                <td>หาใจความสำคัญโดยรวมของบทความ</td>
+                <td>หาข้อมูลเฉพาะเจาะจง 1 อย่าง</td>
+              </tr>
+              <tr>
+                <td style="font-weight:700;">วิธีทำ</td>
+                <td>อ่านชื่อเรื่อง ประโยคแรก/สุดท้ายของแต่ละย่อหน้า</td>
+                <td>กวาดสายตาหาคำสำคัญ ตัวเลข หรือชื่อเฉพาะ</td>
+              </tr>
+              <tr>
+                <td style="font-weight:700;">ใช้เมื่อไร</td>
+                <td>ก่อนอ่านเพื่อคาดเดาเนื้อหา / ทำ Main Idea Challenge</td>
+                <td>เมื่อต้องหาคำตอบเร็วภายใต้เวลาจำกัด / ทำ Timed Scanning Task</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+
+        <div class="guided-q">💡 <strong>ตัวอย่างในแอปนี้:</strong> ใน Topic 4 คุณจะได้ฝึก Skimming ผ่าน
+          "Main Idea Challenge" และใน Topic 5 คุณจะได้ฝึก Scanning ผ่าน "Timed Scanning Task" ที่มีตัวจับเวลาจริง</div>
+
+        <div class="exercise-box" id="ex-u2t2-1" style="margin-bottom:14px;margin-top:16px;">
+          <h4>✏️ Mini Exercise 2.1</h4>
+          <p style="font-size:.9rem;font-weight:600;margin-bottom:12px;">Q: You need to find the exact year a
+            company was founded, buried somewhere in a long article. Which strategy should you use?</p>
+          <div class="ex-options">
+            <button class="ex-opt"
+              onclick="checkModularAnswer('ex-u2t2-1',0,false,'❌ Skimming เหมาะกับการหาใจความรวม ไม่เหมาะกับการหาตัวเลขเฉพาะ')"><span
+                class="ex-letter">A</span>Skimming</button>
+            <button class="ex-opt"
+              onclick="checkModularAnswer('ex-u2t2-1',1,true,'✅ ถูกต้อง! การหาตัวเลข/ปีที่เฉพาะเจาะจงคือหน้าที่ของ Scanning')"><span
+                class="ex-letter">B</span>Scanning</button>
+            <button class="ex-opt"
+              onclick="checkModularAnswer('ex-u2t2-1',2,false,'❌ การอ่านทุกคำช้าเกินไปสำหรับการหาข้อมูลเฉพาะจุด')"><span
+                class="ex-letter">C</span>Reading every word slowly from the beginning</button>
+          </div>
+          <div class="ex-feedback" id="ex-u2t2-1-fb"></div>
+        </div>
+
+        <div class="exercise-box" id="ex-u2t2-2">
+          <h4>✏️ Mini Exercise 2.2</h4>
+          <p style="font-size:.9rem;font-weight:600;margin-bottom:12px;">Q: What is the fastest way to skim a
+            multi-paragraph article for its overall main idea?</p>
+          <div class="ex-options">
+            <button class="ex-opt"
+              onclick="checkModularAnswer('ex-u2t2-2',0,true,'✅ ถูกต้อง! การอ่านชื่อเรื่องและประโยคแรก/ท้ายของแต่ละย่อหน้าคือหัวใจของ Skimming')"><span
+                class="ex-letter">A</span>Read the title and the first (and last) sentence of each paragraph.</button>
+            <button class="ex-opt"
+              onclick="checkModularAnswer('ex-u2t2-2',1,false,'❌ วิธีนี้คือการอ่านแบบละเอียด ไม่ใช่ Skimming')"><span
+                class="ex-letter">B</span>Read every sentence carefully from start to finish.</button>
+            <button class="ex-opt"
+              onclick="checkModularAnswer('ex-u2t2-2',2,false,'❌ การอ่านย้อนจากท้ายบทความไม่ช่วยจับใจความหลักได้เร็วขึ้น')"><span
+                class="ex-letter">C</span>Start from the conclusion and read backwards.</button>
+          </div>
+          <div class="ex-feedback" id="ex-u2t2-2-fb"></div>
+        </div>
+      </div>
+    </div>
+
+    <!-- ═══ TOPIC 3: IDEA RELATIONSHIPS & SIGNAL WORDS ═══ -->
+    <div class="topic-content-pane" id="topic2-pane-3">
+      <div class="content-block">
+        <div
+          style="display:flex;justify-content:space-between;align-items:center;margin-bottom:8px;flex-wrap:wrap;gap:8px;">
+          <h3 style="margin-bottom:0;">🔗 Topic 3: Idea Relationships &amp; Signal Words (ความสัมพันธ์ของใจความ)</h3>
+          <span class="usc-badge usc-badge-gold">While-Reading Stage · ระหว่างอ่าน</span>
+        </div>
+
+        <div class="bilingual-block">
+          <div class="bb-en">Ideas in a paragraph often connect to each other in specific ways. Recognizing the
+            <strong>signal words</strong> that show these relationships helps you predict what comes next and
+            understand the writer's logic.</div>
+          <div class="bb-th">ใจความในย่อหน้ามักเชื่อมโยงกันด้วยรูปแบบความสัมพันธ์เฉพาะ การสังเกต
+            <strong>คำเชื่อม (Signal Words)</strong> ที่บ่งบอกความสัมพันธ์เหล่านี้ ช่วยให้คาดเดาเนื้อหาถัดไปได้
+            และเข้าใจตรรกะของผู้เขียน</div>
+        </div>
+
+        <div style="overflow-x:auto;margin:16px 0;">
+          <table class="compare-table">
+            <thead>
+              <tr>
+                <th>ความสัมพันธ์ (Relationship)</th>
+                <th>ความหมาย</th>
+                <th style="color:var(--gold);">Signal Words</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td style="font-weight:700;color:var(--teal);">Cause–Effect</td>
+                <td>เหตุ → ผล</td>
+                <td><em>because, since, as a result, therefore, consequently, due to</em></td>
+              </tr>
+              <tr>
+                <td style="font-weight:700;color:var(--green);">Compare–Contrast</td>
+                <td>เปรียบเทียบความเหมือน/ต่าง</td>
+                <td><em>similarly, likewise, in contrast, however, on the other hand, unlike</em></td>
+              </tr>
+              <tr>
+                <td style="font-weight:700;color:#c4a8f5;">Sequence</td>
+                <td>ลำดับขั้นตอน/เวลา</td>
+                <td><em>first, next, then, after that, finally, subsequently</em></td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+
+        <div class="exercise-box" id="ex-u2t3-1" style="margin-bottom:14px;">
+          <h4>✏️ Mini Exercise 3.1</h4>
+          <p style="font-size:.9rem;font-weight:600;margin-bottom:12px;">Q: "Traffic was heavy, so Anong arrived
+            late to class." What relationship does <strong>"so"</strong> signal here?</p>
+          <div class="ex-options">
+            <button class="ex-opt"
+              onclick="checkModularAnswer('ex-u2t3-1',0,true,'✅ ถูกต้อง! \"so\" บ่งบอกผลลัพธ์ที่เกิดจากสาเหตุ (รถติด → มาสาย)')"><span
+                class="ex-letter">A</span>Cause–Effect</button>
+            <button class="ex-opt"
+              onclick="checkModularAnswer('ex-u2t3-1',1,false,'❌ ประโยคนี้ไม่ได้เปรียบเทียบสองสิ่ง')"><span
+                class="ex-letter">B</span>Compare–Contrast</button>
+            <button class="ex-opt"
+              onclick="checkModularAnswer('ex-u2t3-1',2,false,'❌ ไม่ได้เป็นการเรียงลำดับขั้นตอน')"><span
+                class="ex-letter">C</span>Sequence</button>
+          </div>
+          <div class="ex-feedback" id="ex-u2t3-1-fb"></div>
+        </div>
+
+        <div class="exercise-box" id="ex-u2t3-2" style="margin-bottom:14px;">
+          <h4>✏️ Mini Exercise 3.2</h4>
+          <p style="font-size:.9rem;font-weight:600;margin-bottom:12px;">Q: Which signal word most clearly shows a
+            <strong>Compare–Contrast</strong> relationship?</p>
+          <div class="ex-options">
+            <button class="ex-opt"
+              onclick="checkModularAnswer('ex-u2t3-2',0,false,'❌ \"finally\" เป็นคำบ่งบอกลำดับ (Sequence)')"><span
+                class="ex-letter">A</span>Finally</button>
+            <button class="ex-opt"
+              onclick="checkModularAnswer('ex-u2t3-2',1,true,'✅ ถูกต้อง! \"however\" ใช้บ่งบอกความแตกต่างระหว่างสองสิ่ง')"><span
+                class="ex-letter">B</span>However</button>
+            <button class="ex-opt"
+              onclick="checkModularAnswer('ex-u2t3-2',2,false,'❌ \"therefore\" บ่งบอกผลลัพธ์ (Cause-Effect)')"><span
+                class="ex-letter">C</span>Therefore</button>
+          </div>
+          <div class="ex-feedback" id="ex-u2t3-2-fb"></div>
+        </div>
+
+        <div class="exercise-box" id="ex-u2t3-3">
+          <h4>✏️ Mini Exercise 3.3</h4>
+          <p style="font-size:.9rem;font-weight:600;margin-bottom:12px;">Q: "First, boil the water. Next, add the
+            noodles. Finally, drain and serve." This paragraph mainly shows...?</p>
+          <div class="ex-options">
+            <button class="ex-opt"
+              onclick="checkModularAnswer('ex-u2t3-3',0,false,'❌ ไม่มีการเปรียบเทียบสองสิ่งในข้อความนี้')"><span
+                class="ex-letter">A</span>Compare–Contrast</button>
+            <button class="ex-opt"
+              onclick="checkModularAnswer('ex-u2t3-3',1,false,'❌ ไม่มีความสัมพันธ์แบบเหตุ-ผลที่ชัดเจน')"><span
+                class="ex-letter">B</span>Cause–Effect</button>
+            <button class="ex-opt"
+              onclick="checkModularAnswer('ex-u2t3-3',2,true,'✅ ถูกต้อง! \"First...Next...Finally\" คือคำเชื่อมบ่งบอกลำดับขั้นตอน (Sequence)')"><span
+                class="ex-letter">C</span>Sequence</button>
+          </div>
+          <div class="ex-feedback" id="ex-u2t3-3-fb"></div>
+        </div>
+      </div>
+    </div>
+
+    <!-- ═══ TOPIC 4: MAIN IDEA CHALLENGE ═══ -->
+    <div class="topic-content-pane" id="topic2-pane-4">
+      <div class="content-block">
+        <div
+          style="display:flex;justify-content:space-between;align-items:center;margin-bottom:8px;flex-wrap:wrap;gap:8px;">
+          <h3 style="margin-bottom:0;">🖍️ Topic 4: Reading Practice — Main Idea Challenge</h3>
+          <span class="usc-badge usc-badge-gold">While-Reading Stage · ระหว่างอ่าน</span>
+        </div>
+
+        <div class="bilingual-block">
+          <div class="bb-en">Read each passage, then use the 3-color highlighter to mark the
+            <strong>Main Idea</strong> (yellow), <strong>Major Supporting Details</strong> (green), and
+            <strong>Minor Supporting Details</strong> (blue). Then answer the comprehension questions.</div>
+          <div class="bb-th">อ่านบทความแต่ละเรื่อง แล้วใช้เครื่องมือไฮไลท์ 3 สีเพื่อทำเครื่องหมาย
+            <strong>Main Idea</strong> (สีเหลือง) <strong>Major Supporting Details</strong> (สีเขียว) และ
+            <strong>Minor Supporting Details</strong> (สีฟ้า) จากนั้นตอบคำถามท้ายบทความ</div>
+        </div>
+
+        <!-- Sticky Quick Jump Bar -->
+        <div class="quick-jump-bar">
+          <button class="qj-pill" onclick="scrollToSubSection('t2u-p1')">💻 1. Online Learning (สั้น)</button>
+          <button class="qj-pill" onclick="scrollToSubSection('t2u-p2')">🍜 2. Street Food Culture (กลาง)</button>
+          <button class="qj-pill" onclick="scrollToSubSection('t2u-p3')">🌊 3. Microplastics (ยาว)</button>
+        </div>
+
+        <!-- Highlighter Toolbar -->
+        <div class="passage-controls" style="margin-top:14px;">
+          <span style="font-size:.78rem;font-weight:600;color:var(--muted);margin-right:6px;">เลือกโหมดปากกาไฮไลท์:</span>
+          <button class="hl-btn active" id="hl2-mode-main" onclick="setHlMode2('main')">🟡 Main Idea</button>
+          <button class="hl-btn" id="hl2-mode-major" onclick="setHlMode2('major')">🟢 Major Detail</button>
+          <button class="hl-btn" id="hl2-mode-minor" onclick="setHlMode2('minor')">🔵 Minor Detail</button>
+          <button class="hl-btn" onclick="clearPassageHighlights2()" style="color:var(--red);">✖ ลบไฮไลท์ทั้งหมด</button>
+        </div>
+
+        <!-- ════ PASSAGE 1: SHORT — Online Learning Platforms ════ -->
+        <div class="flow-card" id="t2u-p1" style="margin-bottom:24px;">
+          <div class="flow-header">
+            <span class="flow-step-badge flow-step-teal">1</span>
+            <div>
+              <h4 class="flow-title">บทอ่านที่ 1: Online Learning Platforms (แพลตฟอร์มเรียนออนไลน์)</h4>
+              <p class="flow-desc">ระดับสั้น (Short) · ~80 คำ · ฝึกแยก Main Idea และ Major Detail</p>
+            </div>
+          </div>
+
+          <div class="guided-q">❓ <strong>ก่อนอ่าน:</strong> คุณคิดว่าบทความนี้จะพูดถึงข้อดีหรือข้อเสียของการเรียนออนไลน์?</div>
+
+          <div
+            style="background:var(--surface3);border-radius:8px;padding:10px 14px;margin-bottom:12px;font-size:.78rem;color:var(--text);border-left:3px solid var(--teal);">
+            <strong style="color:var(--teal);">📖 ตัวช่วยคำศัพท์ (Key Vocabulary):</strong>
+            <em>flexibility</em> (ความยืดหยุ่น), <em>self-discipline</em> (วินัยในตนเอง),
+            <em>interaction</em> (การปฏิสัมพันธ์), <em>enrollment</em> (การลงทะเบียนเรียน)
+          </div>
+
+          <div class="passage-text-box" id="passage-B1">
+            <span class="passage-sentence" onclick="toggleSentenceHl2(this)">Online learning platforms give
+              students major benefits, but they also require strong self-discipline.</span>
+            <span class="passage-sentence" onclick="toggleSentenceHl2(this)">First, students can study anytime
+              and anywhere, which fits busy schedules.</span>
+            <span class="passage-sentence" onclick="toggleSentenceHl2(this)">For example, a working student can
+              watch a recorded lecture at midnight after finishing a shift.</span>
+            <span class="passage-sentence" onclick="toggleSentenceHl2(this)">Second, most platforms let students
+              repeat difficult lessons as many times as needed.</span>
+            <span class="passage-sentence" onclick="toggleSentenceHl2(this)">However, without a teacher physically
+              present, many students report lower motivation over time.</span>
+          </div>
+          <div style="font-size:.76rem;color:var(--gold);margin-top:6px;font-style:italic;">💡
+            แตะประโยคแรกด้วยโหมด 🟡 Main Idea แล้วแตะประโยคที่ 2 และ 4 ด้วยโหมด 🟢 Major Detail
+            และประโยคที่ 3 ด้วยโหมด 🔵 Minor Detail
+          </div>
+
+          <div style="margin-top:16px;">
+            <div
+              style="font-size:.88rem;font-weight:700;color:var(--teal);margin-bottom:10px;padding:8px 12px;background:rgba(182,104,138,.08);border-radius:8px;">
+              📝 แบบฝึกหัดบทอ่าน B1 — 3 ข้อ</div>
+
+            <div class="exercise-box" id="ex-pB1-1" style="margin-bottom:14px;">
+              <h4>✏️ ข้อ B1.1: Main Idea</h4>
+              <p style="font-size:.9rem;font-weight:600;margin-bottom:12px;">Q: What is the main idea of this
+                passage?</p>
+              <div class="ex-options">
+                <button class="ex-opt"
+                  onclick="checkModularAnswer('ex-pB1-1',0,true,'✅ ถูกต้อง! ครอบคลุมทั้งข้อดี (major benefits) และข้อควรระวัง (self-discipline) ของการเรียนออนไลน์')"><span
+                    class="ex-letter">A</span>Online learning has major benefits but requires strong
+                  self-discipline.</button>
+                <button class="ex-opt"
+                  onclick="checkModularAnswer('ex-pB1-1',1,false,'❌ แคบเกินไป: การดูวิดีโอตอนเที่ยงคืนเป็นแค่ Minor Detail')"><span
+                    class="ex-letter">B</span>Working students often watch lectures at midnight.</button>
+                <button class="ex-opt"
+                  onclick="checkModularAnswer('ex-pB1-1',2,false,'❌ แคบเกินไป: การขาดแรงจูงใจเป็นแค่ประเด็นเดียว ไม่ใช่ใจความหลักทั้งหมด')"><span
+                    class="ex-letter">C</span>Students lose motivation without a teacher present.</button>
+              </div>
+              <div class="ex-feedback" id="ex-pB1-1-fb"></div>
+            </div>
+
+            <div class="exercise-box" id="ex-pB1-2" style="margin-bottom:14px;">
+              <h4>✏️ ข้อ B1.2: Major Detail</h4>
+              <p style="font-size:.9rem;font-weight:600;margin-bottom:12px;">Q: Which sentence is a
+                <strong>Major Supporting Detail</strong>?</p>
+              <div class="ex-options">
+                <button class="ex-opt"
+                  onclick="checkModularAnswer('ex-pB1-2',0,true,'✅ ถูกต้อง! เป็นเหตุผลหลักข้อที่ 1 ที่สนับสนุน Main Idea โดยตรง')"><span
+                    class="ex-letter">A</span>Students can study anytime and anywhere.</button>
+                <button class="ex-opt"
+                  onclick="checkModularAnswer('ex-pB1-2',1,false,'❌ นี่คือตัวอย่างเจาะจง (Minor Detail) ที่ขยายความ Major Detail ข้อแรก')"><span
+                    class="ex-letter">B</span>A working student can watch a recorded lecture at midnight.</button>
+                <button class="ex-opt"
+                  onclick="checkModularAnswer('ex-pB1-2',2,false,'❌ นี่คือ Main Idea ของทั้งย่อหน้า')"><span
+                    class="ex-letter">C</span>Online learning platforms give major benefits but require
+                  self-discipline.</button>
+              </div>
+              <div class="ex-feedback" id="ex-pB1-2-fb"></div>
+            </div>
+
+            <div class="exercise-box" id="ex-pB1-3">
+              <h4>✏️ ข้อ B1.3: Minor Detail</h4>
+              <p style="font-size:.9rem;font-weight:600;margin-bottom:12px;">Q: Which sentence is a
+                <strong>Minor Supporting Detail</strong>?</p>
+              <div class="ex-options">
+                <button class="ex-opt"
+                  onclick="checkModularAnswer('ex-pB1-3',0,false,'❌ นี่คือ Major Detail ข้อที่ 2')"><span
+                    class="ex-letter">A</span>Most platforms let students repeat difficult lessons.</button>
+                <button class="ex-opt"
+                  onclick="checkModularAnswer('ex-pB1-3',1,true,'✅ ถูกต้อง! เป็นตัวอย่างเจาะจง (นักศึกษาทำงาน + ดูวิดีโอตอนเที่ยงคืน) ที่ขยายความ Major Detail')"><span
+                    class="ex-letter">B</span>A working student can watch a recorded lecture at midnight after
+                  finishing a shift.</button>
+                <button class="ex-opt"
+                  onclick="checkModularAnswer('ex-pB1-3',2,false,'❌ นี่คือ Main Idea ของทั้งย่อหน้า')"><span
+                    class="ex-letter">C</span>Online learning platforms give major benefits but require
+                  self-discipline.</button>
+              </div>
+              <div class="ex-feedback" id="ex-pB1-3-fb"></div>
+            </div>
+          </div>
+        </div>
+
+        <!-- ════ PASSAGE 2: MEDIUM — Street Food Culture in Thailand ════ -->
+        <div class="flow-card" id="t2u-p2" style="margin-bottom:24px;">
+          <div class="flow-header">
+            <span class="flow-step-badge flow-step-gold">2</span>
+            <div>
+              <h4 class="flow-title">บทอ่านที่ 2: Street Food Culture in Thailand (วัฒนธรรมอาหารข้างทาง)</h4>
+              <p class="flow-desc">ระดับกลาง (Medium) · ~120 คำ · ฝึกแยก Major/Minor และความสัมพันธ์เชิงเปรียบเทียบ</p>
+            </div>
+          </div>
+
+          <div class="guided-q">❓ <strong>ก่อนอ่าน:</strong> คุณคิดว่าบทความจะพูดถึงข้อดีของอาหารข้างทาง
+            ความท้าทายที่ผู้ค้าเผชิญ หรือทั้งสองอย่าง?</div>
+
+          <div
+            style="background:var(--surface3);border-radius:8px;padding:10px 14px;margin-bottom:12px;font-size:.78rem;color:var(--text);border-left:3px solid var(--teal);">
+            <strong style="color:var(--teal);">📖 ตัวช่วยคำศัพท์ (Key Vocabulary):</strong>
+            <em>affordable</em> (ราคาที่จับต้องได้), <em>vendor</em> (ผู้ขาย), <em>regulation</em> (กฎระเบียบ),
+            <em>livelihood</em> (การดำรงชีพ)
+          </div>
+
+          <div class="passage-text-box" id="passage-B2">
+            <span class="passage-sentence" onclick="toggleSentenceHl2(this)">Street food is one of the most
+              important parts of daily life in Thailand, offering both cultural value and economic challenges.</span>
+            <span class="passage-sentence" onclick="toggleSentenceHl2(this)">On one hand, street food gives
+              millions of people access to affordable, tasty meals every day.</span>
+            <span class="passage-sentence" onclick="toggleSentenceHl2(this)">A plate of pad thai or a bowl of
+              noodle soup often costs less than fifty baht, far cheaper than a restaurant meal.</span>
+            <span class="passage-sentence" onclick="toggleSentenceHl2(this)">On the other hand, street vendors
+              face growing pressure from city regulations about hygiene and sidewalk space.</span>
+            <span class="passage-sentence" onclick="toggleSentenceHl2(this)">In some districts, vendors who have
+              sold food for decades have been asked to relocate to designated zones.</span>
+            <span class="passage-sentence" onclick="toggleSentenceHl2(this)">As a result, many vendors worry that
+              stricter rules could threaten their livelihood, even though they support keeping public spaces
+              clean and safe.</span>
+          </div>
+          <div style="font-size:.76rem;color:var(--gold);margin-top:6px;font-style:italic;">💡
+            สังเกตคำเชื่อม "On one hand / On the other hand / As a result" ที่บ่งบอกความสัมพันธ์แบบ Compare-Contrast
+            และ Cause-Effect
+          </div>
+
+          <div style="margin-top:16px;">
+            <div
+              style="font-size:.88rem;font-weight:700;color:var(--teal);margin-bottom:10px;padding:8px 12px;background:rgba(182,104,138,.08);border-radius:8px;">
+              📝 แบบฝึกหัดบทอ่าน B2 — 3 ข้อ</div>
+
+            <div class="exercise-box" id="ex-pB2-1" style="margin-bottom:14px;">
+              <h4>✏️ ข้อ B2.1: Main Idea</h4>
+              <p style="font-size:.9rem;font-weight:600;margin-bottom:12px;">Q: What is the main idea of this
+                passage?</p>
+              <div class="ex-options">
+                <button class="ex-opt"
+                  onclick="checkModularAnswer('ex-pB2-1',0,false,'❌ แคบเกินไป: ราคาถูกเป็นแค่ตัวอย่างสนับสนุนเรื่องคุณค่าทางเศรษฐกิจ')"><span
+                    class="ex-letter">A</span>Street food is always cheaper than restaurant meals.</button>
+                <button class="ex-opt"
+                  onclick="checkModularAnswer('ex-pB2-1',1,true,'✅ ถูกต้อง! ครอบคลุมทั้งคุณค่าทางวัฒนธรรม/เศรษฐกิจ และความท้าทายด้านกฎระเบียบ')"><span
+                    class="ex-letter">B</span>Street food is culturally and economically important in Thailand,
+                  but vendors face regulatory challenges.</button>
+                <button class="ex-opt"
+                  onclick="checkModularAnswer('ex-pB2-1',2,false,'❌ แคบเกินไป: การย้ายพื้นที่เป็นแค่ตัวอย่างหนึ่งของปัญหากฎระเบียบ')"><span
+                    class="ex-letter">C</span>Street vendors in some districts have been asked to relocate.</button>
+              </div>
+              <div class="ex-feedback" id="ex-pB2-1-fb"></div>
+            </div>
+
+            <div class="exercise-box" id="ex-pB2-2" style="margin-bottom:14px;">
+              <h4>✏️ ข้อ B2.2: Relationship</h4>
+              <p style="font-size:.9rem;font-weight:600;margin-bottom:12px;">Q: The signal phrase
+                <strong>"As a result"</strong> in the last sentence shows what kind of relationship?</p>
+              <div class="ex-options">
+                <button class="ex-opt"
+                  onclick="checkModularAnswer('ex-pB2-2',0,true,'✅ ถูกต้อง! \"As a result\" บ่งบอกผลลัพธ์ที่เกิดจากกฎระเบียบที่เข้มงวดขึ้น')"><span
+                    class="ex-letter">A</span>Cause–Effect</button>
+                <button class="ex-opt"
+                  onclick="checkModularAnswer('ex-pB2-2',1,false,'❌ \"As a result\" ไม่ได้บ่งบอกลำดับขั้นตอน')"><span
+                    class="ex-letter">B</span>Sequence</button>
+                <button class="ex-opt"
+                  onclick="checkModularAnswer('ex-pB2-2',2,false,'❌ ประโยคนี้ไม่ได้เปรียบเทียบสองสิ่งโดยตรง')"><span
+                    class="ex-letter">C</span>Compare–Contrast</button>
+              </div>
+              <div class="ex-feedback" id="ex-pB2-2-fb"></div>
+            </div>
+
+            <div class="exercise-box" id="ex-pB2-3">
+              <h4>✏️ ข้อ B2.3: Minor Detail</h4>
+              <p style="font-size:.9rem;font-weight:600;margin-bottom:12px;">Q: Which sentence is a
+                <strong>Minor Supporting Detail</strong> in this passage?</p>
+              <div class="ex-options">
+                <button class="ex-opt"
+                  onclick="checkModularAnswer('ex-pB2-3',0,true,'✅ ถูกต้อง! เป็นตัวอย่างราคาที่เจาะจง ซึ่งขยายความ Major Detail เรื่องราคาที่จับต้องได้')"><span
+                    class="ex-letter">A</span>A plate of pad thai often costs less than fifty baht.</button>
+                <button class="ex-opt"
+                  onclick="checkModularAnswer('ex-pB2-3',1,false,'❌ นี่คือ Major Detail ที่อธิบายมุมมองด้านเศรษฐกิจโดยตรง')"><span
+                    class="ex-letter">B</span>Street food gives millions of people access to affordable meals.</button>
+                <button class="ex-opt"
+                  onclick="checkModularAnswer('ex-pB2-3',2,false,'❌ นี่คือ Main Idea ของทั้งย่อหน้า')"><span
+                    class="ex-letter">C</span>Street food is culturally and economically important, but vendors
+                  face challenges.</button>
+              </div>
+              <div class="ex-feedback" id="ex-pB2-3-fb"></div>
+            </div>
+          </div>
+        </div>
+
+        <!-- ════ PASSAGE 3: LONG — Microplastics in the Ocean ════ -->
+        <div class="flow-card" id="t2u-p3">
+          <div class="flow-header">
+            <span class="flow-step-badge flow-step-purple">3</span>
+            <div>
+              <h4 class="flow-title">บทอ่านที่ 3: Microplastics in the Ocean (ไมโครพลาสติกในมหาสมุทร)</h4>
+              <p class="flow-desc">ระดับยาว (Long) · ~150 คำ · ฝึกแยก Main Idea, Major และ Minor Details ในบทความเชิงวิชาการ</p>
+            </div>
+          </div>
+
+          <div class="guided-q">❓ <strong>ก่อนอ่าน:</strong> จากชื่อเรื่อง คุณคิดว่าบทความนี้จะอธิบายสาเหตุ ผลกระทบ
+            หรือทั้งสองอย่างของไมโครพลาสติก?</div>
+
+          <div
+            style="background:var(--surface3);border-radius:8px;padding:10px 14px;margin-bottom:12px;font-size:.78rem;color:var(--text);border-left:3px solid var(--teal);">
+            <strong style="color:var(--teal);">📖 ตัวช่วยคำศัพท์ (Key Vocabulary):</strong>
+            <em>microplastic</em> (ไมโครพลาสติก), <em>marine life</em> (สิ่งมีชีวิตในทะเล),
+            <em>contaminate</em> (ปนเปื้อน), <em>food chain</em> (ห่วงโซ่อาหาร)
+          </div>
+
+          <div class="passage-text-box" id="passage-B3">
+            <span class="passage-sentence" onclick="toggleSentenceHl2(this)">Microplastics — tiny plastic pieces
+              smaller than five millimeters — have become a serious threat to ocean ecosystems and, eventually,
+              to human health.</span>
+            <span class="passage-sentence" onclick="toggleSentenceHl2(this)">First, most microplastics come from
+              the breakdown of larger plastic waste, such as bottles and bags, that enters rivers and oceans.</span>
+            <span class="passage-sentence" onclick="toggleSentenceHl2(this)">For instance, a single plastic bottle
+              can take hundreds of years to fully decompose, breaking into smaller and smaller fragments the whole
+              time.</span>
+            <span class="passage-sentence" onclick="toggleSentenceHl2(this)">Second, microplastics are eaten by
+              small marine organisms like plankton and fish, which introduces the plastic into the food chain.</span>
+            <span class="passage-sentence" onclick="toggleSentenceHl2(this)">Studies have found microplastics in
+              the stomachs of fish sold at ordinary markets in several coastal countries.</span>
+            <span class="passage-sentence" onclick="toggleSentenceHl2(this)">Consequently, scientists warn that
+              humans who eat seafood regularly may be unknowingly consuming small amounts of plastic as well.</span>
+            <span class="passage-sentence" onclick="toggleSentenceHl2(this)">Therefore, many researchers argue
+              that reducing single-use plastic is not only good for the environment but essential for protecting
+              long-term human health.</span>
+          </div>
+          <div style="font-size:.76rem;color:var(--gold);margin-top:6px;font-style:italic;">💡
+            บทความนี้มีโครงสร้างแบบ Cause-Effect ตลอดทั้งเรื่อง — สังเกตคำเชื่อม "For instance / Consequently / Therefore"
+          </div>
+
+          <div style="margin-top:16px;">
+            <div
+              style="font-size:.88rem;font-weight:700;color:var(--teal);margin-bottom:10px;padding:8px 12px;background:rgba(182,104,138,.08);border-radius:8px;">
+              📝 แบบฝึกหัดบทอ่าน B3 — 3 ข้อ</div>
+
+            <div class="exercise-box" id="ex-pB3-1" style="margin-bottom:14px;">
+              <h4>✏️ ข้อ B3.1: Main Idea</h4>
+              <p style="font-size:.9rem;font-weight:600;margin-bottom:12px;">Q: What is the main idea of this
+                passage?</p>
+              <div class="ex-options">
+                <button class="ex-opt"
+                  onclick="checkModularAnswer('ex-pB3-1',0,true,'✅ ถูกต้อง! ครอบคลุมทั้งภัยต่อระบบนิเวศทางทะเลและสุขภาพมนุษย์')"><span
+                    class="ex-letter">A</span>Microplastics are a serious threat to ocean ecosystems and, eventually,
+                  to human health.</button>
+                <button class="ex-opt"
+                  onclick="checkModularAnswer('ex-pB3-1',1,false,'❌ แคบเกินไป: เป็นแค่ตัวอย่างหนึ่ง (ขวดพลาสติก) ที่สนับสนุน Major Detail')"><span
+                    class="ex-letter">B</span>A plastic bottle can take hundreds of years to decompose.</button>
+                <button class="ex-opt"
+                  onclick="checkModularAnswer('ex-pB3-1',2,false,'❌ แคบเกินไป: เป็นแค่ Minor Detail เกี่ยวกับการศึกษาชิ้นหนึ่ง')"><span
+                    class="ex-letter">C</span>Studies found microplastics in fish sold at coastal markets.</button>
+              </div>
+              <div class="ex-feedback" id="ex-pB3-1-fb"></div>
+            </div>
+
+            <div class="exercise-box" id="ex-pB3-2" style="margin-bottom:14px;">
+              <h4>✏️ ข้อ B3.2: Major Detail</h4>
+              <p style="font-size:.9rem;font-weight:600;margin-bottom:12px;">Q: Which sentence is a
+                <strong>Major Supporting Detail</strong>?</p>
+              <div class="ex-options">
+                <button class="ex-opt"
+                  onclick="checkModularAnswer('ex-pB3-2',0,true,'✅ ถูกต้อง! เป็นเหตุผลหลักข้อที่ 2 ที่อธิบายวิธีที่ไมโครพลาสติกเข้าสู่ห่วงโซ่อาหาร')"><span
+                    class="ex-letter">A</span>Microplastics are eaten by small marine organisms, introducing
+                  plastic into the food chain.</button>
+                <button class="ex-opt"
+                  onclick="checkModularAnswer('ex-pB3-2',1,false,'❌ นี่คือตัวอย่างเจาะจง (Minor Detail) ของการศึกษาหนึ่งชิ้น')"><span
+                    class="ex-letter">B</span>Studies have found microplastics in the stomachs of fish sold at
+                  markets.</button>
+                <button class="ex-opt"
+                  onclick="checkModularAnswer('ex-pB3-2',2,false,'❌ นี่คือ Main Idea ของทั้งบทความ')"><span
+                    class="ex-letter">C</span>Microplastics are a serious threat to ocean ecosystems and human
+                  health.</button>
+              </div>
+              <div class="ex-feedback" id="ex-pB3-2-fb"></div>
+            </div>
+
+            <div class="exercise-box" id="ex-pB3-3">
+              <h4>✏️ ข้อ B3.3: Relationship</h4>
+              <p style="font-size:.9rem;font-weight:600;margin-bottom:12px;">Q: The word <strong>"Consequently"</strong>
+                in this passage signals which relationship?</p>
+              <div class="ex-options">
+                <button class="ex-opt"
+                  onclick="checkModularAnswer('ex-pB3-3',0,true,'✅ ถูกต้อง! \"Consequently\" บ่งบอกผลลัพธ์ (มนุษย์อาจบริโภคพลาสติกโดยไม่รู้ตัว) ที่เกิดจากสาเหตุก่อนหน้า')"><span
+                    class="ex-letter">A</span>Cause–Effect</button>
+                <button class="ex-opt"
+                  onclick="checkModularAnswer('ex-pB3-3',1,false,'❌ ไม่ได้เป็นการเรียงลำดับขั้นตอน')"><span
+                    class="ex-letter">B</span>Sequence</button>
+                <button class="ex-opt"
+                  onclick="checkModularAnswer('ex-pB3-3',2,false,'❌ ไม่ได้เปรียบเทียบสองสิ่งโดยตรง')"><span
+                    class="ex-letter">C</span>Compare–Contrast</button>
+              </div>
+              <div class="ex-feedback" id="ex-pB3-3-fb"></div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- ═══ TOPIC 5: TIMED SCANNING TASK ═══ -->
+    <div class="topic-content-pane" id="topic2-pane-5">
+      <div class="content-block">
+        <div
+          style="display:flex;justify-content:space-between;align-items:center;margin-bottom:8px;flex-wrap:wrap;gap:8px;">
+          <h3 style="margin-bottom:0;">⏱️ Topic 5: Timed Scanning Task (ฝึกสแกนหาข้อมูลภายใต้เวลาจำกัด)</h3>
+          <span class="usc-badge usc-badge-gold">While-Reading Stage · ระหว่างอ่าน</span>
+        </div>
+
+        <div class="bilingual-block">
+          <div class="bb-en">Read the short source text below. Press <strong>"Start Timer"</strong> for each
+            question, then scan the text as fast as you can to find the answer before time runs out.</div>
+          <div class="bb-th">อ่านบทความสั้นด้านล่างนี้ กด <strong>"เริ่มจับเวลา"</strong> สำหรับแต่ละคำถาม
+            แล้วกวาดสายตาสแกนหาคำตอบให้เร็วที่สุดก่อนหมดเวลา</div>
+        </div>
+
+        <div class="flow-card" id="t2u-scan">
+          <div class="flow-header">
+            <span class="flow-step-badge flow-step-teal">📄</span>
+            <div>
+              <h4 class="flow-title">Source Text: The BRU Library Renovation Project</h4>
+              <p class="flow-desc">ใช้บทความนี้ในการฝึก Scanning ทุกข้อด้านล่าง</p>
+            </div>
+          </div>
+          <div class="scan-source-box">
+            The Buriram Rajabhat University library began a major renovation project on <strong>March 15,
+            2025</strong>. The project cost approximately <strong>4.8 million baht</strong> and was funded jointly
+            by the university and the provincial education office. The renovation added <strong>three new
+            study rooms</strong>, a digital media corner with 20 new computers, and a quiet reading zone on the
+            third floor. The head librarian, <strong>Mrs. Ratchanee Sombat</strong>, said the goal was to make the
+            library more comfortable for students preparing for exams. The renovation was completed after
+            <strong>five months</strong>, reopening to students on <strong>August 20, 2025</strong>. Since
+            reopening, daily visitor numbers have increased by <strong>35 percent</strong> compared to the
+            previous year.
+          </div>
+
+          <!-- Scan Question 1 -->
+          <div class="exercise-box" id="scan-box-1" style="margin-bottom:16px;">
+            <h4>⏱️ Scan Q1 <span class="scan-timer-display" id="scan-timer-1">⏱ 15s</span></h4>
+            <p style="font-size:.9rem;font-weight:600;margin-bottom:12px;">Q: How much did the renovation project
+              cost?</p>
+            <button class="hl-btn" id="scan-start-1" onclick="startScanTask(1, 15)" style="margin-bottom:10px;">▶
+              เริ่มจับเวลา (15 วินาที)</button>
+            <div class="ex-options">
+              <button class="ex-opt" disabled
+                onclick="checkScanAnswer(1,'scan-box-1',0,false,'❌ ไม่ถูกต้อง: ลองสแกนหาตัวเลขเงินบาทในบทความอีกครั้ง')"><span
+                  class="ex-letter">A</span>3.5 million baht</button>
+              <button class="ex-opt" disabled
+                onclick="checkScanAnswer(1,'scan-box-1',1,true,'✅ ถูกต้อง! โครงการนี้ใช้งบประมาณ 4.8 ล้านบาท')"><span
+                  class="ex-letter">B</span>4.8 million baht</button>
+              <button class="ex-opt" disabled
+                onclick="checkScanAnswer(1,'scan-box-1',2,false,'❌ ไม่ถูกต้อง: ลองสแกนหาตัวเลขเงินบาทในบทความอีกครั้ง')"><span
+                  class="ex-letter">C</span>5.8 million baht</button>
+            </div>
+            <div class="ex-feedback" id="scan-box-1-fb"></div>
+            <button class="hl-btn" onclick="resetScanTask(1, 15)" style="margin-top:8px;color:var(--muted);">↺
+              Reset</button>
+          </div>
+
+          <!-- Scan Question 2 -->
+          <div class="exercise-box" id="scan-box-2" style="margin-bottom:16px;">
+            <h4>⏱️ Scan Q2 <span class="scan-timer-display" id="scan-timer-2">⏱ 12s</span></h4>
+            <p style="font-size:.9rem;font-weight:600;margin-bottom:12px;">Q: Who is the head librarian mentioned
+              in the text?</p>
+            <button class="hl-btn" id="scan-start-2" onclick="startScanTask(2, 12)" style="margin-bottom:10px;">▶
+              เริ่มจับเวลา (12 วินาที)</button>
+            <div class="ex-options">
+              <button class="ex-opt" disabled
+                onclick="checkScanAnswer(2,'scan-box-2',0,false,'❌ ไม่ถูกต้อง: ลองสแกนหาชื่อบรรณารักษ์ในบทความอีกครั้ง')"><span
+                  class="ex-letter">A</span>Mrs. Naviya Chutopama</button>
+              <button class="ex-opt" disabled
+                onclick="checkScanAnswer(2,'scan-box-2',1,true,'✅ ถูกต้อง! Mrs. Ratchanee Sombat คือหัวหน้าบรรณารักษ์')"><span
+                  class="ex-letter">B</span>Mrs. Ratchanee Sombat</button>
+              <button class="ex-opt" disabled
+                onclick="checkScanAnswer(2,'scan-box-2',2,false,'❌ ไม่ถูกต้อง: ลองสแกนหาชื่อบรรณารักษ์ในบทความอีกครั้ง')"><span
+                  class="ex-letter">C</span>Mrs. Somsri Panya</button>
+            </div>
+            <div class="ex-feedback" id="scan-box-2-fb"></div>
+            <button class="hl-btn" onclick="resetScanTask(2, 12)" style="margin-top:8px;color:var(--muted);">↺
+              Reset</button>
+          </div>
+
+          <!-- Scan Question 3 -->
+          <div class="exercise-box" id="scan-box-3">
+            <h4>⏱️ Scan Q3 <span class="scan-timer-display" id="scan-timer-3">⏱ 10s</span></h4>
+            <p style="font-size:.9rem;font-weight:600;margin-bottom:12px;">Q: By what percentage did daily
+              visitor numbers increase after reopening?</p>
+            <button class="hl-btn" id="scan-start-3" onclick="startScanTask(3, 10)" style="margin-bottom:10px;">▶
+              เริ่มจับเวลา (10 วินาที)</button>
+            <div class="ex-options">
+              <button class="ex-opt" disabled
+                onclick="checkScanAnswer(3,'scan-box-3',0,false,'❌ ไม่ถูกต้อง: ลองสแกนหาตัวเลขเปอร์เซ็นต์ในประโยคสุดท้ายอีกครั้ง')"><span
+                  class="ex-letter">A</span>20 percent</button>
+              <button class="ex-opt" disabled
+                onclick="checkScanAnswer(3,'scan-box-3',1,false,'❌ ไม่ถูกต้อง: ลองสแกนหาตัวเลขเปอร์เซ็นต์ในประโยคสุดท้ายอีกครั้ง')"><span
+                  class="ex-letter">B</span>50 percent</button>
+              <button class="ex-opt" disabled
+                onclick="checkScanAnswer(3,'scan-box-3',2,true,'✅ ถูกต้อง! ยอดผู้ใช้บริการต่อวันเพิ่มขึ้น 35%')"><span
+                  class="ex-letter">C</span>35 percent</button>
+            </div>
+            <div class="ex-feedback" id="scan-box-3-fb"></div>
+            <button class="hl-btn" onclick="resetScanTask(3, 10)" style="margin-top:8px;color:var(--muted);">↺
+              Reset</button>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- ═══ TOPIC 6: POST-READING & SELF-CHECK QUIZ ═══ -->
+    <div class="topic-content-pane" id="topic2-pane-6">
+      <div class="content-block">
+        <div
+          style="display:flex;justify-content:space-between;align-items:center;margin-bottom:8px;flex-wrap:wrap;gap:8px;">
+          <h3 style="margin-bottom:0;">📊 Topic 6: Post-Reading Mastery &amp; Formative Assessment (แบบประเมินตนเอง 5
+            ข้อ)</h3>
+          <span class="usc-badge usc-badge-purple">Post-Reading Stage · วัดผลความเข้าใจ</span>
+        </div>
+
+        <div class="bilingual-block">
+          <div class="bb-en">Take this 5-question self-check quiz to test what you learned in Unit 2. Passing
+            score: <strong>≥ 70%</strong> (4 out of 5 correct).</div>
+          <div class="bb-th">ทำแบบทดสอบประเมินตนเอง 5 ข้อ เพื่อทบทวนความเข้าใจเนื้อหา Unit 2 ทั้งหมด
+            (เกณฑ์ผ่าน: <strong>≥ 70%</strong> หรือ 4 จาก 5 ข้อ)</div>
+        </div>
+
+        <div class="quick-jump-bar">
+          <button class="qj-pill" onclick="scrollToSubSection('t2u-quiz')">🧠 1. แบบทดสอบประเมินตนเอง 5 ข้อ</button>
+          <button class="qj-pill" onclick="scrollToSubSection('t2u-rubric')">📊 2. เกณฑ์การประเมินรูบริก</button>
+        </div>
+
+        <div class="flow-card" id="t2u-quiz">
+          <div class="flow-header">
+            <span class="flow-step-badge flow-step-purple">01</span>
+            <div>
+              <h4 class="flow-title">แบบทดสอบทบทวน Unit 2 (Self-Check Quiz)</h4>
+              <p class="flow-desc">ตรวจสอบความเข้าใจรอบด้าน พร้อมคำอธิบายทุกตัวเลือก</p>
+            </div>
+          </div>
+
+          <div class="sc-question">
+            <div class="sc-q-text">ข้อ 1 (Major vs. Minor): ข้อใดอธิบายความแตกต่างระหว่าง Major และ Minor
+              Supporting Details ได้ถูกต้องที่สุด?</div>
+            <div class="ex-options" id="sc2-q1">
+              <button class="ex-opt"
+                onclick="checkModularAnswer('sc2-q1',0,true,'✅ ถูกต้อง! Major Detail สนับสนุน Main Idea โดยตรง ส่วน Minor Detail ขยายความ Major Detail อีกที')"><span
+                  class="ex-letter">A</span>Major Details support the main idea directly; Minor Details give
+                extra examples that support a Major Detail.</button>
+              <button class="ex-opt"
+                onclick="checkModularAnswer('sc2-q1',1,false,'❌ ไม่ถูกต้อง: ความยาวของประโยคไม่ใช่เกณฑ์ตัดสิน')"><span
+                  class="ex-letter">B</span>Major Details are always longer sentences than Minor Details.</button>
+              <button class="ex-opt"
+                onclick="checkModularAnswer('sc2-q1',2,false,'❌ ไม่ถูกต้อง: ทั้งสองไม่ใช่สิ่งเดียวกัน')"><span
+                  class="ex-letter">C</span>Major and Minor Details mean exactly the same thing.</button>
+            </div>
+            <div class="ex-feedback" id="sc2-q1-fb"></div>
+          </div>
+
+          <div class="sc-question">
+            <div class="sc-q-text">ข้อ 2 (Skimming vs. Scanning): กิจกรรมใดในแอปนี้ที่ฝึกทักษะ <strong>Scanning</strong>
+              โดยตรง?</div>
+            <div class="ex-options" id="sc2-q2">
+              <button class="ex-opt"
+                onclick="checkModularAnswer('sc2-q2',0,false,'❌ ไม่ถูกต้อง: กิจกรรมนี้ฝึก Skimming เพื่อหาใจความสำคัญ')"><span
+                  class="ex-letter">A</span>Main Idea Challenge</button>
+              <button class="ex-opt"
+                onclick="checkModularAnswer('sc2-q2',1,true,'✅ ถูกต้อง! Timed Scanning Task ฝึกการค้นหาข้อมูลเฉพาะภายใต้เวลาจำกัด')"><span
+                  class="ex-letter">B</span>Timed Scanning Task</button>
+              <button class="ex-opt"
+                onclick="checkModularAnswer('sc2-q2',2,false,'❌ ไม่ถูกต้อง: กิจกรรมนี้ทบทวนความรู้รวม ไม่ได้ฝึก Scanning โดยตรง')"><span
+                  class="ex-letter">C</span>Post-Reading Self-Check Quiz</button>
+            </div>
+            <div class="ex-feedback" id="sc2-q2-fb"></div>
+          </div>
+
+          <div class="sc-question">
+            <div class="sc-q-text">ข้อ 3 (Signal Words): "Rainfall dropped sharply; consequently, the region
+              faced a severe water shortage." ประโยคนี้แสดงความสัมพันธ์แบบใด?</div>
+            <div class="ex-options" id="sc2-q3">
+              <button class="ex-opt"
+                onclick="checkModularAnswer('sc2-q3',0,true,'✅ ถูกต้อง! \"consequently\" บ่งบอกผลลัพธ์ (ขาดแคลนน้ำ) ที่เกิดจากสาเหตุ (ฝนตกน้อยลง)')"><span
+                  class="ex-letter">A</span>Cause–Effect</button>
+              <button class="ex-opt"
+                onclick="checkModularAnswer('sc2-q3',1,false,'❌ ไม่ถูกต้อง: ไม่ได้เปรียบเทียบสองสิ่ง')"><span
+                  class="ex-letter">B</span>Compare–Contrast</button>
+              <button class="ex-opt"
+                onclick="checkModularAnswer('sc2-q3',2,false,'❌ ไม่ถูกต้อง: ไม่ได้เป็นการเรียงลำดับขั้นตอน')"><span
+                  class="ex-letter">C</span>Sequence</button>
+            </div>
+            <div class="ex-feedback" id="sc2-q3-fb"></div>
+          </div>
+
+          <div class="sc-question">
+            <div class="sc-q-text">ข้อ 4 (Highlighter Colors): ในกิจกรรม Main Idea Challenge สีใดใช้แทน
+              <strong>Minor Supporting Detail</strong>?</div>
+            <div class="ex-options" id="sc2-q4">
+              <button class="ex-opt"
+                onclick="checkModularAnswer('sc2-q4',0,false,'❌ สีเหลืองใช้แทน Main Idea')"><span
+                  class="ex-letter">A</span>🟡 Yellow</button>
+              <button class="ex-opt"
+                onclick="checkModularAnswer('sc2-q4',1,false,'❌ สีเขียวใช้แทน Major Detail')"><span
+                  class="ex-letter">B</span>🟢 Green</button>
+              <button class="ex-opt"
+                onclick="checkModularAnswer('sc2-q4',2,true,'✅ ถูกต้อง! สีฟ้าใช้แทน Minor Supporting Detail')"><span
+                  class="ex-letter">C</span>🔵 Blue</button>
+            </div>
+            <div class="ex-feedback" id="sc2-q4-fb"></div>
+          </div>
+
+          <div class="sc-question">
+            <div class="sc-q-text">ข้อ 5 (Application): เมื่อต้องหาชื่อสถานที่เฉพาะเจาะจงในบทความยาวภายในเวลาจำกัด
+              กลยุทธ์ใดเหมาะสมที่สุด?</div>
+            <div class="ex-options" id="sc2-q5">
+              <button class="ex-opt"
+                onclick="checkModularAnswer('sc2-q5',0,false,'❌ Skimming เหมาะกับการหาใจความรวม ไม่เหมาะกับการหาชื่อเฉพาะ')"><span
+                  class="ex-letter">A</span>Skimming</button>
+              <button class="ex-opt"
+                onclick="checkModularAnswer('sc2-q5',1,true,'✅ ถูกต้อง! Scanning คือกลยุทธ์ที่เหมาะสำหรับหาข้อมูลเฉพาะเจาะจงอย่างรวดเร็ว')"><span
+                  class="ex-letter">B</span>Scanning</button>
+              <button class="ex-opt"
+                onclick="checkModularAnswer('sc2-q5',2,false,'❌ การอ่านทุกคำช้าเกินไปเมื่อมีเวลาจำกัด')"><span
+                  class="ex-letter">C</span>Reading every word slowly</button>
+            </div>
+            <div class="ex-feedback" id="sc2-q5-fb"></div>
+          </div>
+        </div>
+
+        <!-- Rubric Table -->
+        <div class="flow-card" id="t2u-rubric">
+          <div class="flow-header">
+            <span class="flow-step-badge flow-step-gold">02</span>
+            <div>
+              <h4 class="flow-title">เกณฑ์การประเมินผลสัมฤทธิ์ทางการเรียน (Scoring Rubrics)</h4>
+              <p class="flow-desc">มาตรฐานการวัดระดับความเชี่ยวชาญ 3 มิติ ตามแผนการสอน Unit 2</p>
+            </div>
+          </div>
+
+          <div style="overflow-x:auto;">
+            <table class="compare-table">
+              <thead>
+                <tr>
+                  <th>มิติการประเมิน (Assessment Dimensions)</th>
+                  <th style="color:var(--green);">ดีเยี่ยม (Excellent)</th>
+                  <th style="color:var(--teal);">ดี (Good)</th>
+                  <th style="color:var(--gold);">ต้องทบทวน (Needs Improvement)</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td style="font-weight:700;">1. Reading Strategy Application (Skimming &amp; Scanning)</td>
+                  <td style="color:var(--green);">ใช้ Skimming และ Scanning ได้อย่างคล่องแคล่วและแม่นยำในทุกสถานการณ์</td>
+                  <td>ใช้กลยุทธ์ได้ถูกต้องในสถานการณ์ทั่วไป</td>
+                  <td style="color:var(--muted);">ยังสับสนระหว่าง Skimming กับ Scanning</td>
+                </tr>
+                <tr>
+                  <td style="font-weight:700;">2. Text Structure &amp; Idea Relationships</td>
+                  <td style="color:var(--green);">ระบุ Major/Minor Details และความสัมพันธ์เชิงตรรกะได้แม่นยำครบทุกแบบ</td>
+                  <td>ระบุ Major Detail และความสัมพันธ์พื้นฐานได้ถูกต้อง</td>
+                  <td style="color:var(--muted);">ยังแยก Major/Minor Details หรือ Signal Words ไม่ชัดเจน</td>
+                </tr>
+                <tr>
+                  <td style="font-weight:700;">3. Affective &amp; Web App Engagement</td>
+                  <td style="color:var(--green);">ทำ Main Idea Challenge และ Timed Scanning Task ครบด้วยคะแนน ≥ 70%
+                    ด้วยความตั้งใจสูง</td>
+                  <td>เข้าร่วมกิจกรรมครบและได้คะแนนใกล้เกณฑ์ผ่าน</td>
+                  <td style="color:var(--muted);">เข้าร่วมกิจกรรมไม่ครบ หรือคะแนนต่ำกว่าเกณฑ์อย่างมาก</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Bottom Navigation Footer -->
+    <div class="reader-footer-nav">
+      <button class="rfn-btn" id="rfn2-prev-btn" onclick="navigateLessonTopic2(-1)">← Previous Topic</button>
+      <button class="rfn-btn" onclick="closeLessonTopic2()">📋 Table of Contents</button>
+      <button class="rfn-btn rfn-btn-primary" id="rfn2-next-btn" onclick="navigateLessonTopic2(1)">Next Topic ➔</button>
+    </div>
+
+  </div>
+
   </div>
   </div>
 
@@ -7794,8 +8978,15 @@
         updateUnit1ProgressUI();
         filterLessonStage(1);
         nav('screen-lesson-detail');
+      } else if (unitId === 2) {
+        currentLessonUnit = 2;
+        document.getElementById('unit2-hub-view').style.display = 'block';
+        document.getElementById('unit2-reader-view').classList.remove('active');
+        updateUnit2ProgressUI();
+        filterLessonStage2(1);
+        nav('screen-lesson-detail');
       } else {
-        showToast(`🔒 Unit ${unitId} อยู่ในแผนการสอนสัปดาห์ถัดไป (กำลังโฟกัสที่ Lesson Plan 1)`);
+        showToast(`🔒 Unit ${unitId} อยู่ในแผนการสอนสัปดาห์ถัดไป (กำลังโฟกัสที่ Lesson Plan 1–2)`);
       }
     }
 
@@ -7855,6 +9046,223 @@
         showToast('🎉 ยินดีด้วย! คุณเรียนครบทุกหัวข้อใน Unit 1 เรียบร้อยแล้ว');
         closeLessonTopic();
       }
+    }
+
+    // ═══════════════════════════════════════════════════════
+    // ═══════════ UNIT 2: SUPPORTING DETAILS & IDEA RELATIONSHIPS ═══════════
+    // ═══════════════════════════════════════════════════════
+    let currentTopicIndex2 = 0;
+    const completedTopics2 = JSON.parse(localStorage.getItem('rs_completed_u2_topics') || '{}');
+
+    function updateUnit2ProgressUI() {
+      const total = 6;
+      const doneCount = [1, 2, 3, 4, 5, 6].filter(k => completedTopics2[k]).length;
+      const pct = Math.round((doneCount / total) * 100);
+
+      const bar = document.getElementById('u2-progress-bar');
+      const pctText = document.getElementById('u2-progress-pct');
+      if (bar) bar.style.width = pct + '%';
+      if (pctText) pctText.textContent = `${pct}% Completed (${doneCount}/${total} Topics)`;
+
+      for (let i = 1; i <= total; i++) {
+        const card = document.getElementById(`u2-card-${i}`);
+        const stat = document.getElementById(`u2-stat-${i}`);
+        if (completedTopics2[i]) {
+          if (card) card.classList.add('completed');
+          if (stat) { stat.textContent = '✓ Completed'; stat.classList.add('done'); }
+        }
+      }
+    }
+
+    let currentSelectedStage2 = 1;
+
+    function filterLessonStage2(stageNum) {
+      currentSelectedStage2 = stageNum;
+      for (let i = 1; i <= 3; i++) {
+        const tab = document.getElementById(`st2-tab-${i}`);
+        if (tab) tab.classList.toggle('active', i === stageNum);
+      }
+
+      const cards1 = document.querySelectorAll('.stage-sec2-1');
+      const cards2 = document.querySelectorAll('.stage-sec2-2');
+      const cards3 = document.querySelectorAll('.stage-sec2-3');
+      const title = document.getElementById('stage-info-title2');
+      const desc = document.getElementById('stage-info-desc2');
+
+      if (stageNum === 1) {
+        cards1.forEach(c => c.style.display = 'flex');
+        cards2.forEach(c => c.style.display = 'none');
+        cards3.forEach(c => c.style.display = 'none');
+        if (title) title.textContent = 'Stage 1: ก่อนอ่าน (Pre-Reading) — Supporting Details, Skimming & Scanning';
+        if (desc) desc.textContent = 'เรียนรู้ Major/Minor Supporting Details และกลยุทธ์ Skimming กับ Scanning (Topic 1–2)';
+      } else if (stageNum === 2) {
+        cards1.forEach(c => c.style.display = 'none');
+        cards2.forEach(c => c.style.display = 'flex');
+        cards3.forEach(c => c.style.display = 'none');
+        if (title) title.textContent = 'Stage 2: ระหว่างอ่าน (While-Reading) — Idea Relationships & Practice';
+        if (desc) desc.textContent = 'เรียนรู้ความสัมพันธ์ของใจความ (Cause-Effect, Compare-Contrast, Sequence) ฝึก Main Idea Challenge และ Timed Scanning Task (Topic 3–5)';
+      } else if (stageNum === 3) {
+        cards1.forEach(c => c.style.display = 'none');
+        cards2.forEach(c => c.style.display = 'none');
+        cards3.forEach(c => c.style.display = 'flex');
+        if (title) title.textContent = 'Stage 3: หลังอ่าน (Post-Reading) — ทบทวนและประเมินผล';
+        if (desc) desc.textContent = 'แบบทดสอบประเมินตนเอง 5 ข้อ ทบทวน Unit 2 ทั้งหมด (Topic 6)';
+      } else {
+        cards1.forEach(c => c.style.display = 'flex');
+        cards2.forEach(c => c.style.display = 'flex');
+        cards3.forEach(c => c.style.display = 'flex');
+        if (title) title.textContent = 'Unit 2: All Topics Overview (Pre + While + Post Reading)';
+        if (desc) desc.textContent = 'แสดงหัวข้อบทเรียนทั้ง 6 ส่วนของ Unit 2 ครบทั้ง 3 ขั้นตอน';
+      }
+    }
+
+    function switchReaderStage2(stageNum) {
+      if (stageNum === 1) openLessonTopic2(1);
+      else if (stageNum === 2) openLessonTopic2(3);
+      else if (stageNum === 3) openLessonTopic2(6);
+    }
+
+    function updateReaderStageTabs2(topicIdx) {
+      let stage = 1;
+      if (topicIdx >= 3 && topicIdx <= 5) stage = 2;
+      else if (topicIdx === 6) stage = 3;
+
+      for (let i = 1; i <= 3; i++) {
+        const rTab = document.getElementById(`rst2-tab-${i}`);
+        if (rTab) rTab.classList.toggle('active', i === stage);
+      }
+    }
+
+    const TOPIC_NAMES2 = [
+      'Overview',
+      'Topic 1: Major & Minor Supporting Details',
+      'Topic 2: Skimming & Scanning Strategies',
+      'Topic 3: Idea Relationships & Signal Words',
+      'Topic 4: ฝึกอ่าน — Main Idea Challenge',
+      'Topic 5: Timed Scanning Task',
+      'Topic 6: แบบประเมินตนเอง (Post-Reading Quiz)'
+    ];
+
+    function openLessonTopic2(topicIdx) {
+      currentTopicIndex2 = topicIdx;
+      document.getElementById('unit2-hub-view').style.display = 'none';
+      const reader = document.getElementById('unit2-reader-view');
+      reader.classList.add('active');
+
+      document.getElementById('reader-topic-meta2').textContent = `${TOPIC_NAMES2[topicIdx] || 'Topic ' + topicIdx}`;
+      document.getElementById('reader-quick-select2').value = topicIdx;
+      updateReaderStageTabs2(topicIdx);
+
+      for (let i = 1; i <= 6; i++) {
+        const pane = document.getElementById(`topic2-pane-${i}`);
+        if (pane) pane.style.display = (i === topicIdx) ? 'block' : 'none';
+      }
+
+      const prevBtn = document.getElementById('rfn2-prev-btn');
+      const nextBtn = document.getElementById('rfn2-next-btn');
+      if (prevBtn) prevBtn.style.visibility = (topicIdx <= 1) ? 'hidden' : 'visible';
+      if (nextBtn) nextBtn.textContent = (topicIdx === 6) ? 'Finish Unit 2 🏁' : 'Next Topic ➔';
+
+      completedTopics2[topicIdx] = true;
+      localStorage.setItem('rs_completed_u2_topics', JSON.stringify(completedTopics2));
+      updateUnit2ProgressUI();
+
+      window.scrollTo({ top: 0, behavior: 'smooth' });
+    }
+
+    function closeLessonTopic2() {
+      document.getElementById('unit2-reader-view').classList.remove('active');
+      document.getElementById('unit2-hub-view').style.display = 'block';
+      updateUnit2ProgressUI();
+      window.scrollTo({ top: 0, behavior: 'smooth' });
+    }
+
+    function navigateLessonTopic2(step) {
+      const nextIdx = currentTopicIndex2 + step;
+      if (nextIdx >= 1 && nextIdx <= 6) {
+        openLessonTopic2(nextIdx);
+      } else if (nextIdx > 6) {
+        showToast('🎉 ยินดีด้วย! คุณเรียนครบทุกหัวข้อใน Unit 2 เรียบร้อยแล้ว');
+        closeLessonTopic2();
+      }
+    }
+
+    // ── Unit 2: 3-Color Highlighter (Yellow=Main Idea, Green=Major Detail, Blue=Minor Detail) ──
+    let currentHlMode2 = 'main';
+
+    function setHlMode2(mode) {
+      currentHlMode2 = mode;
+      ['main', 'major', 'minor'].forEach(m => {
+        const btn = document.getElementById(`hl2-mode-${m}`);
+        if (btn) btn.classList.toggle('active', m === mode);
+      });
+    }
+
+    function toggleSentenceHl2(el) {
+      const cls = `hl-${currentHlMode2}`;
+      if (el.classList.contains(cls)) {
+        el.classList.remove(cls);
+      } else {
+        el.classList.remove('hl-main', 'hl-major', 'hl-minor');
+        el.classList.add(cls);
+      }
+    }
+
+    function clearPassageHighlights2(containerId) {
+      const scope = containerId ? document.getElementById(containerId) : document.getElementById('unit2-reader-view');
+      if (!scope) return;
+      scope.querySelectorAll('.passage-sentence').forEach(s => {
+        s.classList.remove('hl-main', 'hl-major', 'hl-minor');
+      });
+    }
+
+    // ── Unit 2: Timed Scanning Task ──
+    const scanTimers = {};
+
+    function startScanTask(id, seconds) {
+      const display = document.getElementById(`scan-timer-${id}`);
+      const startBtn = document.getElementById(`scan-start-${id}`);
+      if (scanTimers[id]) clearInterval(scanTimers[id]);
+      let remaining = seconds;
+      if (display) { display.textContent = `⏱ ${remaining}s`; display.classList.add('scan-live'); }
+      if (startBtn) startBtn.disabled = true;
+      document.querySelectorAll(`#scan-box-${id} .ex-opt`).forEach(b => b.disabled = false);
+
+      scanTimers[id] = setInterval(() => {
+        remaining--;
+        if (display) display.textContent = `⏱ ${remaining}s`;
+        if (remaining <= 0) {
+          clearInterval(scanTimers[id]);
+          if (display) { display.textContent = '⏰ หมดเวลา!'; display.classList.remove('scan-live'); }
+          document.querySelectorAll(`#scan-box-${id} .ex-opt`).forEach(b => b.disabled = true);
+          const fb = document.getElementById(`scan-box-${id}-fb`);
+          if (fb) { fb.textContent = 'หมดเวลาสแกนหาคำตอบแล้ว ลองกด Reset เพื่อฝึกใหม่อีกครั้ง'; fb.className = 'ex-feedback show wrong'; }
+        }
+      }, 1000);
+    }
+
+    function checkScanAnswer(scanId, boxId, optIndex, isCorrect, feedbackMsg) {
+      if (scanTimers[scanId]) {
+        clearInterval(scanTimers[scanId]);
+        const display = document.getElementById(`scan-timer-${scanId}`);
+        if (display) display.classList.remove('scan-live');
+      }
+      checkModularAnswer(boxId, optIndex, isCorrect, feedbackMsg);
+      document.querySelectorAll(`#${boxId} .ex-opt`).forEach(b => b.disabled = true);
+    }
+
+    function resetScanTask(id, seconds) {
+      if (scanTimers[id]) clearInterval(scanTimers[id]);
+      const display = document.getElementById(`scan-timer-${id}`);
+      const startBtn = document.getElementById(`scan-start-${id}`);
+      if (display) { display.textContent = `⏱ ${seconds}s`; display.classList.remove('scan-live'); }
+      if (startBtn) startBtn.disabled = false;
+      const box = document.getElementById(`scan-box-${id}`);
+      if (box) {
+        box.querySelectorAll('.ex-opt').forEach(b => { b.disabled = true; b.classList.remove('ex-correct', 'ex-wrong', 'ex-selected'); });
+      }
+      const fb = document.getElementById(`scan-box-${id}-fb`);
+      if (fb) { fb.textContent = ''; fb.className = 'ex-feedback'; }
     }
 
     // ═══════════ MODULAR MINI-EXERCISE CHECKER ═══════════

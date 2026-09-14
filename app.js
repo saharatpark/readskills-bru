@@ -409,8 +409,15 @@
         updateUnit1ProgressUI();
         filterLessonStage(1);
         nav('screen-lesson-detail');
+      } else if (unitId === 2) {
+        currentLessonUnit = 2;
+        document.getElementById('unit2-hub-view').style.display = 'block';
+        document.getElementById('unit2-reader-view').classList.remove('active');
+        updateUnit2ProgressUI();
+        filterLessonStage2(1);
+        nav('screen-lesson-detail');
       } else {
-        showToast(`🔒 Unit ${unitId} อยู่ในแผนการสอนสัปดาห์ถัดไป (กำลังโฟกัสที่ Lesson Plan 1)`);
+        showToast(`🔒 Unit ${unitId} อยู่ในแผนการสอนสัปดาห์ถัดไป (กำลังโฟกัสที่ Lesson Plan 1–2)`);
       }
     }
 
@@ -470,6 +477,223 @@
         showToast('🎉 ยินดีด้วย! คุณเรียนครบทุกหัวข้อใน Unit 1 เรียบร้อยแล้ว');
         closeLessonTopic();
       }
+    }
+
+    // ═══════════════════════════════════════════════════════
+    // ═══════════ UNIT 2: SUPPORTING DETAILS & IDEA RELATIONSHIPS ═══════════
+    // ═══════════════════════════════════════════════════════
+    let currentTopicIndex2 = 0;
+    const completedTopics2 = JSON.parse(localStorage.getItem('rs_completed_u2_topics') || '{}');
+
+    function updateUnit2ProgressUI() {
+      const total = 6;
+      const doneCount = [1, 2, 3, 4, 5, 6].filter(k => completedTopics2[k]).length;
+      const pct = Math.round((doneCount / total) * 100);
+
+      const bar = document.getElementById('u2-progress-bar');
+      const pctText = document.getElementById('u2-progress-pct');
+      if (bar) bar.style.width = pct + '%';
+      if (pctText) pctText.textContent = `${pct}% Completed (${doneCount}/${total} Topics)`;
+
+      for (let i = 1; i <= total; i++) {
+        const card = document.getElementById(`u2-card-${i}`);
+        const stat = document.getElementById(`u2-stat-${i}`);
+        if (completedTopics2[i]) {
+          if (card) card.classList.add('completed');
+          if (stat) { stat.textContent = '✓ Completed'; stat.classList.add('done'); }
+        }
+      }
+    }
+
+    let currentSelectedStage2 = 1;
+
+    function filterLessonStage2(stageNum) {
+      currentSelectedStage2 = stageNum;
+      for (let i = 1; i <= 3; i++) {
+        const tab = document.getElementById(`st2-tab-${i}`);
+        if (tab) tab.classList.toggle('active', i === stageNum);
+      }
+
+      const cards1 = document.querySelectorAll('.stage-sec2-1');
+      const cards2 = document.querySelectorAll('.stage-sec2-2');
+      const cards3 = document.querySelectorAll('.stage-sec2-3');
+      const title = document.getElementById('stage-info-title2');
+      const desc = document.getElementById('stage-info-desc2');
+
+      if (stageNum === 1) {
+        cards1.forEach(c => c.style.display = 'flex');
+        cards2.forEach(c => c.style.display = 'none');
+        cards3.forEach(c => c.style.display = 'none');
+        if (title) title.textContent = 'Stage 1: ก่อนอ่าน (Pre-Reading) — Supporting Details, Skimming & Scanning';
+        if (desc) desc.textContent = 'เรียนรู้ Major/Minor Supporting Details และกลยุทธ์ Skimming กับ Scanning (Topic 1–2)';
+      } else if (stageNum === 2) {
+        cards1.forEach(c => c.style.display = 'none');
+        cards2.forEach(c => c.style.display = 'flex');
+        cards3.forEach(c => c.style.display = 'none');
+        if (title) title.textContent = 'Stage 2: ระหว่างอ่าน (While-Reading) — Idea Relationships & Practice';
+        if (desc) desc.textContent = 'เรียนรู้ความสัมพันธ์ของใจความ (Cause-Effect, Compare-Contrast, Sequence) ฝึก Main Idea Challenge และ Timed Scanning Task (Topic 3–5)';
+      } else if (stageNum === 3) {
+        cards1.forEach(c => c.style.display = 'none');
+        cards2.forEach(c => c.style.display = 'none');
+        cards3.forEach(c => c.style.display = 'flex');
+        if (title) title.textContent = 'Stage 3: หลังอ่าน (Post-Reading) — ทบทวนและประเมินผล';
+        if (desc) desc.textContent = 'แบบทดสอบประเมินตนเอง 5 ข้อ ทบทวน Unit 2 ทั้งหมด (Topic 6)';
+      } else {
+        cards1.forEach(c => c.style.display = 'flex');
+        cards2.forEach(c => c.style.display = 'flex');
+        cards3.forEach(c => c.style.display = 'flex');
+        if (title) title.textContent = 'Unit 2: All Topics Overview (Pre + While + Post Reading)';
+        if (desc) desc.textContent = 'แสดงหัวข้อบทเรียนทั้ง 6 ส่วนของ Unit 2 ครบทั้ง 3 ขั้นตอน';
+      }
+    }
+
+    function switchReaderStage2(stageNum) {
+      if (stageNum === 1) openLessonTopic2(1);
+      else if (stageNum === 2) openLessonTopic2(3);
+      else if (stageNum === 3) openLessonTopic2(6);
+    }
+
+    function updateReaderStageTabs2(topicIdx) {
+      let stage = 1;
+      if (topicIdx >= 3 && topicIdx <= 5) stage = 2;
+      else if (topicIdx === 6) stage = 3;
+
+      for (let i = 1; i <= 3; i++) {
+        const rTab = document.getElementById(`rst2-tab-${i}`);
+        if (rTab) rTab.classList.toggle('active', i === stage);
+      }
+    }
+
+    const TOPIC_NAMES2 = [
+      'Overview',
+      'Topic 1: Major & Minor Supporting Details',
+      'Topic 2: Skimming & Scanning Strategies',
+      'Topic 3: Idea Relationships & Signal Words',
+      'Topic 4: ฝึกอ่าน — Main Idea Challenge',
+      'Topic 5: Timed Scanning Task',
+      'Topic 6: แบบประเมินตนเอง (Post-Reading Quiz)'
+    ];
+
+    function openLessonTopic2(topicIdx) {
+      currentTopicIndex2 = topicIdx;
+      document.getElementById('unit2-hub-view').style.display = 'none';
+      const reader = document.getElementById('unit2-reader-view');
+      reader.classList.add('active');
+
+      document.getElementById('reader-topic-meta2').textContent = `${TOPIC_NAMES2[topicIdx] || 'Topic ' + topicIdx}`;
+      document.getElementById('reader-quick-select2').value = topicIdx;
+      updateReaderStageTabs2(topicIdx);
+
+      for (let i = 1; i <= 6; i++) {
+        const pane = document.getElementById(`topic2-pane-${i}`);
+        if (pane) pane.style.display = (i === topicIdx) ? 'block' : 'none';
+      }
+
+      const prevBtn = document.getElementById('rfn2-prev-btn');
+      const nextBtn = document.getElementById('rfn2-next-btn');
+      if (prevBtn) prevBtn.style.visibility = (topicIdx <= 1) ? 'hidden' : 'visible';
+      if (nextBtn) nextBtn.textContent = (topicIdx === 6) ? 'Finish Unit 2 🏁' : 'Next Topic ➔';
+
+      completedTopics2[topicIdx] = true;
+      localStorage.setItem('rs_completed_u2_topics', JSON.stringify(completedTopics2));
+      updateUnit2ProgressUI();
+
+      window.scrollTo({ top: 0, behavior: 'smooth' });
+    }
+
+    function closeLessonTopic2() {
+      document.getElementById('unit2-reader-view').classList.remove('active');
+      document.getElementById('unit2-hub-view').style.display = 'block';
+      updateUnit2ProgressUI();
+      window.scrollTo({ top: 0, behavior: 'smooth' });
+    }
+
+    function navigateLessonTopic2(step) {
+      const nextIdx = currentTopicIndex2 + step;
+      if (nextIdx >= 1 && nextIdx <= 6) {
+        openLessonTopic2(nextIdx);
+      } else if (nextIdx > 6) {
+        showToast('🎉 ยินดีด้วย! คุณเรียนครบทุกหัวข้อใน Unit 2 เรียบร้อยแล้ว');
+        closeLessonTopic2();
+      }
+    }
+
+    // ── Unit 2: 3-Color Highlighter (Yellow=Main Idea, Green=Major Detail, Blue=Minor Detail) ──
+    let currentHlMode2 = 'main';
+
+    function setHlMode2(mode) {
+      currentHlMode2 = mode;
+      ['main', 'major', 'minor'].forEach(m => {
+        const btn = document.getElementById(`hl2-mode-${m}`);
+        if (btn) btn.classList.toggle('active', m === mode);
+      });
+    }
+
+    function toggleSentenceHl2(el) {
+      const cls = `hl-${currentHlMode2}`;
+      if (el.classList.contains(cls)) {
+        el.classList.remove(cls);
+      } else {
+        el.classList.remove('hl-main', 'hl-major', 'hl-minor');
+        el.classList.add(cls);
+      }
+    }
+
+    function clearPassageHighlights2(containerId) {
+      const scope = containerId ? document.getElementById(containerId) : document.getElementById('unit2-reader-view');
+      if (!scope) return;
+      scope.querySelectorAll('.passage-sentence').forEach(s => {
+        s.classList.remove('hl-main', 'hl-major', 'hl-minor');
+      });
+    }
+
+    // ── Unit 2: Timed Scanning Task ──
+    const scanTimers = {};
+
+    function startScanTask(id, seconds) {
+      const display = document.getElementById(`scan-timer-${id}`);
+      const startBtn = document.getElementById(`scan-start-${id}`);
+      if (scanTimers[id]) clearInterval(scanTimers[id]);
+      let remaining = seconds;
+      if (display) { display.textContent = `⏱ ${remaining}s`; display.classList.add('scan-live'); }
+      if (startBtn) startBtn.disabled = true;
+      document.querySelectorAll(`#scan-box-${id} .ex-opt`).forEach(b => b.disabled = false);
+
+      scanTimers[id] = setInterval(() => {
+        remaining--;
+        if (display) display.textContent = `⏱ ${remaining}s`;
+        if (remaining <= 0) {
+          clearInterval(scanTimers[id]);
+          if (display) { display.textContent = '⏰ หมดเวลา!'; display.classList.remove('scan-live'); }
+          document.querySelectorAll(`#scan-box-${id} .ex-opt`).forEach(b => b.disabled = true);
+          const fb = document.getElementById(`scan-box-${id}-fb`);
+          if (fb) { fb.textContent = 'หมดเวลาสแกนหาคำตอบแล้ว ลองกด Reset เพื่อฝึกใหม่อีกครั้ง'; fb.className = 'ex-feedback show wrong'; }
+        }
+      }, 1000);
+    }
+
+    function checkScanAnswer(scanId, boxId, optIndex, isCorrect, feedbackMsg) {
+      if (scanTimers[scanId]) {
+        clearInterval(scanTimers[scanId]);
+        const display = document.getElementById(`scan-timer-${scanId}`);
+        if (display) display.classList.remove('scan-live');
+      }
+      checkModularAnswer(boxId, optIndex, isCorrect, feedbackMsg);
+      document.querySelectorAll(`#${boxId} .ex-opt`).forEach(b => b.disabled = true);
+    }
+
+    function resetScanTask(id, seconds) {
+      if (scanTimers[id]) clearInterval(scanTimers[id]);
+      const display = document.getElementById(`scan-timer-${id}`);
+      const startBtn = document.getElementById(`scan-start-${id}`);
+      if (display) { display.textContent = `⏱ ${seconds}s`; display.classList.remove('scan-live'); }
+      if (startBtn) startBtn.disabled = false;
+      const box = document.getElementById(`scan-box-${id}`);
+      if (box) {
+        box.querySelectorAll('.ex-opt').forEach(b => { b.disabled = true; b.classList.remove('ex-correct', 'ex-wrong', 'ex-selected'); });
+      }
+      const fb = document.getElementById(`scan-box-${id}-fb`);
+      if (fb) { fb.textContent = ''; fb.className = 'ex-feedback'; }
     }
 
     // ═══════════ MODULAR MINI-EXERCISE CHECKER ═══════════

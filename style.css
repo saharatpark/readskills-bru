@@ -2374,6 +2374,56 @@
       border-bottom: 2px solid var(--teal);
     }
 
+    /* Unit 2 — 3-color highlighter (Main Idea Challenge) */
+    .passage-sentence.hl-main {
+      background: rgba(217, 184, 60, .35);
+      color: #fff;
+      border-bottom: 2px solid #D9B83C;
+    }
+
+    .passage-sentence.hl-major {
+      background: rgba(91, 147, 117, .35);
+      color: #fff;
+      border-bottom: 2px solid var(--green);
+    }
+
+    .passage-sentence.hl-minor {
+      background: rgba(111, 168, 220, .35);
+      color: #fff;
+      border-bottom: 2px solid #6FA8DC;
+    }
+
+    /* Unit 2 — Timed Scanning Task */
+    .scan-timer-display {
+      font-weight: 700;
+      color: var(--teal);
+      font-size: .95rem;
+      font-variant-numeric: tabular-nums;
+    }
+
+    .scan-timer-display.scan-live {
+      color: #E05B5B;
+      animation: scanPulse 1s infinite;
+    }
+
+    @keyframes scanPulse {
+      0%, 100% { opacity: 1; }
+      50% { opacity: .5; }
+    }
+
+    .scan-source-box {
+      background: var(--surface2);
+      border: 1px solid var(--border);
+      border-radius: 10px;
+      padding: 14px 16px;
+      font-size: .84rem;
+      line-height: 1.8;
+      color: var(--muted);
+      margin-bottom: 14px;
+      max-height: 260px;
+      overflow-y: auto;
+    }
+
     /* Interactive Quiz Screen */
     .quiz-q-box {
       background: var(--surface);
