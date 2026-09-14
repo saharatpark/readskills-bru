@@ -926,59 +926,33 @@
     #screen-home {
       position: relative;
       overflow: hidden;
-      background: linear-gradient(135deg, #D9C4EA 0%, #DACBE9 35%, #D2B9E3 65%, #D9C4EA 100%);
-      background-size: 260% 260%;
-      animation: homeGradientShift 22s ease-in-out infinite alternate;
+      background:
+        radial-gradient(ellipse 60% 45% at 20% 15%, rgba(142, 112, 181, .55), transparent 60%),
+        radial-gradient(ellipse 55% 40% at 85% 30%, rgba(182, 104, 138, .40), transparent 62%),
+        radial-gradient(ellipse 70% 50% at 40% 95%, rgba(122, 94, 160, .35), transparent 65%),
+        #D9C4EA;
+      background-size: 180% 180%, 170% 170%, 190% 190%, 100% 100%;
+      animation: homeAuroraDrift 14s ease-in-out infinite alternate;
     }
 
-    /* ── Living background: soft floating gradient blobs ── */
-    #screen-home::before,
-    #screen-home::after {
+    /* ── Living background: aurora drift veil (soft sheen on top of the aurora glow) ── */
+    #screen-home::before {
       content: '';
       position: absolute;
-      border-radius: 50%;
-      pointer-events: none;
+      inset: 0;
       z-index: 0;
-      filter: blur(2px);
+      pointer-events: none;
+      background: linear-gradient(180deg, rgba(255, 255, 255, 0) 0%, rgba(255, 255, 255, .05) 100%);
+      mix-blend-mode: overlay;
     }
 
-    #screen-home::before {
-      width: 320px;
-      height: 320px;
-      top: -80px;
-      right: -60px;
-      background: radial-gradient(circle at 30% 30%, rgba(122, 94, 160, .28), rgba(122, 94, 160, 0) 70%);
-      animation: homeBlobFloat1 16s ease-in-out infinite;
-    }
-
-    #screen-home::after {
-      width: 260px;
-      height: 260px;
-      bottom: 40px;
-      left: -70px;
-      background: radial-gradient(circle at 60% 40%, rgba(182, 104, 138, .22), rgba(182, 104, 138, 0) 70%);
-      animation: homeBlobFloat2 19s ease-in-out infinite;
-    }
-
-    @keyframes homeGradientShift {
-      0% { background-position: 0% 30%; }
-      100% { background-position: 100% 70%; }
-    }
-
-    @keyframes homeBlobFloat1 {
-      0%, 100% { transform: translate(0, 0) scale(1); }
-      50% { transform: translate(-24px, 26px) scale(1.08); }
-    }
-
-    @keyframes homeBlobFloat2 {
-      0%, 100% { transform: translate(0, 0) scale(1); }
-      50% { transform: translate(20px, -18px) scale(1.05); }
+    @keyframes homeAuroraDrift {
+      0% { background-position: 20% 10%, 80% 20%, 30% 90%, 0 0; }
+      100% { background-position: 40% 35%, 55% 45%, 60% 70%, 0 0; }
     }
 
     @media (prefers-reduced-motion: reduce) {
-      #screen-home,
-      #screen-home::before,
-      #screen-home::after {
+      #screen-home {
         animation: none !important;
       }
     }
@@ -992,25 +966,27 @@
       width: 100%;
     }
 
-    /* ── Entrance animation: staggered reveal each time Home is opened ── */
+    /* ── Entrance animation: Aurora Drift — staggered fade-in from blur ── */
     .home-wrap .hi {
       opacity: 0;
     }
 
     .home-wrap.play-in .hi {
-      animation: homeItemIn .65s cubic-bezier(.16, 1, .3, 1) both;
-      animation-delay: calc(var(--i, 0) * 90ms);
+      animation: homeItemIn .8s cubic-bezier(.22, .8, .28, 1) both;
+      animation-delay: calc(var(--i, 0) * 110ms);
     }
 
     @keyframes homeItemIn {
       from {
         opacity: 0;
-        transform: translateY(20px) scale(.98);
+        transform: translateY(14px);
+        filter: blur(5px);
       }
 
       to {
         opacity: 1;
-        transform: translateY(0) scale(1);
+        transform: translateY(0);
+        filter: blur(0);
       }
     }
 
