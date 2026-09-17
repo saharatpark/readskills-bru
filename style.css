@@ -4289,9 +4289,12 @@
       white-space: nowrap;
     }
     .dg-ma-heading .dg-ma-tag { background: var(--teal); }
-    .dg-ma-bold .dg-ma-tag { background: #6B4F96; top: -20px; right: -4px; }
+    .dg-ma-bold .dg-ma-tag { background: #6B4F96; top: -16px; right: -4px; }
     .dg-ma-figure .dg-ma-tag { background: var(--green); }
     .dg-ma-caption .dg-ma-tag { background: var(--gold2); top: -9px; left: 8px; right: auto; }
+    /* Extra clearance so the "Bold Word" badge (which sits above its own
+       line) never overlaps the Caption line directly above it. */
+    .dg-ma-caption + .dg-ma-body { margin-top: 14px; }
 
     /* — Topic Sentence highlighting-in-paragraph — */
     .dg-ts-para {

@@ -4300,9 +4300,12 @@
       white-space: nowrap;
     }
     .dg-ma-heading .dg-ma-tag { background: var(--teal); }
-    .dg-ma-bold .dg-ma-tag { background: #6B4F96; top: -20px; right: -4px; }
+    .dg-ma-bold .dg-ma-tag { background: #6B4F96; top: -16px; right: -4px; }
     .dg-ma-figure .dg-ma-tag { background: var(--green); }
     .dg-ma-caption .dg-ma-tag { background: var(--gold2); top: -9px; left: 8px; right: auto; }
+    /* Extra clearance so the "Bold Word" badge (which sits above its own
+       line) never overlaps the Caption line directly above it. */
+    .dg-ma-caption + .dg-ma-body { margin-top: 14px; }
 
     /* — Topic Sentence highlighting-in-paragraph — */
     .dg-ts-para {
@@ -5959,6 +5962,46 @@
                 </div>
                 <div class="ex-feedback" id="ex-tf-4-fb"></div>
               </div>
+
+              <!-- Mini Exercise 1.5 -->
+              <div class="exercise-box" id="ex-tf-5" style="margin-top:18px;">
+                <h4>✏️ Mini Exercise 1.5: การใช้ Bold Words</h4>
+                <p style="font-size:.9rem;font-weight:600;margin-bottom:12px;">Q: While previewing an article, you
+                  notice the word <strong>photosynthesis</strong> printed in bold. What is the best reason authors
+                  bold a word like this?</p>
+                <div class="ex-options">
+                  <button class="ex-opt"
+                    onclick="checkModularAnswer('ex-tf-5', 0, true, '✅ ถูกต้อง! (Correct): ผู้เขียนมักทำคำสำคัญเป็นตัวหนาเพื่อบอกว่านี่คือคำศัพท์เฉพาะทางที่สำคัญต่อการเข้าใจเนื้อหา และมักมีคำอธิบายตามมาทันที')"><span
+                      class="ex-letter">A</span>To signal that the word is a key term the reader needs to understand, often explained right after.</button>
+                  <button class="ex-opt"
+                    onclick="checkModularAnswer('ex-tf-5', 1, false, '❌ ไม่ถูกต้อง: ตัวหนาไม่ได้แปลว่าเป็นคำผิด ตรงกันข้าม มันมักเป็นคำศัพท์สำคัญที่ตั้งใจเน้น')"><span
+                      class="ex-letter">B</span>To show that the word is a spelling mistake.</button>
+                  <button class="ex-opt"
+                    onclick="checkModularAnswer('ex-tf-5', 2, false, '❌ ไม่ถูกต้อง: การจัดหน้าไม่ใช่เหตุผลหลักที่ทำให้คำถูกทำตัวหนา — เหตุผลหลักคือความสำคัญของคำนั้น')"><span
+                      class="ex-letter">C</span>Just to fill extra space on the page.</button>
+                </div>
+                <div class="ex-feedback" id="ex-tf-5-fb"></div>
+              </div>
+
+              <!-- Mini Exercise 1.6 -->
+              <div class="exercise-box" id="ex-tf-6" style="margin-top:18px;">
+                <h4>✏️ Mini Exercise 1.6: เลือก Text Feature ที่เหมาะกับสถานการณ์</h4>
+                <p style="font-size:.9rem;font-weight:600;margin-bottom:12px;">Q: You want to quickly find the exact
+                  page where an article discusses "renewable energy," inside a 40-page textbook chapter. Which text
+                  feature should you check first?</p>
+                <div class="ex-options">
+                  <button class="ex-opt"
+                    onclick="checkModularAnswer('ex-tf-6', 0, false, '❌ ไม่ถูกต้อง: Caption อธิบายรูปภาพเดี่ยวๆ ไม่ได้ช่วยหาเลขหน้าของหัวข้อทั้งบท')"><span
+                      class="ex-letter">A</span>The caption under one picture.</button>
+                  <button class="ex-opt"
+                    onclick="checkModularAnswer('ex-tf-6', 1, true, '✅ ถูกต้อง! (Correct): Index (ดัชนีท้ายเล่ม) รวบรวมคำสำคัญเรียงตามตัวอักษรพร้อมเลขหน้า เหมาะที่สุดสำหรับการหาหัวข้อเฉพาะในหนังสือเล่มยาว')"><span
+                      class="ex-letter">B</span>The Index at the back of the book.</button>
+                  <button class="ex-opt"
+                    onclick="checkModularAnswer('ex-tf-6', 2, false, '❌ ไม่ถูกต้อง: Footnote ให้ข้อมูลอ้างอิงของประโยคเดียว ไม่ได้ช่วยค้นหาตำแหน่งหัวข้อในหนังสือทั้งเล่ม')"><span
+                      class="ex-letter">C</span>A footnote at the bottom of a random page.</button>
+                </div>
+                <div class="ex-feedback" id="ex-tf-6-fb"></div>
+              </div>
             </div>
 
             <!-- ═══ TOPIC 1 PRACTICE PASSAGE ═══ -->
@@ -7213,6 +7256,68 @@
                 </div>
                 <div class="ex-feedback" id="ex-voc-3-fb"></div>
               </div>
+
+              <div class="exercise-box" id="ex-voc-4" style="margin-top:18px;">
+                <h4>✏️ Mini Exercise 6.4: Context Clue เดาความหมาย</h4>
+                <div class="example-para">
+                  <em>"The old bridge was so <strong>dilapidated</strong> that the city closed it to traffic —
+                    boards were missing from the walkway, the metal railings were rusted through, and one whole
+                    section had collapsed into the river."</em>
+                </div>
+                <p style="font-size:.9rem;font-weight:600;margin-bottom:12px;">Q: Based on the context clues, what
+                  does <strong>dilapidated</strong> most likely mean?</p>
+                <div class="ex-options">
+                  <button class="ex-opt"
+                    onclick="checkModularAnswer('ex-voc-4', 0, true, '✅ ถูกต้อง! (Correct): คำใบ้ &quot;boards missing, railings rusted, section collapsed&quot; ทั้งหมดชี้ไปที่สภาพทรุดโทรม/พังเสียหาย')"><span
+                      class="ex-letter">A</span>In a very poor, broken-down condition.</button>
+                  <button class="ex-opt"
+                    onclick="checkModularAnswer('ex-voc-4', 1, false, '❌ ไม่ถูกต้อง: ถ้าสะพานใหม่เอี่ยม เมืองคงไม่ต้องปิดไม่ให้รถผ่าน — คำใบ้ทั้งหมดชี้ไปทางตรงข้าม')"><span
+                      class="ex-letter">B</span>Brand new and recently built.</button>
+                  <button class="ex-opt"
+                    onclick="checkModularAnswer('ex-voc-4', 2, false, '❌ ไม่ถูกต้อง: ไม่มีคำใบ้ใดเกี่ยวกับสีสัน มีแต่คำใบ้เกี่ยวกับความเสียหายทางโครงสร้าง')"><span
+                      class="ex-letter">C</span>Painted a bright new color.</button>
+                </div>
+                <div class="ex-feedback" id="ex-voc-4-fb"></div>
+              </div>
+
+              <div class="exercise-box" id="ex-voc-5" style="margin-top:18px;">
+                <h4>✏️ Mini Exercise 6.5: เติมคำศัพท์ในประโยค</h4>
+                <p style="font-size:.9rem;font-weight:600;margin-bottom:12px;">"A good reader does not read every
+                  word of a long report. Instead, they ________ specific numbers or names quickly by moving their
+                  eyes down the page looking only for that one piece of information."</p>
+                <div class="ex-options">
+                  <button class="ex-opt"
+                    onclick="checkModularAnswer('ex-voc-5', 0, false, '❌ ไม่ถูกต้อง: Preview คือการดูภาพรวมก่อนเริ่มอ่าน ไม่ใช่การหาข้อมูลเฉพาะเจาะจงระหว่างอ่าน')"><span
+                      class="ex-letter">A</span>preview</button>
+                  <button class="ex-opt"
+                    onclick="checkModularAnswer('ex-voc-5', 1, true, '✅ ถูกต้อง! (Correct): Scan หมายถึงการกวาดสายตาหาข้อมูลเฉพาะเจาะจง (ตัวเลข ชื่อ) อย่างรวดเร็ว ตรงกับคำอธิบายในโจทย์')"><span
+                      class="ex-letter">B</span>scan</button>
+                  <button class="ex-opt"
+                    onclick="checkModularAnswer('ex-voc-5', 2, false, '❌ ไม่ถูกต้อง: Memorize คือการท่องจำทุกคำ ซึ่งช้ากว่าและไม่ตรงกับ &quot;moving their eyes down the page looking for one piece of information&quot;')"><span
+                      class="ex-letter">C</span>memorize</button>
+                </div>
+                <div class="ex-feedback" id="ex-voc-5-fb"></div>
+              </div>
+
+              <div class="exercise-box" id="ex-voc-6" style="margin-top:18px;">
+                <h4>✏️ Mini Exercise 6.6: เลือกคำศัพท์ที่เหมาะกับความหมาย</h4>
+                <p style="font-size:.9rem;font-weight:600;margin-bottom:12px;">Q: "Every paragraph has one central
+                  point, but it also has smaller pieces of evidence — facts, statistics, or short examples — that
+                  explain and prove that central point." Which vocabulary word describes those smaller pieces of
+                  evidence?</p>
+                <div class="ex-options">
+                  <button class="ex-opt"
+                    onclick="checkModularAnswer('ex-voc-6', 0, false, '❌ ไม่ถูกต้อง: Main Idea คือใจความหลักของทั้งย่อหน้า ไม่ใช่หลักฐานย่อยที่มาสนับสนุน')"><span
+                      class="ex-letter">A</span>main idea</button>
+                  <button class="ex-opt"
+                    onclick="checkModularAnswer('ex-voc-6', 1, true, '✅ ถูกต้อง! (Correct): &quot;facts, statistics, or short examples that explain and prove&quot; ตรงกับนิยามของ Supporting Detail')"><span
+                      class="ex-letter">B</span>supporting detail</button>
+                  <button class="ex-opt"
+                    onclick="checkModularAnswer('ex-voc-6', 2, false, '❌ ไม่ถูกต้อง: Text Feature หมายถึงส่วนประกอบของหน้ากระดาษ (หัวข้อ, รูปภาพ) ไม่ใช่หลักฐานภายในย่อหน้า')"><span
+                      class="ex-letter">C</span>text feature</button>
+                </div>
+                <div class="ex-feedback" id="ex-voc-6-fb"></div>
+              </div>
             </div>
 
             <!-- ═══ TOPIC 2 PRACTICE PASSAGE ═══ -->
@@ -8067,6 +8172,26 @@
             </div>
             <div class="ex-feedback" id="ex-u1rev-2-fb"></div>
           </div>
+
+          <div class="sc-question">
+            <div class="sc-q-text">🎁 ข้อทบทวนพิเศษ 3 (ไม่มีคะแนน — Ungraded Bonus Review): อ่านย่อหน้า
+              <em>"Coffee shops near the university are always full between 8 AM and 10 AM. Many students buy
+              coffee there before their morning classes because it is faster than making coffee at home."</em>
+              ข้อใดคือ Main Idea ที่ถูกต้องที่สุดของย่อหน้านี้?</div>
+            <div class="ex-options" id="ex-u1rev-3">
+              <button class="ex-opt"
+                onclick="checkModularAnswer('ex-u1rev-3',0,true,'✅ ถูกต้อง! (Correct): ประโยคนี้ครอบคลุมทั้งข้อสังเกต (ร้านเต็มช่วงเช้า) และเหตุผล (สะดวกกว่าชงเองที่บ้าน) ซึ่งเป็นแก่นของย่อหน้า')"><span
+                  class="ex-letter">A</span>Coffee shops near the university are busiest in the morning because
+                buying coffee there is more convenient than making it at home.</button>
+              <button class="ex-opt"
+                onclick="checkModularAnswer('ex-u1rev-3',1,false,'❌ แคบเกินไป (Minor Detail): ช่วงเวลา 8-10 โมงเช้าเป็นแค่รายละเอียดหนึ่ง ไม่ใช่ใจความหลักทั้งหมด')"><span
+                  class="ex-letter">B</span>Coffee shops are open from 8 AM to 10 AM.</button>
+              <button class="ex-opt"
+                onclick="checkModularAnswer('ex-u1rev-3',2,false,'❌ กว้างเกินไป / นอกเรื่อง: ย่อหน้านี้ไม่ได้พูดถึงคุณภาพกาแฟเลย')"><span
+                  class="ex-letter">C</span>University coffee shops serve the best-tasting coffee in town.</button>
+            </div>
+            <div class="ex-feedback" id="ex-u1rev-3-fb"></div>
+          </div>
         </div>
 
         <!-- Part 2: Scoring Rubrics Table Flow Card -->
@@ -8841,6 +8966,44 @@
           </div>
           <div class="ex-feedback" id="ex-u2t2-5-fb"></div>
         </div>
+
+        <div class="exercise-box" id="ex-u2t2-6" style="margin-top:14px;">
+          <h4>✏️ Mini Exercise 2.6: Scanning for a Date</h4>
+          <p style="font-size:.9rem;font-weight:600;margin-bottom:12px;">Q: Your assignment requires you to find the
+            exact date a new library policy started, inside a 5-page announcement. What is the most efficient way
+            to find it?</p>
+          <div class="ex-options">
+            <button class="ex-opt"
+              onclick="checkModularAnswer('ex-u2t2-6',0,true,'✅ ถูกต้อง! วันที่คือข้อมูลเฉพาะเจาะจง (specific detail) — Scanning ด้วยการกวาดหาตัวเลขหรือรูปแบบวันที่คือวิธีที่เร็วที่สุด')"><span
+                class="ex-letter">A</span>Scan the pages quickly, looking only for a date pattern (day, month, year).</button>
+            <button class="ex-opt"
+              onclick="checkModularAnswer('ex-u2t2-6',1,false,'❌ Skimming ให้แค่ภาพรวมทั่วไป แต่ไม่ได้ออกแบบมาเพื่อจับตัวเลขวันที่แม่นยำ')"><span
+                class="ex-letter">B</span>Skim each page once to get the general idea of the announcement.</button>
+            <button class="ex-opt"
+              onclick="checkModularAnswer('ex-u2t2-6',2,false,'❌ การอ่านทุกคำ 5 หน้าเสียเวลามากเกินไปเมื่อต้องการแค่ข้อมูลเดียว')"><span
+                class="ex-letter">C</span>Read every word of all 5 pages carefully.</button>
+          </div>
+          <div class="ex-feedback" id="ex-u2t2-6-fb"></div>
+        </div>
+
+        <div class="exercise-box" id="ex-u2t2-7" style="margin-top:14px;">
+          <h4>✏️ Mini Exercise 2.7: Skimming for Overall Purpose</h4>
+          <p style="font-size:.9rem;font-weight:600;margin-bottom:12px;">Q: You pick up a magazine article and want
+            to know, in about 30 seconds, whether it argues <em>for</em> or <em>against</em> a new city policy —
+            not the specific facts, just the author's overall stance. Which strategy fits best?</p>
+          <div class="ex-options">
+            <button class="ex-opt"
+              onclick="checkModularAnswer('ex-u2t2-7',0,true,'✅ ถูกต้อง! การหา &quot;จุดยืนโดยรวม&quot; ของผู้เขียนอย่างรวดเร็ว คือเป้าหมายของ Skimming — อ่าน Topic Sentence ของแต่ละย่อหน้าก็เพียงพอ')"><span
+                class="ex-letter">A</span>Skim the topic sentence of each paragraph to catch the author's overall stance.</button>
+            <button class="ex-opt"
+              onclick="checkModularAnswer('ex-u2t2-7',1,false,'❌ Scanning เหมาะกับการหาข้อมูลเจาะจง (ตัวเลข/ชื่อ) ไม่ใช่การจับจุดยืนโดยรวมของผู้เขียน')"><span
+                class="ex-letter">B</span>Scan for every number mentioned in the article.</button>
+            <button class="ex-opt"
+              onclick="checkModularAnswer('ex-u2t2-7',2,false,'❌ การท่องจำทุกประโยคใช้เวลานานเกินไปสำหรับเป้าหมายแค่ 30 วินาที')"><span
+                class="ex-letter">C</span>Memorize every sentence word-for-word.</button>
+          </div>
+          <div class="ex-feedback" id="ex-u2t2-7-fb"></div>
+        </div>
         </div>
       </div>
     </div>
@@ -9110,6 +9273,44 @@
           </div>
           <div class="ex-feedback" id="ex-u2t3-7-fb"></div>
         </div>
+
+        <div class="exercise-box" id="ex-u2t3-8" style="margin-top:14px;">
+          <h4>✏️ Mini Exercise 3.8: Signal Word Recognition</h4>
+          <p style="font-size:.9rem;font-weight:600;margin-bottom:12px;">Q: "Bangkok has a large, fast-paced public
+            transit system with BTS and MRT lines, <strong>whereas</strong> Buriram relies mainly on songthaews and
+            motorcycle taxis." Which relationship does <strong>whereas</strong> signal here?</p>
+          <div class="ex-options">
+            <button class="ex-opt"
+              onclick="checkModularAnswer('ex-u2t3-8',0,false,'❌ ไม่ถูกต้อง: ไม่มีคำเชื่อมเชิงเหตุ-ผลอย่าง &quot;because&quot; หรือ &quot;therefore&quot; ในประโยคนี้')"><span
+                class="ex-letter">A</span>Cause–Effect.</button>
+            <button class="ex-opt"
+              onclick="checkModularAnswer('ex-u2t3-8',1,true,'✅ ถูกต้อง! &quot;Whereas&quot; เป็นคำเชื่อมกลุ่ม Contrast ที่ใช้เปรียบเทียบความแตกต่างระหว่างสองสิ่ง (ระบบขนส่งกรุงเทพฯ vs บุรีรัมย์)')"><span
+                class="ex-letter">B</span>Compare–Contrast.</button>
+            <button class="ex-opt"
+              onclick="checkModularAnswer('ex-u2t3-8',2,false,'❌ ไม่ถูกต้อง: ประโยคนี้ไม่ได้เรียงลำดับขั้นตอนตามเวลา')"><span
+                class="ex-letter">C</span>Sequence.</button>
+          </div>
+          <div class="ex-feedback" id="ex-u2t3-8-fb"></div>
+        </div>
+
+        <div class="exercise-box" id="ex-u2t3-9" style="margin-top:14px;">
+          <h4>✏️ Mini Exercise 3.9: Sequence Signal Words</h4>
+          <p style="font-size:.9rem;font-weight:600;margin-bottom:12px;">Q: "<strong>First</strong>, soak the rice
+            overnight. <strong>Then</strong>, steam it for 25 minutes. <strong>Finally</strong>, let it rest for
+            5 minutes before serving." Which relationship do the bolded words signal?</p>
+          <div class="ex-options">
+            <button class="ex-opt"
+              onclick="checkModularAnswer('ex-u2t3-9',0,false,'❌ ไม่ถูกต้อง: ไม่มีการเปรียบเทียบสองสิ่งที่แตกต่างกันในย่อหน้านี้')"><span
+                class="ex-letter">A</span>Compare–Contrast.</button>
+            <button class="ex-opt"
+              onclick="checkModularAnswer('ex-u2t3-9',1,true,'✅ ถูกต้อง! &quot;First, Then, Finally&quot; เป็นคำเชื่อมกลุ่ม Sequence ที่บอกลำดับขั้นตอนตามเวลาอย่างชัดเจน')"><span
+                class="ex-letter">B</span>Sequence.</button>
+            <button class="ex-opt"
+              onclick="checkModularAnswer('ex-u2t3-9',2,false,'❌ ไม่ถูกต้อง: ไม่มีสาเหตุ-ผลใดเกิดขึ้น เป็นแค่ขั้นตอนการทำอาหารเรียงตามลำดับ')"><span
+                class="ex-letter">C</span>Cause–Effect.</button>
+          </div>
+          <div class="ex-feedback" id="ex-u2t3-9-fb"></div>
+        </div>
         </div>
       </div>
     </div>
@@ -9264,6 +9465,24 @@
               </div>
               <div class="ex-feedback" id="ex-pB1-3-fb"></div>
             </div>
+
+            <div class="exercise-box" id="ex-pB1-4" style="margin-top:14px;">
+              <h4>✏️ ข้อ B1.4: Skimming Application</h4>
+              <p style="font-size:.9rem;font-weight:600;margin-bottom:12px;">Q: If you only had 15 seconds to figure
+                out what this passage is generally about, which strategy would work best?</p>
+              <div class="ex-options">
+                <button class="ex-opt"
+                  onclick="checkModularAnswer('ex-pB1-4',0,true,'✅ ถูกต้อง! Skimming ประโยคแรกของแต่ละย่อหน้าคือวิธีที่เร็วที่สุดในการจับใจความหลักโดยไม่ต้องอ่านทุกคำ')"><span
+                    class="ex-letter">A</span>Skimming — read only the first sentence of each paragraph.</button>
+                <button class="ex-opt"
+                  onclick="checkModularAnswer('ex-pB1-4',1,false,'❌ ไม่ถูกต้อง: การอ่านทุกคำอย่างละเอียดใช้เวลานานเกินไปสำหรับเป้าหมาย 15 วินาที')"><span
+                    class="ex-letter">B</span>Reading every word slowly from beginning to end.</button>
+                <button class="ex-opt"
+                  onclick="checkModularAnswer('ex-pB1-4',2,false,'❌ ไม่ถูกต้อง: การหาชื่อเฉพาะเจาะจง (Scanning) ไม่ได้บอกใจความหลักโดยรวมของทั้งย่อหน้า')"><span
+                    class="ex-letter">C</span>Scanning for one specific proper noun only.</button>
+              </div>
+              <div class="ex-feedback" id="ex-pB1-4-fb"></div>
+            </div>
           </div>
         </div>
 
@@ -9366,6 +9585,26 @@
                   face challenges.</button>
               </div>
               <div class="ex-feedback" id="ex-pB2-3-fb"></div>
+            </div>
+
+            <div class="exercise-box" id="ex-pB2-4" style="margin-top:14px;">
+              <h4>✏️ ข้อ B2.4: Relationship Between Ideas</h4>
+              <p style="font-size:.9rem;font-weight:600;margin-bottom:12px;">Q: The passage describes street food as
+                both affordable for customers <strong>and</strong> a source of income for vendors. What relationship
+                does this show?</p>
+              <div class="ex-options">
+                <button class="ex-opt"
+                  onclick="checkModularAnswer('ex-pB2-4',0,false,'❌ ไม่ถูกต้อง: นี่ไม่ใช่การเรียงลำดับเหตุการณ์ตามเวลา')"><span
+                    class="ex-letter">A</span>Sequence — one event happening after another.</button>
+                <button class="ex-opt"
+                  onclick="checkModularAnswer('ex-pB2-4',1,true,'✅ ถูกต้อง! การนำเสนอสองมุมมอง (ผู้ซื้อได้ราคาถูก + ผู้ขายได้รายได้) พร้อมกันในลักษณะสองด้านของเรื่องเดียวกัน คือ Compare–Contrast')"><span
+                    class="ex-letter">B</span>Compare–Contrast — showing two sides (buyers and sellers) of the same
+                  situation.</button>
+                <button class="ex-opt"
+                  onclick="checkModularAnswer('ex-pB2-4',2,false,'❌ ไม่ถูกต้อง: ไม่มีคำเชื่อมเชิงเหตุ-ผลอย่าง &quot;because&quot; หรือ &quot;as a result&quot; ในส่วนนี้')"><span
+                    class="ex-letter">C</span>Cause–Effect — one thing directly causing the other.</button>
+              </div>
+              <div class="ex-feedback" id="ex-pB2-4-fb"></div>
             </div>
           </div>
         </div>
@@ -9474,6 +9713,25 @@
                     class="ex-letter">C</span>Compare–Contrast</button>
               </div>
               <div class="ex-feedback" id="ex-pB3-3-fb"></div>
+            </div>
+
+            <div class="exercise-box" id="ex-pB3-4" style="margin-top:14px;">
+              <h4>✏️ ข้อ B3.4: Main Idea vs. Supporting Detail</h4>
+              <p style="font-size:.9rem;font-weight:600;margin-bottom:12px;">Q: Which of the following would be the
+                <strong>best one-sentence summary</strong> of the whole passage?</p>
+              <div class="ex-options">
+                <button class="ex-opt"
+                  onclick="checkModularAnswer('ex-pB3-4',0,false,'❌ แคบเกินไป: กล่าวถึงแค่สัตว์ทะเลกินไมโครพลาสติก แต่ไม่ครอบคลุมผลกระทบต่อมนุษย์ที่บทความพูดถึงด้วย')"><span
+                    class="ex-letter">A</span>Small marine animals eat microplastics found in the ocean.</button>
+                <button class="ex-opt"
+                  onclick="checkModularAnswer('ex-pB3-4',1,true,'✅ ถูกต้อง! ประโยคนี้ครอบคลุมทั้งห่วงโซ่เหตุ-ผลตลอดบทความ ตั้งแต่พลาสติกในทะเลไปจนถึงผลกระทบต่อสุขภาพมนุษย์')"><span
+                    class="ex-letter">B</span>Microplastics move through the ocean food chain and may eventually
+                  affect human health.</button>
+                <button class="ex-opt"
+                  onclick="checkModularAnswer('ex-pB3-4',2,false,'❌ กว้างเกินไป / นอกเรื่อง: บทความนี้ไม่ได้พูดถึงวิธีการรีไซเคิลขวดพลาสติกโดยเฉพาะ')"><span
+                    class="ex-letter">C</span>People should recycle more plastic bottles at home.</button>
+              </div>
+              <div class="ex-feedback" id="ex-pB3-4-fb"></div>
             </div>
           </div>
         </div>
@@ -9639,6 +9897,50 @@
             </div>
             <div class="ex-feedback" id="scan-box-5-fb"></div>
             <button class="hl-btn" onclick="resetScanTask(5, 10)" style="margin-top:8px;color:var(--muted);">↺
+              Reset</button>
+          </div>
+
+          <!-- Scan Question 6 -->
+          <div class="exercise-box" id="scan-box-6" style="margin-top:16px;">
+            <h4>⏱️ Scan Q6 <span class="scan-timer-display" id="scan-timer-6">⏱ 12s</span></h4>
+            <p style="font-size:.9rem;font-weight:600;margin-bottom:12px;">Q: How many new computers were added to the digital media corner?</p>
+            <button class="hl-btn" id="scan-start-6" onclick="startScanTask(6, 12)" style="margin-bottom:10px;">▶
+              เริ่มจับเวลา (12 วินาที)</button>
+            <div class="ex-options">
+              <button class="ex-opt" disabled
+                onclick="checkScanAnswer(6,'scan-box-6',0,false,'❌ ไม่ถูกต้อง: ลองสแกนหาคำว่า &quot;computers&quot; อีกครั้ง')"><span
+                  class="ex-letter">A</span>10 computers</button>
+              <button class="ex-opt" disabled
+                onclick="checkScanAnswer(6,'scan-box-6',1,true,'✅ ถูกต้อง! มุมสื่อดิจิทัลใหม่มีคอมพิวเตอร์ 20 เครื่อง')"><span
+                  class="ex-letter">B</span>20 computers</button>
+              <button class="ex-opt" disabled
+                onclick="checkScanAnswer(6,'scan-box-6',2,false,'❌ ไม่ถูกต้อง: ตัวเลข 35 คือเปอร์เซ็นต์ผู้ใช้บริการที่เพิ่มขึ้น ไม่ใช่จำนวนคอมพิวเตอร์')"><span
+                  class="ex-letter">C</span>35 computers</button>
+            </div>
+            <div class="ex-feedback" id="scan-box-6-fb"></div>
+            <button class="hl-btn" onclick="resetScanTask(6, 12)" style="margin-top:8px;color:var(--muted);">↺
+              Reset</button>
+          </div>
+
+          <!-- Scan Question 7 -->
+          <div class="exercise-box" id="scan-box-7" style="margin-top:16px;">
+            <h4>⏱️ Scan Q7 <span class="scan-timer-display" id="scan-timer-7">⏱ 10s</span></h4>
+            <p style="font-size:.9rem;font-weight:600;margin-bottom:12px;">Q: How long did the renovation take to complete?</p>
+            <button class="hl-btn" id="scan-start-7" onclick="startScanTask(7, 10)" style="margin-bottom:10px;">▶
+              เริ่มจับเวลา (10 วินาที)</button>
+            <div class="ex-options">
+              <button class="ex-opt" disabled
+                onclick="checkScanAnswer(7,'scan-box-7',0,false,'❌ ไม่ถูกต้อง: ลองสแกนหาคำว่า &quot;completed after&quot; อีกครั้ง')"><span
+                  class="ex-letter">A</span>Three months</button>
+              <button class="ex-opt" disabled
+                onclick="checkScanAnswer(7,'scan-box-7',1,true,'✅ ถูกต้อง! บทความระบุว่าโครงการเสร็จสิ้นหลังผ่านไป 5 เดือน')"><span
+                  class="ex-letter">B</span>Five months</button>
+              <button class="ex-opt" disabled
+                onclick="checkScanAnswer(7,'scan-box-7',2,false,'❌ ไม่ถูกต้อง: บทความไม่ได้ระบุระยะเวลาหนึ่งปี')"><span
+                  class="ex-letter">C</span>One year</button>
+            </div>
+            <div class="ex-feedback" id="scan-box-7-fb"></div>
+            <button class="hl-btn" onclick="resetScanTask(7, 10)" style="margin-top:8px;color:var(--muted);">↺
               Reset</button>
           </div>
         </div>
@@ -11297,6 +11599,7 @@
         ],
         2: [ // Topic 2: Vocabulary Preview
           { id: 't6-part1', label: 'Key Vocabulary' },
+          { id: 't6-part1b', label: 'Context Clue Examples' },
           { id: 't6-part2', label: 'Vocabulary Practice' },
           { id: 't6-part3', label: 'Reading Practice' }
         ],
@@ -11323,6 +11626,7 @@
           { id: 't7-p5', label: 'Passage 3' }
         ],
         6: [ // Topic 6: Post-Reading & Self-Check
+          { id: 't8-part0', label: 'Reflection Examples' },
           { id: 't8-part1', label: 'Self-Check Quiz' },
           { id: 't8-part2', label: 'Scoring Rubric' }
         ]
