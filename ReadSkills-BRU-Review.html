@@ -4636,6 +4636,133 @@
       font-style: italic;
     }
 
+    /* — Mind Map diagram (Topic Sentence -> Main Idea) — */
+    .dg-mindmap {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 10px;
+    }
+    .dg-mm-center {
+      background: var(--surface2);
+      border: 1.5px solid var(--gold);
+      border-radius: 12px;
+      padding: 8px 20px;
+      font-weight: 700;
+      color: var(--gold2);
+      font-size: .88rem;
+    }
+    .dg-mm-branches {
+      display: flex;
+      gap: 10px;
+      flex-wrap: wrap;
+      justify-content: center;
+    }
+    .dg-mm-branch {
+      border-radius: 10px;
+      padding: 8px 12px;
+      font-size: .78rem;
+      font-weight: 600;
+      border: 1px solid var(--border);
+    }
+    .dg-mm-branch-gold { background: rgba(142,112,181,.15); color: var(--gold2); border-color: rgba(142,112,181,.4); }
+    .dg-mm-branch-teal { background: rgba(91,147,117,.12); color: var(--green); border-color: rgba(91,147,117,.35); }
+    .dg-mm-bottom {
+      background: linear-gradient(135deg, var(--gold), var(--teal));
+      color: #fff;
+      border-radius: 10px;
+      padding: 10px 16px;
+      font-size: .82rem;
+      font-weight: 700;
+      text-align: center;
+    }
+
+    /* — Generic diagram caption note (used under dg-wrap infographics) — */
+    .dg-caption-note {
+      background: var(--surface2);
+      border: 1px solid var(--border);
+      border-radius: 8px;
+      padding: 10px 14px;
+      margin-top: 14px;
+      font-size: .78rem;
+      color: var(--text);
+      line-height: 1.6;
+    }
+
+    /* — Unit 1 Learning Map / Mind Map infographic — */
+    .u1-map {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 10px;
+    }
+    .u1-map-center {
+      background: linear-gradient(135deg, var(--gold), var(--gold2));
+      color: #fff;
+      font-family: 'Sarabun', sans-serif;
+      font-weight: 800;
+      font-size: .95rem;
+      text-align: center;
+      border-radius: 14px;
+      padding: 12px 22px;
+      letter-spacing: .5px;
+      box-shadow: 0 4px 14px rgba(0,0,0,.15);
+    }
+    .u1-map-center span {
+      display: block;
+      font-size: .78rem;
+      font-weight: 600;
+      opacity: .9;
+    }
+    .u1-map-row {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 12px;
+      width: 100%;
+    }
+    @media (max-width: 720px) {
+      .u1-map-row { grid-template-columns: repeat(2, 1fr); }
+    }
+    .u1-map-col {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      text-align: center;
+      gap: 4px;
+    }
+    .u1-map-badge {
+      font-size: .66rem;
+      font-weight: 700;
+      letter-spacing: .5px;
+      padding: 4px 10px;
+      border-radius: 20px;
+      background: rgba(122,94,160,.15);
+      color: var(--gold);
+      border: 1px solid rgba(122,94,160,.35);
+      white-space: nowrap;
+    }
+    .u1-map-badge-teal { background: rgba(91,147,117,.15); color: var(--green); border-color: rgba(91,147,117,.35); }
+    .u1-map-badge-gold { background: rgba(142,112,181,.18); color: var(--gold2); border-color: rgba(142,112,181,.4); }
+    .u1-map-badge-green { background: rgba(91,147,117,.15); color: var(--green); border-color: rgba(91,147,117,.35); }
+    .u1-map-arrow {
+      color: var(--muted);
+      font-size: .9rem;
+    }
+    .u1-map-box {
+      background: var(--surface2);
+      border: 1px solid var(--border);
+      border-radius: 10px;
+      padding: 10px 12px;
+      font-size: .78rem;
+      color: var(--text);
+      width: 100%;
+      min-height: 44px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      line-height: 1.4;
+    }
+
 </style>
 </head>
 
@@ -5318,6 +5445,39 @@
           </div>
         </div>
 
+        <!-- Unit 1 Learning Map / Mind Map Infographic -->
+        <div class="dg-wrap" style="margin-bottom:20px;">
+          <div class="dg-label">🗺️ Unit 1 Learning Map — แผนที่การเรียนรู้</div>
+          <div class="u1-map">
+            <div class="u1-map-center">UNIT 1<br><span>MAIN IDEAS</span></div>
+            <div class="u1-map-row">
+              <div class="u1-map-col">
+                <div class="u1-map-badge u1-map-badge-teal">PRE-READING</div>
+                <div class="u1-map-arrow">↓</div>
+                <div class="u1-map-box">Text Features + Vocabulary</div>
+              </div>
+              <div class="u1-map-col">
+                <div class="u1-map-badge u1-map-badge-gold">WHILE-READING</div>
+                <div class="u1-map-arrow">↓</div>
+                <div class="u1-map-box">Topic Sentence → Main Idea</div>
+              </div>
+              <div class="u1-map-col">
+                <div class="u1-map-badge u1-map-badge-green">POST-READING</div>
+                <div class="u1-map-arrow">↓</div>
+                <div class="u1-map-box">Review → Self-Check</div>
+              </div>
+              <div class="u1-map-col">
+                <div class="u1-map-badge" style="background:rgba(182,104,138,.18);color:var(--teal);border-color:rgba(182,104,138,.4);">READING STRATEGIES</div>
+                <div class="u1-map-arrow">↓</div>
+                <div class="u1-map-box">Preview → Predict → Check</div>
+              </div>
+            </div>
+          </div>
+          <div class="dg-caption-note">💡 <strong>Core message:</strong> Good readers do not start with the first
+            word immediately. They look at clues, make a prediction, read to check it, find the topic sentence, and
+            decide the main idea.</div>
+        </div>
+
         <!-- Unit Progress Card -->
         <div class="unit-progress-card">
           <div class="upc-header">
@@ -5385,9 +5545,9 @@
             </div>
             <div class="usc-title">4. What is the Main Idea?</div>
             <div class="usc-desc">ความแตกต่างระหว่าง Topic (หัวข้อ) กับ Main Idea (ใจความสำคัญ) พร้อม 3
-              คำถามทองคำในการค้นหา</div>
+              คำถามทองคำในการค้นหา และ Mind Map เชื่อมโยง Topic Sentence กับ Main Idea</div>
             <div class="usc-footer">
-              <span>⏱ 15 mins · 5 Mini Exercises</span>
+              <span>⏱ 18 mins · 10 Mini Exercises</span>
               <span class="usc-status" id="u1-stat-4">Start ➔</span>
             </div>
           </div>
@@ -6938,6 +7098,65 @@
                 <div class="ex-feedback" id="ex-mi-5-fb"></div>
               </div>
 
+              <!-- Bonus: Mind Map Quiz — From Topic Sentence to Main Idea -->
+              <div class="dg-wrap" style="margin-top:18px;">
+                <div class="dg-label">🌐 Bonus Mind Map: From Topic Sentence to Main Idea</div>
+                <div class="dg-mindmap">
+                  <div class="dg-mm-center">Paragraph</div>
+                  <div class="dg-mm-branches">
+                    <div class="dg-mm-branch dg-mm-branch-gold">Topic Sentence</div>
+                    <div class="dg-mm-branch dg-mm-branch-teal">Supporting Detail 1</div>
+                    <div class="dg-mm-branch dg-mm-branch-teal">Supporting Detail 2</div>
+                  </div>
+                  <div class="dg-tree-arrow">↓</div>
+                  <div class="dg-mm-bottom">Main Idea = the central point of the whole paragraph</div>
+                </div>
+              </div>
+
+              <div class="exercise-box" id="ex-mi-mindmap-1" style="margin-top:14px;">
+                <h4>🎁 Bonus 1 (Ungraded): What does the topic sentence usually do?</h4>
+                <div class="ex-options">
+                  <button class="ex-opt" onclick="checkModularAnswer('ex-mi-mindmap-1',0,false,'❌ ไม่ถูกต้อง: Topic Sentence ครอบคลุมมากกว่าตัวอย่างเดียว')"><span class="ex-letter">A</span>It gives one small example only.</button>
+                  <button class="ex-opt" onclick="checkModularAnswer('ex-mi-mindmap-1',1,true,'✅ ถูกต้อง! Topic Sentence แนะนำประเด็นหลักของย่อหน้า')"><span class="ex-letter">B</span>It introduces the main point of the paragraph.</button>
+                  <button class="ex-opt" onclick="checkModularAnswer('ex-mi-mindmap-1',2,false,'❌ ไม่ถูกต้อง: ไม่เกี่ยวกับอายุของผู้เขียนเลย')"><span class="ex-letter">C</span>It explains the writer's age.</button>
+                  <button class="ex-opt" onclick="checkModularAnswer('ex-mi-mindmap-1',3,false,'❌ ไม่ถูกต้อง: Topic Sentence ไม่ได้ทวนรายละเอียดทุกอย่างซ้ำ')"><span class="ex-letter">D</span>It repeats every detail.</button>
+                </div>
+                <div class="ex-feedback" id="ex-mi-mindmap-1-fb"></div>
+              </div>
+
+              <div class="exercise-box" id="ex-mi-mindmap-2" style="margin-top:14px;">
+                <h4>🎁 Bonus 2 (Ungraded): What do supporting details do?</h4>
+                <div class="ex-options">
+                  <button class="ex-opt" onclick="checkModularAnswer('ex-mi-mindmap-2',0,true,'✅ ถูกต้อง! รายละเอียดสนับสนุนใช้ขยายความหรืออธิบายประเด็นหลัก')"><span class="ex-letter">A</span>They develop or explain the main point.</button>
+                  <button class="ex-opt" onclick="checkModularAnswer('ex-mi-mindmap-2',1,false,'❌ ไม่ถูกต้อง: รายละเอียดสนับสนุนไม่ได้แทนที่ชื่อเรื่อง')"><span class="ex-letter">B</span>They replace the title.</button>
+                  <button class="ex-opt" onclick="checkModularAnswer('ex-mi-mindmap-2',2,false,'❌ ไม่ถูกต้อง: การเพิ่มรายละเอียดมักทำให้เนื้อหายาวขึ้น ไม่ใช่สั้นลง')"><span class="ex-letter">C</span>They make the text shorter.</button>
+                  <button class="ex-opt" onclick="checkModularAnswer('ex-mi-mindmap-2',3,false,'❌ ไม่ถูกต้อง: รายละเอียดสนับสนุนอยู่ในย่อหน้าเดียวกัน ไม่ใช่บทความอื่น')"><span class="ex-letter">D</span>They always appear in another article.</button>
+                </div>
+                <div class="ex-feedback" id="ex-mi-mindmap-2-fb"></div>
+              </div>
+
+              <div class="exercise-box" id="ex-mi-mindmap-3" style="margin-top:14px;">
+                <h4>🎁 Bonus 3 (Ungraded): What is the main idea?</h4>
+                <div class="ex-options">
+                  <button class="ex-opt" onclick="checkModularAnswer('ex-mi-mindmap-3',0,true,'✅ ถูกต้อง! Main Idea คือใจความสำคัญที่สุดของทั้งย่อหน้า')"><span class="ex-letter">A</span>The most important message of the whole paragraph.</button>
+                  <button class="ex-opt" onclick="checkModularAnswer('ex-mi-mindmap-3',1,false,'❌ ไม่ถูกต้อง: รูปภาพใต้ชื่อเรื่องไม่ใช่ Main Idea')"><span class="ex-letter">B</span>A picture under the title.</button>
+                  <button class="ex-opt" onclick="checkModularAnswer('ex-mi-mindmap-3',2,false,'❌ ไม่ถูกต้อง: คำศัพท์ยากคำเดียวไม่ใช่ Main Idea')"><span class="ex-letter">C</span>One difficult vocabulary word.</button>
+                  <button class="ex-opt" onclick="checkModularAnswer('ex-mi-mindmap-3',3,false,'❌ ไม่ถูกต้อง: เครื่องหมายวรรคตอนสุดท้ายไม่ใช่ Main Idea')"><span class="ex-letter">D</span>The final punctuation mark.</button>
+                </div>
+                <div class="ex-feedback" id="ex-mi-mindmap-3-fb"></div>
+              </div>
+
+              <div class="exercise-box" id="ex-mi-mindmap-4" style="margin-top:14px;">
+                <h4>🎁 Bonus 4 (Ungraded): Which answer is too narrow when writing a main idea?</h4>
+                <div class="ex-options">
+                  <button class="ex-opt" onclick="checkModularAnswer('ex-mi-mindmap-4',0,true,'✅ ถูกต้อง! การเลือกรายละเอียดเล็กๆ เพียงข้อเดียวถือว่าแคบเกินไป (Too Narrow) สำหรับการเป็น Main Idea')"><span class="ex-letter">A</span>Choosing one small detail only.</button>
+                  <button class="ex-opt" onclick="checkModularAnswer('ex-mi-mindmap-4',1,false,'❌ ไม่ถูกต้อง: การเลือกใจความหลักคือสิ่งที่ถูกต้อง ไม่ใช่การแคบเกินไป')"><span class="ex-letter">B</span>Choosing the central message.</button>
+                  <button class="ex-opt" onclick="checkModularAnswer('ex-mi-mindmap-4',2,false,'❌ ไม่ถูกต้อง: การรวมประเด็นหลักกับหลักฐานสนับสนุนคือแนวทางที่ถูกต้อง')"><span class="ex-letter">C</span>Combining the key point with its support.</button>
+                  <button class="ex-opt" onclick="checkModularAnswer('ex-mi-mindmap-4',3,false,'❌ ไม่ถูกต้อง: การดู Topic Sentence ก่อนเป็นขั้นตอนที่ถูกต้อง')"><span class="ex-letter">D</span>Looking at the topic sentence first.</button>
+                </div>
+                <div class="ex-feedback" id="ex-mi-mindmap-4-fb"></div>
+              </div>
+
             <!-- ═══ TOPIC 4 PRACTICE PASSAGE ═══ -->
             <div class="flow-card activity-view" id="t3-part6" style="margin-top:20px;">
               <div class="flow-header">
@@ -8260,6 +8479,78 @@
                   class="ex-letter">C</span>University coffee shops serve the best-tasting coffee in town.</button>
             </div>
             <div class="ex-feedback" id="ex-u1rev-3-fb"></div>
+          </div>
+
+          <div class="sc-question">
+            <div class="sc-q-text">🎁 ข้อทบทวนพิเศษ 4 (ไม่มีคะแนน — Ungraded Bonus Review): Which strategy happens
+              before careful reading?</div>
+            <div class="ex-options" id="ex-u1rev-4">
+              <button class="ex-opt" onclick="checkModularAnswer('ex-u1rev-4',0,true,'✅ ถูกต้อง! Previewing คือการกวาดสายตาดูภาพรวมก่อนอ่านอย่างละเอียด')"><span class="ex-letter">A</span>Previewing</button>
+              <button class="ex-opt" onclick="checkModularAnswer('ex-u1rev-4',1,false,'❌ ไม่ถูกต้อง: การคัดลอกไม่ใช่กลยุทธ์การอ่าน')"><span class="ex-letter">B</span>Copying</button>
+              <button class="ex-opt" onclick="checkModularAnswer('ex-u1rev-4',2,false,'❌ ไม่ถูกต้อง: การแปลทุกคำเป็นการอ่านละเอียด ไม่ใช่การเตรียมตัวก่อนอ่าน')"><span class="ex-letter">C</span>Translating every word</button>
+              <button class="ex-opt" onclick="checkModularAnswer('ex-u1rev-4',3,false,'❌ ไม่ถูกต้อง: การท่องจำทุกประโยคไม่ใช่ขั้นตอนก่อนอ่าน')"><span class="ex-letter">D</span>Memorizing every sentence</button>
+            </div>
+            <div class="ex-feedback" id="ex-u1rev-4-fb"></div>
+          </div>
+
+          <div class="sc-question">
+            <div class="sc-q-text">🎁 ข้อทบทวนพิเศษ 5 (ไม่มีคะแนน — Ungraded Bonus Review): Which clue can help you
+              predict a passage?</div>
+            <div class="ex-options" id="ex-u1rev-5">
+              <button class="ex-opt" onclick="checkModularAnswer('ex-u1rev-5',0,true,'✅ ถูกต้อง! ชื่อเรื่องและรูปภาพเป็นเบาะแสสำคัญสำหรับการทำนาย')"><span class="ex-letter">A</span>Title and picture</button>
+              <button class="ex-opt" onclick="checkModularAnswer('ex-u1rev-5',1,false,'❌ ไม่ถูกต้อง: ตัวเลขสุ่มไม่เกี่ยวข้องกับเนื้อหา')"><span class="ex-letter">B</span>A random number</button>
+              <button class="ex-opt" onclick="checkModularAnswer('ex-u1rev-5',2,false,'❌ ไม่ถูกต้อง: ไอคอนเบราว์เซอร์ไม่เกี่ยวข้องกับเนื้อหาบทความ')"><span class="ex-letter">C</span>The browser icon only</button>
+              <button class="ex-opt" onclick="checkModularAnswer('ex-u1rev-5',3,false,'❌ ไม่ถูกต้อง: สีคีย์บอร์ดไม่เกี่ยวข้องกับเนื้อหาบทความ')"><span class="ex-letter">D</span>The keyboard color</button>
+            </div>
+            <div class="ex-feedback" id="ex-u1rev-5-fb"></div>
+          </div>
+
+          <div class="sc-question">
+            <div class="sc-q-text">🎁 ข้อทบทวนพิเศษ 6 (ไม่มีคะแนน — Ungraded Bonus Review): What is a topic
+              sentence?</div>
+            <div class="ex-options" id="ex-u1rev-6">
+              <button class="ex-opt" onclick="checkModularAnswer('ex-u1rev-6',0,true,'✅ ถูกต้อง! Topic Sentence คือประโยคที่แนะนำประเด็นหลักของย่อหน้า')"><span class="ex-letter">A</span>A sentence that introduces the main point of a paragraph</button>
+              <button class="ex-opt" onclick="checkModularAnswer('ex-u1rev-6',1,false,'❌ ไม่ถูกต้อง: Topic Sentence ครอบคลุมมากกว่าแค่รายละเอียดเล็กๆ')"><span class="ex-letter">B</span>A sentence that gives only one small detail</button>
+              <button class="ex-opt" onclick="checkModularAnswer('ex-u1rev-6',2,false,'❌ ไม่ถูกต้อง: Topic Sentence ไม่จำเป็นต้องอยู่ประโยคสุดท้ายเสมอไป')"><span class="ex-letter">C</span>A sentence that is always the last line</button>
+              <button class="ex-opt" onclick="checkModularAnswer('ex-u1rev-6',3,false,'❌ ไม่ถูกต้อง: Topic Sentence พบได้ในงานเขียนเชิงวิชาการทั่วไป ไม่ใช่แค่ในนิทาน')"><span class="ex-letter">D</span>A sentence that appears only in stories</button>
+            </div>
+            <div class="ex-feedback" id="ex-u1rev-6-fb"></div>
+          </div>
+
+          <div class="sc-question">
+            <div class="sc-q-text">🎁 ข้อทบทวนพิเศษ 7 (ไม่มีคะแนน — Ungraded Bonus Review): What is the best
+              definition of main idea?</div>
+            <div class="ex-options" id="ex-u1rev-7">
+              <button class="ex-opt" onclick="checkModularAnswer('ex-u1rev-7',0,true,'✅ ถูกต้อง! Main Idea คือประเด็นสำคัญที่สุดที่ผู้เขียนต้องการสื่อสาร')"><span class="ex-letter">A</span>The central point the writer wants to communicate</button>
+              <button class="ex-opt" onclick="checkModularAnswer('ex-u1rev-7',1,false,'❌ ไม่ถูกต้อง: ความยาวของประโยคไม่เกี่ยวกับการเป็น Main Idea')"><span class="ex-letter">B</span>The shortest sentence in the paragraph</button>
+              <button class="ex-opt" onclick="checkModularAnswer('ex-u1rev-7',2,false,'❌ ไม่ถูกต้อง: คำศัพท์ยากคำเดียวไม่ใช่ Main Idea')"><span class="ex-letter">C</span>A difficult vocabulary word</button>
+              <button class="ex-opt" onclick="checkModularAnswer('ex-u1rev-7',3,false,'❌ ไม่ถูกต้อง: Topic เป็นแค่หัวข้อกว้างๆ ไม่ใช่ Main Idea ที่สมบูรณ์')"><span class="ex-letter">D</span>The topic only</button>
+            </div>
+            <div class="ex-feedback" id="ex-u1rev-7-fb"></div>
+          </div>
+
+          <div class="sc-question">
+            <div class="sc-q-text">🎁 ข้อทบทวนพิเศษ 8 (ไม่มีคะแนน — Ungraded Bonus Review): Which option is the
+              best supporting detail?</div>
+            <div class="ex-options" id="ex-u1rev-8">
+              <button class="ex-opt" onclick="checkModularAnswer('ex-u1rev-8',0,true,'✅ ถูกต้อง! รายละเอียดสนับสนุนที่ดีต้องอธิบายหรือขยายความประเด็นหลัก')"><span class="ex-letter">A</span>A sentence that explains the main point</button>
+              <button class="ex-opt" onclick="checkModularAnswer('ex-u1rev-8',1,false,'❌ ไม่ถูกต้อง: ชื่อเรื่องไม่ใช่รายละเอียดสนับสนุน')"><span class="ex-letter">B</span>The title of the text</button>
+              <button class="ex-opt" onclick="checkModularAnswer('ex-u1rev-8',2,false,'❌ ไม่ถูกต้อง: ชื่อผู้เขียนไม่ใช่รายละเอียดสนับสนุน')"><span class="ex-letter">C</span>The writer's name</button>
+              <button class="ex-opt" onclick="checkModularAnswer('ex-u1rev-8',3,false,'❌ ไม่ถูกต้อง: สีของหน้ากระดาษไม่ใช่รายละเอียดสนับสนุน')"><span class="ex-letter">D</span>The page color</button>
+            </div>
+            <div class="ex-feedback" id="ex-u1rev-8-fb"></div>
+          </div>
+
+          <div class="sc-question">
+            <div class="sc-q-text">🎁 ข้อทบทวนพิเศษ 9 (ไม่มีคะแนน — Ungraded Bonus Review): What should a reader
+              do after making a prediction?</div>
+            <div class="ex-options" id="ex-u1rev-9">
+              <button class="ex-opt" onclick="checkModularAnswer('ex-u1rev-9',0,true,'✅ ถูกต้อง! ควรตรวจสอบคำทายกับเนื้อหาระหว่างและหลังอ่านเสมอ')"><span class="ex-letter">A</span>Check it while and after reading</button>
+              <button class="ex-opt" onclick="checkModularAnswer('ex-u1rev-9',1,false,'❌ ไม่ถูกต้อง: การเพิกเฉยต่อเนื้อหาทำให้ไม่รู้ว่าคำทายถูกหรือผิด')"><span class="ex-letter">B</span>Ignore the text</button>
+              <button class="ex-opt" onclick="checkModularAnswer('ex-u1rev-9',2,false,'❌ ไม่ถูกต้อง: ผู้อ่านไม่สามารถเปลี่ยนชื่อเรื่องของผู้เขียนได้')"><span class="ex-letter">C</span>Change the title</button>
+              <button class="ex-opt" onclick="checkModularAnswer('ex-u1rev-9',3,false,'❌ ไม่ถูกต้อง: การข้ามบทความไปเลยทำให้ไม่สามารถตรวจสอบคำทายได้')"><span class="ex-letter">D</span>Skip the passage</button>
+            </div>
+            <div class="ex-feedback" id="ex-u1rev-9-fb"></div>
           </div>
         </div>
 
@@ -10368,6 +10659,23 @@
         </p>
       </div>
 
+      <!-- Section 0: Research-backed rationale -->
+      <div class="content-block">
+        <h3>🔬 ทำไมกลยุทธ์นี้ถึงได้ผล? (Why This Strategy Works — Research Note)</h3>
+        <p style="font-size:.84rem;color:var(--text);line-height:1.75;">Reading researchers describe skilled
+          reading as a <strong>schema-based</strong> process: readers understand a new text faster and more deeply
+          when they connect it to knowledge they already have (Anderson &amp; Pearson, 1984). Previewing and
+          predicting are the tools that activate that prior knowledge <em>before</em> you start reading word by
+          word. Grabe and Stoller (2020) also describe strategic reading instruction as moving through
+          <strong>before-, during-, and after-reading</strong> phases — which is exactly the Preview → Predict →
+          Read → Check cycle used throughout this app.</p>
+        <p style="font-size:.8rem;color:var(--muted);line-height:1.7;">นักวิจัยด้านการอ่านอธิบายว่าการอ่านที่มีประสิทธิภาพเป็นกระบวนการแบบ
+          <strong>Schema-based</strong> คือผู้อ่านจะเข้าใจเนื้อหาใหม่ได้เร็วและลึกขึ้น เมื่อเชื่อมโยงกับความรู้เดิมที่มีอยู่แล้ว
+          การ Preview และ Predict คือเครื่องมือที่ช่วยกระตุ้นความรู้เดิมนี้ <em>ก่อน</em> เริ่มอ่านทีละคำ
+          และงานวิจัยของ Grabe &amp; Stoller (2020) ก็อธิบายว่าการสอนกลยุทธ์การอ่านที่ดีจะเคลื่อนผ่าน 3 ช่วง คือ ก่อนอ่าน ระหว่างอ่าน
+          และหลังอ่าน ซึ่งตรงกับวงจร Preview → Predict → Read → Check ที่ใช้ตลอดทั้งแอปนี้</p>
+      </div>
+
       <!-- Section 1: The 4-Step Previewing Strategy -->
       <div class="content-block">
         <h3>🔭 4 ขั้นตอนก่อนอ่าน (T-V-F-K Method)</h3>
@@ -10574,8 +10882,267 @@
           </div>
           <div class="ex-feedback" id="ex-strat-2-fb"></div>
         </div>
+      </div>
 
-        <div style="display:flex;gap:12px;margin-top:20px;flex-wrap:wrap;">
+      <!-- Section 5: Strategy Application Passage -->
+      <div class="content-block">
+        <h3>📄 Strategy Application Passage: Why Short Breaks Can Improve Study Time</h3>
+        <p style="font-size:.84rem;color:var(--muted);line-height:1.7;">ลองใช้ทั้ง Preview และ Predict
+          กับบทความสั้นนี้ก่อนอ่านจริง แล้วตรวจสอบว่าที่ทายไว้ตรงกับเนื้อหาหรือไม่</p>
+
+        <div class="dg-wrap">
+          <div class="dg-label">🔍 Preview Clues (ก่อนอ่าน)</div>
+          <div class="dg-mockarticle">
+            <div class="dg-ma-title">Why Short Breaks Can Improve Study Time<span class="dg-ma-tag">Title</span></div>
+            <div class="dg-ma-heading">A few minutes away from the screen may help students return with better
+              attention.<span class="dg-ma-tag">Heading</span></div>
+            <div class="dg-ma-figure">
+              <svg class="dg-ma-svgphoto" viewBox="0 0 400 130" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Illustration of a student standing and stretching beside a desk">
+                <rect x="0" y="0" width="400" height="130" fill="#EFE6F7"/>
+                <rect x="150" y="70" width="70" height="45" rx="3" fill="#B58ECE" opacity=".5"/>
+                <circle cx="185" cy="35" r="12" fill="#8E70B5"/>
+                <line x1="185" y1="47" x2="185" y2="80" stroke="#8E70B5" stroke-width="5" stroke-linecap="round"/>
+                <line x1="185" y1="55" x2="160" y2="40" stroke="#8E70B5" stroke-width="5" stroke-linecap="round"/>
+                <line x1="185" y1="55" x2="210" y2="40" stroke="#8E70B5" stroke-width="5" stroke-linecap="round"/>
+                <line x1="185" y1="80" x2="170" y2="110" stroke="#8E70B5" stroke-width="5" stroke-linecap="round"/>
+                <line x1="185" y1="80" x2="200" y2="110" stroke="#8E70B5" stroke-width="5" stroke-linecap="round"/>
+              </svg>
+              <div class="dg-ma-figure-note">A student standing and stretching beside a desk</div>
+              <span class="dg-ma-tag">Picture</span>
+            </div>
+            <div class="dg-ma-caption">Caption: A short movement break between study sessions.<span class="dg-ma-tag">Caption</span></div>
+          </div>
+        </div>
+
+        <div class="exercise-box" id="ex-stratapp-predict">
+          <h4>Before Reading — Predict: Based on the title, heading, picture, and caption, what is the best
+            prediction for this text?</h4>
+          <div class="ex-options">
+            <button class="ex-opt" onclick="checkModularAnswer('ex-stratapp-predict',0,true,'✅ ถูกต้อง! Title + Heading + ภาพคนยืดเส้นยืดสาย ทั้งหมดชี้ไปทางเดียวกัน: การพักสั้นๆ ช่วยให้กลับมาโฟกัสได้ดีขึ้น')"><span class="ex-letter">A</span>The text will explain how short breaks can help students focus better while studying.</button>
+            <button class="ex-opt" onclick="checkModularAnswer('ex-stratapp-predict',1,false,'❌ ไม่ถูกต้อง: ไม่มีเบาะแสใดพูดถึงการออกกำลังกายแบบเข้มข้น เบาะแสทั้งหมดพูดถึงการพักสั้นๆ ระหว่างเรียน')"><span class="ex-letter">B</span>The text will explain a full workout routine for athletes.</button>
+            <button class="ex-opt" onclick="checkModularAnswer('ex-stratapp-predict',2,false,'❌ ไม่ถูกต้อง: หัวข้อพูดถึงการพัก ไม่ใช่การนอนหลับตอนกลางคืน')"><span class="ex-letter">C</span>The text will compare sleep habits of different students.</button>
+          </div>
+          <div class="ex-feedback" id="ex-stratapp-predict-fb"></div>
+        </div>
+
+        <div class="example-para" style="margin-top:14px;">Many university students study on laptops for long
+          periods. After some time, they may feel tired or lose focus. A short break can help. Students can stand
+          up, stretch, drink water, or look away from the screen for a few minutes. The break does not need to be
+          long. The goal is to rest the body and mind, then return to the task. However, a short break can become a
+          long distraction if students start watching videos or checking social media. For this reason, students
+          should decide how long the break will be before they stop studying. Short, planned breaks can support
+          attention when they are used carefully.</div>
+
+        <div class="exercise-box" id="ex-stratapp-1" style="margin-top:14px;">
+          <h4>1. What is the topic sentence of this passage?</h4>
+          <div class="ex-options">
+            <button class="ex-opt" onclick="checkModularAnswer('ex-stratapp-1',0,true,'✅ ถูกต้อง! ประโยคนี้เปิดประเด็นกว้างๆ ว่านักศึกษาที่นั่งเรียนกับแล็ปท็อปนานๆ อาจล้า ซึ่งย่อหน้าที่เหลืออธิบายวิธีแก้')"><span class="ex-letter">A</span>Many university students study on laptops for long periods.</button>
+            <button class="ex-opt" onclick="checkModularAnswer('ex-stratapp-1',1,false,'❌ ไม่ถูกต้อง: นี่คือรายละเอียดสนับสนุนที่บอกวิธีการพัก ไม่ใช่ประโยคใจความหลัก')"><span class="ex-letter">B</span>Students can stand up, stretch, drink water, or look away from the screen.</button>
+            <button class="ex-opt" onclick="checkModularAnswer('ex-stratapp-1',2,false,'❌ ไม่ถูกต้อง: นี่คือข้อควรระวังเรื่องโซเชียลมีเดีย เป็นรายละเอียดย่อย ไม่ใช่ประโยคหลัก')"><span class="ex-letter">C</span>A short break can become a long distraction if students check social media.</button>
+          </div>
+          <div class="ex-feedback" id="ex-stratapp-1-fb"></div>
+        </div>
+
+        <div class="exercise-box" id="ex-stratapp-2" style="margin-top:14px;">
+          <h4>2. What is the main idea of this passage?</h4>
+          <div class="ex-options">
+            <button class="ex-opt" onclick="checkModularAnswer('ex-stratapp-2',0,false,'❌ ไม่ถูกต้อง: บทความไม่ได้บอกว่าห้ามใช้แล็ปท็อป แค่บอกว่าควรพักเป็นระยะ')"><span class="ex-letter">A</span>Students should never study on a laptop.</button>
+            <button class="ex-opt" onclick="checkModularAnswer('ex-stratapp-2',1,true,'✅ ถูกต้อง! ครอบคลุมทั้งประโยชน์ของการพักและข้อควรระวัง (ต้องวางแผนเวลา ไม่ปล่อยให้กลายเป็นการเสียเวลา)')"><span class="ex-letter">B</span>Short, planned breaks can help students rest and refocus, but must be managed carefully.</button>
+            <button class="ex-opt" onclick="checkModularAnswer('ex-stratapp-2',2,false,'❌ ไม่ถูกต้อง: นี่แคบเกินไป (Too Narrow) เป็นแค่รายละเอียดหนึ่งไม่ใช่ใจความรวมทั้งย่อหน้า')"><span class="ex-letter">C</span>Drinking water is the most important part of a break.</button>
+          </div>
+          <div class="ex-feedback" id="ex-stratapp-2-fb"></div>
+        </div>
+
+        <div class="exercise-box" id="ex-stratapp-3" style="margin-top:14px;">
+          <h4>3. Check your prediction: was your earlier prediction correct?</h4>
+          <div class="ex-options">
+            <button class="ex-opt" onclick="checkModularAnswer('ex-stratapp-3',0,true,'✅ ถูกต้อง! เนื้อหายืนยันคำทายที่ว่าการพักสั้นๆ ช่วยให้กลับมาโฟกัสได้ดีขึ้น — นี่คือตัวอย่างของวงจร Predict → Read → Confirm')"><span class="ex-letter">A</span>Yes — the passage confirms that short, planned breaks help students rest and return to studying with better focus.</button>
+            <button class="ex-opt" onclick="checkModularAnswer('ex-stratapp-3',1,false,'❌ ไม่ถูกต้อง: เนื้อหาไม่ได้พูดถึงการออกกำลังกายหนักเลย')"><span class="ex-letter">B</span>No — the passage is actually about intense exercise routines.</button>
+          </div>
+          <div class="ex-feedback" id="ex-stratapp-3-fb"></div>
+        </div>
+      </div>
+
+      <!-- Section 6: Prediction Quiz — 5 Items -->
+      <div class="content-block">
+        <h3>🎯 Prediction Quiz — 5 Items (Ungraded Practice)</h3>
+        <p style="font-size:.84rem;color:var(--muted);">ทดสอบทักษะการคาดเดาจากเบาะแส 5 ข้อ</p>
+
+        <div class="exercise-box" id="ex-pred-1">
+          <h4>1. Title: "Why Short Breaks Help You Study." What is the best prediction?</h4>
+          <div class="ex-options">
+            <button class="ex-opt" onclick="checkModularAnswer('ex-pred-1',0,true,'✅ ถูกต้อง! ชื่อเรื่องบอกตรงๆ ว่าเกี่ยวกับประโยชน์ของการพักสั้นๆ ขณะเรียน')"><span class="ex-letter">A</span>The text will explain benefits of short study breaks.</button>
+            <button class="ex-opt" onclick="checkModularAnswer('ex-pred-1',1,false,'❌ ไม่ถูกต้อง: ไม่มีเบาะแสเรื่องเส้นทางรถบัสเลย')"><span class="ex-letter">B</span>The text will explain bus routes.</button>
+            <button class="ex-opt" onclick="checkModularAnswer('ex-pred-1',2,false,'❌ ไม่ถูกต้อง: ชื่อเรื่องไม่เกี่ยวกับเทศกาลเลย')"><span class="ex-letter">C</span>The text will describe a festival.</button>
+            <button class="ex-opt" onclick="checkModularAnswer('ex-pred-1',3,false,'❌ ไม่ถูกต้อง: ชื่อเรื่องไม่เกี่ยวกับการทำอาหารเลย')"><span class="ex-letter">D</span>The text will teach cooking.</button>
+          </div>
+          <div class="ex-feedback" id="ex-pred-1-fb"></div>
+        </div>
+
+        <div class="exercise-box" id="ex-pred-2" style="margin-top:14px;">
+          <h4>2. Which prediction uses evidence?</h4>
+          <div class="ex-options">
+            <button class="ex-opt" onclick="checkModularAnswer('ex-pred-2',0,false,'❌ ไม่ถูกต้อง: การชอบคำตอบไม่ใช่หลักฐานจากเนื้อหา')"><span class="ex-letter">A</span>I choose this because I like the answer.</button>
+            <button class="ex-opt" onclick="checkModularAnswer('ex-pred-2',1,true,'✅ ถูกต้อง! ใช้เบาะแสจริงจาก Heading (&quot;Saving Water&quot;) มาอ้างอิงการทำนาย')"><span class="ex-letter">B</span>The heading says "Saving Water," so I think the text will give ways to reduce water use.</button>
+            <button class="ex-opt" onclick="checkModularAnswer('ex-pred-2',2,false,'❌ ไม่ถูกต้อง: การเดาสุ่มไม่ใช่การทำนายที่มีหลักฐาน')"><span class="ex-letter">C</span>I do not know, so I choose randomly.</button>
+            <button class="ex-opt" onclick="checkModularAnswer('ex-pred-2',3,false,'❌ ไม่ถูกต้อง: สีของหน้ากระดาษไม่เกี่ยวข้องกับเนื้อหาเลย')"><span class="ex-letter">D</span>The page is purple, so the text is about music.</button>
+          </div>
+          <div class="ex-feedback" id="ex-pred-2-fb"></div>
+        </div>
+
+        <div class="exercise-box" id="ex-pred-3" style="margin-top:14px;">
+          <h4>3. What should you do if the text does not support your prediction?</h4>
+          <div class="ex-options">
+            <button class="ex-opt" onclick="checkModularAnswer('ex-pred-3',0,false,'❌ ไม่ถูกต้อง: การยึดติดกับคำทายเดิมทั้งที่ผิดคือกับดักที่ควรหลีกเลี่ยง')"><span class="ex-letter">A</span>Keep the old prediction no matter what.</button>
+            <button class="ex-opt" onclick="checkModularAnswer('ex-pred-3',1,false,'❌ ไม่ถูกต้อง: การหยุดอ่านไม่ช่วยให้เข้าใจเนื้อหาถูกต้อง')"><span class="ex-letter">B</span>Stop reading.</button>
+            <button class="ex-opt" onclick="checkModularAnswer('ex-pred-3',2,true,'✅ ถูกต้อง! นักอ่านที่ดีจะปรับคำทายใหม่ตามหลักฐานที่พบระหว่างอ่าน')"><span class="ex-letter">C</span>Revise your prediction using new information.</button>
+            <button class="ex-opt" onclick="checkModularAnswer('ex-pred-3',3,false,'❌ ไม่ถูกต้อง: ผู้อ่านไม่สามารถเปลี่ยนชื่อเรื่องของผู้เขียนได้')"><span class="ex-letter">D</span>Change the title yourself.</button>
+          </div>
+          <div class="ex-feedback" id="ex-pred-3-fb"></div>
+        </div>
+
+        <div class="exercise-box" id="ex-pred-4" style="margin-top:14px;">
+          <h4>4. Which clue is least useful for predicting content?</h4>
+          <div class="ex-options">
+            <button class="ex-opt" onclick="checkModularAnswer('ex-pred-4',0,false,'❌ ไม่ถูกต้อง: ชื่อเรื่องเป็นเบาะแสที่มีประโยชน์มาก')"><span class="ex-letter">A</span>Title</button>
+            <button class="ex-opt" onclick="checkModularAnswer('ex-pred-4',1,false,'❌ ไม่ถูกต้อง: หัวข้อย่อยเป็นเบาะแสที่มีประโยชน์มาก')"><span class="ex-letter">B</span>Heading</button>
+            <button class="ex-opt" onclick="checkModularAnswer('ex-pred-4',2,false,'❌ ไม่ถูกต้อง: รูปภาพเป็นเบาะแสที่มีประโยชน์มาก')"><span class="ex-letter">C</span>Picture</button>
+            <button class="ex-opt" onclick="checkModularAnswer('ex-pred-4',3,true,'✅ ถูกต้อง! จำนวนตัวอักษรในชื่อผู้เขียนไม่ได้บอกอะไรเกี่ยวกับเนื้อหาเลย')"><span class="ex-letter">D</span>The number of letters in the writer's name</button>
+          </div>
+          <div class="ex-feedback" id="ex-pred-4-fb"></div>
+        </div>
+
+        <div class="exercise-box" id="ex-pred-5" style="margin-top:14px;">
+          <h4>5. Prediction is useful because it _____.</h4>
+          <div class="ex-options">
+            <button class="ex-opt" onclick="checkModularAnswer('ex-pred-5',0,true,'✅ ถูกต้อง! การทำนายช่วยให้ผู้อ่านมีเป้าหมายในการอ่าน และเชื่อมโยงเบาะแสกับความรู้เดิม')"><span class="ex-letter">A</span>gives readers a purpose and connects clues with prior knowledge.</button>
+            <button class="ex-opt" onclick="checkModularAnswer('ex-pred-5',1,false,'❌ ไม่ถูกต้อง: การทำนายไม่ได้รับประกันว่าคำตอบจะถูกเสมอไป')"><span class="ex-letter">B</span>guarantees every answer is correct.</button>
+            <button class="ex-opt" onclick="checkModularAnswer('ex-pred-5',2,false,'❌ ไม่ถูกต้อง: การทำนายไม่ได้แทนที่การอ่านอย่างละเอียด')"><span class="ex-letter">C</span>replaces careful reading.</button>
+            <button class="ex-opt" onclick="checkModularAnswer('ex-pred-5',3,false,'❌ ไม่ถูกต้อง: ผู้อ่านที่ดียังต้องตรวจสอบคำทายกับเนื้อหาเสมอ')"><span class="ex-letter">D</span>means readers never need to check the text.</button>
+          </div>
+          <div class="ex-feedback" id="ex-pred-5-fb"></div>
+        </div>
+      </div>
+
+      <!-- Section 7: Integrated Reading Strategies Quiz — 10 Items -->
+      <div class="content-block">
+        <h3>🧭 Integrated Reading Strategies Quiz — 10 Items (Strategy Quiz)</h3>
+        <p style="font-size:.84rem;color:var(--muted);">แบบทดสอบรวมกลยุทธ์การอ่าน — ทำหลังจากเรียนจบทั้ง Previewing และ
+          Predicting</p>
+
+        <div class="exercise-box" id="ex-irsq-1">
+          <h4>1. What is the main purpose of previewing?</h4>
+          <div class="ex-options">
+            <button class="ex-opt" onclick="checkModularAnswer('ex-irsq-1',0,true,'✅ ถูกต้อง! Previewing ช่วยให้ได้ภาพรวมคร่าวๆ ก่อนอ่านแบบละเอียด')"><span class="ex-letter">A</span>To get an early idea of a text before close reading</button>
+            <button class="ex-opt" onclick="checkModularAnswer('ex-irsq-1',1,false,'❌ ไม่ถูกต้อง: Previewing ไม่ใช่การแปลทุกคำ')"><span class="ex-letter">B</span>To translate every word</button>
+            <button class="ex-opt" onclick="checkModularAnswer('ex-irsq-1',2,false,'❌ ไม่ถูกต้อง: จุดประสงค์ของ Previewing คือช่วยให้อ่านได้ดีขึ้น ไม่ใช่หลีกเลี่ยงการอ่าน')"><span class="ex-letter">C</span>To avoid reading</button>
+            <button class="ex-opt" onclick="checkModularAnswer('ex-irsq-1',3,false,'❌ ไม่ถูกต้อง: ไม่เกี่ยวกับการท่องจำเครื่องหมายวรรคตอน')"><span class="ex-letter">D</span>To memorize punctuation</button>
+          </div>
+          <div class="ex-feedback" id="ex-irsq-1-fb"></div>
+        </div>
+
+        <div class="exercise-box" id="ex-irsq-2" style="margin-top:14px;">
+          <h4>2. Which set contains the most useful previewing clues?</h4>
+          <div class="ex-options">
+            <button class="ex-opt" onclick="checkModularAnswer('ex-irsq-2',0,false,'❌ ไม่ถูกต้อง: เครื่องหมายวรรคตอนไม่ได้บอกเนื้อหา')"><span class="ex-letter">A</span>Commas, periods, and spaces only</button>
+            <button class="ex-opt" onclick="checkModularAnswer('ex-irsq-2',1,true,'✅ ถูกต้อง! Text features เหล่านี้คือเบาะแสหลักในการ Preview')"><span class="ex-letter">B</span>Title, headings, pictures, captions, bold words</button>
+            <button class="ex-opt" onclick="checkModularAnswer('ex-irsq-2',2,false,'❌ ไม่ถูกต้อง: ขนาดไฟล์และแบตเตอรี่ไม่เกี่ยวกับเนื้อหา')"><span class="ex-letter">C</span>File size and battery level</button>
+            <button class="ex-opt" onclick="checkModularAnswer('ex-irsq-2',3,false,'❌ ไม่ถูกต้อง: ปุ่มบนคีย์บอร์ดไม่เกี่ยวกับเนื้อหา')"><span class="ex-letter">D</span>Keyboard letters</button>
+          </div>
+          <div class="ex-feedback" id="ex-irsq-2-fb"></div>
+        </div>
+
+        <div class="exercise-box" id="ex-irsq-3" style="margin-top:14px;">
+          <h4>3. When should a reader make a prediction?</h4>
+          <div class="ex-options">
+            <button class="ex-opt" onclick="checkModularAnswer('ex-irsq-3',0,false,'❌ ไม่ถูกต้อง: การทำนายควรทำก่อนหรือระหว่างอ่าน ไม่ใช่รอจนอ่านจบ')"><span class="ex-letter">A</span>Only after finishing the entire text</button>
+            <button class="ex-opt" onclick="checkModularAnswer('ex-irsq-3',1,false,'❌ ไม่ถูกต้อง: การทำนายเป็นกลยุทธ์ที่มีประโยชน์และควรทำ')"><span class="ex-letter">B</span>Never</button>
+            <button class="ex-opt" onclick="checkModularAnswer('ex-irsq-3',2,true,'✅ ถูกต้อง! การทำนายทำได้ทั้งก่อนและระหว่างอ่าน โดยใช้เบาะแสที่มี')"><span class="ex-letter">C</span>Before or during reading, using available clues</button>
+            <button class="ex-opt" onclick="checkModularAnswer('ex-irsq-3',3,false,'❌ ไม่ถูกต้อง: แม้ไม่มีชื่อเรื่อง ก็ยังทำนายจากเบาะแสอื่นได้')"><span class="ex-letter">D</span>Only when there is no title</button>
+          </div>
+          <div class="ex-feedback" id="ex-irsq-3-fb"></div>
+        </div>
+
+        <div class="exercise-box" id="ex-irsq-4" style="margin-top:14px;">
+          <h4>4. Which prediction is best for the title "Three Ways to Save Water in a Dormitory"?</h4>
+          <div class="ex-options">
+            <button class="ex-opt" onclick="checkModularAnswer('ex-irsq-4',0,false,'❌ ไม่ถูกต้อง: ไม่เกี่ยวกับประวัติศาสตร์โบราณเลย')"><span class="ex-letter">A</span>The text will describe ancient history.</button>
+            <button class="ex-opt" onclick="checkModularAnswer('ex-irsq-4',1,false,'❌ ไม่ถูกต้อง: ไม่เกี่ยวกับกติกาฟุตบอลเลย')"><span class="ex-letter">B</span>The text will explain how to play football.</button>
+            <button class="ex-opt" onclick="checkModularAnswer('ex-irsq-4',2,false,'❌ ไม่ถูกต้อง: ไม่เกี่ยวกับไวยากรณ์ภาษาอังกฤษเลย')"><span class="ex-letter">C</span>The text will list English verb forms.</button>
+            <button class="ex-opt" onclick="checkModularAnswer('ex-irsq-4',3,true,'✅ ถูกต้อง! ชื่อเรื่องบอกตรงๆ ว่าเป็นวิธีประหยัดน้ำในหอพัก')"><span class="ex-letter">D</span>The text will probably give practical methods for using less water in student housing.</button>
+          </div>
+          <div class="ex-feedback" id="ex-irsq-4-fb"></div>
+        </div>
+
+        <div class="exercise-box" id="ex-irsq-5" style="margin-top:14px;">
+          <h4>5. What should a reader do if a prediction is not supported by the text?</h4>
+          <div class="ex-options">
+            <button class="ex-opt" onclick="checkModularAnswer('ex-irsq-5',0,false,'❌ ไม่ถูกต้อง: การหยุดอ่านไม่ช่วยแก้ปัญหา')"><span class="ex-letter">A</span>Stop reading</button>
+            <button class="ex-opt" onclick="checkModularAnswer('ex-irsq-5',1,true,'✅ ถูกต้อง! ควรปรับคำทายใหม่ตามข้อมูลจริงในเนื้อหา')"><span class="ex-letter">B</span>Revise the prediction using new information</button>
+            <button class="ex-opt" onclick="checkModularAnswer('ex-irsq-5',2,false,'❌ ไม่ถูกต้อง: ผู้อ่านไม่สามารถเปลี่ยนชื่อเรื่องของผู้เขียนได้')"><span class="ex-letter">C</span>Change the title</button>
+            <button class="ex-opt" onclick="checkModularAnswer('ex-irsq-5',3,false,'❌ ไม่ถูกต้อง: การยึดติดกับคำทายที่ผิดคือกับดักที่ควรหลีกเลี่ยง')"><span class="ex-letter">D</span>Keep it even when the text shows it is wrong</button>
+          </div>
+          <div class="ex-feedback" id="ex-irsq-5-fb"></div>
+        </div>
+
+        <div class="exercise-box" id="ex-irsq-6" style="margin-top:14px;">
+          <h4>6. In the break-time passage, which clue is available BEFORE reading the paragraph?</h4>
+          <div class="ex-options">
+            <button class="ex-opt" onclick="checkModularAnswer('ex-irsq-6',0,false,'❌ ไม่ถูกต้อง: รายละเอียดสนับสนุนอยู่ในเนื้อหา ต้องอ่านก่อนถึงจะเห็น')"><span class="ex-letter">A</span>Every supporting detail</button>
+            <button class="ex-opt" onclick="checkModularAnswer('ex-irsq-6',1,false,'❌ ไม่ถูกต้อง: ไม่มี &quot;บันทึกลับ&quot; ของผู้เขียนให้เห็นก่อนอ่าน')"><span class="ex-letter">B</span>The writer's hidden notes</button>
+            <button class="ex-opt" onclick="checkModularAnswer('ex-irsq-6',2,true,'✅ ถูกต้อง! ชื่อเรื่องและหัวข้อย่อยเห็นได้ก่อนอ่านเนื้อหาจริงเสมอ')"><span class="ex-letter">C</span>The title and subheading</button>
+            <button class="ex-opt" onclick="checkModularAnswer('ex-irsq-6',3,false,'❌ ไม่ถูกต้อง: ประโยคสุดท้ายต้องอ่านทั้งย่อหน้าก่อนถึงจะเจอ')"><span class="ex-letter">D</span>The final sentence only</button>
+          </div>
+          <div class="ex-feedback" id="ex-irsq-6-fb"></div>
+        </div>
+
+        <div class="exercise-box" id="ex-irsq-7" style="margin-top:14px;">
+          <h4>7. Which prediction is supported by the break-time passage?</h4>
+          <div class="ex-options">
+            <button class="ex-opt" onclick="checkModularAnswer('ex-irsq-7',0,false,'❌ ไม่ถูกต้อง: บทความเตือนว่าการดูวิดีโอยาวๆ ระหว่างพักอาจกลายเป็นการเสียเวลา')"><span class="ex-letter">A</span>Students should watch long videos during every break.</button>
+            <button class="ex-opt" onclick="checkModularAnswer('ex-irsq-7',1,true,'✅ ถูกต้อง! ตรงกับใจความหลักของบทความเรื่องการพักสั้นๆ ที่วางแผนไว้')"><span class="ex-letter">B</span>Planned short breaks may help students return to study with better attention.</button>
+            <button class="ex-opt" onclick="checkModularAnswer('ex-irsq-7',2,false,'❌ ไม่ถูกต้อง: บทความไม่ได้บอกว่าต้องหยุดเรียนหลัง 10 นาที')"><span class="ex-letter">C</span>All study sessions should stop after ten minutes.</button>
+            <button class="ex-opt" onclick="checkModularAnswer('ex-irsq-7',3,false,'❌ ไม่ถูกต้อง: บทความไม่ได้บอกว่าแล็ปท็อปทำให้เรียนรู้แย่ลงเสมอไป')"><span class="ex-letter">D</span>Laptops always cause poor learning.</button>
+          </div>
+          <div class="ex-feedback" id="ex-irsq-7-fb"></div>
+        </div>
+
+        <div class="exercise-box" id="ex-irsq-8" style="margin-top:14px;">
+          <h4>8. Why can social media be a problem during a short study break?</h4>
+          <div class="ex-options">
+            <button class="ex-opt" onclick="checkModularAnswer('ex-irsq-8',0,false,'❌ ไม่ถูกต้อง: ตรงข้ามกัน โซเชียลมีเดียอาจทำให้เสียสมาธิมากขึ้น')"><span class="ex-letter">A</span>It always improves attention.</button>
+            <button class="ex-opt" onclick="checkModularAnswer('ex-irsq-8',1,false,'❌ ไม่ถูกต้อง: ไม่เกี่ยวกับการเปลี่ยนชื่อเรื่องเลย')"><span class="ex-letter">B</span>It changes the title.</button>
+            <button class="ex-opt" onclick="checkModularAnswer('ex-irsq-8',2,false,'❌ ไม่ถูกต้อง: ไม่เกี่ยวกับน้ำหนักแล็ปท็อปเลย')"><span class="ex-letter">C</span>It makes the laptop lighter.</button>
+            <button class="ex-opt" onclick="checkModularAnswer('ex-irsq-8',3,true,'✅ ถูกต้อง! การเช็คโซเชียลมีเดียอาจทำให้การพักสั้นๆ กลายเป็นการเสียเวลานาน')"><span class="ex-letter">D</span>It can turn a short break into a long distraction.</button>
+          </div>
+          <div class="ex-feedback" id="ex-irsq-8-fb"></div>
+        </div>
+
+        <div class="exercise-box" id="ex-irsq-9" style="margin-top:14px;">
+          <h4>9. Which sequence shows strategic reading most accurately?</h4>
+          <div class="ex-options">
+            <button class="ex-opt" onclick="checkModularAnswer('ex-irsq-9',0,false,'❌ ไม่ถูกต้อง: ลำดับนี้ไม่ใช่การอ่านอย่างมีกลยุทธ์')"><span class="ex-letter">A</span>Guess → Stop → Translate → Forget</button>
+            <button class="ex-opt" onclick="checkModularAnswer('ex-irsq-9',1,false,'❌ ไม่ถูกต้อง: ลำดับนี้ไม่ถูกต้องและไม่มีเหตุผล')"><span class="ex-letter">B</span>Read the last word → Predict → Skip</button>
+            <button class="ex-opt" onclick="checkModularAnswer('ex-irsq-9',2,true,'✅ ถูกต้อง! นี่คือวงจรการอ่านอย่างมีกลยุทธ์ที่ถูกต้องตามที่เรียนมาทั้งหมด')"><span class="ex-letter">C</span>Preview → Predict → Read → Check/Revise</button>
+            <button class="ex-opt" onclick="checkModularAnswer('ex-irsq-9',3,false,'❌ ไม่ถูกต้อง: การท่องจำและหลีกเลี่ยงการ Preview ไม่ใช่การอ่านอย่างมีกลยุทธ์')"><span class="ex-letter">D</span>Translate → Memorize → Avoid previewing</button>
+          </div>
+          <div class="ex-feedback" id="ex-irsq-9-fb"></div>
+        </div>
+
+        <div class="exercise-box" id="ex-irsq-10" style="margin-top:14px;">
+          <h4>10. Previewing and predicting are useful because they _____.</h4>
+          <div class="ex-options">
+            <button class="ex-opt" onclick="checkModularAnswer('ex-irsq-10',0,false,'❌ ไม่ถูกต้อง: ไม่มีกลยุทธ์ใดรับประกันว่าคำตอบจะถูกเสมอ')"><span class="ex-letter">A</span>guarantee that every answer will be correct.</button>
+            <button class="ex-opt" onclick="checkModularAnswer('ex-irsq-10',1,false,'❌ ไม่ถูกต้อง: กลยุทธ์เหล่านี้มีประโยชน์กับข้อความทุกระดับความยาก')"><span class="ex-letter">B</span>are only useful for very easy texts.</button>
+            <button class="ex-opt" onclick="checkModularAnswer('ex-irsq-10',2,false,'❌ ไม่ถูกต้อง: กลยุทธ์เหล่านี้ช่วยให้เข้าใจมากขึ้น ไม่ใช่แทนที่ความเข้าใจ')"><span class="ex-letter">C</span>remove the need to understand the passage.</button>
+            <button class="ex-opt" onclick="checkModularAnswer('ex-irsq-10',3,true,'✅ ถูกต้อง! ช่วยเตรียมผู้อ่านให้พร้อมและสร้างจุดมุ่งหมายในการอ่าน')"><span class="ex-letter">D</span>prepare the reader and create a purpose for reading.</button>
+          </div>
+          <div class="ex-feedback" id="ex-irsq-10-fb"></div>
+        </div>
+      </div>
+
+      <div class="content-block">
+        <div style="display:flex;gap:12px;margin-top:4px;flex-wrap:wrap;">
           <button class="action-primary-btn" onclick="openLessonDetail(1)">📖 เข้าสู่บทเรียน Unit 1 เพื่อฝึกปฏิบัติ
             ➔</button>
           <button class="action-primary-btn" onclick="nav('screen-c')"
