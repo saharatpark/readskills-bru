@@ -535,7 +535,13 @@
     }
 
     // Show Activity `activityIndex` of Topic `topicIdx` in `unit`, hide the rest.
-    function openTopicActivity(unit, topicIdx, activityIndex) {
+    // `isInitialOpen` is true only when this call comes from first opening the
+    // Topic (e.g. openLessonTopic/openLessonTopic2 landing on Activity 0) — in
+    // that case, simply landing on the last Activity of a single-Activity Topic
+    // must NOT be treated as having "reached" it, or the Topic would be marked
+    // completed the instant it is opened. Real navigation (stepper clicks,
+    // Prev/Next) always passes isInitialOpen = false.
+    function openTopicActivity(unit, topicIdx, activityIndex, isInitialOpen) {
       const acts = getTopicActivities(unit, topicIdx);
       if (!acts.length) {
         updateActivityNavigation(unit, topicIdx);
@@ -552,20 +558,22 @@
         if (el) el.classList.toggle('active', i === activityIndex);
       });
 
-      markActivityViewed(unit, topicIdx, activityIndex);
+      markActivityViewed(unit, topicIdx, activityIndex, !!isInitialOpen);
       updateActivityNavigation(unit, topicIdx);
     }
 
     // Record that this Activity has been viewed. If it is the Topic's final
-    // required Activity, the Topic is now COMPLETED (not merely opened).
-    function markActivityViewed(unit, topicIdx, activityIndex) {
+    // required Activity AND the student actually navigated to it (rather than
+    // just landing there when the Topic was first opened), the Topic is now
+    // COMPLETED (not merely opened).
+    function markActivityViewed(unit, topicIdx, activityIndex, isInitialOpen) {
       const progress = loadActivityProgress(unit);
       if (!progress[topicIdx]) progress[topicIdx] = [];
       progress[topicIdx][activityIndex] = true;
       saveActivityProgress(unit, progress);
 
       const acts = getTopicActivities(unit, topicIdx);
-      if (activityIndex === acts.length - 1) {
+      if (activityIndex === acts.length - 1 && !isInitialOpen) {
         markActivityCompleted(unit, topicIdx);
       }
     }
@@ -695,7 +703,7 @@
       markTopicOpened(1, topicIdx);
 
       // Load this Topic's Activity Navigation (stepper) at its first Activity.
-      openTopicActivity(1, topicIdx, 0);
+      openTopicActivity(1, topicIdx, 0, true);
 
       window.scrollTo({ top: 0, behavior: 'smooth' });
     }
@@ -835,7 +843,7 @@
       // NOTE: Opening a Topic marks it "viewed / in progress" only — see openLessonTopic() note above.
       markTopicOpened(2, topicIdx);
 
-      openTopicActivity(2, topicIdx, 0);
+      openTopicActivity(2, topicIdx, 0, true);
 
       window.scrollTo({ top: 0, behavior: 'smooth' });
     }
