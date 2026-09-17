@@ -4195,7 +4195,432 @@
       }
     }
 
-</style>
+    /* ═══════════════════════════════════════════════════════
+       INSTRUCTIONAL VISUAL DIAGRAMS (pure HTML/CSS, no images)
+       Added to support: Text Features mock article, Topic
+       Sentence highlighting, Main Idea hierarchy, Supporting
+       Details tree, Cause & Effect, Compare & Contrast,
+       Sequence, and Skimming/Scanning eye-focus diagrams.
+       ═══════════════════════════════════════════════════════ */
+
+    .dg-wrap {
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: 14px;
+      padding: 18px;
+      margin: 16px 0;
+    }
+
+    .dg-label {
+      font-family: 'Sarabun', sans-serif;
+      font-size: .7rem;
+      letter-spacing: 1.5px;
+      text-transform: uppercase;
+      color: var(--teal);
+      margin-bottom: 12px;
+      font-weight: 700;
+    }
+
+    /* — Text Features mock article — */
+    .dg-mockarticle {
+      background: var(--surface2);
+      border: 1px solid var(--border);
+      border-radius: 10px;
+      padding: 16px 18px;
+      font-family: 'Sarabun', sans-serif;
+    }
+    .dg-ma-title {
+      font-size: 1.05rem;
+      font-weight: 800;
+      color: var(--text);
+      background: rgba(122, 94, 160, .18);
+      border-left: 4px solid var(--gold);
+      padding: 6px 10px;
+      border-radius: 0 6px 6px 0;
+      margin-bottom: 10px;
+      position: relative;
+    }
+    .dg-ma-heading {
+      font-size: .88rem;
+      font-weight: 700;
+      color: var(--teal);
+      background: rgba(182, 104, 138, .16);
+      border-left: 4px solid var(--teal);
+      padding: 4px 10px;
+      border-radius: 0 6px 6px 0;
+      margin: 10px 0 8px;
+      position: relative;
+    }
+    .dg-ma-body {
+      font-size: .82rem;
+      color: var(--text);
+      line-height: 1.7;
+      margin-bottom: 10px;
+    }
+    .dg-ma-bold {
+      background: rgba(155, 114, 232, .22);
+      color: #6B4F96;
+      font-weight: 700;
+      padding: 1px 5px;
+      border-radius: 4px;
+      position: relative;
+    }
+    .dg-ma-figure {
+      background: var(--surface3);
+      border: 1px dashed var(--border2);
+      border-radius: 8px;
+      padding: 18px;
+      text-align: center;
+      font-size: 1.4rem;
+      color: var(--muted);
+      margin: 10px 0 4px;
+      position: relative;
+    }
+    .dg-ma-caption {
+      font-size: .74rem;
+      color: var(--muted);
+      font-style: italic;
+      border-left: 3px solid var(--green);
+      padding-left: 8px;
+      margin-bottom: 8px;
+      position: relative;
+    }
+    .dg-ma-tag {
+      position: absolute;
+      top: -9px;
+      right: 8px;
+      background: var(--gold);
+      color: #FBF8FD;
+      font-size: .6rem;
+      font-weight: 700;
+      letter-spacing: .5px;
+      text-transform: uppercase;
+      padding: 2px 7px;
+      border-radius: 8px;
+      white-space: nowrap;
+    }
+    .dg-ma-heading .dg-ma-tag { background: var(--teal); }
+    .dg-ma-bold .dg-ma-tag { background: #6B4F96; top: -20px; right: -4px; }
+    .dg-ma-figure .dg-ma-tag { background: var(--green); }
+    .dg-ma-caption .dg-ma-tag { background: var(--gold2); top: -9px; left: 8px; right: auto; }
+
+    /* — Topic Sentence highlighting-in-paragraph — */
+    .dg-ts-para {
+      background: var(--surface2);
+      border-radius: 10px;
+      padding: 16px 18px;
+      font-size: .88rem;
+      line-height: 2;
+      color: var(--text);
+    }
+    .dg-ts-topic {
+      background: rgba(122, 94, 160, .3);
+      border-bottom: 3px solid var(--gold);
+      padding: 2px 4px;
+      border-radius: 4px;
+      font-weight: 700;
+    }
+    .dg-ts-support {
+      background: rgba(91, 147, 117, .16);
+      border-bottom: 2px dotted var(--green);
+      padding: 1px 3px;
+      border-radius: 4px;
+    }
+    .dg-ts-legend {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 14px;
+      margin-top: 12px;
+      font-size: .74rem;
+      color: var(--muted);
+    }
+    .dg-ts-legend span { display: inline-flex; align-items: center; gap: 6px; }
+    .dg-ts-swatch { width: 14px; height: 14px; border-radius: 3px; display: inline-block; }
+
+    /* — Hierarchy tree (Main Idea; Supporting Details major/minor) — */
+    .dg-tree {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 0;
+    }
+    .dg-tree-node {
+      border-radius: 8px;
+      padding: 8px 16px;
+      font-size: .82rem;
+      font-weight: 700;
+      text-align: center;
+      max-width: 320px;
+    }
+    .dg-tree-node.dg-level-1 {
+      background: rgba(122, 94, 160, .22);
+      border: 1.5px solid var(--gold);
+      color: var(--gold);
+    }
+    .dg-tree-node.dg-level-2 {
+      background: rgba(182, 104, 138, .2);
+      border: 1.5px solid var(--teal);
+      color: var(--teal);
+    }
+    .dg-tree-node.dg-level-3 {
+      background: rgba(91, 147, 117, .18);
+      border: 1.5px solid var(--green);
+      color: var(--green);
+      font-weight: 600;
+      font-size: .76rem;
+    }
+    .dg-tree-arrow {
+      color: var(--border2);
+      font-size: 1.1rem;
+      line-height: 1;
+      margin: 4px 0;
+    }
+    .dg-tree-row {
+      display: flex;
+      justify-content: center;
+      gap: 18px;
+      flex-wrap: wrap;
+      margin-top: 4px;
+    }
+    .dg-tree-branch {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 4px;
+    }
+
+    /* — Major/Minor branching tree (Supporting Details) — */
+    .dg-branchtree {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+    }
+    .dg-bt-root {
+      background: rgba(217, 184, 60, .22);
+      border: 1.5px solid #D9B83C;
+      color: #a5860f;
+      border-radius: 8px;
+      padding: 8px 18px;
+      font-weight: 700;
+      font-size: .84rem;
+      margin-bottom: 6px;
+    }
+    .dg-bt-majors {
+      display: flex;
+      gap: 22px;
+      flex-wrap: wrap;
+      justify-content: center;
+      border-top: 2px solid var(--border2);
+      padding-top: 14px;
+      margin-top: 8px;
+      position: relative;
+    }
+    .dg-bt-major-col {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 6px;
+      min-width: 180px;
+    }
+    .dg-bt-major {
+      background: rgba(91, 147, 117, .2);
+      border: 1.5px solid var(--green);
+      color: var(--green);
+      border-radius: 8px;
+      padding: 6px 14px;
+      font-weight: 700;
+      font-size: .78rem;
+      text-align: center;
+    }
+    .dg-bt-minor {
+      background: rgba(111, 168, 220, .18);
+      border: 1.5px solid #6FA8DC;
+      color: #3f7ab0;
+      border-radius: 6px;
+      padding: 5px 12px;
+      font-size: .72rem;
+      text-align: center;
+    }
+    .dg-bt-minor::before {
+      content: '↳ ';
+      color: #6FA8DC;
+    }
+
+    /* — Cause and Effect arrow diagram — */
+    .dg-causeeffect {
+      display: flex;
+      align-items: stretch;
+      gap: 0;
+      flex-wrap: wrap;
+      justify-content: center;
+    }
+    .dg-ce-box {
+      background: var(--surface2);
+      border-radius: 10px;
+      padding: 14px 18px;
+      min-width: 170px;
+      max-width: 260px;
+      text-align: center;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+    }
+    .dg-ce-box.dg-ce-cause { border: 1.5px solid var(--teal); }
+    .dg-ce-box.dg-ce-effect { border: 1.5px solid var(--gold); }
+    .dg-ce-tag {
+      font-size: .68rem;
+      letter-spacing: 1px;
+      text-transform: uppercase;
+      font-weight: 700;
+      margin-bottom: 6px;
+    }
+    .dg-ce-cause .dg-ce-tag { color: var(--teal); }
+    .dg-ce-effect .dg-ce-tag { color: var(--gold); }
+    .dg-ce-text { font-size: .82rem; color: var(--text); line-height: 1.5; }
+    .dg-ce-arrow {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 1.6rem;
+      color: var(--border2);
+      padding: 0 10px;
+      font-weight: 700;
+    }
+
+    /* — Compare and Contrast two-column diagram — */
+    .dg-comparecontrast {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 14px;
+    }
+    @media (max-width: 560px) {
+      .dg-comparecontrast { grid-template-columns: 1fr; }
+    }
+    .dg-cc-col {
+      border-radius: 10px;
+      padding: 14px 16px;
+    }
+    .dg-cc-col.dg-cc-a { background: rgba(122, 94, 160, .14); border: 1.5px solid var(--gold); }
+    .dg-cc-col.dg-cc-b { background: rgba(182, 104, 138, .14); border: 1.5px solid var(--teal); }
+    .dg-cc-head {
+      font-weight: 700;
+      font-size: .84rem;
+      margin-bottom: 8px;
+      text-align: center;
+    }
+    .dg-cc-a .dg-cc-head { color: var(--gold); }
+    .dg-cc-b .dg-cc-head { color: var(--teal); }
+    .dg-cc-col ul { margin: 0; padding-left: 18px; font-size: .78rem; color: var(--text); line-height: 1.7; }
+    .dg-cc-shared {
+      grid-column: 1 / -1;
+      background: rgba(91, 147, 117, .14);
+      border: 1.5px dashed var(--green);
+      border-radius: 10px;
+      padding: 10px 16px;
+      font-size: .78rem;
+      color: var(--green);
+      text-align: center;
+      font-weight: 600;
+    }
+
+    /* — Sequence timeline arrows — */
+    .dg-sequence {
+      display: flex;
+      align-items: center;
+      flex-wrap: wrap;
+      gap: 0;
+      justify-content: center;
+    }
+    .dg-seq-step {
+      background: var(--surface2);
+      border: 1.5px solid var(--border2);
+      border-radius: 10px;
+      padding: 10px 14px;
+      min-width: 110px;
+      max-width: 160px;
+      text-align: center;
+    }
+    .dg-seq-num {
+      display: inline-block;
+      width: 20px;
+      height: 20px;
+      line-height: 20px;
+      border-radius: 50%;
+      background: var(--gold);
+      color: #FBF8FD;
+      font-size: .68rem;
+      font-weight: 700;
+      margin-bottom: 6px;
+    }
+    .dg-seq-text { font-size: .76rem; color: var(--text); line-height: 1.4; }
+    .dg-seq-arrow {
+      font-size: 1.3rem;
+      color: var(--border2);
+      padding: 0 6px;
+      font-weight: 700;
+    }
+
+    /* — Skimming vs. Scanning eye-focus diagram — */
+    .dg-eyefocus {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 16px;
+    }
+    @media (max-width: 560px) {
+      .dg-eyefocus { grid-template-columns: 1fr; }
+    }
+    .dg-ef-col {
+      border-radius: 10px;
+      padding: 14px 16px;
+      background: var(--surface2);
+    }
+    .dg-ef-col.dg-ef-skim { border: 1.5px solid var(--gold); }
+    .dg-ef-col.dg-ef-scan { border: 1.5px solid var(--teal); }
+    .dg-ef-head {
+      font-weight: 700;
+      font-size: .84rem;
+      margin-bottom: 10px;
+      text-align: center;
+    }
+    .dg-ef-skim .dg-ef-head { color: var(--gold); }
+    .dg-ef-scan .dg-ef-head { color: var(--teal); }
+    .dg-ef-doc {
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: 8px;
+      padding: 10px 12px;
+      font-size: .7rem;
+      line-height: 1.9;
+      color: var(--muted);
+      position: relative;
+    }
+    .dg-ef-focus {
+      display: inline-block;
+      padding: 1px 5px;
+      border-radius: 4px;
+      font-weight: 700;
+    }
+    .dg-ef-skim .dg-ef-focus {
+      background: rgba(122, 94, 160, .3);
+      color: var(--gold);
+    }
+    .dg-ef-scan .dg-ef-focus {
+      background: rgba(182, 104, 138, .32);
+      color: var(--teal);
+    }
+    .dg-ef-eye {
+      font-size: .9rem;
+      margin-right: 2px;
+    }
+    .dg-ef-path {
+      font-size: .68rem;
+      color: var(--muted);
+      margin-top: 8px;
+      text-align: center;
+      font-style: italic;
+    }
+
+  </style>
 </head>
 
 <body>
@@ -4900,9 +5325,9 @@
             </div>
             <div class="usc-title">1. Understanding Text Features</div>
             <div class="usc-desc">ส่วนประกอบของบทความ (Titles, Subheadings, Visuals, Bold Words)
-              และวิธีใช้เป็นเข็มทิศนำทางก่อนอ่าน — รวม Pre-test สั้น ๆ ก่อนเริ่มเรียน</div>
+              และวิธีใช้เป็นเข็มทิศนำทางก่อนอ่าน — รวม Diagnostic Check สั้น ๆ ก่อนเริ่มเรียน</div>
             <div class="usc-footer">
-              <span>⏱ 18 mins · Pre-test · 2 Mini Exercises</span>
+              <span>⏱ 18 mins · Diagnostic Check · 2 Mini Exercises</span>
               <span class="usc-status" id="u1-stat-1">Start ➔</span>
             </div>
           </div>
@@ -5046,25 +5471,25 @@
 
             <!-- Sticky Quick Jump Bar -->
 
-            <!-- Pre-test: Ungraded Diagnostic (per Lesson Plan §6.1.2) -->
+            <!-- Diagnostic Check: Ungraded (per Lesson Plan §6.1.2) -->
             <div class="flow-card activity-view" id="t1-pretest"
               style="background:linear-gradient(135deg,rgba(122,94,160,.08),var(--surface2));border:1.5px dashed rgba(182,104,138,.4);margin-bottom:24px;">
               <div class="flow-header">
                 <span class="flow-step-badge" style="background:rgba(182,104,138,.2);color:#e8a8c4;border:1.5px solid rgba(182,104,138,.4);">🧪</span>
                 <div>
-                  <h4 class="flow-title">Pre-test: ทดสอบความรู้พื้นฐานก่อนเริ่มเรียน</h4>
+                  <h4 class="flow-title">Diagnostic Check: ทดสอบความรู้พื้นฐานก่อนเริ่มเรียน</h4>
                   <p class="flow-desc">แบบทดสอบก่อนเรียนแบบไม่มีคะแนน (Ungraded Diagnostic) — ใช้เช็คพื้นฐานของคุณก่อนเริ่ม Unit 1</p>
                 </div>
               </div>
               <div class="bilingual-block">
                 <div class="bb-en">This short <strong>pre-test is not graded</strong>. It simply helps you (and your
                   instructor) see what you already know about reading strategies before the lesson begins.</div>
-                <div class="bb-th">Pre-test นี้ <strong>ไม่มีการให้คะแนน</strong> เป็นเพียงการเช็คพื้นฐานความรู้ของคุณ
+                <div class="bb-th">Diagnostic Check นี้ <strong>ไม่มีการให้คะแนน</strong> เป็นเพียงการเช็คพื้นฐานความรู้ของคุณ
                   เกี่ยวกับกลยุทธ์การอ่าน ก่อนเริ่มเรียนเนื้อหาใน Unit 1</div>
               </div>
 
               <div class="exercise-box" id="ex-pretest-1" style="margin-bottom:18px;">
-                <h4>🧪 Pre-test Q1: Text Features</h4>
+                <h4>🧪 Diagnostic Check Q1: Text Features</h4>
                 <p style="font-size:.9rem;font-weight:600;margin-bottom:12px;">Q: Before reading a full article, which
                   part usually gives you the fastest idea of what it is about?</p>
                 <div class="ex-options">
@@ -5082,7 +5507,7 @@
               </div>
 
               <div class="exercise-box" id="ex-pretest-2" style="margin-bottom:18px;">
-                <h4>🧪 Pre-test Q2: Main Idea</h4>
+                <h4>🧪 Diagnostic Check Q2: Main Idea</h4>
                 <p style="font-size:.9rem;font-weight:600;margin-bottom:12px;">Q: What do we call the most important
                   idea that a paragraph is about?</p>
                 <div class="ex-options">
@@ -5100,7 +5525,7 @@
               </div>
 
               <div class="exercise-box" id="ex-pretest-3">
-                <h4>🧪 Pre-test Q3: Reading Strategy</h4>
+                <h4>🧪 Diagnostic Check Q3: Reading Strategy</h4>
                 <p style="font-size:.9rem;font-weight:600;margin-bottom:12px;">Q: Before reading a full passage,
                   quickly looking at titles, pictures, and bold words to guess what it's about is called...?</p>
                 <div class="ex-options">
@@ -5252,6 +5677,28 @@
               </div>
             </div>
 
+            <div class="dg-wrap">
+              <div class="dg-label">🖼️ Visual Example: Mock Article — Spot the Text Features</div>
+              <div class="dg-mockarticle">
+                <div class="dg-ma-title">Renewable Energy Is Changing How Cities Get Power<span class="dg-ma-tag">Title</span></div>
+                <div class="dg-ma-heading">Section 1: Why Cities Are Switching to Solar and Wind<span class="dg-ma-tag">Heading</span></div>
+                <div class="dg-ma-body">More cities are now building solar farms and wind turbines instead of coal
+                  power plants. This change helps reduce air pollution and gives cities a cleaner, more reliable
+                  source of electricity for homes, schools, and hospitals.</div>
+                <div class="dg-ma-figure">🌬️☀️ [ Photo: Solar panels and wind turbines outside Bangkok ]<span class="dg-ma-tag">Picture</span></div>
+                <div class="dg-ma-caption">Caption: A solar farm outside Bangkok now powers over 40,000 homes each year.<span class="dg-ma-tag">Caption</span></div>
+                <div class="dg-ma-body">Experts call this shift <span class="dg-ma-bold">renewable energy<span class="dg-ma-tag">Bold Word</span></span> —
+                  power that comes from sources that do not run out, like the sun and wind.</div>
+              </div>
+              <div style="font-size:.78rem;color:var(--muted);margin-top:10px;line-height:1.6;">
+                💡 <strong>วิธีอ่านภาพนี้:</strong> ก่อนอ่านทุกคำ ให้กวาดตาดู <strong>Title</strong> (รู้หัวข้อใหญ่) →
+                <strong>Heading</strong> (รู้ว่าส่วนนี้พูดเรื่องอะไร) → <strong>Picture + Caption</strong>
+                (เห็นหลักฐานและตัวเลขสำคัญโดยไม่ต้องอ่านย่อหน้า) → <strong>Bold Word</strong>
+                (จับคำศัพท์เฉพาะที่ผู้เขียนอยากเน้น) — ทำแบบนี้ได้ภาพรวมของบทความใน 15 วินาที
+                ก่อนเริ่มอ่านแบบละเอียด
+              </div>
+            </div>
+
             <!-- Section Part 2: Case Study -->
             <div class="flow-card activity-view" id="t1-part2">
               <div class="flow-header">
@@ -5367,8 +5814,8 @@
               <div class="flow-header">
                 <span class="flow-step-badge flow-step-green">05</span>
                 <div>
-                  <h4 class="flow-title">แบบฝึกหัดพัฒนาทักษะ (Diagnostic Mini-Exercises)</h4>
-                  <p class="flow-desc">ทดสอบความเข้าใจในหัวข้อ Text Features พร้อมเฉลยละเอียด</p>
+                  <h4 class="flow-title">แบบฝึกหัดพัฒนาทักษะ (Guided Practice)</h4>
+                  <p class="flow-desc">ฝึกทำแบบฝึกหัด (ungraded) ในหัวข้อ Text Features พร้อมเฉลยละเอียด</p>
                 </div>
               </div>
 
@@ -5604,6 +6051,23 @@
                     และประโยคสุดท้ายพูดซ้ำใจความเดิมด้วยคำที่ต่างออกไป เพื่อเน้นย้ำ</p>
                 </div>
               </div>
+
+              <div class="dg-wrap">
+                <div class="dg-label">🖍️ Visual Example: Highlighting the Topic Sentence in a Paragraph</div>
+                <div class="dg-ts-para">
+                  <span class="dg-ts-topic">City libraries now offer much more than books.</span>
+                  <span class="dg-ts-support">First, most libraries have free high-speed Wi-Fi and computer
+                  labs for students to do research.</span>
+                  <span class="dg-ts-support">Second, many libraries lend laptops, tablets, and even cameras
+                  to students who cannot afford their own.</span>
+                  <span class="dg-ts-support">Finally, libraries host free workshops on topics like resume
+                  writing and job interviews.</span>
+                </div>
+                <div class="dg-ts-legend">
+                  <span><span class="dg-ts-swatch" style="background:var(--gold);"></span> Topic Sentence — the general statement the rest of the paragraph explains</span>
+                  <span><span class="dg-ts-swatch" style="background:var(--green);"></span> Supporting Sentences — each one gives one specific reason or example</span>
+                </div>
+              </div>
             </div>
 
             <!-- Part 3: Real Discipline Examples -->
@@ -5641,6 +6105,14 @@
                         harder to think clearly and can weaken the body's defenses.</span>"</em>
                     <div style="font-size:.76rem;color:var(--muted);margin-top:4px;">• Topic = Not getting enough sleep
                       | Controlling Idea = makes it harder to think and weakens the body</div>
+                  </div>
+                  <div class="example-para" style="margin:0;padding:12px 14px;">
+                    <span style="color:var(--green);font-weight:700;font-size:.78rem;display:block;margin-bottom:4px;">🌏
+                      University Life:</span>
+                    <em>"<span class="hl-gold">Part-time jobs</span> <span class="hl-teal">teach university
+                        students time-management skills they cannot learn in the classroom.</span>"</em>
+                    <div style="font-size:.76rem;color:var(--muted);margin-top:4px;">• Topic = Part-time jobs
+                      | Controlling Idea = teach time-management skills not learned in class</div>
                   </div>
                 </div>
               </div>
@@ -5755,6 +6227,30 @@
                       class="ex-letter">C</span>Electric cars give drivers two big advantages: less air pollution and lower repair costs.</button>
                 </div>
                 <div class="ex-feedback" id="ex-ts-2-fb"></div>
+              </div>
+
+              <!-- Mini Exercise 2.3 -->
+              <div class="exercise-box" id="ex-ts-3" style="margin-top:18px;">
+                <h4>✏️ Mini Exercise 2.3: หาตำแหน่งของ Topic Sentence</h4>
+                <div class="example-para">
+                  <em>"Many students struggle to fall asleep before 1:00 AM. They often check their phones in
+                    bed. They also drink coffee or energy drinks late in the evening. For these reasons, poor
+                    sleep habits are becoming a serious problem among university students."</em>
+                </div>
+                <p style="font-size:.9rem;font-weight:600;margin-bottom:12px;">Q: Where is the <strong>Topic
+                    Sentence</strong> in this paragraph?</p>
+                <div class="ex-options">
+                  <button class="ex-opt"
+                    onclick="checkModularAnswer('ex-ts-3', 0, false, '❌ ไม่ถูกต้อง: ประโยคแรกเป็นแค่ตัวอย่างพฤติกรรมหนึ่ง (นอนดึก) ไม่ใช่ใจความสำคัญของทั้งย่อหน้า')"><span
+                      class="ex-letter">A</span>The first sentence.</button>
+                  <button class="ex-opt"
+                    onclick="checkModularAnswer('ex-ts-3', 1, false, '❌ ไม่ถูกต้อง: ประโยคนี้เป็นแค่รายละเอียดสนับสนุน (ตัวอย่างการใช้โทรศัพท์บนเตียง)')"><span
+                      class="ex-letter">B</span>The second sentence.</button>
+                  <button class="ex-opt"
+                    onclick="checkModularAnswer('ex-ts-3', 2, true, '✅ ถูกต้อง! (Correct): สังเกตคำเชื่อม &quot;For these reasons&quot; — ประโยคสุดท้ายสรุปใจความหลักว่า &quot;poor sleep habits are becoming a serious problem&quot; ซึ่งครอบคลุมตัวอย่างทั้งหมดก่อนหน้านี้')"><span
+                      class="ex-letter">C</span>The last sentence.</button>
+                </div>
+                <div class="ex-feedback" id="ex-ts-3-fb"></div>
               </div>
 
             <!-- ═══ TOPIC 3 PRACTICE PASSAGE ═══ -->
@@ -5899,6 +6395,31 @@
                   </svg>
                 </div>
               </div>
+
+              <div class="dg-wrap">
+                <div class="dg-label">🌳 Visual Example: Main Idea Hierarchy Tree</div>
+                <div class="dg-tree">
+                  <div class="dg-tree-node dg-level-1">TOPIC<br><span style="font-weight:400;font-size:.75rem;">University stress</span></div>
+                  <div class="dg-tree-arrow">↓</div>
+                  <div class="dg-tree-node dg-level-2">MAIN IDEA<br><span style="font-weight:400;font-size:.75rem;">Many first-year students feel stressed for three main reasons.</span></div>
+                  <div class="dg-tree-arrow">↓</div>
+                  <div class="dg-tree-row">
+                    <div class="dg-tree-branch">
+                      <div class="dg-tree-node dg-level-3">SUPPORTING DETAIL<br>Heavy coursework</div>
+                    </div>
+                    <div class="dg-tree-branch">
+                      <div class="dg-tree-node dg-level-3">SUPPORTING DETAIL<br>Living away from family</div>
+                    </div>
+                    <div class="dg-tree-branch">
+                      <div class="dg-tree-node dg-level-3">SUPPORTING DETAIL<br>Money worries</div>
+                    </div>
+                  </div>
+                </div>
+                <div style="font-size:.76rem;color:var(--muted);margin-top:12px;text-align:center;">
+                  💡 The Topic is the general subject. The Main Idea is one complete sentence about that subject.
+                  Supporting Details are the smaller pieces of evidence that hold the Main Idea up, like branches under a tree trunk.
+                </div>
+              </div>
             </div>
 
             <!-- Part 2: Implied Main Idea Synthesis -->
@@ -5929,6 +6450,19 @@
                     • Common Point: ทุกกิจกรรมคือการลดเวลาใช้โทรศัพท์<br>
                     ➔ <strong>Implied Main Idea:</strong> <em>"Sarah tries to spend less time on her phone every
                       day."</em>
+                  </div>
+                </div>
+                <div class="example-para" style="margin-top:14px;">
+                  <strong>ตัวอย่างที่ 2 — ลองฝึกด้วยตัวเอง:</strong><br>
+                  <em>"Kanya brings her own cloth bag to the market. She refuses a plastic straw when she buys
+                    a drink. She also carries a reusable water bottle everywhere she goes."</em>
+                  <div
+                    style="background:var(--surface2);padding:12px;border-radius:8px;margin-top:10px;font-size:.82rem;color:var(--teal);line-height:1.6;">
+                    <strong>วิเคราะห์:</strong><br>
+                    • Topic: Kanya's daily choices (การเลือกใช้ของประจำวันของกัญญา)<br>
+                    • Common Point: ทุกตัวอย่างคือการลดการใช้พลาสติกแบบใช้ครั้งเดียว (single-use plastic)<br>
+                    ➔ <strong>Implied Main Idea:</strong> <em>"Kanya tries to reduce single-use plastic in her
+                      daily life."</em>
                   </div>
                 </div>
               </div>
@@ -6036,6 +6570,29 @@
                       class="ex-letter">C</span>Students can record podcasts in quiet library rooms.</button>
                 </div>
                 <div class="ex-feedback" id="ex-mi-2-fb"></div>
+              </div>
+
+              <!-- Mini Exercise 3.3 -->
+              <div class="exercise-box" id="ex-mi-3" style="margin-top:18px;">
+                <h4>✏️ Mini Exercise 3.3: หา Implied Main Idea</h4>
+                <div class="example-para">
+                  <em>"Wichai studies with his phone in another room. He turns off notifications during class.
+                    He also sets a 25-minute timer and takes a short break before checking any messages."</em>
+                </div>
+                <p style="font-size:.9rem;font-weight:600;margin-bottom:12px;">Q: This paragraph does NOT state a
+                  Main Idea directly. What is the best <strong>Implied Main Idea</strong>?</p>
+                <div class="ex-options">
+                  <button class="ex-opt"
+                    onclick="checkModularAnswer('ex-mi-3', 0, false, '❌ แคบเกินไป (Too narrow): การปิดแจ้งเตือนเป็นแค่ตัวอย่างเดียว ไม่ครอบคลุมทุกประโยค')"><span
+                      class="ex-letter">A</span>Wichai turns off notifications during class.</button>
+                  <button class="ex-opt"
+                    onclick="checkModularAnswer('ex-mi-3', 1, true, '✅ ถูกต้อง! (Correct): ทุกตัวอย่างในย่อหน้า (เก็บโทรศัพท์ไว้ห้องอื่น, ปิดแจ้งเตือน, ตั้งเวลา 25 นาที) มีจุดร่วมเดียวกันคือการจัดการสมาธิให้ไม่วอกแวกขณะเรียน')"><span
+                      class="ex-letter">B</span>Wichai uses several strategies to stay focused while studying.</button>
+                  <button class="ex-opt"
+                    onclick="checkModularAnswer('ex-mi-3', 2, false, '❌ ข้อความนี้ไม่ได้กล่าวไว้ในย่อหน้าเลย (Beyond-Text Extrapolation) — ห้ามเดาเกินขอบเขตของบทความ')"><span
+                      class="ex-letter">C</span>Wichai does not like using his phone at all.</button>
+                </div>
+                <div class="ex-feedback" id="ex-mi-3-fb"></div>
               </div>
 
             <!-- ═══ TOPIC 4 PRACTICE PASSAGE ═══ -->
@@ -6320,10 +6877,10 @@
                     onclick="checkModularAnswer('ex-voc-1', 0, true, '✅ ถูกต้อง! (Correct): Preview หมายถึงการกวาดสายตาดูส่วนประกอบคร่าวๆ ก่อนเริ่มอ่านจริง')"><span
                       class="ex-letter">A</span>preview</button>
                   <button class="ex-opt"
-                    onclick="checkModularAnswer('ex-voc-1', 1, false, '❌ ไม่ถูกต้อง: Memorize คือการท่องจำ')"><span
+                    onclick="checkModularAnswer('ex-voc-1', 1, false, '❌ ไม่ถูกต้อง: Memorize หมายถึงการท่องจำให้ขึ้นใจ ซึ่งตรงข้ามกับ Preview ที่เป็นการกวาดตาดูคร่าวๆ แบบเร็วโดยไม่ต้องจำทุกคำ')"><span
                       class="ex-letter">B</span>memorize</button>
                   <button class="ex-opt"
-                    onclick="checkModularAnswer('ex-voc-1', 2, false, '❌ ไม่ถูกต้อง: Delete คือการลบทิ้ง')"><span
+                    onclick="checkModularAnswer('ex-voc-1', 2, false, '❌ ไม่ถูกต้อง: Delete หมายถึงการลบทิ้ง ซึ่งไม่เกี่ยวกับการอ่านคร่าวๆ ก่อนเริ่มอ่านจริงเลย')"><span
                       class="ex-letter">C</span>delete</button>
                 </div>
                 <div class="ex-feedback" id="ex-voc-1-fb"></div>
@@ -7462,6 +8019,44 @@
           </div>
         </div>
 
+        <div class="concept-box" style="border-left-color:var(--green);">
+          <h4>🧪 The Quick Test: Major or Minor?</h4>
+          <p>Ask yourself two questions about any supporting sentence:</p>
+          <ol style="padding-left:20px;font-size:.84rem;color:var(--text);line-height:1.8;margin:0;">
+            <li><strong>Does it answer the Main Idea directly?</strong> If yes, it is probably a
+              <strong>Major Detail</strong> (a main reason).</li>
+            <li><strong>Does it only give an example, number, or extra description for another sentence?</strong>
+              If yes, it is a <strong>Minor Detail</strong> — it supports a Major Detail, not the Main Idea itself.</li>
+          </ol>
+          <p style="margin-top:10px;">คำเชื่อมที่มักนำหน้า Minor Detail: <em>for example, for instance, such as,
+              specifically, in fact, in 2024, one study showed...</em></p>
+        </div>
+
+        <div class="dg-wrap">
+          <div class="dg-label">🌳 Visual Example: Supporting Details Tree (Major vs. Minor)</div>
+          <div class="dg-branchtree">
+            <div class="dg-bt-root">MAIN IDEA: Exercise gives students three academic benefits</div>
+            <div class="dg-bt-majors">
+              <div class="dg-bt-major-col">
+                <div class="dg-bt-major">Major: Improves concentration</div>
+                <div class="dg-bt-minor">20-min jog before exams = more alert</div>
+              </div>
+              <div class="dg-bt-major-col">
+                <div class="dg-bt-major">Major: Reduces stress</div>
+                <div class="dg-bt-minor">Short walk lowers anxiety &amp; heart rate</div>
+              </div>
+              <div class="dg-bt-major-col">
+                <div class="dg-bt-major">Major: Improves sleep quality</div>
+                <div class="dg-bt-minor">Students who exercise sleep 1 hour more per night</div>
+              </div>
+            </div>
+          </div>
+          <div style="font-size:.76rem;color:var(--muted);margin-top:12px;text-align:center;">
+            💡 Each Major Detail is a direct reason for the Main Idea. Each Minor Detail underneath it is a
+            smaller piece of evidence — a number, an example, or a specific case — that only supports that one Major Detail.
+          </div>
+        </div>
+
         </div>
 
         <div class="activity-view" id="u2t1-practice">
@@ -7500,6 +8095,29 @@
                 class="ex-letter">C</span>The first sentence after the topic sentence is always a Minor Detail.</button>
           </div>
           <div class="ex-feedback" id="ex-u2t1-2-fb"></div>
+        </div>
+
+        <div class="exercise-box" id="ex-u2t1-3" style="margin-top:14px;">
+          <h4>✏️ Mini Exercise 1.3</h4>
+          <div class="example-para">
+            <em>"University canteens are offering more plant-based meals this year. For example, three campus
+              canteens now serve tofu curry every Monday. Canteen staff say vegetarian options are growing
+              because more students are asking for them."</em>
+          </div>
+          <p style="font-size:.9rem;font-weight:600;margin-bottom:12px;">Q: Which sentence is a <strong>Major
+              Supporting Detail</strong> for the main idea (canteens are offering more plant-based meals)?</p>
+          <div class="ex-options">
+            <button class="ex-opt"
+              onclick="checkModularAnswer('ex-u2t1-3',0,true,'✅ ถูกต้อง! ประโยคนี้บอกเหตุผลหลัก (นักเรียนขอเพิ่ม) ซึ่งอธิบาย Main Idea โดยตรง จึงเป็น Major Detail')"><span
+                class="ex-letter">A</span>Vegetarian options are growing because more students are asking for them.</button>
+            <button class="ex-opt"
+              onclick="checkModularAnswer('ex-u2t1-3',1,false,'❌ ประโยคนี้เป็นแค่ตัวอย่างเจาะจง (เมนูเดียว วันเดียว) จึงเป็น Minor Detail ที่ขยายความ Major Detail อีกที')"><span
+                class="ex-letter">B</span>Three campus canteens now serve tofu curry every Monday.</button>
+            <button class="ex-opt"
+              onclick="checkModularAnswer('ex-u2t1-3',2,false,'❌ ประโยคนี้คือ Main Idea ของย่อหน้าทั้งหมด ไม่ใช่ Supporting Detail')"><span
+                class="ex-letter">C</span>University canteens are offering more plant-based meals this year.</button>
+          </div>
+          <div class="ex-feedback" id="ex-u2t1-3-fb"></div>
         </div>
         </div>
       </div>
@@ -7556,6 +8174,41 @@
         <div class="guided-q">💡 <strong>ตัวอย่างในแอปนี้:</strong> ใน Topic 4 คุณจะได้ฝึก Skimming ผ่าน
           "Main Idea Challenge" และใน Topic 5 คุณจะได้ฝึก Scanning ผ่าน "Timed Scanning Task" ที่มีตัวจับเวลาจริง</div>
 
+        <div class="dg-wrap">
+          <div class="dg-label">👀 Visual Example: Where Do Your Eyes Go?</div>
+          <div class="dg-eyefocus">
+            <div class="dg-ef-col dg-ef-skim">
+              <div class="dg-ef-head">🌊 Skimming</div>
+              <div class="dg-ef-doc">
+                <span class="dg-ef-eye">👁️</span><span class="dg-ef-focus">Renewable Energy in Thai Cities</span><br>
+                <span class="dg-ef-eye">👁️</span><span class="dg-ef-focus">Section 1: Why Cities Are Switching</span><br>
+                More cities are now building solar farms...<br>
+                Experts call this <span class="dg-ef-focus">renewable energy</span>...<br>
+                <span class="dg-ef-eye">👁️</span><span class="dg-ef-focus">In summary, solar power is growing fast.</span>
+              </div>
+              <div class="dg-ef-path">Eyes jump: Title → Heading → first/last sentence of each paragraph → keywords</div>
+            </div>
+            <div class="dg-ef-col dg-ef-scan">
+              <div class="dg-ef-head">🔎 Scanning</div>
+              <div class="dg-ef-doc">
+                Renewable Energy in Thai Cities<br>
+                More cities are now building solar farms instead of coal plants. A solar farm outside
+                <span class="dg-ef-focus">Bangkok</span> now powers over <span class="dg-ef-focus">40,000</span>
+                homes since it opened in <span class="dg-ef-focus">2021</span>.<span class="dg-ef-eye">👁️</span>
+              </div>
+              <div class="dg-ef-path">Eyes dart quickly across every line, ignoring everything except the one target (a number, name, or date)</div>
+            </div>
+          </div>
+        </div>
+
+        <div class="concept-box" style="border-left-color:var(--gold);margin-top:16px;">
+          <h4>💭 Why does the strategy matter?</h4>
+          <p>Using the wrong strategy wastes time. If you <strong>scan</strong> when you should <strong>skim</strong>,
+            you might find one number but still not understand what the article is about. If you <strong>skim</strong>
+            when you should <strong>scan</strong>, you might get the general idea but miss the exact fact your
+            teacher asked for. Choosing the right strategy for the task is the real skill.</p>
+        </div>
+
         </div>
 
         <div class="activity-view" id="u2t2-practice">
@@ -7593,6 +8246,25 @@
                 class="ex-letter">C</span>Start from the conclusion and read backwards.</button>
           </div>
           <div class="ex-feedback" id="ex-u2t2-2-fb"></div>
+        </div>
+
+        <div class="exercise-box" id="ex-u2t2-3" style="margin-top:14px;">
+          <h4>✏️ Mini Exercise 2.3</h4>
+          <p style="font-size:.9rem;font-weight:600;margin-bottom:12px;">Q: Before choosing which of five online
+            articles to read for a class project, you quickly look at each title and first paragraph. This is an
+            example of...?</p>
+          <div class="ex-options">
+            <button class="ex-opt"
+              onclick="checkModularAnswer('ex-u2t2-3',0,true,'✅ ถูกต้อง! การกวาดดูชื่อเรื่องและย่อหน้าแรกอย่างเร็วเพื่อรู้ภาพรวมของแต่ละบทความ คือ Skimming')"><span
+                class="ex-letter">A</span>Skimming</button>
+            <button class="ex-opt"
+              onclick="checkModularAnswer('ex-u2t2-3',1,false,'❌ Scanning ใช้เมื่อคุณรู้อยู่แล้วว่ากำลังหาข้อมูลอะไรที่เจาะจง ไม่ใช่การหาภาพรวม')"><span
+                class="ex-letter">B</span>Scanning</button>
+            <button class="ex-opt"
+              onclick="checkModularAnswer('ex-u2t2-3',2,false,'❌ การอ่านทุกคำในทุกบทความช้าเกินไปสำหรับขั้นตอนคัดเลือกบทความ')"><span
+                class="ex-letter">C</span>Close reading (reading every word carefully)</button>
+          </div>
+          <div class="ex-feedback" id="ex-u2t2-3-fb"></div>
         </div>
         </div>
       </div>
@@ -7644,6 +8316,66 @@
               </tr>
             </tbody>
           </table>
+        </div>
+
+        <div class="dg-wrap">
+          <div class="dg-label">➡️ Visual Example: Cause and Effect</div>
+          <div class="dg-causeeffect">
+            <div class="dg-ce-box dg-ce-cause">
+              <div class="dg-ce-tag">Cause</div>
+              <div class="dg-ce-text">Heavy rain flooded the main road to campus.</div>
+            </div>
+            <div class="dg-ce-arrow">→</div>
+            <div class="dg-ce-box dg-ce-effect">
+              <div class="dg-ce-tag">Effect</div>
+              <div class="dg-ce-text">Many students arrived late, so the exam was postponed for one hour.</div>
+            </div>
+          </div>
+          <div style="font-size:.76rem;color:var(--muted);margin-top:10px;text-align:center;">
+            💡 Signal words like <em>because, as a result, therefore</em> connect the Cause (what happened first) to the Effect (what happened because of it).
+          </div>
+        </div>
+
+        <div class="dg-wrap">
+          <div class="dg-label">⚖️ Visual Example: Compare and Contrast</div>
+          <div class="dg-comparecontrast">
+            <div class="dg-cc-col dg-cc-a">
+              <div class="dg-cc-head">Studying Online</div>
+              <ul>
+                <li>Flexible schedule — study anytime</li>
+                <li>Needs strong self-discipline</li>
+                <li>Less face-to-face interaction</li>
+              </ul>
+            </div>
+            <div class="dg-cc-col dg-cc-b">
+              <div class="dg-cc-head">Studying On Campus</div>
+              <ul>
+                <li>Fixed class schedule</li>
+                <li>Easier to stay on task with classmates</li>
+                <li>More face-to-face interaction</li>
+              </ul>
+            </div>
+            <div class="dg-cc-shared">Both require students to complete assignments and pass exams.</div>
+          </div>
+          <div style="font-size:.76rem;color:var(--muted);margin-top:10px;text-align:center;">
+            💡 Signal words like <em>similarly, however, in contrast, unlike</em> tell you the writer is comparing two things.
+          </div>
+        </div>
+
+        <div class="dg-wrap">
+          <div class="dg-label">🔢 Visual Example: Sequence</div>
+          <div class="dg-sequence">
+            <div class="dg-seq-step"><div class="dg-seq-num">1</div><div class="dg-seq-text">First, students register for classes online.</div></div>
+            <div class="dg-seq-arrow">→</div>
+            <div class="dg-seq-step"><div class="dg-seq-num">2</div><div class="dg-seq-text">Next, they pay tuition fees.</div></div>
+            <div class="dg-seq-arrow">→</div>
+            <div class="dg-seq-step"><div class="dg-seq-num">3</div><div class="dg-seq-text">Then, they attend orientation week.</div></div>
+            <div class="dg-seq-arrow">→</div>
+            <div class="dg-seq-step"><div class="dg-seq-num">4</div><div class="dg-seq-text">Finally, classes begin.</div></div>
+          </div>
+          <div style="font-size:.76rem;color:var(--muted);margin-top:10px;text-align:center;">
+            💡 Signal words like <em>first, next, then, after that, finally</em> show the order of steps or events.
+          </div>
         </div>
 
         </div>
@@ -7702,6 +8434,24 @@
           </div>
           <div class="ex-feedback" id="ex-u2t3-3-fb"></div>
         </div>
+
+        <div class="exercise-box" id="ex-u2t3-4">
+          <h4>✏️ Mini Exercise 3.4</h4>
+          <p style="font-size:.9rem;font-weight:600;margin-bottom:12px;">Q: "Bangkok has a large public transit
+            system, while Chiang Mai relies mostly on private vehicles." This sentence shows a...?</p>
+          <div class="ex-options">
+            <button class="ex-opt"
+              onclick="checkModularAnswer('ex-u2t3-4',0,true,'✅ ถูกต้อง! คำว่า &quot;while&quot; ใช้เปรียบเทียบความแตกต่างระหว่างสองเมือง จึงเป็น Compare–Contrast')"><span
+                class="ex-letter">A</span>Compare–Contrast relationship</button>
+            <button class="ex-opt"
+              onclick="checkModularAnswer('ex-u2t3-4',1,false,'❌ ไม่มีความสัมพันธ์แบบเหตุ-ผลในประโยคนี้ — ไม่มีสิ่งใดเป็นสาเหตุของอีกสิ่งหนึ่ง')"><span
+                class="ex-letter">B</span>Cause–Effect relationship</button>
+            <button class="ex-opt"
+              onclick="checkModularAnswer('ex-u2t3-4',2,false,'❌ ประโยคนี้ไม่ได้เรียงลำดับเหตุการณ์หรือขั้นตอนใดๆ')"><span
+                class="ex-letter">C</span>Sequence relationship</button>
+          </div>
+          <div class="ex-feedback" id="ex-u2t3-4-fb"></div>
+        </div>
         </div>
       </div>
     </div>
@@ -7725,6 +8475,19 @@
         </div>
 
         <!-- Sticky Quick Jump Bar -->
+
+        <div class="concept-box" style="border-left-color:var(--gold);">
+          <h4>🧪 Worked Example: How a Reader Solves This Task</h4>
+          <p><em>"City parks in Bangkok are becoming more useful for public health. Trees and green spaces
+            lower air pollution near busy roads. For instance, one park near Sukhumvit reduced local dust
+            levels by 20% after adding more trees. Parks also give residents a free place to exercise."</em></p>
+          <p style="margin-top:8px;">🟡 <strong>Main Idea</strong> (sentence 1): states the general claim —
+            "parks are becoming more useful for public health."<br>
+            🟢 <strong>Major Detail</strong> (sentence 2 &amp; 4): two direct reasons — "lower air pollution" and
+            "a free place to exercise."<br>
+            🔵 <strong>Minor Detail</strong> (sentence 3): one specific number/example ("20% near Sukhumvit")
+            that only supports the Major Detail before it.</p>
+        </div>
 
         <!-- Highlighter Toolbar -->
         <div class="passage-controls" style="margin-top:14px;">
@@ -7807,7 +8570,7 @@
                   onclick="checkModularAnswer('ex-pB1-2',1,false,'❌ นี่คือตัวอย่างเจาะจง (Minor Detail) ที่ขยายความ Major Detail ข้อแรก')"><span
                     class="ex-letter">B</span>A working student can watch a recorded lecture at midnight.</button>
                 <button class="ex-opt"
-                  onclick="checkModularAnswer('ex-pB1-2',2,false,'❌ นี่คือ Main Idea ของทั้งย่อหน้า')"><span
+                  onclick="checkModularAnswer('ex-pB1-2',2,false,'❌ นี่คือ Main Idea ของทั้งย่อหน้า ไม่ใช่ Major Detail — โจทย์ถามหาเหตุผลย่อยข้อหนึ่งที่สนับสนุน Main Idea ไม่ใช่ตัว Main Idea เอง')"><span
                     class="ex-letter">C</span>Online learning platforms give major benefits but require
                   self-discipline.</button>
               </div>
@@ -7820,14 +8583,14 @@
                 <strong>Minor Supporting Detail</strong>?</p>
               <div class="ex-options">
                 <button class="ex-opt"
-                  onclick="checkModularAnswer('ex-pB1-3',0,false,'❌ นี่คือ Major Detail ข้อที่ 2')"><span
+                  onclick="checkModularAnswer('ex-pB1-3',0,false,'❌ นี่คือ Major Detail ข้อที่ 2 (เหตุผลหลัก) ไม่ใช่ Minor Detail — ประโยคนี้ยังไม่ได้ให้ตัวอย่างหรือรายละเอียดที่เจาะจงกว่าเดิม')"><span
                     class="ex-letter">A</span>Most platforms let students repeat difficult lessons.</button>
                 <button class="ex-opt"
                   onclick="checkModularAnswer('ex-pB1-3',1,true,'✅ ถูกต้อง! เป็นตัวอย่างเจาะจง (นักศึกษาทำงาน + ดูวิดีโอตอนเที่ยงคืน) ที่ขยายความ Major Detail')"><span
                     class="ex-letter">B</span>A working student can watch a recorded lecture at midnight after
                   finishing a shift.</button>
                 <button class="ex-opt"
-                  onclick="checkModularAnswer('ex-pB1-3',2,false,'❌ นี่คือ Main Idea ของทั้งย่อหน้า')"><span
+                  onclick="checkModularAnswer('ex-pB1-3',2,false,'❌ นี่คือ Main Idea ของทั้งย่อหน้า ซึ่งกว้างเกินไปที่จะเป็น Minor Detail — Minor Detail ต้องเป็นตัวอย่างหรือรายละเอียดเจาะจงที่ขยาย Major Detail ข้อใดข้อหนึ่ง')"><span
                     class="ex-letter">C</span>Online learning platforms give major benefits but require
                   self-discipline.</button>
               </div>
@@ -7930,7 +8693,7 @@
                   onclick="checkModularAnswer('ex-pB2-3',1,false,'❌ นี่คือ Major Detail ที่อธิบายมุมมองด้านเศรษฐกิจโดยตรง')"><span
                     class="ex-letter">B</span>Street food gives millions of people access to affordable meals.</button>
                 <button class="ex-opt"
-                  onclick="checkModularAnswer('ex-pB2-3',2,false,'❌ นี่คือ Main Idea ของทั้งย่อหน้า')"><span
+                  onclick="checkModularAnswer('ex-pB2-3',2,false,'❌ นี่คือ Main Idea ของทั้งย่อหน้า ไม่ใช่ Minor Detail — ลองหาประโยคที่ให้ตัวเลขหรือตัวอย่างเจาะจงที่ขยาย Major Detail แทน')"><span
                     class="ex-letter">C</span>Street food is culturally and economically important, but vendors
                   face challenges.</button>
               </div>
@@ -8020,7 +8783,7 @@
                     class="ex-letter">B</span>Studies have found microplastics in the stomachs of fish sold at
                   markets.</button>
                 <button class="ex-opt"
-                  onclick="checkModularAnswer('ex-pB3-2',2,false,'❌ นี่คือ Main Idea ของทั้งบทความ')"><span
+                  onclick="checkModularAnswer('ex-pB3-2',2,false,'❌ นี่คือ Main Idea ของทั้งบทความ ไม่ใช่เหตุผลย่อยข้อที่ 2 — โจทย์ถามหา Major Detail ที่อธิบายวิธีที่ไมโครพลาสติกเข้าสู่ห่วงโซ่อาหารโดยเฉพาะ')"><span
                     class="ex-letter">C</span>Microplastics are a serious threat to ocean ecosystems and human
                   health.</button>
               </div>
@@ -8241,10 +9004,10 @@
               <strong>Minor Supporting Detail</strong>?</div>
             <div class="ex-options" id="sc2-q4">
               <button class="ex-opt"
-                onclick="checkModularAnswer('sc2-q4',0,false,'❌ สีเหลืองใช้แทน Main Idea')"><span
+                onclick="checkModularAnswer('sc2-q4',0,false,'❌ ไม่ถูกต้อง: สีเหลืองใช้แทน Main Idea (ใจความสำคัญของทั้งย่อหน้า) ไม่ใช่ Minor Supporting Detail')"><span
                   class="ex-letter">A</span>🟡 Yellow</button>
               <button class="ex-opt"
-                onclick="checkModularAnswer('sc2-q4',1,false,'❌ สีเขียวใช้แทน Major Detail')"><span
+                onclick="checkModularAnswer('sc2-q4',1,false,'❌ ไม่ถูกต้อง: สีเขียวใช้แทน Major Supporting Detail (เหตุผลหลัก) ไม่ใช่ Minor Supporting Detail (ตัวอย่างย่อย)')"><span
                   class="ex-letter">B</span>🟢 Green</button>
               <button class="ex-opt"
                 onclick="checkModularAnswer('sc2-q4',2,true,'✅ ถูกต้อง! สีฟ้าใช้แทน Minor Supporting Detail')"><span
@@ -8673,10 +9436,19 @@
               → form a picture of the overall meaning. Do NOT stop to read every sentence.</div>
           </div>
 
-          <div class="ips-article" style="margin-top:14px;">
-            <div class="vd-title" style="margin-bottom:8px;">🔍 Visual: Where Your Eyes Go When Skimming</div>
-            <p style="font-size:.82rem;color:var(--muted);">Title → Headings → First sentence of each paragraph →
-              Keywords → Overall meaning</p>
+          <div class="dg-wrap" style="margin-top:14px;">
+            <div class="dg-label">🔍 Visual: Where Your Eyes Go When Skimming</div>
+            <div class="dg-ef-col dg-ef-skim" style="background:var(--surface);">
+              <div class="dg-ef-doc">
+                <span class="dg-ef-eye">👁️</span><span class="dg-ef-focus">Study Habits of Successful Students</span><br>
+                <span class="dg-ef-eye">👁️</span><span class="dg-ef-focus">Section 1: Time Management</span><br>
+                Many students struggle to balance classes and free time...<br>
+                One useful method is called <span class="dg-ef-focus">time-blocking</span>...<br>
+                <span class="dg-ef-eye">👁️</span><span class="dg-ef-focus">Overall, planning ahead helps students succeed.</span>
+              </div>
+            </div>
+            <p style="font-size:.78rem;color:var(--muted);margin-top:10px;text-align:center;">Eyes jump: Title → Headings → First sentence of each paragraph →
+              Keywords → Overall meaning (skip everything else)</p>
           </div>
         </div>
       </div>
@@ -8711,9 +9483,17 @@
               appears → confirm the answer by reading just that sentence.</div>
           </div>
 
-          <div class="ips-article" style="margin-top:14px;">
-            <div class="vd-title" style="margin-bottom:8px;">🔍 Visual: What Your Eyes Search For When Scanning</div>
-            <p style="font-size:.82rem;color:var(--muted);">Name → Date → Number → Keyword → Fact</p>
+          <div class="dg-wrap" style="margin-top:14px;">
+            <div class="dg-label">🔍 Visual: What Your Eyes Search For When Scanning</div>
+            <div class="dg-ef-col dg-ef-scan" style="background:var(--surface);">
+              <div class="dg-ef-doc">
+                Study Habits of Successful Students<br>
+                A 2023 survey of 500 students found that those who planned their week in advance scored
+                <span class="dg-ef-focus">18%</span> higher on average. The survey was conducted at
+                <span class="dg-ef-focus">Chulalongkorn University</span> in <span class="dg-ef-focus">March 2023</span>.<span class="dg-ef-eye">👁️</span>
+              </div>
+            </div>
+            <p style="font-size:.78rem;color:var(--muted);margin-top:10px;text-align:center;">Eyes dart quickly across the text, ignoring everything except: Name → Date → Number → Keyword → Fact</p>
           </div>
         </div>
       </div>
@@ -10503,7 +11283,7 @@
       requestAnimationFrame(render);
     })();
 
-</script>
+  </script>
 </body>
 
 </html>

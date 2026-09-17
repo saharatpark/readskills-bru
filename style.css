@@ -4183,3 +4183,428 @@
         flex-basis: 100%;
       }
     }
+
+    /* ═══════════════════════════════════════════════════════
+       INSTRUCTIONAL VISUAL DIAGRAMS (pure HTML/CSS, no images)
+       Added to support: Text Features mock article, Topic
+       Sentence highlighting, Main Idea hierarchy, Supporting
+       Details tree, Cause & Effect, Compare & Contrast,
+       Sequence, and Skimming/Scanning eye-focus diagrams.
+       ═══════════════════════════════════════════════════════ */
+
+    .dg-wrap {
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: 14px;
+      padding: 18px;
+      margin: 16px 0;
+    }
+
+    .dg-label {
+      font-family: 'Sarabun', sans-serif;
+      font-size: .7rem;
+      letter-spacing: 1.5px;
+      text-transform: uppercase;
+      color: var(--teal);
+      margin-bottom: 12px;
+      font-weight: 700;
+    }
+
+    /* — Text Features mock article — */
+    .dg-mockarticle {
+      background: var(--surface2);
+      border: 1px solid var(--border);
+      border-radius: 10px;
+      padding: 16px 18px;
+      font-family: 'Sarabun', sans-serif;
+    }
+    .dg-ma-title {
+      font-size: 1.05rem;
+      font-weight: 800;
+      color: var(--text);
+      background: rgba(122, 94, 160, .18);
+      border-left: 4px solid var(--gold);
+      padding: 6px 10px;
+      border-radius: 0 6px 6px 0;
+      margin-bottom: 10px;
+      position: relative;
+    }
+    .dg-ma-heading {
+      font-size: .88rem;
+      font-weight: 700;
+      color: var(--teal);
+      background: rgba(182, 104, 138, .16);
+      border-left: 4px solid var(--teal);
+      padding: 4px 10px;
+      border-radius: 0 6px 6px 0;
+      margin: 10px 0 8px;
+      position: relative;
+    }
+    .dg-ma-body {
+      font-size: .82rem;
+      color: var(--text);
+      line-height: 1.7;
+      margin-bottom: 10px;
+    }
+    .dg-ma-bold {
+      background: rgba(155, 114, 232, .22);
+      color: #6B4F96;
+      font-weight: 700;
+      padding: 1px 5px;
+      border-radius: 4px;
+      position: relative;
+    }
+    .dg-ma-figure {
+      background: var(--surface3);
+      border: 1px dashed var(--border2);
+      border-radius: 8px;
+      padding: 18px;
+      text-align: center;
+      font-size: 1.4rem;
+      color: var(--muted);
+      margin: 10px 0 4px;
+      position: relative;
+    }
+    .dg-ma-caption {
+      font-size: .74rem;
+      color: var(--muted);
+      font-style: italic;
+      border-left: 3px solid var(--green);
+      padding-left: 8px;
+      margin-bottom: 8px;
+      position: relative;
+    }
+    .dg-ma-tag {
+      position: absolute;
+      top: -9px;
+      right: 8px;
+      background: var(--gold);
+      color: #FBF8FD;
+      font-size: .6rem;
+      font-weight: 700;
+      letter-spacing: .5px;
+      text-transform: uppercase;
+      padding: 2px 7px;
+      border-radius: 8px;
+      white-space: nowrap;
+    }
+    .dg-ma-heading .dg-ma-tag { background: var(--teal); }
+    .dg-ma-bold .dg-ma-tag { background: #6B4F96; top: -20px; right: -4px; }
+    .dg-ma-figure .dg-ma-tag { background: var(--green); }
+    .dg-ma-caption .dg-ma-tag { background: var(--gold2); top: -9px; left: 8px; right: auto; }
+
+    /* — Topic Sentence highlighting-in-paragraph — */
+    .dg-ts-para {
+      background: var(--surface2);
+      border-radius: 10px;
+      padding: 16px 18px;
+      font-size: .88rem;
+      line-height: 2;
+      color: var(--text);
+    }
+    .dg-ts-topic {
+      background: rgba(122, 94, 160, .3);
+      border-bottom: 3px solid var(--gold);
+      padding: 2px 4px;
+      border-radius: 4px;
+      font-weight: 700;
+    }
+    .dg-ts-support {
+      background: rgba(91, 147, 117, .16);
+      border-bottom: 2px dotted var(--green);
+      padding: 1px 3px;
+      border-radius: 4px;
+    }
+    .dg-ts-legend {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 14px;
+      margin-top: 12px;
+      font-size: .74rem;
+      color: var(--muted);
+    }
+    .dg-ts-legend span { display: inline-flex; align-items: center; gap: 6px; }
+    .dg-ts-swatch { width: 14px; height: 14px; border-radius: 3px; display: inline-block; }
+
+    /* — Hierarchy tree (Main Idea; Supporting Details major/minor) — */
+    .dg-tree {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 0;
+    }
+    .dg-tree-node {
+      border-radius: 8px;
+      padding: 8px 16px;
+      font-size: .82rem;
+      font-weight: 700;
+      text-align: center;
+      max-width: 320px;
+    }
+    .dg-tree-node.dg-level-1 {
+      background: rgba(122, 94, 160, .22);
+      border: 1.5px solid var(--gold);
+      color: var(--gold);
+    }
+    .dg-tree-node.dg-level-2 {
+      background: rgba(182, 104, 138, .2);
+      border: 1.5px solid var(--teal);
+      color: var(--teal);
+    }
+    .dg-tree-node.dg-level-3 {
+      background: rgba(91, 147, 117, .18);
+      border: 1.5px solid var(--green);
+      color: var(--green);
+      font-weight: 600;
+      font-size: .76rem;
+    }
+    .dg-tree-arrow {
+      color: var(--border2);
+      font-size: 1.1rem;
+      line-height: 1;
+      margin: 4px 0;
+    }
+    .dg-tree-row {
+      display: flex;
+      justify-content: center;
+      gap: 18px;
+      flex-wrap: wrap;
+      margin-top: 4px;
+    }
+    .dg-tree-branch {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 4px;
+    }
+
+    /* — Major/Minor branching tree (Supporting Details) — */
+    .dg-branchtree {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+    }
+    .dg-bt-root {
+      background: rgba(217, 184, 60, .22);
+      border: 1.5px solid #D9B83C;
+      color: #a5860f;
+      border-radius: 8px;
+      padding: 8px 18px;
+      font-weight: 700;
+      font-size: .84rem;
+      margin-bottom: 6px;
+    }
+    .dg-bt-majors {
+      display: flex;
+      gap: 22px;
+      flex-wrap: wrap;
+      justify-content: center;
+      border-top: 2px solid var(--border2);
+      padding-top: 14px;
+      margin-top: 8px;
+      position: relative;
+    }
+    .dg-bt-major-col {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 6px;
+      min-width: 180px;
+    }
+    .dg-bt-major {
+      background: rgba(91, 147, 117, .2);
+      border: 1.5px solid var(--green);
+      color: var(--green);
+      border-radius: 8px;
+      padding: 6px 14px;
+      font-weight: 700;
+      font-size: .78rem;
+      text-align: center;
+    }
+    .dg-bt-minor {
+      background: rgba(111, 168, 220, .18);
+      border: 1.5px solid #6FA8DC;
+      color: #3f7ab0;
+      border-radius: 6px;
+      padding: 5px 12px;
+      font-size: .72rem;
+      text-align: center;
+    }
+    .dg-bt-minor::before {
+      content: '↳ ';
+      color: #6FA8DC;
+    }
+
+    /* — Cause and Effect arrow diagram — */
+    .dg-causeeffect {
+      display: flex;
+      align-items: stretch;
+      gap: 0;
+      flex-wrap: wrap;
+      justify-content: center;
+    }
+    .dg-ce-box {
+      background: var(--surface2);
+      border-radius: 10px;
+      padding: 14px 18px;
+      min-width: 170px;
+      max-width: 260px;
+      text-align: center;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+    }
+    .dg-ce-box.dg-ce-cause { border: 1.5px solid var(--teal); }
+    .dg-ce-box.dg-ce-effect { border: 1.5px solid var(--gold); }
+    .dg-ce-tag {
+      font-size: .68rem;
+      letter-spacing: 1px;
+      text-transform: uppercase;
+      font-weight: 700;
+      margin-bottom: 6px;
+    }
+    .dg-ce-cause .dg-ce-tag { color: var(--teal); }
+    .dg-ce-effect .dg-ce-tag { color: var(--gold); }
+    .dg-ce-text { font-size: .82rem; color: var(--text); line-height: 1.5; }
+    .dg-ce-arrow {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 1.6rem;
+      color: var(--border2);
+      padding: 0 10px;
+      font-weight: 700;
+    }
+
+    /* — Compare and Contrast two-column diagram — */
+    .dg-comparecontrast {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 14px;
+    }
+    @media (max-width: 560px) {
+      .dg-comparecontrast { grid-template-columns: 1fr; }
+    }
+    .dg-cc-col {
+      border-radius: 10px;
+      padding: 14px 16px;
+    }
+    .dg-cc-col.dg-cc-a { background: rgba(122, 94, 160, .14); border: 1.5px solid var(--gold); }
+    .dg-cc-col.dg-cc-b { background: rgba(182, 104, 138, .14); border: 1.5px solid var(--teal); }
+    .dg-cc-head {
+      font-weight: 700;
+      font-size: .84rem;
+      margin-bottom: 8px;
+      text-align: center;
+    }
+    .dg-cc-a .dg-cc-head { color: var(--gold); }
+    .dg-cc-b .dg-cc-head { color: var(--teal); }
+    .dg-cc-col ul { margin: 0; padding-left: 18px; font-size: .78rem; color: var(--text); line-height: 1.7; }
+    .dg-cc-shared {
+      grid-column: 1 / -1;
+      background: rgba(91, 147, 117, .14);
+      border: 1.5px dashed var(--green);
+      border-radius: 10px;
+      padding: 10px 16px;
+      font-size: .78rem;
+      color: var(--green);
+      text-align: center;
+      font-weight: 600;
+    }
+
+    /* — Sequence timeline arrows — */
+    .dg-sequence {
+      display: flex;
+      align-items: center;
+      flex-wrap: wrap;
+      gap: 0;
+      justify-content: center;
+    }
+    .dg-seq-step {
+      background: var(--surface2);
+      border: 1.5px solid var(--border2);
+      border-radius: 10px;
+      padding: 10px 14px;
+      min-width: 110px;
+      max-width: 160px;
+      text-align: center;
+    }
+    .dg-seq-num {
+      display: inline-block;
+      width: 20px;
+      height: 20px;
+      line-height: 20px;
+      border-radius: 50%;
+      background: var(--gold);
+      color: #FBF8FD;
+      font-size: .68rem;
+      font-weight: 700;
+      margin-bottom: 6px;
+    }
+    .dg-seq-text { font-size: .76rem; color: var(--text); line-height: 1.4; }
+    .dg-seq-arrow {
+      font-size: 1.3rem;
+      color: var(--border2);
+      padding: 0 6px;
+      font-weight: 700;
+    }
+
+    /* — Skimming vs. Scanning eye-focus diagram — */
+    .dg-eyefocus {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 16px;
+    }
+    @media (max-width: 560px) {
+      .dg-eyefocus { grid-template-columns: 1fr; }
+    }
+    .dg-ef-col {
+      border-radius: 10px;
+      padding: 14px 16px;
+      background: var(--surface2);
+    }
+    .dg-ef-col.dg-ef-skim { border: 1.5px solid var(--gold); }
+    .dg-ef-col.dg-ef-scan { border: 1.5px solid var(--teal); }
+    .dg-ef-head {
+      font-weight: 700;
+      font-size: .84rem;
+      margin-bottom: 10px;
+      text-align: center;
+    }
+    .dg-ef-skim .dg-ef-head { color: var(--gold); }
+    .dg-ef-scan .dg-ef-head { color: var(--teal); }
+    .dg-ef-doc {
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: 8px;
+      padding: 10px 12px;
+      font-size: .7rem;
+      line-height: 1.9;
+      color: var(--muted);
+      position: relative;
+    }
+    .dg-ef-focus {
+      display: inline-block;
+      padding: 1px 5px;
+      border-radius: 4px;
+      font-weight: 700;
+    }
+    .dg-ef-skim .dg-ef-focus {
+      background: rgba(122, 94, 160, .3);
+      color: var(--gold);
+    }
+    .dg-ef-scan .dg-ef-focus {
+      background: rgba(182, 104, 138, .32);
+      color: var(--teal);
+    }
+    .dg-ef-eye {
+      font-size: .9rem;
+      margin-right: 2px;
+    }
+    .dg-ef-path {
+      font-size: .68rem;
+      color: var(--muted);
+      margin-top: 8px;
+      text-align: center;
+      font-style: italic;
+    }
