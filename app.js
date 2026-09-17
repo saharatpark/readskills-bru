@@ -431,6 +431,241 @@
       'Topic 6: แบบประเมินตนเอง (Post-Reading Quiz)'
     ];
 
+    // ═══════════════════════════════════════════════════════
+    // ═══════════ ACTIVITY NAVIGATION SYSTEM ═══════════
+    // (Topic → Activity hierarchy — replaces scroll-only quick-jump navigation)
+    // ═══════════════════════════════════════════════════════
+    //
+    // ACTIVITY_MAP lists, for each Unit + Topic, the ordered Activities that make
+    // up that Topic. Each entry's `id` is the id of the existing content block
+    // (a .flow-card, or a new .activity-view wrapper for Unit 2 Topics 1–3) that
+    // is shown/hidden as the student steps through the Topic.
+    const ACTIVITY_MAP = {
+      1: { // Unit 1 — Main Ideas
+        1: [ // Topic 1: Text Features
+          { id: 't1-pretest', label: 'Diagnostic Check' },
+          { id: 't1-part1', label: 'What Are Text Features?' },
+          { id: 't1-part2', label: 'Case Study' },
+          { id: 't1-part3', label: 'Common Mistakes' },
+          { id: 't1-part4', label: 'Skimming & Scanning' },
+          { id: 't1-part5', label: 'Guided Practice' },
+          { id: 't1-part6', label: 'Reading Practice' }
+        ],
+        2: [ // Topic 2: Vocabulary Preview
+          { id: 't6-part1', label: 'Key Vocabulary' },
+          { id: 't6-part2', label: 'Vocabulary Practice' },
+          { id: 't6-part3', label: 'Reading Practice' }
+        ],
+        3: [ // Topic 3: Topic Sentence
+          { id: 't2-part1', label: 'Sentence Dissector' },
+          { id: 't2-part2', label: 'Where Is It?' },
+          { id: 't2-part3', label: 'Worked Examples' },
+          { id: 't2-part4', label: 'Common Traps' },
+          { id: 't2-part5', label: '10-Second Method' },
+          { id: 't2-part6', label: 'Practice' },
+          { id: 't2-part7', label: 'Reading Practice' }
+        ],
+        4: [ // Topic 4: Main Idea
+          { id: 't3-part1', label: 'Topic vs. Main Idea' },
+          { id: 't3-part2', label: 'Implied Main Idea' },
+          { id: 't3-part3', label: 'Common Mistakes' },
+          { id: 't3-part4', label: '1-Minute Method' },
+          { id: 't3-part5', label: 'Practice' },
+          { id: 't3-part6', label: 'Reading Practice' }
+        ],
+        5: [ // Topic 5: Reading Practice (3 passages, each a separate Activity)
+          { id: 't7-p1', label: 'Passage 1' },
+          { id: 't7-p3', label: 'Passage 2' },
+          { id: 't7-p5', label: 'Passage 3' }
+        ],
+        6: [ // Topic 6: Post-Reading & Self-Check
+          { id: 't8-part1', label: 'Self-Check Quiz' },
+          { id: 't8-part2', label: 'Scoring Rubric' }
+        ]
+      },
+      2: { // Unit 2 — Supporting Details & Idea Relationships
+        1: [ // Topic 1: Major & Minor Supporting Details
+          { id: 'u2t1-learn', label: 'Learn' },
+          { id: 'u2t1-practice', label: 'Practice' }
+        ],
+        2: [ // Topic 2: Skimming & Scanning Strategies
+          { id: 'u2t2-learn', label: 'Learn' },
+          { id: 'u2t2-practice', label: 'Practice' }
+        ],
+        3: [ // Topic 3: Idea Relationships & Signal Words
+          { id: 'u2t3-learn', label: 'Learn' },
+          { id: 'u2t3-practice', label: 'Practice' }
+        ],
+        4: [ // Topic 4: Reading Practice (Main Idea Challenge, 3 passages)
+          { id: 't2u-p1', label: 'Passage 1' },
+          { id: 't2u-p2', label: 'Passage 2' },
+          { id: 't2u-p3', label: 'Passage 3' }
+        ],
+        5: [ // Topic 5: Timed Scanning Task — one cohesive activity by design
+          { id: 't2u-scan', label: 'Timed Scanning Task' }
+        ],
+        6: [ // Topic 6: Post-Reading & Self-Check
+          { id: 't2u-quiz', label: 'Self-Check Quiz' },
+          { id: 't2u-rubric', label: 'Scoring Rubric' }
+        ]
+      }
+    };
+
+    let currentActivityIndex1 = 0; // currentActivityIndex for Unit 1's open Topic
+    let currentActivityIndex2 = 0; // currentActivityIndex for Unit 2's open Topic
+
+    function getTopicActivities(unit, topicIdx) {
+      return (ACTIVITY_MAP[unit] && ACTIVITY_MAP[unit][topicIdx]) || [];
+    }
+
+    function loadActivityProgress(unit) {
+      return JSON.parse(localStorage.getItem(`rs_activity_progress_u${unit}`) || '{}');
+    }
+    function saveActivityProgress(unit, data) {
+      localStorage.setItem(`rs_activity_progress_u${unit}`, JSON.stringify(data));
+    }
+
+    // OPENED = viewed / in progress. Recorded the moment a Topic is opened,
+    // but this alone must NOT mark the Topic as "completed".
+    function markTopicOpened(unit, topicIdx) {
+      const key = `rs_opened_u${unit}_topics`;
+      const opened = JSON.parse(localStorage.getItem(key) || '{}');
+      opened[topicIdx] = true;
+      localStorage.setItem(key, JSON.stringify(opened));
+    }
+
+    // Show Activity `activityIndex` of Topic `topicIdx` in `unit`, hide the rest.
+    function openTopicActivity(unit, topicIdx, activityIndex) {
+      const acts = getTopicActivities(unit, topicIdx);
+      if (!acts.length) {
+        updateActivityNavigation(unit, topicIdx);
+        return;
+      }
+      if (activityIndex < 0) activityIndex = 0;
+      if (activityIndex > acts.length - 1) activityIndex = acts.length - 1;
+
+      if (unit === 1) currentActivityIndex1 = activityIndex;
+      else currentActivityIndex2 = activityIndex;
+
+      acts.forEach((a, i) => {
+        const el = document.getElementById(a.id);
+        if (el) el.classList.toggle('active', i === activityIndex);
+      });
+
+      markActivityViewed(unit, topicIdx, activityIndex);
+      updateActivityNavigation(unit, topicIdx);
+    }
+
+    // Record that this Activity has been viewed. If it is the Topic's final
+    // required Activity, the Topic is now COMPLETED (not merely opened).
+    function markActivityViewed(unit, topicIdx, activityIndex) {
+      const progress = loadActivityProgress(unit);
+      if (!progress[topicIdx]) progress[topicIdx] = [];
+      progress[topicIdx][activityIndex] = true;
+      saveActivityProgress(unit, progress);
+
+      const acts = getTopicActivities(unit, topicIdx);
+      if (activityIndex === acts.length - 1) {
+        markActivityCompleted(unit, topicIdx);
+      }
+    }
+
+    function markActivityCompleted(unit, topicIdx) {
+      updateTopicCompletion(unit, topicIdx);
+    }
+
+    // COMPLETED = student has reached the Topic's final required Activity.
+    function updateTopicCompletion(unit, topicIdx) {
+      if (unit === 1) {
+        completedTopics[topicIdx] = true;
+        localStorage.setItem('rs_completed_u1_topics', JSON.stringify(completedTopics));
+        updateUnit1ProgressUI();
+      } else if (unit === 2) {
+        completedTopics2[topicIdx] = true;
+        localStorage.setItem('rs_completed_u2_topics', JSON.stringify(completedTopics2));
+        updateUnit2ProgressUI();
+      }
+    }
+
+    // Prev/Next across Activities inside the current Topic. Stepping past the
+    // last Activity moves on to the next Topic (mirrors the existing Topic-level nav).
+    function navigateTopicActivity(unit, step) {
+      const topicIdx = (unit === 1) ? currentTopicIndex : currentTopicIndex2;
+      const acts = getTopicActivities(unit, topicIdx);
+      const cur = (unit === 1) ? currentActivityIndex1 : currentActivityIndex2;
+      const next = cur + step;
+
+      if (next < 0) return;
+      if (next > acts.length - 1) {
+        if (unit === 1) navigateLessonTopic(1); else navigateLessonTopic2(1);
+        return;
+      }
+      openTopicActivity(unit, topicIdx, next);
+    }
+
+    // Render the stepper, context line, and footer nav for the currently open Topic.
+    function updateActivityNavigation(unit, topicIdx) {
+      const acts = getTopicActivities(unit, topicIdx);
+      const stepperWrap = document.getElementById(`u${unit}-activity-stepper-wrap`);
+      const contextEl = document.getElementById(`u${unit}-activity-context`);
+      const labelEl = document.getElementById(`u${unit}-activity-stepper-label`);
+      const stepperEl = document.getElementById(`u${unit}-activity-stepper`);
+      const footerEl = document.getElementById(`u${unit}-activity-footer-nav`);
+      const midEl = document.getElementById(`u${unit}-act-mid`);
+      const prevBtn = document.getElementById(`u${unit}-act-prev-btn`);
+      const nextBtn = document.getElementById(`u${unit}-act-next-btn`);
+
+      if (!acts.length) {
+        if (stepperWrap) stepperWrap.style.display = 'none';
+        if (footerEl) footerEl.style.display = 'none';
+        if (contextEl) contextEl.innerHTML = '';
+        return;
+      }
+
+      const cur = (unit === 1) ? currentActivityIndex1 : currentActivityIndex2;
+      const progress = loadActivityProgress(unit)[topicIdx] || [];
+      const unitName = (unit === 1) ? 'Unit 1' : 'Unit 2';
+      const topicNames = (unit === 1) ? TOPIC_NAMES : TOPIC_NAMES2;
+      const topicLabel = (topicNames[topicIdx] || `Topic ${topicIdx}`).replace(/^Topic \d+:\s*/, '');
+
+      if (contextEl) {
+        contextEl.innerHTML = `${unitName} · <strong>Topic ${topicIdx}</strong>: ${topicLabel} · Activity ${cur + 1} of ${acts.length}`;
+      }
+
+      if (acts.length <= 1) {
+        // Single-Activity Topic (e.g. Timed Scanning Task): no stepper needed.
+        if (stepperWrap) stepperWrap.style.display = 'none';
+      } else {
+        if (stepperWrap) stepperWrap.style.display = 'block';
+        if (labelEl) labelEl.textContent = `Activity ${cur + 1} of ${acts.length}`;
+        if (stepperEl) {
+          stepperEl.innerHTML = acts.map((a, i) => {
+            const done = !!progress[i];
+            const isCur = i === cur;
+            const dot = done ? '✓' : String(i + 1);
+            return `<button type="button" class="activity-step ${done ? 'done' : ''} ${isCur ? 'current' : ''}" `
+              + `onclick="openTopicActivity(${unit}, ${topicIdx}, ${i})" aria-current="${isCur}">`
+              + `<span class="as-dot">${dot}</span>${a.label}</button>`;
+          }).join('');
+        }
+      }
+
+      if (footerEl) footerEl.style.display = 'flex';
+      if (prevBtn) prevBtn.disabled = (cur === 0);
+      const isLast = (cur === acts.length - 1);
+      if (nextBtn) {
+        if (isLast) {
+          nextBtn.textContent = (topicIdx >= 6) ? 'Finish Unit ✓' : 'Complete & Next Topic →';
+        } else {
+          nextBtn.textContent = 'Next →';
+        }
+      }
+      if (midEl) {
+        const doneCount = progress.filter(Boolean).length;
+        midEl.textContent = `${doneCount}/${acts.length} activities viewed`;
+      }
+    }
+
     function openLessonTopic(topicIdx) {
       currentTopicIndex = topicIdx;
       document.getElementById('unit1-hub-view').style.display = 'none';
@@ -454,10 +689,13 @@
       if (prevBtn) prevBtn.style.visibility = (topicIdx <= 1) ? 'hidden' : 'visible';
       if (nextBtn) nextBtn.textContent = (topicIdx === 6) ? 'Finish Unit 1 🏁' : 'Next Topic ➔';
 
-      // Mark as read/completed
-      completedTopics[topicIdx] = true;
-      localStorage.setItem('rs_completed_u1_topics', JSON.stringify(completedTopics));
-      updateUnit1ProgressUI();
+      // NOTE: Opening a Topic marks it "viewed / in progress" only.
+      // Full "completed" status is granted by updateTopicCompletion(), once the
+      // student reaches the Topic's final required Activity (see openTopicActivity()).
+      markTopicOpened(1, topicIdx);
+
+      // Load this Topic's Activity Navigation (stepper) at its first Activity.
+      openTopicActivity(1, topicIdx, 0);
 
       window.scrollTo({ top: 0, behavior: 'smooth' });
     }
@@ -594,9 +832,10 @@
       if (prevBtn) prevBtn.style.visibility = (topicIdx <= 1) ? 'hidden' : 'visible';
       if (nextBtn) nextBtn.textContent = (topicIdx === 6) ? 'Finish Unit 2 🏁' : 'Next Topic ➔';
 
-      completedTopics2[topicIdx] = true;
-      localStorage.setItem('rs_completed_u2_topics', JSON.stringify(completedTopics2));
-      updateUnit2ProgressUI();
+      // NOTE: Opening a Topic marks it "viewed / in progress" only — see openLessonTopic() note above.
+      markTopicOpened(2, topicIdx);
+
+      openTopicActivity(2, topicIdx, 0);
 
       window.scrollTo({ top: 0, behavior: 'smooth' });
     }
@@ -792,9 +1031,77 @@
       if (unitId === 1) {
         document.getElementById('strat-view-title').textContent = 'Unit 1: Previewing & Predicting';
         nav('screen-strategy-detail');
+      } else if (unitId === 2) {
+        openStrat2Activity(0);
+        nav('screen-strategy-detail-2');
       } else {
         showToast(`Strategy ${unitId} guide is available in course materials.`);
       }
+    }
+
+    // ═══════════ UNIT 2 STRATEGY GUIDE: SKIMMING & SCANNING — ACTIVITY NAV ═══════════
+    // Standalone strategy content (distinct from Reading Lessons Unit 2, Topic 2),
+    // using the same Activity Navigation component/CSS for a consistent experience.
+    const STRAT2_ACTIVITIES = [
+      { id: 'strat2-a1', label: 'Overview' },
+      { id: 'strat2-a2', label: 'What Is Skimming?' },
+      { id: 'strat2-a3', label: 'What Is Scanning?' },
+      { id: 'strat2-a4', label: 'Skimming vs. Scanning' },
+      { id: 'strat2-a5', label: 'Guided Practice' },
+      { id: 'strat2-a6', label: 'Strategy Check' }
+    ];
+    let currentStrat2Activity = 0;
+
+    function openStrat2Activity(idx) {
+      if (idx < 0) idx = 0;
+      if (idx > STRAT2_ACTIVITIES.length - 1) idx = STRAT2_ACTIVITIES.length - 1;
+      currentStrat2Activity = idx;
+
+      STRAT2_ACTIVITIES.forEach((a, i) => {
+        const el = document.getElementById(a.id);
+        if (el) el.classList.toggle('active', i === idx);
+      });
+
+      updateStrat2Nav();
+      const screenEl = document.getElementById('screen-strategy-detail-2');
+      if (screenEl) screenEl.scrollTop = 0;
+      window.scrollTo({ top: 0, behavior: 'smooth' });
+    }
+
+    function navigateStrat2Activity(step) {
+      const next = currentStrat2Activity + step;
+      if (next < 0 || next > STRAT2_ACTIVITIES.length - 1) return;
+      openStrat2Activity(next);
+    }
+
+    function updateStrat2Nav() {
+      const contextEl = document.getElementById('strat2-activity-context');
+      const labelEl = document.getElementById('strat2-activity-stepper-label');
+      const stepperEl = document.getElementById('strat2-activity-stepper');
+      const midEl = document.getElementById('strat2-act-mid');
+      const prevBtn = document.getElementById('strat2-act-prev-btn');
+      const nextBtn = document.getElementById('strat2-act-next-btn');
+      const total = STRAT2_ACTIVITIES.length;
+      const cur = currentStrat2Activity;
+
+      if (contextEl) contextEl.innerHTML = `Reading Strategies · <strong>Unit 2</strong>: Skimming &amp; Scanning · Activity ${cur + 1} of ${total}`;
+      if (labelEl) labelEl.textContent = `Activity ${cur + 1} of ${total}`;
+      if (stepperEl) {
+        stepperEl.innerHTML = STRAT2_ACTIVITIES.map((a, i) => {
+          const done = i < cur;
+          const isCur = i === cur;
+          const dot = done ? '✓' : String(i + 1);
+          return `<button type="button" class="activity-step ${done ? 'done' : ''} ${isCur ? 'current' : ''}" `
+            + `onclick="openStrat2Activity(${i})" aria-current="${isCur}">`
+            + `<span class="as-dot">${dot}</span>${a.label}</button>`;
+        }).join('');
+      }
+      if (prevBtn) prevBtn.disabled = (cur === 0);
+      if (nextBtn) {
+        nextBtn.disabled = (cur === total - 1);
+        nextBtn.textContent = (cur === total - 1) ? 'Finished ✓' : 'Next →';
+      }
+      if (midEl) midEl.textContent = `${cur + 1}/${total} activities`;
     }
 
     const inspectedClues = {};

@@ -4012,6 +4012,189 @@
       }
     }
 
+    /* ══════════════════════════════════════════════════════
+       ACTIVITY NAVIGATION COMPONENT
+       (Topic → Activity information architecture)
+       ══════════════════════════════════════════════════════ */
+
+    .activity-context {
+      font-family: 'Sarabun', sans-serif;
+      font-size: .72rem;
+      letter-spacing: .5px;
+      color: var(--muted);
+      margin-bottom: 10px;
+      display: flex;
+      align-items: center;
+      flex-wrap: wrap;
+      gap: 6px;
+    }
+
+    .activity-context strong {
+      color: var(--gold);
+      font-weight: 700;
+    }
+
+    .activity-stepper-wrap {
+      background: rgba(230, 216, 240, 0.55);
+      border: 1.5px solid rgba(122, 94, 160, 0.3);
+      border-radius: 14px;
+      padding: 12px 14px;
+      margin-bottom: 20px;
+    }
+
+    .activity-stepper-label {
+      font-family: 'Sarabun', sans-serif;
+      font-size: .74rem;
+      font-weight: 700;
+      color: var(--teal);
+      margin-bottom: 10px;
+    }
+
+    .activity-stepper {
+      display: flex;
+      gap: 6px;
+      overflow-x: auto;
+      padding-bottom: 4px;
+      -webkit-overflow-scrolling: touch;
+      scrollbar-width: thin;
+    }
+
+    .activity-step {
+      flex: 0 0 auto;
+      display: flex;
+      align-items: center;
+      gap: 7px;
+      background: var(--surface);
+      border: 1.5px solid var(--border);
+      color: var(--muted);
+      padding: 7px 12px 7px 8px;
+      border-radius: 20px;
+      font-family: 'Sarabun', sans-serif;
+      font-size: .76rem;
+      font-weight: 600;
+      cursor: pointer;
+      white-space: nowrap;
+      transition: all .2s;
+    }
+
+    .activity-step:hover {
+      border-color: var(--gold2);
+    }
+
+    .activity-step .as-dot {
+      width: 20px;
+      height: 20px;
+      border-radius: 50%;
+      background: var(--surface2);
+      border: 1.5px solid var(--border);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: .66rem;
+      font-weight: 700;
+      flex-shrink: 0;
+      color: var(--muted);
+    }
+
+    .activity-step.done .as-dot {
+      background: var(--green);
+      border-color: var(--green);
+      color: #fff;
+    }
+
+    .activity-step.done {
+      color: var(--green);
+      border-color: rgba(91, 147, 117, .35);
+    }
+
+    .activity-step.current {
+      background: rgba(122, 94, 160, .18);
+      border-color: var(--gold);
+      color: var(--gold);
+    }
+
+    .activity-step.current .as-dot {
+      background: var(--gold);
+      border-color: var(--gold);
+      color: #fff;
+    }
+
+    .activity-view {
+      display: none;
+      animation: fadeIn .25s ease;
+    }
+
+    .activity-view.active {
+      display: block;
+    }
+
+    .activity-footer-nav {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 10px;
+      margin-top: 18px;
+      padding-top: 16px;
+      border-top: 1px solid var(--border);
+    }
+
+    .act-nav-btn {
+      background: var(--surface);
+      border: 1.5px solid var(--border);
+      color: var(--text);
+      padding: 10px 18px;
+      border-radius: 24px;
+      font-family: 'Sarabun', sans-serif;
+      font-size: .84rem;
+      font-weight: 700;
+      cursor: pointer;
+      transition: all .2s;
+      flex-shrink: 0;
+    }
+
+    .act-nav-btn:hover:not(:disabled) {
+      border-color: var(--gold2);
+      transform: translateY(-1px);
+    }
+
+    .act-nav-btn:disabled {
+      opacity: .35;
+      cursor: default;
+    }
+
+    .act-nav-btn.act-nav-primary {
+      background: linear-gradient(135deg, var(--gold), #6F5590);
+      border-color: transparent;
+      color: #FBF8FD;
+      box-shadow: 0 4px 16px rgba(122, 94, 160, .3);
+    }
+
+    .act-nav-mid {
+      font-family: 'Sarabun', sans-serif;
+      font-size: .72rem;
+      color: var(--muted);
+      text-align: center;
+      flex: 1;
+    }
+
+    @media (max-width: 480px) {
+      .activity-step {
+        font-size: .72rem;
+        padding: 6px 10px 6px 7px;
+      }
+      .act-nav-btn {
+        padding: 9px 13px;
+        font-size: .78rem;
+      }
+      .activity-footer-nav {
+        flex-wrap: wrap;
+      }
+      .act-nav-mid {
+        order: 3;
+        flex-basis: 100%;
+      }
+    }
+
 </style>
 </head>
 
@@ -4484,7 +4667,7 @@
           </div>
           <div class="strat-dot" style="background:var(--green)"></div>
         </div>
-        <div class="strat-row" onclick="openLessonDetail(2); openLessonTopic2(2);"
+        <div class="strat-row" onclick="openStrategyDetail(2)"
           style="cursor:pointer;border-color:rgba(182,104,138,.4);background:var(--surface2);">
           <div class="strat-icon-box" style="background:rgba(182,104,138,.15);border:1px solid rgba(182,104,138,.35)">⚡
           </div>
@@ -4833,6 +5016,13 @@
           </select>
         </div>
 
+        <!-- Activity Navigation (Topic → Activity hierarchy) -->
+        <div class="activity-context" id="u1-activity-context"></div>
+        <div class="activity-stepper-wrap" id="u1-activity-stepper-wrap">
+          <div class="activity-stepper-label" id="u1-activity-stepper-label"></div>
+          <div class="activity-stepper" id="u1-activity-stepper"></div>
+        </div>
+
         <!-- ═══ TOPIC 1: TEXT FEATURES ═══ -->
         <div class="topic-content-pane" id="topic-pane-1">
           <div class="content-block">
@@ -4855,18 +5045,9 @@
             </div>
 
             <!-- Sticky Quick Jump Bar -->
-            <div class="quick-jump-bar">
-              <button class="qj-pill" onclick="scrollToSubSection('t1-pretest')">🧪 Pre-test</button>
-              <button class="qj-pill" onclick="scrollToSubSection('t1-part1')">📖 1. โครงสร้าง 8 องค์ประกอบ</button>
-              <button class="qj-pill" onclick="scrollToSubSection('t1-part2')">🔍 2. Case Study บทความจริง</button>
-              <button class="qj-pill" onclick="scrollToSubSection('t1-part3')">⚠️ 3. กับดักข้อสอบ</button>
-              <button class="qj-pill" onclick="scrollToSubSection('t1-part4')">💡 4. Skimming &amp; Scanning</button>
-              <button class="qj-pill" onclick="scrollToSubSection('t1-part5')">✏️ 5. แบบฝึกหัด</button>
-              <button class="qj-pill" onclick="scrollToSubSection('t1-part6')">📖 6. ฝึกอ่านบทความจริง</button>
-            </div>
 
             <!-- Pre-test: Ungraded Diagnostic (per Lesson Plan §6.1.2) -->
-            <div class="flow-card" id="t1-pretest"
+            <div class="flow-card activity-view" id="t1-pretest"
               style="background:linear-gradient(135deg,rgba(122,94,160,.08),var(--surface2));border:1.5px dashed rgba(182,104,138,.4);margin-bottom:24px;">
               <div class="flow-header">
                 <span class="flow-step-badge" style="background:rgba(182,104,138,.2);color:#e8a8c4;border:1.5px solid rgba(182,104,138,.4);">🧪</span>
@@ -4938,7 +5119,7 @@
             </div>
 
             <!-- Section Part 1: Theory & Diagram -->
-            <div class="flow-card" id="t1-part1">
+            <div class="flow-card activity-view" id="t1-part1">
               <div class="flow-header">
                 <span class="flow-step-badge">01</span>
                 <div>
@@ -5072,7 +5253,7 @@
             </div>
 
             <!-- Section Part 2: Case Study -->
-            <div class="flow-card" id="t1-part2">
+            <div class="flow-card activity-view" id="t1-part2">
               <div class="flow-header">
                 <span class="flow-step-badge flow-step-gold">02</span>
                 <div>
@@ -5114,7 +5295,7 @@
             </div>
 
             <!-- Section Part 3: Exam Traps -->
-            <div class="flow-card" id="t1-part3">
+            <div class="flow-card activity-view" id="t1-part3">
               <div class="flow-header">
                 <span class="flow-step-badge flow-step-red">03</span>
                 <div>
@@ -5146,7 +5327,7 @@
             </div>
 
             <!-- Section Part 4: Speed Strategy -->
-            <div class="flow-card" id="t1-part4">
+            <div class="flow-card activity-view" id="t1-part4">
               <div class="flow-header">
                 <span class="flow-step-badge flow-step-purple">04</span>
                 <div>
@@ -5182,7 +5363,7 @@
             </div>
 
             <!-- Section Part 5: Mini Exercises -->
-            <div class="flow-card" id="t1-part5">
+            <div class="flow-card activity-view" id="t1-part5">
               <div class="flow-header">
                 <span class="flow-step-badge flow-step-green">05</span>
                 <div>
@@ -5236,7 +5417,7 @@
             </div>
 
             <!-- ═══ TOPIC 1 PRACTICE PASSAGE ═══ -->
-            <div class="flow-card" id="t1-part6" style="margin-top:20px;">
+            <div class="flow-card activity-view" id="t1-part6" style="margin-top:20px;">
               <div class="flow-header">
                 <span class="flow-step-badge flow-step-teal">06</span>
                 <div>
@@ -5312,18 +5493,9 @@
             </div>
 
             <!-- Sticky Quick Jump Bar -->
-            <div class="quick-jump-bar">
-              <button class="qj-pill" onclick="scrollToSubSection('t2-part1')">🔬 1. Sentence Dissector</button>
-              <button class="qj-pill" onclick="scrollToSubSection('t2-part2')">📖 2. 4 ตำแหน่งในงานวิชาการ</button>
-              <button class="qj-pill" onclick="scrollToSubSection('t2-part3')">🔍 3. ตัวอย่าง 4 สาขาวิชา</button>
-              <button class="qj-pill" onclick="scrollToSubSection('t2-part4')">⚠️ 4. กับดักข้อสอบ</button>
-              <button class="qj-pill" onclick="scrollToSubSection('t2-part5')">💡 5. เทคนิค 10 วิ</button>
-              <button class="qj-pill" onclick="scrollToSubSection('t2-part6')">✏️ 6. แบบฝึกหัด</button>
-              <button class="qj-pill" onclick="scrollToSubSection('t2-part7')">📖 7. ฝึกอ่านบทความจริง</button>
-            </div>
 
             <!-- Part 1: Interactive Sentence Dissector -->
-            <div class="flow-card" id="t2-part1">
+            <div class="flow-card activity-view" id="t2-part1">
               <div class="flow-header">
                 <span class="flow-step-badge flow-step-gold">01</span>
                 <div>
@@ -5351,7 +5523,7 @@
             </div>
 
             <!-- Part 2: 4 Positions -->
-            <div class="flow-card" id="t2-part2">
+            <div class="flow-card activity-view" id="t2-part2">
               <div class="flow-header">
                 <span class="flow-step-badge">02</span>
                 <div>
@@ -5435,7 +5607,7 @@
             </div>
 
             <!-- Part 3: Real Discipline Examples -->
-            <div class="flow-card" id="t2-part3">
+            <div class="flow-card activity-view" id="t2-part3">
               <div class="flow-header">
                 <span class="flow-step-badge flow-step-purple">03</span>
                 <div>
@@ -5475,7 +5647,7 @@
             </div>
 
             <!-- Part 4: Traps -->
-            <div class="flow-card" id="t2-part4">
+            <div class="flow-card activity-view" id="t2-part4">
               <div class="flow-header">
                 <span class="flow-step-badge flow-step-red">04</span>
                 <div>
@@ -5508,7 +5680,7 @@
             </div>
 
             <!-- Part 5: Fast Hacks -->
-            <div class="flow-card" id="t2-part5">
+            <div class="flow-card activity-view" id="t2-part5">
               <div class="flow-header">
                 <span class="flow-step-badge flow-step-gold">05</span>
                 <div>
@@ -5535,7 +5707,7 @@
             </div>
 
             <!-- Part 6: Mini Exercises -->
-            <div class="flow-card" id="t2-part6">
+            <div class="flow-card activity-view" id="t2-part6">
               <div class="flow-header">
                 <span class="flow-step-badge flow-step-green">06</span>
                 <div>
@@ -5586,7 +5758,7 @@
               </div>
 
             <!-- ═══ TOPIC 3 PRACTICE PASSAGE ═══ -->
-            <div class="flow-card" id="t2-part7" style="margin-top:20px;">
+            <div class="flow-card activity-view" id="t2-part7" style="margin-top:20px;">
               <div class="flow-header">
                 <span class="flow-step-badge flow-step-teal">07</span>
                 <div>
@@ -5649,18 +5821,9 @@
             </div>
 
             <!-- Sticky Quick Jump Bar -->
-            <div class="quick-jump-bar">
-              <button class="qj-pill" onclick="scrollToSubSection('t3-part1')">📊 1. ตารางเปรียบเทียบ Topic/MI</button>
-              <button class="qj-pill" onclick="scrollToSubSection('t3-part2')">🔍 2. สังเคราะห์ Implied Main
-                Idea</button>
-              <button class="qj-pill" onclick="scrollToSubSection('t3-part3')">⚠️ 3. วิเคราะห์ช้อยส์หลอก</button>
-              <button class="qj-pill" onclick="scrollToSubSection('t3-part4')">💡 4. สูตรหาใน 1 นาที</button>
-              <button class="qj-pill" onclick="scrollToSubSection('t3-part5')">✏️ 5. แบบฝึกหัด</button>
-              <button class="qj-pill" onclick="scrollToSubSection('t3-part6')">📖 6. ฝึกอ่านบทความจริง</button>
-            </div>
 
             <!-- Part 1: Comparison Table -->
-            <div class="flow-card" id="t3-part1">
+            <div class="flow-card activity-view" id="t3-part1">
               <div class="flow-header">
                 <span class="flow-step-badge">01</span>
                 <div>
@@ -5739,7 +5902,7 @@
             </div>
 
             <!-- Part 2: Implied Main Idea Synthesis -->
-            <div class="flow-card" id="t3-part2">
+            <div class="flow-card activity-view" id="t3-part2">
               <div class="flow-header">
                 <span class="flow-step-badge flow-step-gold">02</span>
                 <div>
@@ -5772,7 +5935,7 @@
             </div>
 
             <!-- Part 3: Traps -->
-            <div class="flow-card" id="t3-part3">
+            <div class="flow-card activity-view" id="t3-part3">
               <div class="flow-header">
                 <span class="flow-step-badge flow-step-red">03</span>
                 <div>
@@ -5802,7 +5965,7 @@
             </div>
 
             <!-- Part 4: Fast Hacks -->
-            <div class="flow-card" id="t3-part4">
+            <div class="flow-card activity-view" id="t3-part4">
               <div class="flow-header">
                 <span class="flow-step-badge flow-step-purple">04</span>
                 <div>
@@ -5825,7 +5988,7 @@
             </div>
 
             <!-- Part 5: Mini Exercises -->
-            <div class="flow-card" id="t3-part5">
+            <div class="flow-card activity-view" id="t3-part5">
               <div class="flow-header">
                 <span class="flow-step-badge flow-step-green">05</span>
                 <div>
@@ -5876,7 +6039,7 @@
               </div>
 
             <!-- ═══ TOPIC 4 PRACTICE PASSAGE ═══ -->
-            <div class="flow-card" id="t3-part6" style="margin-top:20px;">
+            <div class="flow-card activity-view" id="t3-part6" style="margin-top:20px;">
               <div class="flow-header">
                 <span class="flow-step-badge flow-step-gold">05</span>
                 <div>
@@ -5936,14 +6099,9 @@
             </div>
 
             <!-- Sticky Quick Jump Bar -->
-            <div class="quick-jump-bar">
-              <button class="qj-pill" onclick="scrollToSubSection('t6-part1')">🃏 1. บัตรคำศัพท์ 3D Flashcards</button>
-              <button class="qj-pill" onclick="scrollToSubSection('t6-part2')">✏️ 2. แบบฝึกหัดเติมคำศัพท์</button>
-              <button class="qj-pill" onclick="scrollToSubSection('t6-part3')">📖 3. ฝึกอ่านบทความจริง</button>
-            </div>
 
             <!-- Part 1: 3D Flashcards Grid -->
-            <div class="flow-card" id="t6-part1">
+            <div class="flow-card activity-view" id="t6-part1">
               <div class="flow-header">
                 <span class="flow-step-badge flow-step-green">01</span>
                 <div>
@@ -6143,7 +6301,7 @@
             </div>
 
             <!-- Part 2: Mini Exercise -->
-            <div class="flow-card" id="t6-part2">
+            <div class="flow-card activity-view" id="t6-part2">
               <div class="flow-header">
                 <span class="flow-step-badge flow-step-green">02</span>
                 <div>
@@ -6173,7 +6331,7 @@
             </div>
 
             <!-- ═══ TOPIC 2 PRACTICE PASSAGE ═══ -->
-            <div class="flow-card" id="t6-part3" style="margin-top:20px;">
+            <div class="flow-card activity-view" id="t6-part3" style="margin-top:20px;">
               <div class="flow-header">
                 <span class="flow-step-badge flow-step-teal">03</span>
                 <div>
@@ -6244,11 +6402,6 @@
             </div>
 
             <!-- Sticky Quick Jump Bar -->
-            <div class="quick-jump-bar">
-              <button class="qj-pill" onclick="scrollToSubSection('t7-p1')">📱 1. โทรศัพท์ &amp; สมาธิ (สั้น)</button>
-              <button class="qj-pill" onclick="scrollToSubSection('t7-p3')">😴 2. การนอนหลับ (กลาง)</button>
-              <button class="qj-pill" onclick="scrollToSubSection('t7-p5')">☀️ 3. พลังงานทดแทน (ยาว)</button>
-            </div>
 
             <!-- Highlighter Toolbar -->
             <div class="passage-controls" style="margin-top:14px;">
@@ -6263,7 +6416,7 @@
             </div>
 
             <!-- ════ PASSAGE 1: SHORT (~85 words) ════ -->
-            <div class="flow-card" id="t7-p1" style="margin-bottom:24px;">
+            <div class="flow-card activity-view" id="t7-p1" style="margin-bottom:24px;">
               <div class="flow-header">
                 <span class="flow-step-badge flow-step-teal">1</span>
                 <div>
@@ -6422,7 +6575,7 @@
 
             <!-- ════ PASSAGE B: SHORT (~100 words) ════ -->
             <!-- ════ PASSAGE 2: MEDIUM (~130 words) ════ -->
-            <div class="flow-card" id="t7-p3" style="margin-bottom:24px;">
+            <div class="flow-card activity-view" id="t7-p3" style="margin-bottom:24px;">
               <div class="flow-header">
                 <span class="flow-step-badge"
                   style="background:rgba(155,114,232,.2);color:#c4a8f5;border:1.5px solid rgba(155,114,232,.4);">2</span>
@@ -6581,7 +6734,7 @@
             </div>
 
             <!-- ════ PASSAGE 3: LONG (~280 words) ════ -->
-            <div class="flow-card" id="t7-p5"
+            <div class="flow-card activity-view" id="t7-p5"
               style="background:linear-gradient(135deg,rgba(122,94,160,.06),var(--surface2));border:1.5px solid rgba(122,94,160,.3);margin-bottom:8px;">
               <div class="flow-header">
                 <span class="flow-step-badge flow-step-gold">3</span>
@@ -6832,13 +6985,9 @@
         </div>
 
         <!-- Sticky Quick Jump Bar -->
-        <div class="quick-jump-bar">
-          <button class="qj-pill" onclick="scrollToSubSection('t8-part1')">🧠 1. แบบทดสอบประเมินตนเอง 5 ข้อ</button>
-          <button class="qj-pill" onclick="scrollToSubSection('t8-part2')">📊 2. เกณฑ์การประเมินรูบริก</button>
-        </div>
 
         <!-- Part 1: Formative Self-Check Quiz Flow Card -->
-        <div class="flow-card" id="t8-part1">
+        <div class="flow-card activity-view" id="t8-part1">
           <div class="flow-header">
             <span class="flow-step-badge flow-step-purple">01</span>
             <div>
@@ -6946,7 +7095,7 @@
         </div>
 
         <!-- Part 2: Scoring Rubrics Table Flow Card -->
-        <div class="flow-card" id="t8-part2">
+        <div class="flow-card activity-view" id="t8-part2">
           <div class="flow-header">
             <span class="flow-step-badge flow-step-gold">02</span>
             <div>
@@ -6998,6 +7147,13 @@
         </div>
           </div>
         </div>
+
+    <!-- Activity-level Navigation (within current Topic) -->
+    <div class="activity-footer-nav" id="u1-activity-footer-nav" style="display:none;">
+      <button class="act-nav-btn" id="u1-act-prev-btn" onclick="navigateTopicActivity(1,-1)">← Previous</button>
+      <div class="act-nav-mid" id="u1-act-mid"></div>
+      <button class="act-nav-btn act-nav-primary" id="u1-act-next-btn" onclick="navigateTopicActivity(1,1)">Next →</button>
+    </div>
 
     <!-- Bottom Navigation Footer -->
     <div class="reader-footer-nav">
@@ -7249,6 +7405,13 @@
       </select>
     </div>
 
+    <!-- Activity Navigation (Topic → Activity hierarchy) -->
+    <div class="activity-context" id="u2-activity-context"></div>
+    <div class="activity-stepper-wrap" id="u2-activity-stepper-wrap">
+      <div class="activity-stepper-label" id="u2-activity-stepper-label"></div>
+      <div class="activity-stepper" id="u2-activity-stepper"></div>
+    </div>
+
     <!-- ═══ TOPIC 1: MAJOR & MINOR SUPPORTING DETAILS ═══ -->
     <div class="topic-content-pane" id="topic2-pane-1">
       <div class="content-block">
@@ -7259,6 +7422,7 @@
           <span class="usc-badge usc-badge-teal">Pre-Reading Stage · กลยุทธ์ก่อนอ่าน</span>
         </div>
 
+        <div class="activity-view" id="u2t1-learn">
         <div class="bilingual-block">
           <div class="bb-en"><strong>Supporting details</strong> are the sentences that explain, prove, or give
             examples for the main idea. <strong>Major supporting details</strong> directly explain the main idea
@@ -7298,6 +7462,9 @@
           </div>
         </div>
 
+        </div>
+
+        <div class="activity-view" id="u2t1-practice">
         <div class="exercise-box" id="ex-u2t1-1" style="margin-bottom:14px;">
           <h4>✏️ Mini Exercise 1.1</h4>
           <p style="font-size:.9rem;font-weight:600;margin-bottom:12px;">Q: In the paragraph above, which sentence
@@ -7334,6 +7501,7 @@
           </div>
           <div class="ex-feedback" id="ex-u2t1-2-fb"></div>
         </div>
+        </div>
       </div>
     </div>
 
@@ -7346,6 +7514,7 @@
           <span class="usc-badge usc-badge-teal">Pre-Reading Stage · กลยุทธ์ก่อนอ่าน</span>
         </div>
 
+        <div class="activity-view" id="u2t2-learn">
         <div class="bilingual-block">
           <div class="bb-en"><strong>Skimming</strong> means reading quickly to get the general idea or main idea
             of a text — you don't read every word. <strong>Scanning</strong> means moving your eyes quickly over a
@@ -7387,6 +7556,9 @@
         <div class="guided-q">💡 <strong>ตัวอย่างในแอปนี้:</strong> ใน Topic 4 คุณจะได้ฝึก Skimming ผ่าน
           "Main Idea Challenge" และใน Topic 5 คุณจะได้ฝึก Scanning ผ่าน "Timed Scanning Task" ที่มีตัวจับเวลาจริง</div>
 
+        </div>
+
+        <div class="activity-view" id="u2t2-practice">
         <div class="exercise-box" id="ex-u2t2-1" style="margin-bottom:14px;margin-top:16px;">
           <h4>✏️ Mini Exercise 2.1</h4>
           <p style="font-size:.9rem;font-weight:600;margin-bottom:12px;">Q: You need to find the exact year a
@@ -7422,6 +7594,7 @@
           </div>
           <div class="ex-feedback" id="ex-u2t2-2-fb"></div>
         </div>
+        </div>
       </div>
     </div>
 
@@ -7434,6 +7607,7 @@
           <span class="usc-badge usc-badge-gold">While-Reading Stage · ระหว่างอ่าน</span>
         </div>
 
+        <div class="activity-view" id="u2t3-learn">
         <div class="bilingual-block">
           <div class="bb-en">Ideas in a paragraph often connect to each other in specific ways. Recognizing the
             <strong>signal words</strong> that show these relationships helps you predict what comes next and
@@ -7472,6 +7646,9 @@
           </table>
         </div>
 
+        </div>
+
+        <div class="activity-view" id="u2t3-practice">
         <div class="exercise-box" id="ex-u2t3-1" style="margin-bottom:14px;">
           <h4>✏️ Mini Exercise 3.1</h4>
           <p style="font-size:.9rem;font-weight:600;margin-bottom:12px;">Q: "Traffic was heavy, so Anong arrived
@@ -7525,6 +7702,7 @@
           </div>
           <div class="ex-feedback" id="ex-u2t3-3-fb"></div>
         </div>
+        </div>
       </div>
     </div>
 
@@ -7547,11 +7725,6 @@
         </div>
 
         <!-- Sticky Quick Jump Bar -->
-        <div class="quick-jump-bar">
-          <button class="qj-pill" onclick="scrollToSubSection('t2u-p1')">💻 1. Online Learning (สั้น)</button>
-          <button class="qj-pill" onclick="scrollToSubSection('t2u-p2')">🍜 2. Street Food Culture (กลาง)</button>
-          <button class="qj-pill" onclick="scrollToSubSection('t2u-p3')">🌊 3. Microplastics (ยาว)</button>
-        </div>
 
         <!-- Highlighter Toolbar -->
         <div class="passage-controls" style="margin-top:14px;">
@@ -7563,7 +7736,7 @@
         </div>
 
         <!-- ════ PASSAGE 1: SHORT — Online Learning Platforms ════ -->
-        <div class="flow-card" id="t2u-p1" style="margin-bottom:24px;">
+        <div class="flow-card activity-view" id="t2u-p1" style="margin-bottom:24px;">
           <div class="flow-header">
             <span class="flow-step-badge flow-step-teal">1</span>
             <div>
@@ -7664,7 +7837,7 @@
         </div>
 
         <!-- ════ PASSAGE 2: MEDIUM — Street Food Culture in Thailand ════ -->
-        <div class="flow-card" id="t2u-p2" style="margin-bottom:24px;">
+        <div class="flow-card activity-view" id="t2u-p2" style="margin-bottom:24px;">
           <div class="flow-header">
             <span class="flow-step-badge flow-step-gold">2</span>
             <div>
@@ -7767,7 +7940,7 @@
         </div>
 
         <!-- ════ PASSAGE 3: LONG — Microplastics in the Ocean ════ -->
-        <div class="flow-card" id="t2u-p3">
+        <div class="flow-card activity-view" id="t2u-p3">
           <div class="flow-header">
             <span class="flow-step-badge flow-step-purple">3</span>
             <div>
@@ -7892,7 +8065,7 @@
             แล้วกวาดสายตาสแกนหาคำตอบให้เร็วที่สุดก่อนหมดเวลา</div>
         </div>
 
-        <div class="flow-card" id="t2u-scan">
+        <div class="flow-card activity-view" id="t2u-scan">
           <div class="flow-header">
             <span class="flow-step-badge flow-step-teal">📄</span>
             <div>
@@ -8001,12 +8174,8 @@
             (เกณฑ์ผ่าน: <strong>≥ 70%</strong> หรือ 4 จาก 5 ข้อ)</div>
         </div>
 
-        <div class="quick-jump-bar">
-          <button class="qj-pill" onclick="scrollToSubSection('t2u-quiz')">🧠 1. แบบทดสอบประเมินตนเอง 5 ข้อ</button>
-          <button class="qj-pill" onclick="scrollToSubSection('t2u-rubric')">📊 2. เกณฑ์การประเมินรูบริก</button>
-        </div>
 
-        <div class="flow-card" id="t2u-quiz">
+        <div class="flow-card activity-view" id="t2u-quiz">
           <div class="flow-header">
             <span class="flow-step-badge flow-step-purple">01</span>
             <div>
@@ -8103,7 +8272,7 @@
         </div>
 
         <!-- Rubric Tables — verbatim from the official Unit 2 Analytic Rubric (3 rubrics × 4 levels) -->
-        <div class="flow-card" id="t2u-rubric">
+        <div class="flow-card activity-view" id="t2u-rubric">
           <div class="flow-header">
             <span class="flow-step-badge flow-step-gold">02</span>
             <div>
@@ -8235,6 +8404,13 @@
           </div>
         </div>
       </div>
+    </div>
+
+    <!-- Activity-level Navigation (within current Topic) -->
+    <div class="activity-footer-nav" id="u2-activity-footer-nav" style="display:none;">
+      <button class="act-nav-btn" id="u2-act-prev-btn" onclick="navigateTopicActivity(2,-1)">← Previous</button>
+      <div class="act-nav-mid" id="u2-act-mid"></div>
+      <button class="act-nav-btn act-nav-primary" id="u2-act-next-btn" onclick="navigateTopicActivity(2,1)">Next →</button>
     </div>
 
     <!-- Bottom Navigation Footer -->
@@ -8416,6 +8592,272 @@
             style="background:var(--surface2);color:var(--text);border:1px solid var(--border);">← กลับไปหน้ารวมกลยุทธ์
             (Strategies)</button>
         </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ════════ UNIT 2 READING STRATEGY GUIDE: SKIMMING & SCANNING ════════ -->
+  <div id="screen-strategy-detail-2" class="screen app-screen">
+    <div class="inner-wrap">
+      <div class="inner-top">
+        <button class="back-btn" aria-label="Back" onclick="nav('screen-c')">←</button>
+        <div>
+          <div class="inner-eye">Reading Strategy Guide</div>
+          <div class="inner-h">Skimming &amp; Scanning</div>
+        </div>
+      </div>
+
+      <!-- Strategy Hero Banner -->
+      <div class="lesson-header-banner"
+        style="background:linear-gradient(135deg,#5A4479,#4A3868);border-color:rgba(182,104,138,.3);">
+        <div class="lh-badge" style="color:#F5DDE8;border-color:rgba(255,255,255,.35);background:rgba(255,255,255,.14);">
+          Strategy Module 02 · Fast &amp; Purposeful Reading</div>
+        <h2 class="lh-title" style="color:#FBF8FD;">Using Skimming and Scanning Strategies</h2>
+        <p style="font-size:.84rem;color:#c2d8dc;line-height:1.65;margin-bottom:0;">
+          กลยุทธ์การอ่านเร็วสองแบบที่มีจุดประสงค์ต่างกัน — ใช้ให้ถูกจังหวะ อ่านได้เร็วขึ้นและตรงจุดขึ้น
+        </p>
+      </div>
+
+      <!-- Activity Navigation (Topic → Activity hierarchy, same component as Reading Lessons) -->
+      <div class="activity-context" id="strat2-activity-context"></div>
+      <div class="activity-stepper-wrap" id="strat2-activity-stepper-wrap">
+        <div class="activity-stepper-label" id="strat2-activity-stepper-label"></div>
+        <div class="activity-stepper" id="strat2-activity-stepper"></div>
+      </div>
+
+      <!-- Activity 1: Strategy Overview -->
+      <div class="activity-view" id="strat2-a1">
+        <div class="content-block">
+          <h3>🎯 Strategy Overview</h3>
+          <div class="bilingual-block">
+            <div class="bb-en">Good readers do not read every text the same way. Sometimes you need the
+              <strong>overall meaning</strong> of a text quickly. Sometimes you only need <strong>one exact piece
+              of information</strong>. Skimming and Scanning are two different speed-reading strategies for these
+              two different goals.</div>
+            <div class="bb-th">นักอ่านที่เก่งจะไม่อ่านทุกบทความแบบเดียวกันเสมอไป บางครั้งเราต้องการแค่
+              <strong>ใจความสำคัญโดยรวม</strong> อย่างรวดเร็ว บางครั้งเราต้องการแค่
+              <strong>ข้อมูลจุดเดียวที่เจาะจง</strong> Skimming และ Scanning คือกลยุทธ์การอ่านเร็ว 2 แบบ
+              สำหรับเป้าหมาย 2 แบบนี้</div>
+          </div>
+          <div class="guided-q">💡 <strong>สังเกต:</strong> Reading Lessons (Unit 2) สอนให้คุณ "นำ" กลยุทธ์นี้ไปใช้
+            ขณะอ่านบทความจริง ส่วนหน้านี้ (Reading Strategies) จะอธิบาย "ตัวกลยุทธ์เอง" — คืออะไร ทำไมต้องใช้
+            และใช้อย่างไร — โดยละเอียดก่อนนำไปใช้จริง</div>
+        </div>
+      </div>
+
+      <!-- Activity 2: What Is Skimming? -->
+      <div class="activity-view" id="strat2-a2">
+        <div class="content-block">
+          <h3>🌊 What Is Skimming?</h3>
+          <div class="bilingual-block">
+            <div class="bb-en"><strong>Skimming</strong> means reading quickly to get the <strong>overall
+              meaning or main idea</strong> of a text, without reading every word.</div>
+            <div class="bb-th"><strong>Skimming</strong> (การอ่านเพื่อจับใจความโดยรวมอย่างรวดเร็ว) คือการอ่านผ่านๆ
+              เพื่อจับใจความสำคัญโดยรวมของบทความ โดยไม่ต้องอ่านทุกคำ</div>
+          </div>
+
+          <div class="strategy-step-card">
+            <div class="ssc-top"><div class="ssc-num">?</div><div class="ssc-title">Why do readers skim?</div></div>
+            <div class="ssc-body">To decide quickly if a text is useful, or to get the main idea before deciding
+              whether to read it in full. เพื่อตัดสินใจเร็วๆ ว่าบทความนี้เกี่ยวข้องกับสิ่งที่ต้องการหรือไม่</div>
+          </div>
+          <div class="strategy-step-card">
+            <div class="ssc-top"><div class="ssc-num">⏰</div><div class="ssc-title">When should I use it?</div></div>
+            <div class="ssc-body">Before reading a long article in full, or when previewing several sources to
+              choose the most useful one. ก่อนอ่านบทความยาวแบบละเอียด หรือเมื่อต้องเลือกแหล่งข้อมูลที่เกี่ยวข้องที่สุด</div>
+          </div>
+          <div class="strategy-step-card">
+            <div class="ssc-top"><div class="ssc-num">🛠</div><div class="ssc-title">How do I skim a text?</div></div>
+            <div class="ssc-body">Look at the <strong>title</strong> and <strong>headings</strong> → read the
+              <strong>opening sentence</strong> of each paragraph → notice <strong>bold/repeated keywords</strong>
+              → form a picture of the overall meaning. Do NOT stop to read every sentence.</div>
+          </div>
+
+          <div class="ips-article" style="margin-top:14px;">
+            <div class="vd-title" style="margin-bottom:8px;">🔍 Visual: Where Your Eyes Go When Skimming</div>
+            <p style="font-size:.82rem;color:var(--muted);">Title → Headings → First sentence of each paragraph →
+              Keywords → Overall meaning</p>
+          </div>
+        </div>
+      </div>
+
+      <!-- Activity 3: What Is Scanning? -->
+      <div class="activity-view" id="strat2-a3">
+        <div class="content-block">
+          <h3>🔎 What Is Scanning?</h3>
+          <div class="bilingual-block">
+            <div class="bb-en"><strong>Scanning</strong> means moving your eyes quickly through a text to
+              <strong>locate one specific piece of information</strong> — such as a name, date, number, or
+              keyword — without reading the surrounding text carefully.</div>
+            <div class="bb-th"><strong>Scanning</strong> (การอ่านเพื่อค้นหาข้อมูลเฉพาะ) คือการกวาดสายตาอย่างรวดเร็ว
+              เพื่อ<strong>ค้นหาข้อมูลจุดเดียวที่เจาะจง</strong> เช่น ชื่อ วันที่ ตัวเลข หรือคำสำคัญ
+              โดยไม่ต้องอ่านข้อความรอบข้างอย่างละเอียด</div>
+          </div>
+
+          <div class="strategy-step-card">
+            <div class="ssc-top"><div class="ssc-num">?</div><div class="ssc-title">Why do readers scan?</div></div>
+            <div class="ssc-body">To find an exact answer fast, without reading the whole text — for example,
+              finding one fact for an assignment or exam question.</div>
+          </div>
+          <div class="strategy-step-card">
+            <div class="ssc-top"><div class="ssc-num">⏰</div><div class="ssc-title">When should I use it?</div></div>
+            <div class="ssc-body">When you already know exactly what information you need — a name, date,
+              number, or keyword — and just need to locate it quickly in a longer text.</div>
+          </div>
+          <div class="strategy-step-card">
+            <div class="ssc-top"><div class="ssc-num">🛠</div><div class="ssc-title">How do I scan a text?</div></div>
+            <div class="ssc-body">Decide exactly <strong>what you are looking for</strong> (a name? a number? a
+              date?) → let your eyes move quickly down the text → stop only when that exact word/number/pattern
+              appears → confirm the answer by reading just that sentence.</div>
+          </div>
+
+          <div class="ips-article" style="margin-top:14px;">
+            <div class="vd-title" style="margin-bottom:8px;">🔍 Visual: What Your Eyes Search For When Scanning</div>
+            <p style="font-size:.82rem;color:var(--muted);">Name → Date → Number → Keyword → Fact</p>
+          </div>
+        </div>
+      </div>
+
+      <!-- Activity 4: Skimming vs. Scanning Comparison -->
+      <div class="activity-view" id="strat2-a4">
+        <div class="content-block">
+          <h3>⚖️ Skimming vs. Scanning: The Key Difference</h3>
+          <p style="font-size:.86rem;color:var(--muted);margin-bottom:14px;">
+            เปรียบเทียบให้ชัดก่อนนำไปใช้จริง — สองกลยุทธ์นี้ <strong>ไม่ใช่สิ่งเดียวกัน</strong>
+          </p>
+          <div style="overflow-x:auto;">
+            <table class="compare-table">
+              <thead>
+                <tr>
+                  <th>ประเด็น</th>
+                  <th style="color:var(--gold);">Skimming</th>
+                  <th style="color:var(--teal);">Scanning</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td style="font-weight:700;">Purpose</td>
+                  <td>Overall meaning / main idea</td>
+                  <td>One specific piece of information</td>
+                </tr>
+                <tr>
+                  <td style="font-weight:700;">Look for</td>
+                  <td>Title · Headings · Opening sentences · Keywords</td>
+                  <td>Name · Date · Number · Keyword · Fact</td>
+                </tr>
+                <tr>
+                  <td style="font-weight:700;">Speed</td>
+                  <td>Fast, but takes in general meaning</td>
+                  <td>Very fast, ignores everything except the target</td>
+                </tr>
+                <tr>
+                  <td style="font-weight:700;">Used in this app</td>
+                  <td>Main Idea Challenge (Topic 4)</td>
+                  <td>Timed Scanning Task (Topic 5)</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </div>
+
+      <!-- Activity 5: Guided Practice -->
+      <div class="activity-view" id="strat2-a5">
+        <div class="content-block">
+          <h3>✏️ Guided Practice</h3>
+          <p style="font-size:.86rem;color:var(--muted);margin-bottom:14px;">ลองเลือกกลยุทธ์ที่เหมาะสมกับแต่ละสถานการณ์</p>
+
+          <div class="exercise-box" id="ex-strat2-1" style="margin-bottom:14px;">
+            <h4>Scenario A</h4>
+            <p style="font-size:.9rem;font-weight:600;margin-bottom:12px;">You have five long articles and only 5
+              minutes to decide which one is about "renewable energy" before choosing one to read fully. What
+              should you do?</p>
+            <div class="ex-options">
+              <button class="ex-opt"
+                onclick="checkModularAnswer('ex-strat2-1',0,true,'✅ Correct. Skimming the title and opening sentences of each article quickly tells you the overall topic, which is exactly what you need here.')"><span
+                  class="ex-letter">A</span>Skim each article's title and opening sentences.</button>
+              <button class="ex-opt"
+                onclick="checkModularAnswer('ex-strat2-1',1,false,'❌ Not efficient. Reading every word of five long articles would take far more than 5 minutes.')"><span
+                  class="ex-letter">B</span>Read every word of all five articles.</button>
+              <button class="ex-opt"
+                onclick="checkModularAnswer('ex-strat2-1',2,false,'❌ Scanning is for one exact fact, not for judging a whole article\'s topic.')"><span
+                  class="ex-letter">C</span>Scan each article for the word "energy" only.</button>
+            </div>
+            <div class="ex-feedback" id="ex-strat2-1-fb"></div>
+          </div>
+
+          <div class="exercise-box" id="ex-strat2-2">
+            <h4>Scenario B</h4>
+            <p style="font-size:.9rem;font-weight:600;margin-bottom:12px;">Your teacher asks: "In what year was
+            the university library renovated?" You have the article in front of you. What should you do?</p>
+            <div class="ex-options">
+              <button class="ex-opt"
+                onclick="checkModularAnswer('ex-strat2-2',0,false,'❌ Skimming gives the general idea, but you need one exact year — that calls for Scanning.')"><span
+                  class="ex-letter">A</span>Skim the whole article for its main idea.</button>
+              <button class="ex-opt"
+                onclick="checkModularAnswer('ex-strat2-2',1,true,'✅ Correct. You know exactly what you need — a year — so scanning for a number/date is the fastest way to find it.')"><span
+                  class="ex-letter">B</span>Scan the text quickly for a year or date.</button>
+              <button class="ex-opt"
+                onclick="checkModularAnswer('ex-strat2-2',2,false,'❌ This is far slower than necessary when you already know exactly what you are looking for.')"><span
+                  class="ex-letter">C</span>Read the article from start to finish carefully.</button>
+            </div>
+            <div class="ex-feedback" id="ex-strat2-2-fb"></div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Activity 6: Strategy Check -->
+      <div class="activity-view" id="strat2-a6">
+        <div class="content-block">
+          <h3>✅ Strategy Check</h3>
+          <p style="font-size:.86rem;color:var(--muted);margin-bottom:14px;">
+            ตรวจสอบความเข้าใจของคุณก่อนนำไปฝึกใน Reading Lessons Unit 2</p>
+
+          <div class="exercise-box" id="ex-strat2-3" style="margin-bottom:14px;">
+            <h4>Quick Check 1</h4>
+            <p style="font-size:.9rem;font-weight:600;margin-bottom:12px;">Which strategy is best for finding the
+              exact price of a product mentioned somewhere in a long web article?</p>
+            <div class="ex-options">
+              <button class="ex-opt"
+                onclick="checkModularAnswer('ex-strat2-3',0,false,'❌ Skimming only gives the general idea, not one specific number.')"><span
+                  class="ex-letter">A</span>Skimming</button>
+              <button class="ex-opt"
+                onclick="checkModularAnswer('ex-strat2-3',1,true,'✅ Correct. A specific price is exact information, so Scanning is the right strategy.')"><span
+                  class="ex-letter">B</span>Scanning</button>
+            </div>
+            <div class="ex-feedback" id="ex-strat2-3-fb"></div>
+          </div>
+
+          <div class="exercise-box" id="ex-strat2-4">
+            <h4>Quick Check 2</h4>
+            <p style="font-size:.9rem;font-weight:600;margin-bottom:12px;">Which strategy is best for quickly
+              deciding what a news article is mainly about, before reading it in full?</p>
+            <div class="ex-options">
+              <button class="ex-opt"
+                onclick="checkModularAnswer('ex-strat2-4',0,true,'✅ Correct. Getting the overall meaning quickly is exactly what Skimming is for.')"><span
+                  class="ex-letter">A</span>Skimming</button>
+              <button class="ex-opt"
+                onclick="checkModularAnswer('ex-strat2-4',1,false,'❌ Scanning is for one exact fact, not for understanding the whole article\'s topic.')"><span
+                  class="ex-letter">B</span>Scanning</button>
+            </div>
+            <div class="ex-feedback" id="ex-strat2-4-fb"></div>
+          </div>
+
+          <div style="display:flex;gap:12px;margin-top:20px;flex-wrap:wrap;">
+            <button class="action-primary-btn" onclick="openLessonDetail(2)">📖 เข้าสู่บทเรียน Unit 2
+              เพื่อฝึกปฏิบัติ ➔</button>
+            <button class="action-primary-btn" onclick="nav('screen-c')"
+              style="background:var(--surface2);color:var(--text);border:1px solid var(--border);">← กลับไปหน้ารวมกลยุทธ์
+              (Strategies)</button>
+          </div>
+        </div>
+      </div>
+
+      <!-- Activity-level Navigation -->
+      <div class="activity-footer-nav" id="strat2-activity-footer-nav">
+        <button class="act-nav-btn" id="strat2-act-prev-btn" onclick="navigateStrat2Activity(-1)">← Previous</button>
+        <div class="act-nav-mid" id="strat2-act-mid"></div>
+        <button class="act-nav-btn act-nav-primary" id="strat2-act-next-btn" onclick="navigateStrat2Activity(1)">Next →</button>
       </div>
     </div>
   </div>
@@ -9112,6 +9554,241 @@
       'Topic 6: แบบประเมินตนเอง (Post-Reading Quiz)'
     ];
 
+    // ═══════════════════════════════════════════════════════
+    // ═══════════ ACTIVITY NAVIGATION SYSTEM ═══════════
+    // (Topic → Activity hierarchy — replaces scroll-only quick-jump navigation)
+    // ═══════════════════════════════════════════════════════
+    //
+    // ACTIVITY_MAP lists, for each Unit + Topic, the ordered Activities that make
+    // up that Topic. Each entry's `id` is the id of the existing content block
+    // (a .flow-card, or a new .activity-view wrapper for Unit 2 Topics 1–3) that
+    // is shown/hidden as the student steps through the Topic.
+    const ACTIVITY_MAP = {
+      1: { // Unit 1 — Main Ideas
+        1: [ // Topic 1: Text Features
+          { id: 't1-pretest', label: 'Diagnostic Check' },
+          { id: 't1-part1', label: 'What Are Text Features?' },
+          { id: 't1-part2', label: 'Case Study' },
+          { id: 't1-part3', label: 'Common Mistakes' },
+          { id: 't1-part4', label: 'Skimming & Scanning' },
+          { id: 't1-part5', label: 'Guided Practice' },
+          { id: 't1-part6', label: 'Reading Practice' }
+        ],
+        2: [ // Topic 2: Vocabulary Preview
+          { id: 't6-part1', label: 'Key Vocabulary' },
+          { id: 't6-part2', label: 'Vocabulary Practice' },
+          { id: 't6-part3', label: 'Reading Practice' }
+        ],
+        3: [ // Topic 3: Topic Sentence
+          { id: 't2-part1', label: 'Sentence Dissector' },
+          { id: 't2-part2', label: 'Where Is It?' },
+          { id: 't2-part3', label: 'Worked Examples' },
+          { id: 't2-part4', label: 'Common Traps' },
+          { id: 't2-part5', label: '10-Second Method' },
+          { id: 't2-part6', label: 'Practice' },
+          { id: 't2-part7', label: 'Reading Practice' }
+        ],
+        4: [ // Topic 4: Main Idea
+          { id: 't3-part1', label: 'Topic vs. Main Idea' },
+          { id: 't3-part2', label: 'Implied Main Idea' },
+          { id: 't3-part3', label: 'Common Mistakes' },
+          { id: 't3-part4', label: '1-Minute Method' },
+          { id: 't3-part5', label: 'Practice' },
+          { id: 't3-part6', label: 'Reading Practice' }
+        ],
+        5: [ // Topic 5: Reading Practice (3 passages, each a separate Activity)
+          { id: 't7-p1', label: 'Passage 1' },
+          { id: 't7-p3', label: 'Passage 2' },
+          { id: 't7-p5', label: 'Passage 3' }
+        ],
+        6: [ // Topic 6: Post-Reading & Self-Check
+          { id: 't8-part1', label: 'Self-Check Quiz' },
+          { id: 't8-part2', label: 'Scoring Rubric' }
+        ]
+      },
+      2: { // Unit 2 — Supporting Details & Idea Relationships
+        1: [ // Topic 1: Major & Minor Supporting Details
+          { id: 'u2t1-learn', label: 'Learn' },
+          { id: 'u2t1-practice', label: 'Practice' }
+        ],
+        2: [ // Topic 2: Skimming & Scanning Strategies
+          { id: 'u2t2-learn', label: 'Learn' },
+          { id: 'u2t2-practice', label: 'Practice' }
+        ],
+        3: [ // Topic 3: Idea Relationships & Signal Words
+          { id: 'u2t3-learn', label: 'Learn' },
+          { id: 'u2t3-practice', label: 'Practice' }
+        ],
+        4: [ // Topic 4: Reading Practice (Main Idea Challenge, 3 passages)
+          { id: 't2u-p1', label: 'Passage 1' },
+          { id: 't2u-p2', label: 'Passage 2' },
+          { id: 't2u-p3', label: 'Passage 3' }
+        ],
+        5: [ // Topic 5: Timed Scanning Task — one cohesive activity by design
+          { id: 't2u-scan', label: 'Timed Scanning Task' }
+        ],
+        6: [ // Topic 6: Post-Reading & Self-Check
+          { id: 't2u-quiz', label: 'Self-Check Quiz' },
+          { id: 't2u-rubric', label: 'Scoring Rubric' }
+        ]
+      }
+    };
+
+    let currentActivityIndex1 = 0; // currentActivityIndex for Unit 1's open Topic
+    let currentActivityIndex2 = 0; // currentActivityIndex for Unit 2's open Topic
+
+    function getTopicActivities(unit, topicIdx) {
+      return (ACTIVITY_MAP[unit] && ACTIVITY_MAP[unit][topicIdx]) || [];
+    }
+
+    function loadActivityProgress(unit) {
+      return JSON.parse(localStorage.getItem(`rs_activity_progress_u${unit}`) || '{}');
+    }
+    function saveActivityProgress(unit, data) {
+      localStorage.setItem(`rs_activity_progress_u${unit}`, JSON.stringify(data));
+    }
+
+    // OPENED = viewed / in progress. Recorded the moment a Topic is opened,
+    // but this alone must NOT mark the Topic as "completed".
+    function markTopicOpened(unit, topicIdx) {
+      const key = `rs_opened_u${unit}_topics`;
+      const opened = JSON.parse(localStorage.getItem(key) || '{}');
+      opened[topicIdx] = true;
+      localStorage.setItem(key, JSON.stringify(opened));
+    }
+
+    // Show Activity `activityIndex` of Topic `topicIdx` in `unit`, hide the rest.
+    function openTopicActivity(unit, topicIdx, activityIndex) {
+      const acts = getTopicActivities(unit, topicIdx);
+      if (!acts.length) {
+        updateActivityNavigation(unit, topicIdx);
+        return;
+      }
+      if (activityIndex < 0) activityIndex = 0;
+      if (activityIndex > acts.length - 1) activityIndex = acts.length - 1;
+
+      if (unit === 1) currentActivityIndex1 = activityIndex;
+      else currentActivityIndex2 = activityIndex;
+
+      acts.forEach((a, i) => {
+        const el = document.getElementById(a.id);
+        if (el) el.classList.toggle('active', i === activityIndex);
+      });
+
+      markActivityViewed(unit, topicIdx, activityIndex);
+      updateActivityNavigation(unit, topicIdx);
+    }
+
+    // Record that this Activity has been viewed. If it is the Topic's final
+    // required Activity, the Topic is now COMPLETED (not merely opened).
+    function markActivityViewed(unit, topicIdx, activityIndex) {
+      const progress = loadActivityProgress(unit);
+      if (!progress[topicIdx]) progress[topicIdx] = [];
+      progress[topicIdx][activityIndex] = true;
+      saveActivityProgress(unit, progress);
+
+      const acts = getTopicActivities(unit, topicIdx);
+      if (activityIndex === acts.length - 1) {
+        markActivityCompleted(unit, topicIdx);
+      }
+    }
+
+    function markActivityCompleted(unit, topicIdx) {
+      updateTopicCompletion(unit, topicIdx);
+    }
+
+    // COMPLETED = student has reached the Topic's final required Activity.
+    function updateTopicCompletion(unit, topicIdx) {
+      if (unit === 1) {
+        completedTopics[topicIdx] = true;
+        localStorage.setItem('rs_completed_u1_topics', JSON.stringify(completedTopics));
+        updateUnit1ProgressUI();
+      } else if (unit === 2) {
+        completedTopics2[topicIdx] = true;
+        localStorage.setItem('rs_completed_u2_topics', JSON.stringify(completedTopics2));
+        updateUnit2ProgressUI();
+      }
+    }
+
+    // Prev/Next across Activities inside the current Topic. Stepping past the
+    // last Activity moves on to the next Topic (mirrors the existing Topic-level nav).
+    function navigateTopicActivity(unit, step) {
+      const topicIdx = (unit === 1) ? currentTopicIndex : currentTopicIndex2;
+      const acts = getTopicActivities(unit, topicIdx);
+      const cur = (unit === 1) ? currentActivityIndex1 : currentActivityIndex2;
+      const next = cur + step;
+
+      if (next < 0) return;
+      if (next > acts.length - 1) {
+        if (unit === 1) navigateLessonTopic(1); else navigateLessonTopic2(1);
+        return;
+      }
+      openTopicActivity(unit, topicIdx, next);
+    }
+
+    // Render the stepper, context line, and footer nav for the currently open Topic.
+    function updateActivityNavigation(unit, topicIdx) {
+      const acts = getTopicActivities(unit, topicIdx);
+      const stepperWrap = document.getElementById(`u${unit}-activity-stepper-wrap`);
+      const contextEl = document.getElementById(`u${unit}-activity-context`);
+      const labelEl = document.getElementById(`u${unit}-activity-stepper-label`);
+      const stepperEl = document.getElementById(`u${unit}-activity-stepper`);
+      const footerEl = document.getElementById(`u${unit}-activity-footer-nav`);
+      const midEl = document.getElementById(`u${unit}-act-mid`);
+      const prevBtn = document.getElementById(`u${unit}-act-prev-btn`);
+      const nextBtn = document.getElementById(`u${unit}-act-next-btn`);
+
+      if (!acts.length) {
+        if (stepperWrap) stepperWrap.style.display = 'none';
+        if (footerEl) footerEl.style.display = 'none';
+        if (contextEl) contextEl.innerHTML = '';
+        return;
+      }
+
+      const cur = (unit === 1) ? currentActivityIndex1 : currentActivityIndex2;
+      const progress = loadActivityProgress(unit)[topicIdx] || [];
+      const unitName = (unit === 1) ? 'Unit 1' : 'Unit 2';
+      const topicNames = (unit === 1) ? TOPIC_NAMES : TOPIC_NAMES2;
+      const topicLabel = (topicNames[topicIdx] || `Topic ${topicIdx}`).replace(/^Topic \d+:\s*/, '');
+
+      if (contextEl) {
+        contextEl.innerHTML = `${unitName} · <strong>Topic ${topicIdx}</strong>: ${topicLabel} · Activity ${cur + 1} of ${acts.length}`;
+      }
+
+      if (acts.length <= 1) {
+        // Single-Activity Topic (e.g. Timed Scanning Task): no stepper needed.
+        if (stepperWrap) stepperWrap.style.display = 'none';
+      } else {
+        if (stepperWrap) stepperWrap.style.display = 'block';
+        if (labelEl) labelEl.textContent = `Activity ${cur + 1} of ${acts.length}`;
+        if (stepperEl) {
+          stepperEl.innerHTML = acts.map((a, i) => {
+            const done = !!progress[i];
+            const isCur = i === cur;
+            const dot = done ? '✓' : String(i + 1);
+            return `<button type="button" class="activity-step ${done ? 'done' : ''} ${isCur ? 'current' : ''}" `
+              + `onclick="openTopicActivity(${unit}, ${topicIdx}, ${i})" aria-current="${isCur}">`
+              + `<span class="as-dot">${dot}</span>${a.label}</button>`;
+          }).join('');
+        }
+      }
+
+      if (footerEl) footerEl.style.display = 'flex';
+      if (prevBtn) prevBtn.disabled = (cur === 0);
+      const isLast = (cur === acts.length - 1);
+      if (nextBtn) {
+        if (isLast) {
+          nextBtn.textContent = (topicIdx >= 6) ? 'Finish Unit ✓' : 'Complete & Next Topic →';
+        } else {
+          nextBtn.textContent = 'Next →';
+        }
+      }
+      if (midEl) {
+        const doneCount = progress.filter(Boolean).length;
+        midEl.textContent = `${doneCount}/${acts.length} activities viewed`;
+      }
+    }
+
     function openLessonTopic(topicIdx) {
       currentTopicIndex = topicIdx;
       document.getElementById('unit1-hub-view').style.display = 'none';
@@ -9135,10 +9812,13 @@
       if (prevBtn) prevBtn.style.visibility = (topicIdx <= 1) ? 'hidden' : 'visible';
       if (nextBtn) nextBtn.textContent = (topicIdx === 6) ? 'Finish Unit 1 🏁' : 'Next Topic ➔';
 
-      // Mark as read/completed
-      completedTopics[topicIdx] = true;
-      localStorage.setItem('rs_completed_u1_topics', JSON.stringify(completedTopics));
-      updateUnit1ProgressUI();
+      // NOTE: Opening a Topic marks it "viewed / in progress" only.
+      // Full "completed" status is granted by updateTopicCompletion(), once the
+      // student reaches the Topic's final required Activity (see openTopicActivity()).
+      markTopicOpened(1, topicIdx);
+
+      // Load this Topic's Activity Navigation (stepper) at its first Activity.
+      openTopicActivity(1, topicIdx, 0);
 
       window.scrollTo({ top: 0, behavior: 'smooth' });
     }
@@ -9275,9 +9955,10 @@
       if (prevBtn) prevBtn.style.visibility = (topicIdx <= 1) ? 'hidden' : 'visible';
       if (nextBtn) nextBtn.textContent = (topicIdx === 6) ? 'Finish Unit 2 🏁' : 'Next Topic ➔';
 
-      completedTopics2[topicIdx] = true;
-      localStorage.setItem('rs_completed_u2_topics', JSON.stringify(completedTopics2));
-      updateUnit2ProgressUI();
+      // NOTE: Opening a Topic marks it "viewed / in progress" only — see openLessonTopic() note above.
+      markTopicOpened(2, topicIdx);
+
+      openTopicActivity(2, topicIdx, 0);
 
       window.scrollTo({ top: 0, behavior: 'smooth' });
     }
@@ -9473,9 +10154,77 @@
       if (unitId === 1) {
         document.getElementById('strat-view-title').textContent = 'Unit 1: Previewing & Predicting';
         nav('screen-strategy-detail');
+      } else if (unitId === 2) {
+        openStrat2Activity(0);
+        nav('screen-strategy-detail-2');
       } else {
         showToast(`Strategy ${unitId} guide is available in course materials.`);
       }
+    }
+
+    // ═══════════ UNIT 2 STRATEGY GUIDE: SKIMMING & SCANNING — ACTIVITY NAV ═══════════
+    // Standalone strategy content (distinct from Reading Lessons Unit 2, Topic 2),
+    // using the same Activity Navigation component/CSS for a consistent experience.
+    const STRAT2_ACTIVITIES = [
+      { id: 'strat2-a1', label: 'Overview' },
+      { id: 'strat2-a2', label: 'What Is Skimming?' },
+      { id: 'strat2-a3', label: 'What Is Scanning?' },
+      { id: 'strat2-a4', label: 'Skimming vs. Scanning' },
+      { id: 'strat2-a5', label: 'Guided Practice' },
+      { id: 'strat2-a6', label: 'Strategy Check' }
+    ];
+    let currentStrat2Activity = 0;
+
+    function openStrat2Activity(idx) {
+      if (idx < 0) idx = 0;
+      if (idx > STRAT2_ACTIVITIES.length - 1) idx = STRAT2_ACTIVITIES.length - 1;
+      currentStrat2Activity = idx;
+
+      STRAT2_ACTIVITIES.forEach((a, i) => {
+        const el = document.getElementById(a.id);
+        if (el) el.classList.toggle('active', i === idx);
+      });
+
+      updateStrat2Nav();
+      const screenEl = document.getElementById('screen-strategy-detail-2');
+      if (screenEl) screenEl.scrollTop = 0;
+      window.scrollTo({ top: 0, behavior: 'smooth' });
+    }
+
+    function navigateStrat2Activity(step) {
+      const next = currentStrat2Activity + step;
+      if (next < 0 || next > STRAT2_ACTIVITIES.length - 1) return;
+      openStrat2Activity(next);
+    }
+
+    function updateStrat2Nav() {
+      const contextEl = document.getElementById('strat2-activity-context');
+      const labelEl = document.getElementById('strat2-activity-stepper-label');
+      const stepperEl = document.getElementById('strat2-activity-stepper');
+      const midEl = document.getElementById('strat2-act-mid');
+      const prevBtn = document.getElementById('strat2-act-prev-btn');
+      const nextBtn = document.getElementById('strat2-act-next-btn');
+      const total = STRAT2_ACTIVITIES.length;
+      const cur = currentStrat2Activity;
+
+      if (contextEl) contextEl.innerHTML = `Reading Strategies · <strong>Unit 2</strong>: Skimming &amp; Scanning · Activity ${cur + 1} of ${total}`;
+      if (labelEl) labelEl.textContent = `Activity ${cur + 1} of ${total}`;
+      if (stepperEl) {
+        stepperEl.innerHTML = STRAT2_ACTIVITIES.map((a, i) => {
+          const done = i < cur;
+          const isCur = i === cur;
+          const dot = done ? '✓' : String(i + 1);
+          return `<button type="button" class="activity-step ${done ? 'done' : ''} ${isCur ? 'current' : ''}" `
+            + `onclick="openStrat2Activity(${i})" aria-current="${isCur}">`
+            + `<span class="as-dot">${dot}</span>${a.label}</button>`;
+        }).join('');
+      }
+      if (prevBtn) prevBtn.disabled = (cur === 0);
+      if (nextBtn) {
+        nextBtn.disabled = (cur === total - 1);
+        nextBtn.textContent = (cur === total - 1) ? 'Finished ✓' : 'Next →';
+      }
+      if (midEl) midEl.textContent = `${cur + 1}/${total} activities`;
     }
 
     const inspectedClues = {};

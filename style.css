@@ -4000,3 +4000,186 @@
         gap: 6px;
       }
     }
+
+    /* ══════════════════════════════════════════════════════
+       ACTIVITY NAVIGATION COMPONENT
+       (Topic → Activity information architecture)
+       ══════════════════════════════════════════════════════ */
+
+    .activity-context {
+      font-family: 'Sarabun', sans-serif;
+      font-size: .72rem;
+      letter-spacing: .5px;
+      color: var(--muted);
+      margin-bottom: 10px;
+      display: flex;
+      align-items: center;
+      flex-wrap: wrap;
+      gap: 6px;
+    }
+
+    .activity-context strong {
+      color: var(--gold);
+      font-weight: 700;
+    }
+
+    .activity-stepper-wrap {
+      background: rgba(230, 216, 240, 0.55);
+      border: 1.5px solid rgba(122, 94, 160, 0.3);
+      border-radius: 14px;
+      padding: 12px 14px;
+      margin-bottom: 20px;
+    }
+
+    .activity-stepper-label {
+      font-family: 'Sarabun', sans-serif;
+      font-size: .74rem;
+      font-weight: 700;
+      color: var(--teal);
+      margin-bottom: 10px;
+    }
+
+    .activity-stepper {
+      display: flex;
+      gap: 6px;
+      overflow-x: auto;
+      padding-bottom: 4px;
+      -webkit-overflow-scrolling: touch;
+      scrollbar-width: thin;
+    }
+
+    .activity-step {
+      flex: 0 0 auto;
+      display: flex;
+      align-items: center;
+      gap: 7px;
+      background: var(--surface);
+      border: 1.5px solid var(--border);
+      color: var(--muted);
+      padding: 7px 12px 7px 8px;
+      border-radius: 20px;
+      font-family: 'Sarabun', sans-serif;
+      font-size: .76rem;
+      font-weight: 600;
+      cursor: pointer;
+      white-space: nowrap;
+      transition: all .2s;
+    }
+
+    .activity-step:hover {
+      border-color: var(--gold2);
+    }
+
+    .activity-step .as-dot {
+      width: 20px;
+      height: 20px;
+      border-radius: 50%;
+      background: var(--surface2);
+      border: 1.5px solid var(--border);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: .66rem;
+      font-weight: 700;
+      flex-shrink: 0;
+      color: var(--muted);
+    }
+
+    .activity-step.done .as-dot {
+      background: var(--green);
+      border-color: var(--green);
+      color: #fff;
+    }
+
+    .activity-step.done {
+      color: var(--green);
+      border-color: rgba(91, 147, 117, .35);
+    }
+
+    .activity-step.current {
+      background: rgba(122, 94, 160, .18);
+      border-color: var(--gold);
+      color: var(--gold);
+    }
+
+    .activity-step.current .as-dot {
+      background: var(--gold);
+      border-color: var(--gold);
+      color: #fff;
+    }
+
+    .activity-view {
+      display: none;
+      animation: fadeIn .25s ease;
+    }
+
+    .activity-view.active {
+      display: block;
+    }
+
+    .activity-footer-nav {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 10px;
+      margin-top: 18px;
+      padding-top: 16px;
+      border-top: 1px solid var(--border);
+    }
+
+    .act-nav-btn {
+      background: var(--surface);
+      border: 1.5px solid var(--border);
+      color: var(--text);
+      padding: 10px 18px;
+      border-radius: 24px;
+      font-family: 'Sarabun', sans-serif;
+      font-size: .84rem;
+      font-weight: 700;
+      cursor: pointer;
+      transition: all .2s;
+      flex-shrink: 0;
+    }
+
+    .act-nav-btn:hover:not(:disabled) {
+      border-color: var(--gold2);
+      transform: translateY(-1px);
+    }
+
+    .act-nav-btn:disabled {
+      opacity: .35;
+      cursor: default;
+    }
+
+    .act-nav-btn.act-nav-primary {
+      background: linear-gradient(135deg, var(--gold), #6F5590);
+      border-color: transparent;
+      color: #FBF8FD;
+      box-shadow: 0 4px 16px rgba(122, 94, 160, .3);
+    }
+
+    .act-nav-mid {
+      font-family: 'Sarabun', sans-serif;
+      font-size: .72rem;
+      color: var(--muted);
+      text-align: center;
+      flex: 1;
+    }
+
+    @media (max-width: 480px) {
+      .activity-step {
+        font-size: .72rem;
+        padding: 6px 10px 6px 7px;
+      }
+      .act-nav-btn {
+        padding: 9px 13px;
+        font-size: .78rem;
+      }
+      .activity-footer-nav {
+        flex-wrap: wrap;
+      }
+      .act-nav-mid {
+        order: 3;
+        flex-basis: 100%;
+      }
+    }
