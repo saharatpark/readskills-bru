@@ -443,6 +443,7 @@
     const ACTIVITY_MAP = {
       1: { // Unit 1 — Main Ideas
         1: [ // Topic 1: Text Features
+          { id: 'topic-pane-1-intro', label: 'Introduction' },
           { id: 't1-pretest', label: 'Diagnostic Check' },
           { id: 't1-part1', label: 'What Are Text Features?' },
           { id: 't1-part2', label: 'Case Study' },
@@ -452,12 +453,14 @@
           { id: 't1-part6', label: 'Reading Practice' }
         ],
         2: [ // Topic 2: Vocabulary Preview
+          { id: 'topic-pane-2-intro', label: 'Introduction' },
           { id: 't6-part1', label: 'Key Vocabulary' },
           { id: 't6-part1b', label: 'Context Clue Examples' },
           { id: 't6-part2', label: 'Vocabulary Practice' },
           { id: 't6-part3', label: 'Reading Practice' }
         ],
         3: [ // Topic 3: Topic Sentence
+          { id: 'topic-pane-3-intro', label: 'Introduction' },
           { id: 't2-part1', label: 'Sentence Dissector' },
           { id: 't2-part2', label: 'Where Is It?' },
           { id: 't2-part3', label: 'Worked Examples' },
@@ -467,6 +470,7 @@
           { id: 't2-part7', label: 'Reading Practice' }
         ],
         4: [ // Topic 4: Main Idea
+          { id: 'topic-pane-4-intro', label: 'Introduction' },
           { id: 't3-part1', label: 'Topic vs. Main Idea' },
           { id: 't3-part2', label: 'Implied Main Idea' },
           { id: 't3-part3', label: 'Common Mistakes' },
@@ -475,11 +479,13 @@
           { id: 't3-part6', label: 'Reading Practice' }
         ],
         5: [ // Topic 5: Reading Practice (3 passages, each a separate Activity)
+          { id: 'topic-pane-5-intro', label: 'Introduction' },
           { id: 't7-p1', label: 'Passage 1' },
           { id: 't7-p3', label: 'Passage 2' },
           { id: 't7-p5', label: 'Passage 3' }
         ],
         6: [ // Topic 6: Post-Reading & Self-Check
+          { id: 'topic-pane-6-intro', label: 'Introduction' },
           { id: 't8-part0', label: 'Reflection Examples' },
           { id: 't8-part1', label: 'Self-Check Quiz' },
           { id: 't8-part2', label: 'Scoring Rubric' }
@@ -487,26 +493,32 @@
       },
       2: { // Unit 2 — Supporting Details & Idea Relationships
         1: [ // Topic 1: Major & Minor Supporting Details
+          { id: 'topic2-pane-1-intro', label: 'Introduction' },
           { id: 'u2t1-learn', label: 'Learn' },
           { id: 'u2t1-practice', label: 'Practice' }
         ],
         2: [ // Topic 2: Skimming & Scanning Strategies
+          { id: 'topic2-pane-2-intro', label: 'Introduction' },
           { id: 'u2t2-learn', label: 'Learn' },
           { id: 'u2t2-practice', label: 'Practice' }
         ],
         3: [ // Topic 3: Idea Relationships & Signal Words
+          { id: 'topic2-pane-3-intro', label: 'Introduction' },
           { id: 'u2t3-learn', label: 'Learn' },
           { id: 'u2t3-practice', label: 'Practice' }
         ],
         4: [ // Topic 4: Reading Practice (Main Idea Challenge, 3 passages)
+          { id: 'topic2-pane-4-intro', label: 'Introduction' },
           { id: 't2u-p1', label: 'Passage 1' },
           { id: 't2u-p2', label: 'Passage 2' },
           { id: 't2u-p3', label: 'Passage 3' }
         ],
-        5: [ // Topic 5: Timed Scanning Task — one cohesive activity by design
+        5: [ // Topic 5: Timed Scanning Task — intro + one cohesive task activity
+          { id: 'topic2-pane-5-intro', label: 'Introduction' },
           { id: 't2u-scan', label: 'Timed Scanning Task' }
         ],
         6: [ // Topic 6: Post-Reading & Self-Check
+          { id: 'topic2-pane-6-intro', label: 'Introduction' },
           { id: 't2u-quiz', label: 'Self-Check Quiz' },
           { id: 't2u-rubric', label: 'Scoring Rubric' }
         ]
