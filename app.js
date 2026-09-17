@@ -453,6 +453,7 @@
         ],
         2: [ // Topic 2: Vocabulary Preview
           { id: 't6-part1', label: 'Key Vocabulary' },
+          { id: 't6-part1b', label: 'Context Clue Examples' },
           { id: 't6-part2', label: 'Vocabulary Practice' },
           { id: 't6-part3', label: 'Reading Practice' }
         ],
@@ -479,6 +480,7 @@
           { id: 't7-p5', label: 'Passage 3' }
         ],
         6: [ // Topic 6: Post-Reading & Self-Check
+          { id: 't8-part0', label: 'Reflection Examples' },
           { id: 't8-part1', label: 'Self-Check Quiz' },
           { id: 't8-part2', label: 'Scoring Rubric' }
         ]
