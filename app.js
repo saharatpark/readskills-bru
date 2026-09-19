@@ -401,18 +401,33 @@
       }
     }
 
+    // Hides every Unit's hub-view and reader-view. Called before showing a
+    // specific Unit so that switching Units (e.g. Unit 1 -> Unit 2 -> Unit 1)
+    // never leaves the previous Unit's hub or reader content visible
+    // underneath/alongside the newly opened Unit (this caused duplicated
+    // content on Unit 2's hub and a "broken" Unit 1 view when returning to it).
+    function resetAllUnitViews() {
+      const u1hub = document.getElementById('unit1-hub-view');
+      const u1reader = document.getElementById('unit1-reader-view');
+      const u2hub = document.getElementById('unit2-hub-view');
+      const u2reader = document.getElementById('unit2-reader-view');
+      if (u1hub) u1hub.style.display = 'none';
+      if (u1reader) u1reader.classList.remove('active');
+      if (u2hub) u2hub.style.display = 'none';
+      if (u2reader) u2reader.classList.remove('active');
+    }
+
     function openLessonDetail(unitId) {
+      resetAllUnitViews();
       if (unitId === 1) {
         currentLessonUnit = 1;
         document.getElementById('unit1-hub-view').style.display = 'block';
-        document.getElementById('unit1-reader-view').classList.remove('active');
         updateUnit1ProgressUI();
         filterLessonStage(1);
         nav('screen-lesson-detail');
       } else if (unitId === 2) {
         currentLessonUnit = 2;
         document.getElementById('unit2-hub-view').style.display = 'block';
-        document.getElementById('unit2-reader-view').classList.remove('active');
         updateUnit2ProgressUI();
         filterLessonStage2(1);
         nav('screen-lesson-detail');
